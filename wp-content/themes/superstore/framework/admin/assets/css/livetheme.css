@@ -1,0 +1,167 @@
+html{
+    background: #F5F5F5;
+}
+
+@media (min-width: 992px){
+    .modal-lg {
+        width: 1000px!important;
+    }
+}
+body {
+    font-family: "Arial"!important;
+    font-size: 12px;
+    overflow: hidden;
+    background: #F5F5F5;
+}
+#myPattern{
+    z-index: 9999999;
+}
+#myPattern .spinner{
+    display: block!important;
+    float: none!important;
+}
+.list-patterns .pattern{
+    margin-bottom: 20px;
+    position:relative;
+}
+.list-patterns .pattern .remove-pattern{
+    background: url('../images/icon/ico-delete.png') no-repeat;
+    position: absolute;
+    top: -5px;
+    right: 10px;
+    width: 16px;
+    height: 16px;
+}
+
+.list-patterns .pattern .bg{
+    height: 130px;
+    border: 1px solid #999999;
+}
+
+.addnew-pattern{
+    height: 130px;
+    border: 1px solid #999999;
+    text-align: center;
+    display: block;
+}
+
+.addnew-pattern .fa{
+    line-height: 130px;
+    font-size: 50px;
+}
+
+.off-customize #main-preview {
+    margin-left: 0;
+}
+.off-customize #wpo-customize span {
+    margin-left: 22px;
+}
+.off-customize #wpo-customize .btn-show {
+    right: -56px;
+    transition: all 0.2s ease 0s;
+}
+.page-wrapper {
+    margin-left: 300px;
+}
+.off-customize #wpo-customize {
+    left: -310px;
+}
+#customize-form {
+    position: relative;
+}
+#main-preview {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    margin-left: 300px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition-duration: 0.2s;
+    transition-property: left, right, top, bottom, width, margin;
+}
+#main-preview iframe {
+    height: 100%;
+    width: 100%;
+}
+.colorpicker {
+    z-index: 9999;
+}
+#wpo-customize {
+    background: none repeat scroll 0 0 #F5F5F5;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 3px #999999;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition-duration: 0.2s;
+    transition-property: left, right, top, bottom, width, margin;
+    width: 310px;
+    z-index: 3;
+    overflow: auto;
+}
+#wpo-customize .wrapper {
+    padding: 12px;
+}
+
+
+#customize-body input[type="text"] {
+    border-color: #DFDFDF;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    font-size: 11px;
+    line-height: 18px;
+    margin: 0;
+    padding: 3px 5px;
+    width: 50px;
+}
+.form-group {
+    margin-right: 6px;
+}
+.accordion-group label, .form-group label {
+    display: block;
+    font-size: 11px;
+}
+.accordion-group label {
+    float: left;
+    margin-right: 12px;
+    min-width: 100px;
+}
+#wpo-customize .btn {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 4px 12px;
+}
+#wpo-customize .btn-show {
+    background: none repeat scroll 0 0 #CCCCCC;
+    cursor: pointer;
+    padding: 6px 18px;
+    position: absolute;
+    right: 11px;
+    top: 39px;
+    z-index: 99;
+}
+#customize-body .nav-tabs a {
+    font-size: 11px;
+    font-weight: bold;
+}
+.accordion-heading .accordion-toggle {
+    font-weight: bold;
+}
+.tab-content > .tab-pane, .pill-content > .pill-pane {
+    padding: 13px 0;
+}
+.bi-wrapper > div {
+    border: 1px solid #999999;
+    cursor: pointer;
+    float: left;
+    height: 20px;
+    margin: 3px 4px;
+    width: 20px;
+}
+.bi-wrapper > div.active {
+    border-color: #FF0000;
+}

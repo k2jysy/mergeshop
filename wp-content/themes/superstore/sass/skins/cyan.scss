@@ -1,0 +1,48 @@
+/**
+ * $Desc
+ *
+ * @version    $Id$
+ * @package    wpbasez
+ * @author     WPOpal  Team <wpopal@gmail.com, support@wpopal.com>
+ * @copyright  Copyright (C) 2014 wpopal.com. All Rights Reserved.
+ * @license    GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * @website  http://www.wpopal.com
+ * @support  http://www.wpopal.com/support/forum.html
+ */
+
+// Core variables and mixins
+
+@import "../core/theme-vars";
+
+@import "../core/cyan/template-vars";
+
+@import "../core/variables";
+
+@import "../core/template-vars";
+
+@import "../core/cyan/bootstrap";
+@import "../core/mixins";
+@import "../core/template-mixins";
+
+@import "../rtl/rtl"; 					   // RTL
+@import "../template/page-layout";
+@import "../template/pages";
+@import "../template/post";
+
+@import "../template/widgets-layout";
+@import "../template/widgets";
+@import "../template/shortcodes";
+@import "../template/base";
+@import "../template/comments";
+@import "../template/offcanvas";
+@import "../template/menu";
+@import "../template/vertical-menu";
+@import "../template/megamenu";
+@import "../template/breadcrumb";
+@import "../template/form";
+@import "../template/font";
+@import "../template/style";
+@import "../template/woocommerce";
+@import "../template/slider";
+@import "../template/responsive";

@@ -1,0 +1,124 @@
+/*
+ *  Revolution Slider
+ */
+.tp-caption{
+    text-transform: uppercase;
+	&.text-style-white{
+		font-size: 60px;
+		color:$white;
+		letter-spacing: -5px;
+		line-height: 10px;
+	}
+	&.text-style-yellow{
+		font-size: 60px;		
+		color:#f4f716;
+		letter-spacing: -5px;
+		line-height: 10px;
+		text-transform: uppercase;
+	}
+	
+	&.text-style-white-medium{
+		font-size: 36px;		
+		color:$white;
+		letter-spacing: -2px;
+		line-height: 10px;		
+	}
+	&.text-style-yellow-medium{
+		font-size: 48px;		
+		color:#f4f716;
+		letter-spacing: -3px;
+		line-height: 10px;
+		text-transform: uppercase;
+	}
+    &.large_bold_white {
+        color: $theme-color-default;
+        font-weight: 800;
+    }
+    &.medium_thin_grey{
+        color: $white;
+        font-family: $font-family-sans;
+        font-weight: 600;
+    }
+    &.medium_text{
+        color: $white;
+        font-family: $font-family-sans;
+        font-weight: 600;
+    }
+	&.text-style-white-small{
+		font-size: 18px;		
+		color:$white;
+		line-height: 10px;
+		letter-spacing: -1px;
+
+	}
+
+	.slidebutton{
+		text-transform: uppercase;
+		font-size: 10px;		
+		padding:13px 15px;
+		background: #262a2e;
+		@include border-radius(2px);		
+		color:$white;
+		&:hover{
+			text-decoration: none;
+			color:$white;
+		}
+	}
+}
+
+.btn-slider{
+    background-color: $theme-color-primary;
+    color: $white;
+    @include border-radius(3px);
+    &:hover{
+        background-color: $theme-color-default;
+    }
+}
+
+.tparrows{
+	&.default{
+		background-image: none;
+		@include size(28px,63px);
+		color: $white;
+		position: relative;
+		background-color: rgba(0, 0, 0, 0.25);
+		&:before{
+			content: "\f105";
+			font-family: $theme-font-name;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+			display: block;
+    		@include size(2px,20px);     
+    		color: $white;
+    		font-weight: bold;
+    		font-size: 15px;
+		}
+        &:hover{
+            background-color: $theme-color-default;
+        }
+	}
+	&.tp-leftarrow{
+		&:before{
+			content: "\f104";
+		}		
+	}
+
+}
+
+.tp-bullets{
+    .bullet{
+        border: 2px solid $white;
+        background: none !important;
+        width: 12px !important;
+        height: 12px !important;
+        @include border-radius(50%);
+        &.selected{
+            background: $theme-color-default !important;
+            border: 2px solid $theme-color-default;
+        }
+    }
+}

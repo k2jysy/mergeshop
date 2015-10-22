@@ -1,0 +1,290 @@
+// Global values
+// --------------------------------------------------
+
+
+// Theme Margin, Padding
+$theme-margin: 				20px !default;
+$theme-padding: 			20px !default;
+
+// themes colors
+// -------------------------
+
+$lightblue: 				#179bb2 !default;
+$white: 					#ffffff !default;
+$black: 					#000000 !default;
+$white-smoke: 				#E9E9E9 !default;
+$valencia: 					#d35346 !default;
+$suva-grey: 				#909090 !default;
+$raven:                     #6F757C !default;
+$shark:  					#262a2e !default;
+$black-pearl: 				#1a1f23 !default;
+$silver:                    #cccccc !default;
+$cadillac: 					#9e4f7b !default;
+$ocean-green: 				#59A380 !default;
+$sandy-brown: 				#EEA360 !default;
+$blue: 						#008BBA !default;
+$gorse: 					#FFE82A !default;
+$turquoise: 				#46B3D4 !default;
+$dim-gray: 					#666666 !default;
+$alabaster: 				#fafafa !default;
+$steel-blue:                #507cbe !default;
+$sky-blue: 					#00abef !default;
+$pink: 						#ff0084 !default;
+$orange:   					#cb4437 !default;
+$prussian-blue: 			#00649b !default;
+$brink-pink: 				#f76799 !default;
+$bittersweet: 				#ff6f6f !default;
+$tahiti-gold: 				#E37032 !default;
+
+
+$theme-color-hover:         $valencia !default;
+$theme-color-senary:        $turquoise !default;
+
+
+// Font-family
+
+//$font-family-primary			:'latolight', sans-serif !default;
+//$font-family-septenary 		:'latobold', sans-serif !default;
+//$font-family-secondary		:'latoblack', sans-serif !default;
+$body-font-weight: 			    300;
+
+//quaternary, quinary, senary, septenary, octonary, nonary, and denary
+
+
+
+
+
+
+
+// Wooecommerce
+// -------------------------
+
+// typography
+// -------------------------
+$headings-transform: 		uppercase !default;
+$heading-page-title:        18px !default;
+
+
+//Header
+// -------------------------
+$header-bg    				: $white;
+$header-bg-color            : #f6f4f0 !default;
+$header-height 				: 80px !default;
+$header-padding             : 22px 0 !default;
+
+// Carousel
+// -------------------------
+$carousel-border:           1px solid darken($border-color, 20%) !default;
+$carousel-font-size: 		12px !default;
+$carousel-font-color: 		$black !default;
+
+// Well - Wrapper
+// -------------------------
+$well-padding: 				40px !default;
+
+
+// Search
+// -------------------------
+$search-bg:                 $white !default;
+$search-color:              $raven !default;
+$search-border:             0px !default;
+$search-font-size:          12px !default;
+$search-padding:            9px 14px !default;
+$search-width:              auto !default;
+$search-icon-color:         $theme-color-default !default;
+$search-button-bg:          $white !default;
+$search-button-border:      0px !default;
+$search-radius:             3px !default;
+$search-height:             36px !default;
+
+// Social
+// -------------------------
+
+// Topbar
+// -------------------------
+$topbar-bg: 				lighten($black, 7%) !default;
+$topbar-padding:            10px 0 !default;
+$topbar-link-color: 		$text-color !default;
+$topbar-link-hover-color:   $theme-color !default;
+$topbar-text-color: 		$theme-color !default;
+
+// Breadcrumbs
+// -------------------------
+$breadcrumb-padding:        18px 0 !default;
+$breadcrumb-text-color:     $black !default;
+$breadcrumb-link-color:     $text-color !default;
+
+// Sidebar
+// -------------------------
+$sidebar-bg:                      $white !default;
+$sidebar-box-heading-padding:     14px 0px !default;
+$sidebar-box-heading-font-size:   14px !default;
+
+
+// Slideshow
+// -------------------------
+$slideshow-button-color: 		   $white !default;
+$slideshow-button-hover-color:     $white !default;
+$slideshow-button-bg: 		   	   $shark !default;
+$slideshow-button-border: 		   0px !default;
+$slideshow-button-radius:          4px !default;
+$slideshow-button-padding:         13px !default;
+$slideshow-button-line-height:     normal !default;
+$slideshow-button-font-size:       10px !default;
+
+$slideshow-arrow: 				   $white !default;
+
+// Slideshow
+// -------------------------
+$pagination-border-hover: 		   $border-color !default;
+$pagination-active-border: 		   $pagination-border-hover !default;
+
+// Main Menu
+// -------------------------
+$menu-color 				:$white !default;
+$menu-color-active 			:$black !default;
+$menu-link-hover-bg         :$theme-color-secondary !default;
+$menu-radius 				:3px !default;
+
+// Product
+// -------------------------
+$product-bg:                	$white !default;
+$product-price-color:       	$theme-color !default;
+$product-price-font-size:   	18px !default;
+$product-button-font-size:  	10px !default;
+$product-button-color:      	$silver !default;
+$product-button-border:     	2px solid $border-color !default;
+$product-button-bg:         	$theme-color-primary !default;
+$product-button-padding:    	0 !default;
+$product-button-hover-color: 	$white !default;
+$product-button-hover-border: 	$theme-color !default;
+$product-button-hover-bg:   	$theme-color-default !default;
+$product-icon-font-size:    	13px !default;
+$product-link-color:            $theme-color-primary !default;
+$product-link-hover-color:      $theme-color-default !default;
+$product-highlight-link-hover:  none !default;
+
+// Button
+// -------------------------
+$button-bg:                         $white !default;
+$button-font-size:                  10px !default;
+$button-color:                      $black !default;
+$button-border-radius:              2px !default;
+$button-addtocart-color:    		$white !default;
+$button-addtocart-border:   		2px solid $black !default;
+$button-addtocart-padding:          0px 10px !default;
+$button-quickview-border:           0px !default;
+$button-quickview-padding:          13px 0 !default;
+$button-border-width:               2px !default;
+
+$btn-transform: 		            uppercase !default;
+$btn-padding-vertical:              10px !default;
+$btn-padding-horizontal:            22px !default;
+$btn-font-size:                     11px !default;
+$btn-line-height:                   normal !default;
+$btn-border-radius:                 0px !default;
+$btn-font-weight:                   600;
+
+// Box
+// -------------------------
+$box-margin:                        20px !default;
+$box-heading-padding:               7px 10px !default;
+$box-heading-color:                 $white !default;
+$box-heading-bg:                    $theme-color-default !default;
+$box-heading-icon-size:             15px !default;
+$box-heading-icon-bg:               $theme-color !default;
+
+// Blog
+// -------------------------
+$blog-title-font-size:              15px !default;
+
+// Portfolio
+// -------------------------
+$portfolio-animate-duration :0.8s !default;
+
+// Post
+// -------------------------
+$post-title-font-size 		:24px !default;
+$post-share-margin 			:10px !default;
+$post-share-icon-color 		:#333 !default;
+$post-share-icon-margin 	:20px !default;
+$post-share-icon-size 		:16px !default;
+$post-author-avatar-margin  :$theme-margin/4 !default;
+
+// Comment
+$comment-list-border-color  	:#e7e6e6 !default;
+$comment-list-padding 			:$theme-padding*1.25 !default;
+$comment-list-margin 			:$theme-margin*1.25 !default;
+$comment-list-avatar-margin 	:$theme-margin*0.75 !default;
+$comment-list-author-margin  	:$comment-list-avatar-margin !default;
+$comment-list-children-padding 	:$theme-padding*2 !default;
+
+// Widget Layout
+$widget-title-font-family 	:"Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$widget-margin-bottom 		:$theme-margin !default;
+
+// Widget post
+$widget-image-size 				:72px !default;
+
+$widget-post-title-font-size 	:14px !default;
+$widget-post-title-font-weight 	:300 !default;
+$widget-post-meta-font-size 	:12px !default;
+$widget-post-margin 			:$theme-margin/4 !default;
+
+// Widget tags cloud
+$widget-tag-border-color 		:#333 !default;
+$widget-tag-color 				:#333 !default;
+$widget-tag-bg-hover 			:#333 !default;
+$widget-tag-border-color-hover  :$widget-tag-bg-hover !default;
+$widget-tag-font-size 			:13px !default;
+$widget-tag-height 				:28px !default;
+
+
+//Footer
+// -------------------------
+$footer-bg  				: $theme-color-primary !default;
+$footer-color 				: $text-color !default;
+$footer-link-color          : $text-color !default;
+$footer-link-color-hover    : $theme-color-default !default;
+$footer-heading-font-size   : 15px !default;
+$footer-top-padding 		: 14px 0 !default;
+$copyright-bg 				: $black !default;
+$copyright-padding          : 28px 0 !default;
+$copyright-link-color 		: $theme-color-default !default;
+
+// Off-Canvas Width
+$wpo-off-canvas-width:                 250px !default;
+
+// Inverted navbar
+//
+// Reset inverted navbar basics
+$navbar-offcanvas-bg-close: 				  $border-color !default;
+$navbar-offcanvas-color:                      $black !default;
+$navbar-offcanvas-bg:                         $white !default;
+$navbar-offcanvas-border:                     darken($navbar-offcanvas-bg, 10%) !default;
+
+// Inverted navbar links
+$navbar-offcanvas-link-color:                 $black !default;
+$navbar-offcanvas-link-hover-color:           #fff !default;
+$navbar-offcanvas-link-hover-bg:              transparent !default;
+$navbar-offcanvas-link-active-color:          $navbar-offcanvas-link-hover-color !default;
+$navbar-offcanvas-link-active-bg:             darken($navbar-offcanvas-bg, 10%) !default;
+$navbar-offcanvas-link-disabled-color:        #444 !default;
+$navbar-offcanvas-link-disabled-bg:           transparent !default;
+
+// Inverted navbar brand label
+$navbar-offcanvas-brand-color:                $navbar-offcanvas-link-color !default;
+$navbar-offcanvas-brand-hover-color:          #fff !default;
+$navbar-offcanvas-brand-hover-bg:             transparent !default;
+
+// Inverted navbar search
+// Normal navbar needs no special styles or vars
+$navbar-offcanvas-search-bg:                  lighten($navbar-offcanvas-bg, 25%) !default;
+$navbar-offcanvas-search-bg-focus:            #fff !default;
+$navbar-offcanvas-search-border:              $navbar-offcanvas-bg !default;
+$navbar-offcanvas-search-placeholder-color:   #ccc !default;
+
+// Inverted navbar toggle
+$navbar-offcanvas-toggle-hover-bg:            #333 !default;
+$navbar-offcanvas-toggle-icon-bar-bg:         #fff !default;
+$navbar-offcanvas-toggle-border-color:        #333 !default;

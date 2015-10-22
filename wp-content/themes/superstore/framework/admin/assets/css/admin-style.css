@@ -1,0 +1,94 @@
+#optionsframework #section-bgimage .option .controls img{
+	width: 38px;
+	height: 38px;
+}
+
+#optionsframework-metabox .option .controls select{
+	width: 100px;
+}
+
+#optionsframework-metabox #section-enable_development_mode .option .controls select{
+	width: 100%;
+}
+
+#optionsframework #customize-theme{
+	width:190px;
+}
+
+#optionsframework #section-copyright #copyright,
+#optionsframework #section-poweredby #poweredby{
+	height: 100px;
+}
+
+#optionsframework input[id^="google-font"]{
+	width: 100%;
+}
+#wpo-config .page-layout{
+	clear: both;
+}
+#wpo-config .page-layout img.layout{
+	border: 3px solid #f9f9f9;
+	margin: 0 5px 10px 0;
+	cursor: pointer;
+	float: left;
+}
+#wpo-config .page-layout img.layout.selected{
+	border-color:#ccc;
+}
+
+.wpo_section label{
+	font-weight: bold;
+	width: 200px;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+}
+
+/*
+ *    Meta Post
+ */
+
+#wpo-post #embed_post{
+	width: 50%;
+}
+
+#wpo-post .result,.wpo-embed .result{
+	text-align: center;
+	width: 510px;
+	margin:0 auto;
+	position: relative;
+}
+#wpo-post .result.active,.wpo-embed .result.active{
+	padding:5px 0;
+	border:1px solid #DFDFDF;
+	border-radius:3px;
+	background: #FAFAFA;
+}
+.wpo-embed .wpo_embed_view{
+	margin-top:20px;
+}
+#wpo-post .result a.remove-embed,.wpo-embed a.remove-embed{
+	background: url(../images/icon/ico-delete.png) no-repeat;
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top: -5px;
+	left: -5px;
+	cursor: pointer;
+}
+
+#wpo-post .spinner,.wpo-embed .spinner{
+	margin:0 auto;
+}
+
+/****************    PageBuilder    ****************/
+.wpb_el_type_hidden{
+	display: none;
+}
+.googlefind{
+	margin-top: 5px;
+}
+.googlefind input{
+	width: 90%!important;
+}

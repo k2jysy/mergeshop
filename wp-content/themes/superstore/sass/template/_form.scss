@@ -1,0 +1,159 @@
+/*
+*  Form
+*/
+
+/* Button
+------------------------------------------------*/
+.btn{				
+	&.btn-slide{
+		margin: 0;
+		text-align: center;
+		text-transform: uppercase;		
+		color: $slideshow-button-color;
+		background: $slideshow-button-bg;
+		border: $slideshow-button-border;
+		font-size: $slideshow-button-font-size;		
+		padding: $slideshow-button-padding !important;		
+		line-height: $slideshow-button-line-height !important;
+		@include border-radius($slideshow-button-radius);
+		&:hover{
+			color: $slideshow-button-hover-color;
+            background-color: transparent;
+		}
+	}	
+	&.btn-shipping{
+		padding-left: 0;
+		padding-right: 0;
+		border: 0;
+		&:hover,&:focus{
+			background: none;
+		}
+	}
+	&.btn-close{
+		color: $white;		
+		@include opacity(1);	
+		display: block;	
+		text-align: center;
+		margin: 0;    
+		position: absolute;
+		right: 0;    
+		top: 0;
+		@include size(25px,25px);	
+		@include border-radius(0);
+		background: $black;
+		.fa{
+			font-size: 15px;	
+			margin: 5px;		
+		}		
+		&:hover,&:focus{
+			background: $black;
+		}
+	}
+	&.btn-theme-default{
+		font-size: $btn-font-size;
+		padding: 9px 15px;
+	}
+	&.btn-readmore{
+		overflow: hidden;	
+		position: relative;
+		@include backface-visibility(hidden);	
+		span{
+			display: inline-block;	
+			@include size(100%,100%);
+			@include transition(all 0.3s);
+			@include backface-visibility(hidden);		
+		}
+		&:before{
+			@include size(100%,15px);
+			@include transition(all 0.3s);
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: -120px;
+			margin: auto;
+			content: "\f061";
+			font-family: $theme-font-name;
+		}
+		&:hover{
+			span{				
+				@include translate(200%,0%);
+			}
+			&:before{
+				left: 0;
+			}
+		}
+	}
+}
+
+.reset-button-default{
+	.btn-primary,
+	.btn-default{
+		@extend .btn.btn-theme-default;
+	}
+}
+
+/* Wooecommerce - Button - Input
+------------------------------------------------*/
+.woocommerce,
+.woocommerce-page{	
+	#content,
+	#respond{
+		input.button,
+		input#submit{			
+			text-transform: uppercase;
+			background-image: none;
+			font-weight: 400;
+			border: none;
+			background-color: $theme-color-primary;
+			font-size: $font-size-base;
+			color: $white;
+			padding: $padding-base-vertical + 2 $padding-large-horizontal;
+			@include box-shadow(none);
+			@include text-shadow(none);
+			@include border-radius($button-border-radius);
+			&:hover,
+			&:focus{
+				background: $theme-color-default;
+				color: $white;
+				border-color: none;
+				outline: none;						
+				@include box-shadow(none);
+				@include text-shadow(none);
+			}
+		}
+	}	
+	a.button,button.button,input.button,
+	a.button.alt,button.button.alt,input.button.alt{
+        background: $theme-color-default;
+        border-color: $theme-color-default;
+        color: $white;
+        box-shadow: none;
+        text-shadow: none;
+        font-weight: 600;
+        padding: $padding-base-vertical + 4 $padding-large-horizontal;
+		&:hover{			
+			background: $theme-color-primary;
+			color: $white;
+			border: 1px solid transparent;
+			@include text-shadow(none);
+		}		
+	}	
+	
+	.quantity input.qty{
+		width: 55px;
+	}
+	table.cart td.actions .coupon .input-text{
+		@include box-shadow(none);
+		@include text-shadow(none);
+	}
+}
+
+
+/* Select, Input
+------------------------------------------------*/
+
+
+.chosen-container{
+	width: 100% !important;
+}

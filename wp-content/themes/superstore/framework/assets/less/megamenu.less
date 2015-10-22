@@ -1,0 +1,1058 @@
+/* Offcanvas */
+
+// Admin Bar
+#wpadminbar {
+	position: fixed!important;
+}
+
+//
+// OFF-CANVAS
+// -------------------------------------
+
+// Toggle Button
+// -------------------
+.off-canvas-toggle {
+  z-index: 100;
+}
+
+
+// The Wrapper
+// -------------------
+html,
+body {
+  height: 100%;
+}
+
+.noscroll {
+  position: fixed;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.wpo-wrapper {
+  // Need a background (Usually @body-bg). Otherwise the sidebar will overlap.
+  background: @body-bg;
+  position: relative;
+  left: 0;
+  z-index: 99;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  overflow: visible;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    background: rgba(0,0,0,0.2);
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+    transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+    z-index: 9999999;
+  }
+}
+
+.off-canvas-open {
+  .wpo-wrapper::after {
+    width: 100%;
+    height: 10000px;
+    opacity: 1;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+  }
+}
+
+
+// The Sidebar
+// -------------------
+.wpo-off-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  visibility: hidden;
+  width: @wpo-off-canvas-width;
+  height: 100%;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.2);
+    content: '';
+    opacity: 1;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+  }
+}
+
+.off-canvas-right.wpo-off-canvas {
+  display: none;
+}
+.off-canvas-right .off-canvas-right.wpo-off-canvas {
+  display: block;
+}
+
+html[dir="ltr"] .off-canvas-right.wpo-off-canvas {
+  left: auto;
+  right: 0;
+}
+
+.off-canvas-open {
+  .wpo-off-canvas::after {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+    transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+  }
+
+  .off-canvas-current {
+    visibility: visible;
+  }
+}
+
+
+
+//
+// OFF-CANVAS CONTENT STYLES
+// -------------------------------------
+
+.wpo-off-canvas {
+
+  // Close Button
+  .close {
+  }
+
+
+  // Body
+  // ----------------------------------
+  .wpo-off-canvas-body {
+
+    // Links
+    // ------------
+    a {
+
+      &:hover,
+      &:focus {
+        
+      }
+
+      &:focus {
+        .tab-focus();
+      }
+    }
+
+
+    // Navigations
+    // ------------
+    .nav {
+    }
+
+    // Dropdown Menu
+    // Always show Dropdown Menu in Off-Canvas Sidebar
+    .dropdown-menu {
+      position: static;
+      float: none;
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      .box-shadow(none);
+    }
+
+
+    // Modules
+    // ------------
+    .wpo-module {
+    }
+
+  // End Off-Canvas Body
+  }
+
+// End Off-Canvas Content Styles
+}
+
+
+
+//
+// OFF-CANVAS EFFECTS
+// -------------------------------------
+
+// Effect 1: Slide in on top
+// -------------------------
+.off-canvas-effect-1.wpo-off-canvas {
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+
+.off-canvas-effect-1.off-canvas-open .off-canvas-effect-1.wpo-off-canvas {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.off-canvas-effect-1.wpo-off-canvas::after {
+  display: none;
+}
+
+// off-canvas on right side
+.off-canvas-right.off-canvas-effect-1.wpo-off-canvas {
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+
+
+// Effect 2: Reveal
+// ----------------
+.off-canvas-effect-2.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(@wpo-off-canvas-width, 0, 0);
+  transform: translate3d(@wpo-off-canvas-width, 0, 0);
+}
+
+.off-canvas-effect-2.wpo-off-canvas {
+  z-index: 1;
+}
+
+.off-canvas-effect-2.off-canvas-open .off-canvas-effect-2.wpo-off-canvas {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+}
+
+.off-canvas-effect-2.wpo-off-canvas::after {
+  display: none;
+}
+
+// off-canvas on right side
+.off-canvas-right.off-canvas-effect-2.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(-@wpo-off-canvas-width, 0, 0);
+  transform: translate3d(-@wpo-off-canvas-width, 0, 0);
+}
+
+
+// Effect 3: Push
+// --------------
+.off-canvas-effect-3.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(@wpo-off-canvas-width, 0, 0);
+  transform: translate3d(@wpo-off-canvas-width, 0, 0);
+}
+
+.off-canvas-effect-3.wpo-off-canvas {
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+
+.off-canvas-effect-3.off-canvas-open .off-canvas-effect-3.wpo-off-canvas {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+}
+
+.off-canvas-effect-3.wpo-off-canvas::after {
+  display: none;
+}
+
+// off-canvas on right side
+.off-canvas-right.off-canvas-effect-3.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(-@wpo-off-canvas-width, 0, 0);
+  transform: translate3d(-@wpo-off-canvas-width, 0, 0);
+}
+
+.off-canvas-right.off-canvas-effect-3.wpo-off-canvas {
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+
+
+// Effect 4: Slide along
+// ---------------------
+.off-canvas-effect-4.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(@wpo-off-canvas-width, 0, 0);
+  transform: translate3d(@wpo-off-canvas-width, 0, 0);
+}
+
+.off-canvas-effect-4.wpo-off-canvas {
+  z-index: 1;
+  -webkit-transform: translate3d(-50%, 0, 0);
+  transform: translate3d(-50%, 0, 0);
+}
+
+.off-canvas-effect-4.off-canvas-open .off-canvas-effect-4.wpo-off-canvas {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.off-canvas-effect-4.wpo-off-canvas::after {
+  display: none;
+}
+
+// off-canvas on right side
+.off-canvas-right.off-canvas-effect-4.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(-@wpo-off-canvas-width, 0, 0);
+  transform: translate3d(-@wpo-off-canvas-width, 0, 0);
+}
+
+.off-canvas-right.off-canvas-effect-4.wpo-off-canvas {
+  -webkit-transform: translate3d(50%, 0, 0);
+  transform: translate3d(50%, 0, 0);
+}
+
+
+// Effect 5: Reverse slide out
+// ---------------------------
+.off-canvas-effect-5.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(@wpo-off-canvas-width, 0, 0);
+  transform: translate3d(@wpo-off-canvas-width, 0, 0);
+}
+
+.off-canvas-effect-5.wpo-off-canvas {
+  z-index: 1;
+  -webkit-transform: translate3d(50%, 0, 0);
+  transform: translate3d(50%, 0, 0);
+}
+
+.off-canvas-effect-5.off-canvas-open .off-canvas-effect-5.wpo-off-canvas {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+// off-canvas on right side
+.off-canvas-right.off-canvas-effect-5.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(-@wpo-off-canvas-width, 0, 0);
+  transform: translate3d(-@wpo-off-canvas-width, 0, 0);
+}
+
+.off-canvas-right.off-canvas-effect-5.wpo-off-canvas {
+  z-index: 1;
+  -webkit-transform: translate3d(-50%, 0, 0);
+  transform: translate3d(-50%, 0, 0);
+}
+
+
+// Effect 6: Rotate pusher
+// -----------------------
+body.off-canvas-effect-6 {
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+}
+
+.off-canvas-effect-6 .wpo-wrapper {
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  height: auto;
+  overflow: hidden;
+}
+
+.off-canvas-effect-6.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(@wpo-off-canvas-width, 0, 0) rotateY(-15deg);
+  transform: translate3d(@wpo-off-canvas-width, 0, 0) rotateY(-15deg);
+}
+
+.off-canvas-effect-6.wpo-off-canvas {
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+
+.off-canvas-effect-6.off-canvas-open .off-canvas-effect-6.wpo-off-canvas {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.off-canvas-effect-6.wpo-off-canvas::after {
+  display: none;
+}
+
+.off-canvas-right.off-canvas-effect-6 .wpo-wrapper {
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+}
+
+.off-canvas-right.off-canvas-effect-6.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(-@wpo-off-canvas-width, 0, 0) rotateY(15deg);
+  transform: translate3d(-@wpo-off-canvas-width, 0, 0) rotateY(15deg);
+}
+
+.off-canvas-right.off-canvas-effect-6.wpo-off-canvas {
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+
+
+// Effect 7: 3D rotate in
+// ----------------------
+body.off-canvas-effect-7 {
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+
+.off-canvas-effect-7 .wpo-wrapper {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.off-canvas-effect-7.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(@wpo-off-canvas-width, 0, 0);
+  transform: translate3d(@wpo-off-canvas-width, 0, 0);
+}
+
+.off-canvas-effect-7.wpo-off-canvas {
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(-90deg);
+  transform: translate3d(-100%, 0, 0) rotateY(-90deg);
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.off-canvas-effect-7.off-canvas-open .off-canvas-effect-7.wpo-off-canvas {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  transform: translate3d(-100%, 0, 0) rotateY(0deg);
+}
+
+// off-canvas on right side
+body.off-canvas-effect-7.off-canvas-right {
+  -webkit-perspective-origin: 100% 50%;
+  perspective-origin: 100% 50%;
+}
+
+.off-canvas-right.off-canvas-effect-7.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(-@wpo-off-canvas-width, 0, 0);
+  transform: translate3d(-@wpo-off-canvas-width, 0, 0);
+}
+
+.off-canvas-right.off-canvas-effect-7.wpo-off-canvas {
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(90deg);
+  transform: translate3d(100%, 0, 0) rotateY(90deg);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+}
+
+.off-canvas-right.off-canvas-effect-7.off-canvas-open .off-canvas-right.off-canvas-effect-7.wpo-off-canvas {
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  transform: translate3d(100%, 0, 0) rotateY(0deg);
+}
+
+
+// Effect 8: 3D rotate out
+// -----------------------
+body.off-canvas-effect-8 {
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+
+.off-canvas-effect-8 .wpo-wrapper {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.off-canvas-effect-8.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(@wpo-off-canvas-width, 0, 0);
+  transform: translate3d(@wpo-off-canvas-width, 0, 0);
+}
+
+.off-canvas-effect-8.wpo-off-canvas {
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.off-canvas-effect-8.off-canvas-open .off-canvas-effect-8.wpo-off-canvas {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  transform: translate3d(-100%, 0, 0) rotateY(0deg);
+}
+
+.off-canvas-effect-8.wpo-off-canvas::after {
+  display: none;
+}
+
+// off-canvas on right side
+body.off-canvas-effect-8.off-canvas-right {
+  -webkit-perspective-origin: 100% 50%;
+  perspective-origin: 100% 50%;
+}
+
+
+.off-canvas-right.off-canvas-effect-8.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(-@wpo-off-canvas-width, 0, 0);
+  transform: translate3d(-@wpo-off-canvas-width, 0, 0);
+}
+
+.off-canvas-right.off-canvas-effect-8.wpo-off-canvas {
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(-90deg);
+  transform: translate3d(100%, 0, 0) rotateY(-90deg);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+}
+
+.off-canvas-right.off-canvas-effect-8.off-canvas-open .off-canvas-right.off-canvas-effect-8.wpo-off-canvas {
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  transform: translate3d(100%, 0, 0) rotateY(0deg);
+}
+
+
+// Effect 9: Scale down pusher
+// ---------------------------
+body.off-canvas-effect-9 {
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+}
+
+.off-canvas-effect-9 .wpo-wrapper {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.off-canvas-effect-9.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(0, 0, -@wpo-off-canvas-width);
+  transform: translate3d(0, 0, -@wpo-off-canvas-width);
+}
+
+.off-canvas-effect-9.wpo-off-canvas {
+  opacity: 1;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+
+.off-canvas-effect-9.off-canvas-open .off-canvas-effect-9.wpo-off-canvas {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.off-canvas-effect-9.wpo-off-canvas::after {
+  display: none;
+}
+
+// off-canvas on right side
+.off-canvas-right.off-canvas-effect-9.wpo-off-canvas {
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+
+// Effect 10: Scale up
+// -------------------
+body.off-canvas-effect-10 {
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+
+.off-canvas-effect-10.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(@wpo-off-canvas-width, 0, 0);
+  transform: translate3d(@wpo-off-canvas-width, 0, 0);
+}
+
+.off-canvas-effect-10.wpo-off-canvas {
+  z-index: 1;
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, -@wpo-off-canvas-width);
+  transform: translate3d(0, 0, -@wpo-off-canvas-width);
+}
+
+.off-canvas-effect-10.off-canvas-open .off-canvas-effect-10.wpo-off-canvas {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+// off-canvas on right side
+body.off-canvas-effect-10.off-canvas-right {
+  -webkit-perspective-origin: 100% 50%;
+  perspective-origin: 100% 50%;
+}
+
+.off-canvas-right.off-canvas-effect-10.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(-@wpo-off-canvas-width, 0, 0);
+  transform: translate3d(-@wpo-off-canvas-width, 0, 0);
+}
+
+
+// Effect 11: Scale and rotate pusher
+// ----------------------------------
+body.off-canvas-effect-11 {
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+}
+
+.off-canvas-effect-11 .wpo-wrapper {
+  height: auto;
+  overflow: hidden;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.off-canvas-effect-11.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(100px, 0, -600px) rotateY(-20deg);
+  transform: translate3d(100px, 0, -600px) rotateY(-20deg);
+}
+
+.off-canvas-effect-11.wpo-off-canvas {
+  opacity: 1;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+
+.off-canvas-effect-11.off-canvas-open .off-canvas-effect-11.wpo-off-canvas {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.off-canvas-effect-11.wpo-off-canvas::after {
+  display: none;
+}
+
+// off-canvas on right side
+.off-canvas-right.off-canvas-effect-11.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(-100px, 0, -600px) rotateY(20deg);
+  transform: translate3d(-100px, 0, -600px) rotateY(20deg);
+}
+
+.off-canvas-right.off-canvas-effect-11.wpo-off-canvas {
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+
+
+// Effect 12: Open door
+// --------------------
+body.off-canvas-effect-12 {
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+}
+
+.off-canvas-effect-12 .wpo-wrapper {
+  height: auto;
+  overflow: hidden;
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.off-canvas-effect-12.off-canvas-open .wpo-wrapper {
+  -webkit-transform: rotateY(-10deg);
+  transform: rotateY(-10deg);
+}
+
+.off-canvas-effect-12.wpo-off-canvas {
+  opacity: 1;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+
+.off-canvas-effect-12.off-canvas-open .off-canvas-effect-12.wpo-off-canvas {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.off-canvas-effect-12.wpo-off-canvas::after {
+  display: none;
+}
+
+// off-canvas on right side
+.off-canvas-right.off-canvas-effect-12 .wpo-wrapper {
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+}
+
+.off-canvas-right.off-canvas-effect-12.off-canvas-open .wpo-wrapper {
+  -webkit-transform: rotateY(10deg);
+  transform: rotateY(10deg);
+}
+
+.off-canvas-right.off-canvas-effect-12.wpo-off-canvas {
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+
+
+// Effect 13: Fall down
+// --------------------
+body.off-canvas-effect-13 {
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+
+.off-canvas-effect-13.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(@wpo-off-canvas-width, 0, 0);
+  transform: translate3d(@wpo-off-canvas-width, 0, 0);
+}
+
+.off-canvas-effect-13.wpo-off-canvas {
+  z-index: 1;
+  opacity: 1;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+}
+
+.off-canvas-effect-13.off-canvas-open .off-canvas-effect-13.wpo-off-canvas {
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: transform;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition-speed: 0.2s;
+  transition-speed: 0.2s;
+}
+
+// off-canvas on right side
+body.off-canvas-effect-13.off-canvas-right {
+  -webkit-perspective-origin: 100% 50%;
+  perspective-origin: 100% 50%;
+}
+
+.off-canvas-right.off-canvas-effect-13.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(-@wpo-off-canvas-width, 0, 0);
+  transform: translate3d(-@wpo-off-canvas-width, 0, 0);
+}
+
+
+// Effect 14: Delayed 3D rotate
+// ----------------------------
+body.off-canvas-effect-14 {
+  -webkit-perspective: 1500px;
+  perspective: 1500px;
+  -webkit-perspective-origin: 0% 50%;
+  perspective-origin: 0% 50%;
+}
+
+.off-canvas-effect-14 .wpo-wrapper {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.off-canvas-effect-14.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(@wpo-off-canvas-width, 0, 0);
+  transform: translate3d(@wpo-off-canvas-width, 0, 0);
+}
+
+.off-canvas-effect-14.wpo-off-canvas {
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.off-canvas-effect-14.off-canvas-open .off-canvas-effect-14.wpo-off-canvas {
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: transform;
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  transform: translate3d(-100%, 0, 0) rotateY(0deg);
+}
+
+// off-canvas on right side
+body.off-canvas-effect-14.off-canvas-right {
+  -webkit-perspective-origin: 100% 50%;
+  perspective-origin: 100% 50%;
+}
+
+.off-canvas-right.off-canvas-effect-14.off-canvas-open .wpo-wrapper {
+  -webkit-transform: translate3d(-@wpo-off-canvas-width, 0, 0);
+  transform: translate3d(-@wpo-off-canvas-width, 0, 0);
+}
+
+.off-canvas-right.off-canvas-effect-14.wpo-off-canvas {
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(-90deg);
+  transform: translate3d(100%, 0, 0) rotateY(-90deg);
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+}
+
+.off-canvas-right.off-canvas-effect-14.off-canvas-open .off-canvas-right.off-canvas-effect-14.wpo-off-canvas {
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(0deg);
+  transform: translate3d(100%, 0, 0) rotateY(0deg);
+}
+
+
+//
+// Fallback for old IE (<IE10)
+// that don't support 3D transforms
+// -----------------------------------------------------
+.old-ie {
+  .wpo-off-canvas {
+    z-index: 100!important;
+    left: -@wpo-off-canvas-width;
+  }
+}
+
+
+html[dir="ltr"] .off-canvas-right.old-ie {
+  .wpo-off-canvas {
+    right: -@wpo-off-canvas-width;
+    left: auto;
+  }
+}
+
+//
+// Fix conflict with modal
+// -----------------------------------------------------
+.modal-open .wpo-wrapper {
+  position: static;
+}
+
+
+/* Megamenu */
+
+.dropdown-submenu > .dropdown-menu {
+	top: 0;
+	left: 100%;
+	margin-top: -5px;
+	margin-left: -1px;
+}
+
+.wpo-megamenu {
+	[class*="menu-item-"]{
+		position: relative;
+	}
+}
+
+@media (min-width: 768px) {
+	.wpo-megamenu.animate {
+		.mega{
+			>.dropdown-menu{
+				-webkit-backface-visibility: hidden;
+			    -moz-backface-visibility: hidden;
+			    backface-visibility: hidden;
+			    opacity: 0;
+			}
+			&.animating{
+				>.dropdown-menu{
+					.transition(all 400ms);
+					display: block!important;
+				}
+			}
+			&.open{
+				>.dropdown-menu{
+					opacity: 1;
+				}
+				&.animating{
+					> .dropdown-menu{
+						opacity: 1;
+					}
+				}
+			}
+		}
+
+		//Effect Zoom
+		&.zoom{
+			.mega{
+				> .dropdown-menu{
+					.scale(0,0);
+					.origin(20%,20%);
+				}
+				&.open{
+					> .dropdown-menu{
+						.scale(1,1);
+					}
+				}
+			}
+		}
+
+		//Effect Elastic
+		&.elastic{
+			.mega{
+				> .dropdown-menu {
+					.scale(0,1);
+					.origin(10%,0);
+				}
+				&.open{
+					> .dropdown-menu {
+						.scale(1,1);
+					}
+				}
+			}
+			.depth-0{
+				&.mega > .dropdown-menu {
+					.scale(1,0);
+				}
+				&.open{
+					> .dropdown-menu {
+						.scale(1,1);
+					}
+				}
+			}
+		}
+
+		//Effect Slide
+		&.slide{
+			.mega{
+				&.animating{
+					> .dropdown-menu {
+						overflow: hidden;
+					}
+				}
+				> .dropdown-menu > div {
+					.transition(all 400ms);
+					.backface-visibility(hidden);
+					margin-top: -100%;
+				}
+				&.open > .dropdown-menu > div {
+					margin-top: 0%;
+				}
+				.mega > .dropdown-menu {
+					min-width: 0;
+					>div{
+						min-width: 200px;
+					    margin-top: 0;
+					    margin-left: -500px;
+					}
+				}
+				.mega.open > .dropdown-menu > div {
+					margin-left: 0;
+				}
+			}
+		}
+	}
+}
+
+// @media (min-width: 768px) {
+//   .wpo-megamenu.animate .mega > .dropdown-menu {
+//     -webkit-backface-visibility: hidden;
+//     -moz-backface-visibility: hidden;
+//     backface-visibility: hidden;
+//     opacity: 0;
+//   }
+//   .wpo-megamenu.animate .mega.animating > .dropdown-menu {
+//     -webkit-transition: all 400ms;
+//     transition: all 400ms;
+//     display: block!important;
+//   }
+//   .wpo-megamenu.animate .mega.open > .dropdown-menu,
+//   .wpo-megamenu.animate .mega.animating.open > .dropdown-menu {
+//     opacity: 1;
+//   }
+//   .wpo-megamenu.animate.zoom .mega > .dropdown-menu {
+//     -webkit-transform: scale(0, 0);
+//     -ms-transform: scale(0, 0);
+//     transform: scale(0, 0);
+//     -webkit-transform-origin: 20% 20%;
+//     -moz-transform-origin: 20% 20%;
+//     transform-origin: 20% 20%;
+//   }
+//   .wpo-megamenu.animate.zoom .mega.open > .dropdown-menu {
+//     -webkit-transform: scale(1, 1);
+//     -ms-transform: scale(1, 1);
+//     transform: scale(1, 1);
+//   }
+//   .wpo-megamenu.animate.zoom .level0 > .mega-align-center > .dropdown-menu {
+//     -webkit-transform: scale(0, 0) translate(-50%, 0);
+//     -ms-transform: scale(0, 0) translate(-50%, 0);
+//     transform: scale(0, 0) translate(-50%, 0);
+//     -webkit-transform-origin: 0% 20%;
+//     -moz-transform-origin: 0% 20%;
+//     transform-origin: 0% 20%;
+//   }
+//   .wpo-megamenu.animate.zoom .level0 > .mega-align-center.open > .dropdown-menu {
+//     -webkit-transform: scale(1, 1) translate(-50%, 0);
+//     -ms-transform: scale(1, 1) translate(-50%, 0);
+//     transform: scale(1, 1) translate(-50%, 0);
+//   }
+//   .wpo-megamenu.animate.elastic .mega > .dropdown-menu {
+//     -webkit-transform: scale(0, 1);
+//     -ms-transform: scale(0, 1);
+//     transform: scale(0, 1);
+//     -webkit-transform-origin: 10% 0;
+//     -moz-transform-origin: 10% 0;
+//     transform-origin: 10% 0;
+//   }
+//   .wpo-megamenu.animate.elastic .mega.open > .dropdown-menu {
+//     -webkit-transform: scale(1, 1);
+//     -ms-transform: scale(1, 1);
+//     transform: scale(1, 1);
+//   }
+//   .wpo-megamenu.animate.elastic .level0 > .mega > .dropdown-menu {
+//     -webkit-transform: scale(1, 0);
+//     -ms-transform: scale(1, 0);
+//     transform: scale(1, 0);
+//   }
+
+
+//   .wpo-megamenu.animate.elastic .level0 .open > .dropdown-menu {
+//     -webkit-transform: scale(1, 1);
+//     -ms-transform: scale(1, 1);
+//     transform: scale(1, 1);
+//   }
+//   .wpo-megamenu.animate.elastic .level0 > .mega-align-center > .dropdown-menu {
+//     transform: scale(1, 0) translate(-50%, 0);
+//     -webkit-transform: scale(1, 0) translate(-50%, 0);
+//     -ms-transform: scale(1, 0) translate(-50%, 0);
+//   }
+//   .wpo-megamenu.animate.elastic .level0 > .mega-align-center.open > .dropdown-menu {
+//     transform: scale(1, 1) translate(-50%, 0);
+//     -webkit-transform: scale(1, 1) translate(-50%, 0);
+//     -ms-transform: scale(1, 1) translate(-50%, 0);
+//   }
+//   .wpo-megamenu.animate.slide .mega {
+
+
+
+
+//   }
+//   .wpo-megamenu.animate.slide .mega.animating > .dropdown-menu {
+//     overflow: hidden;
+//   }
+//   .wpo-megamenu.animate.slide .mega > .dropdown-menu > div {
+//     -webkit-transition: all 400ms;
+//     transition: all 400ms;
+//     -webkit-backface-visibility: hidden;
+//     -moz-backface-visibility: hidden;
+//     backface-visibility: hidden;
+//     margin-top: -100%;
+//   }
+//   .wpo-megamenu.animate.slide .mega.open > .dropdown-menu > div {
+//     margin-top: 0%;
+//   }
+//   .wpo-megamenu.animate.slide .mega .mega > .dropdown-menu {
+//     min-width: 0;
+//   }
+//   .wpo-megamenu.animate.slide .mega .mega > .dropdown-menu > div {
+//     min-width: 200px;
+//     margin-top: 0;
+//     margin-left: -500px;
+//   }
+//   .wpo-megamenu.animate.slide .mega .mega.open > .dropdown-menu > div {
+//     margin-left: 0;
+//   }
+// }
+

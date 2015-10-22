@@ -1,0 +1,231 @@
+/*
+ *  Base
+ */
+img{
+	max-width: 100%;
+}
+
+a{
+    color: $text-color;
+    font-family: $font-family-sans;
+	&:hover,
+	&:focus{
+		outline: none;
+		text-decoration: none;
+        color: $theme-color-default;
+	}
+}
+
+body{
+    overflow-x: hidden;
+}
+
+select{
+    cursor: pointer;
+}
+
+iframe{
+	border:none;
+}
+
+label{
+	font-weight: normal;
+}
+
+del{
+	font-size: 14px;
+}
+
+form label{
+	font-weight: normal;
+}
+
+.input-text{
+    display: block;
+    width: 100%;
+    height: $input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+    padding: $input-padding;
+    font-size: $input-font-size;
+    line-height: $line-height-base;
+    color: $input-color;
+    background-color: $input-bg;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    border: 1px solid $input-border;
+    border-radius: $input-border-radius;
+}
+
+.addthis{
+	.addthis_button_google_plusone{
+		margin-left: -25px;
+		margin-right: -29px;
+	}
+}
+
+.none-style{
+    list-style: none;
+    padding: 0;
+}
+
+.media > .pull-left{
+    @include rtl-margin-right(10px);
+}
+// Content Element
+// -----------------------------------
+
+.wpb_content_element{
+    margin-bottom: 0 !important;
+}
+
+.star-rating{
+    height: 12px !important;
+    font-size: $font-size-base - 4 !important;
+    > span{
+        font-size: $font-size-base - 4;
+    }
+}
+
+
+// Margin and Padding None
+//--------------------------------
+
+.margin-none{
+    margin: 0 !important;
+}
+.padding-none{
+    padding: 0 !important;
+}
+
+
+.video-responsive {
+	height: 0;
+	padding-top: 0;
+	padding-bottom: 56.25%;
+	margin-bottom: 10px;
+	position: relative;
+	overflow: hidden;
+	embed,iframe,object,video{
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+	}
+}
+
+.audio-responsive{
+	iframe{
+		width: 100%;
+		height: 126px;
+	}
+}
+
+
+// Google Map
+//---------------------------------
+
+
+.map_canvas{
+	img{
+		max-width: none;
+	}
+}
+.spinner{
+	background: url('#{$image-theme-path-base}spinner.gif') no-repeat;
+	background-size: 20px 20px;
+	display: block;
+	@include opacity(.7);
+	width: 20px;
+	height: 20px;
+	margin:0 auto;
+}
+
+
+// Carousel
+//---------------------------------
+
+
+.carousel-controls{
+	position: absolute;
+	top: -75px;
+	right: 0;
+	z-index: 100;
+	@include text-shadow(none);
+	@include clearfix();
+	a{		
+		@include size(18px,18px);
+        @include border-radius(50%);
+		background: $white;
+		float: left;
+		margin-left: $margin-base-vertical - 1;
+        border: 1px solid $theme-color-border;
+        line-height: 14px;
+        text-align: center;
+		&:hover{
+			background-color: $theme-color-default;
+            border: 1px solid $theme-color-default;
+			.fa{
+				color: $white;
+			}
+		}
+	}
+	.fa{
+		font-size: $carousel-font-size;
+        color: $black;
+        font-weight: bold;
+	}	
+}
+
+.carousel-control{
+	@include text-shadow(none);
+	@include box-shadow(none);
+	width: 30px;
+	height: 50px;
+	position: absolute;
+	top: 50%;
+	margin-top: -25px;
+	background: $theme-color-default;
+	@include opacity(0.5);
+	&.left {
+		background-image: none;
+		left:0;
+	}
+	&.right {
+		background-image: none;
+		right:0;
+	}
+	&:hover{
+		@include opacity(1);
+	}
+	span{
+		line-height: 50px;
+	}
+}
+
+// Parallax
+//---------------------------------
+
+.parallax{
+    background-position: 50% 0%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+// Tabs
+//---------------------------------
+
+// Margin and Padding
+
+.margin-base-bottom{
+    margin-bottom: $margin-base-horizontal*2 - 4 !important;
+}
+.margin-base-top{
+    margin-top: $margin-base-horizontal*2 - 4 !important;
+}
+.padding-base-bottom{
+    padding-bottom: $padding-large-vertical*2 - 4 !important;
+}
+.padding-base-top{
+    padding-top: $padding-large-vertical*2 - 4 !important;
+}

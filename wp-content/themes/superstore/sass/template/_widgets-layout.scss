@@ -1,0 +1,44 @@
+
+
+// Widget layout styles
+// -------------------------------
+
+
+.widget{
+	.widget-inner{
+
+	}
+    &.highlight{
+        position: relative;
+        .widget-title{
+            margin-bottom: $margin-base-vertical + 5;
+            border: none;
+            background-color: $theme-color-default;
+            &:before{
+                display: none;
+            }
+            span{
+                font-size: $font-size-base + 1;
+                color: $white;
+                padding: $padding-large-vertical + 2 $padding-large-horizontal;
+                font-weight: 600;
+                width: 100%;
+                letter-spacing: 0;
+            }
+        }
+    }
+}
+.sidebar{
+	.widget{
+		
+	}
+}
+
+
+
+
+#wpo-footer{
+	.widget{
+		
+	}
+}

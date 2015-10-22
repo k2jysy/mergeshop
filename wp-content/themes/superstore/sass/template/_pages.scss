@@ -1,0 +1,76 @@
+// Blog Layout
+.post-area{
+	article{
+		margin-bottom: $theme-margin + 5;
+        padding-bottom: 25px;
+        border-bottom: 1px solid $theme-color-border;
+		&:last-child{
+			margin-bottom: 0;
+            border-bottom: none;
+		}
+	}
+
+}
+
+// Portfolio
+//----------------------------------
+#portfolio{
+	.portfolio-box{
+		.item{
+			@include transition-duration($portfolio-animate-duration);
+		}
+	}
+
+	.portfolio-filters{
+
+	}
+}
+
+
+// Woocommerce - My Account
+//----------------------------------
+
+
+.woocommerce,
+.woocommerce-page{
+	form{
+		&.checkout_coupon,&.login,&.register,&.checkout_coupon{
+			border: 0;			
+			margin: 0;
+			padding: 0;
+			@include border-radius(0);
+		}
+	}
+    /*a.button{
+        background: $theme-color-primary !important;
+        @include border-radius(4px);
+        box-shadow: none;
+        border: none;
+        text-transform: uppercase;
+        font-weight: 400;
+        padding: $padding-base-vertical + 4 $padding-base-horizontal;
+        text-shadow: none;
+        color: $white;
+        &:hover{
+            background: $theme-color-default !important;
+        }
+    }*/
+}
+
+// Banner
+//----------------------------------
+
+.wpb_single_image{
+    img{
+        border: 1px solid $theme-color-border;
+    }
+}
+
+
+// Footer
+//----------------------------------
+.logo-copyright{
+	img{
+
+	}
+}

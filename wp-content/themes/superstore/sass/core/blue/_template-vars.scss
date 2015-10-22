@@ -1,0 +1,20 @@
+
+//Theme colors
+
+$header-bg-color            : #F6F4F0;
+$footer-bg  				: #524354;
+$topbar-bg:           #f5f5f5;
+
+$theme-color-default   : #7BBD42 ; // using for default color of all pages such as background color for top menu, block header
+$theme-color-primary   : #2E3A47 ; // using for default color of all pages such as background color for , block , and other
+$theme-color-secondary : #F05423 ;  // for hightligh block header, text , button as default it is  color, and other
+$theme-color-threedary : #8C8C8C ;  // for button as default it is  color
+$image-theme-path 					:'../../images/blue/';
+
+$link-color:  				$theme-color-primary ;
+$link-color-hover: 			$theme-color-default !default;
+$link-hover-color: 			$theme-color-default !default;
+$theme-color:               $theme-color-default !default;
+
+
+$theme-font-path:  		  "../../fonts/";

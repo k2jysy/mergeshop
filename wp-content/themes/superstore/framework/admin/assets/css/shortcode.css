@@ -1,0 +1,49 @@
+.shortcode-col {
+	width: 19%;
+	float: left;
+	padding: 2px
+}
+.wpo-shortcodes .row > div{
+	padding: 3px
+}
+
+.wpo-shortcodes .btn{
+  white-space: normal;
+}
+.wpo-shortcodes .content em{
+  font-size: 10px;
+}
+.wpo-shortcodes .content .title{
+  font-weight: bold;
+  font-size: 12px;
+}
+.wpo-shortcodes .btn {
+    height: 75px;
+    margin: 3px 0;
+    overflow: hidden;
+    width: 100%;
+}
+.wpo-icon{
+	width: 38px;
+	height: 38px;
+	float: left;
+}
+.wpo-shortcodes .btn,{
+	text-align: left;
+}
+
+.wpo-icon-content{
+	background: url(../images/icon/html.png) no-repeat center center;
+}
+
+.wpo-icon-video{
+	background: url(../images/icon/video.png) no-repeat center center;
+}
+
+.wpo-icon-blog-tab{
+	background: url(../images/icon/blog-tab.png) no-repeat center center;
+}
+
+.wpo-icon-sidebar{
+	background: url(../images/icon/widget.png) no-repeat center center;
+}

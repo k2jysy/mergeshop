@@ -1,0 +1,26 @@
+/*
+*  Breadcrumbs
+*/
+#breadcrumbs{
+	
+}
+.breadcrumb{
+	margin: 0;	
+	@include border-radius(0);
+	color: $breadcrumb-text-color;
+	padding: $breadcrumb-padding;
+    background-color: transparent;
+    font-weight: normal;
+    span{
+        margin: 0 8px;
+    }
+    .fa{
+        margin: 0;
+    }
+    a{
+		&:hover{
+			color: $theme-color;
+		}		
+		color: $breadcrumb-link-color;
+	}	
+}

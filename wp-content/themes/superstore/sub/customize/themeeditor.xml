@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<themeeditor>
+    <version value="1.4">
+        <ccc available="true" />
+        <guest_checkout available="true" />
+        <one_page_checkout available="true" />
+        <store_locator available="true" />
+    </version>
+    <author>Wpopal</author>
+    <name>Live Theme Editor</name>
+    <selectors label="Layout Selectors">
+        <items>
+            <header>Body</header>
+            <match>body</match>
+            <item>
+                <type>text</type>
+                <label>Background Color</label>
+                <selector>body</selector>
+                <attrs>background-color</attrs>
+            </item>
+            <item>
+                <type>image</type>
+                <label>Background Image</label>
+                <selector>body</selector>
+                <attrs>background-image</attrs>
+            </item>
+
+            <item>
+                <type>text</type>
+                <label>Background Content</label>
+                <selector>.wpo-mainbody</selector>
+                <attrs>background-color</attrs>
+            </item>
+            <item>
+                <type>image</type>
+                <label>Background Image</label>
+                <selector>.wpo-mainbody</selector>
+                <attrs>background-image</attrs>
+            </item>
+
+            <item>
+                <type>fontsize</type>
+                <label>Font-Size</label>
+                <selector>body</selector>
+                <attrs>font-size</attrs>
+            </item>
+
+
+            <item>
+                <type>text</type>
+                <label>Color Text</label>
+                <selector>body</selector>
+                <attrs>color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Link Color</label>
+                <selector>a</selector>
+                <attrs>color</attrs>
+            </item>
+
+            <item>
+                <type>text</type>
+                <label>Link Hover Color</label>
+                <selector>a:hover</selector>
+                <attrs>color</attrs>
+            </item>
+        </items>
+        <items>
+            <header>Header</header>
+            <match>wpo-header</match>
+            <item>
+                <type>text</type>
+                <label>Background Color</label>
+                <selector>#wpo-header</selector>
+                <attrs>background-color</attrs>
+            </item>
+            <item>
+                <type>image</type>
+                <label>Background Image</label>
+                <selector>#wpo-header</selector>
+                <attrs>background-image</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Background Topbar</label>
+                <selector>.topbar</selector>
+                <attrs>background-color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Text Topbar</label>
+                <selector>.topbar</selector>
+                <attrs>color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Link Color Topbar</label>
+                <selector>.topbar-menu ul li a</selector>
+                <attrs>color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Link Hover Topbar</label>
+                <selector>.topbar a:hover</selector>
+                <attrs>color</attrs>
+            </item>
+
+        </items>
+
+        <items>
+            <header>Main Menu</header>
+            <match>wpo-mainnav</match>
+            <item>
+                <type>text</type>
+                <label>Background Color</label>
+                <selector>#wpo-mainnav.navbar</selector>
+                <attrs>background</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Color</label>
+                <selector>#wpo-mainnav.navbar ul.nav > li > a</selector>
+                <attrs>color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Color hover</label>
+                <selector>#wpo-mainnav.navbar ul.nav > li:hover a, #wpo-mainnav.navbar ul.nav > li.active a</selector>
+                <attrs>color</attrs>
+            </item>
+        </items>
+
+
+        <items>
+            <header>Footer</header>
+            <match>footer-center</match>
+            <item>
+                <type>text</type>
+                <label>Background Footer Top</label>
+                <selector>#wpo-footer .footer-top > div</selector>
+                <attrs>background-color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Background Color</label>
+                <selector>#wpo-footer</selector>
+                <attrs>background-color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Color Text</label>
+                <selector>#wpo-footer</selector>
+                <attrs>color</attrs>
+            </item>
+
+            <item>
+                <type>text</type>
+                <label>Color Link</label>
+                <selector>#wpo-footer a</selector>
+                <attrs>color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Color Link Hover</label>
+                <selector>#wpo-footer a:hover</selector>
+                <attrs>color</attrs>
+            </item>
+
+            <item>
+                <type>image</type>
+                <label>Background Image</label>
+                <selector>#wpo-footer</selector>
+                <attrs>background-image</attrs>
+            </item>
+
+        </items>
+        <items>
+            <header>Copyright</header>
+            <match>wpo-copyright</match>
+            <item>
+                <type>text</type>
+                <label>Background Color</label>
+                <selector>.wpo-copyright</selector>
+                <attrs>background-color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Color Text</label>
+                <selector>.copyright</selector>
+                <attrs>color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Color Link</label>
+                <selector>#wpo-footer .wpo-copyright a</selector>
+                <attrs>color</attrs>
+            </item>
+
+        </items>
+    </selectors>
+    <elements>
+        <items>
+            <header>Vertical-Menu</header>
+            <match>vertical-menu</match>
+            <item>
+                <type>text</type>
+                <label>Bg Heading</label>
+                <selector>.widget.highlight .widget-title</selector>
+                <attrs>background-color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Color text</label>
+                <selector>.widget.highlight .widget-title span</selector>
+                <attrs>color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Bg Icon</label>
+                <selector>.vertical-menu .navbar-nav > li > a .fa</selector>
+                <attrs>color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Vertical Color link</label>
+                <selector>.vertical-menu .navbar-nav > li > a</selector>
+                <attrs>color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Vertical Color icon</label>
+                <selector>.vertical-menu .navbar-nav > li > a .fa</selector>
+                <attrs>color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Bg Content Vertical</label>
+                <selector>.vertical-menu .navbar-nav</selector>
+                <attrs>background-color</attrs>
+            </item>
+        </items>
+        <items>
+            <header>Products</header>
+            <match>product</match>
+            <item>
+                <type>text</type>
+                <label>Color name</label>
+                <selector>.product-block .name a</selector>
+                <attrs>color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Color name hover</label>
+                <selector>.product-block .name a:hover</selector>
+                <attrs>color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Color Price</label>
+                <selector>.product-block .price</selector>
+                <attrs>color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Color Price Old</label>
+                <selector>.product-block .price del</selector>
+                <attrs>color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>BG Sale</label>
+                <selector>.woocommerce span.onsale, .woocommerce-page span.onsale</selector>
+                <attrs>background</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Color Sale</label>
+                <selector>.woocommerce span.onsale, .woocommerce-page span.onsale</selector>
+                <attrs>color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Bg Button-Cart</label>
+                <selector>.product-block .button-groups .added_to_cart, .product-block .button-groups .btn-cart</selector>
+                <attrs>background</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Color Button Cart</label>
+                <selector>.product-block .button-groups .added_to_cart, .product-block .button-groups .btn-cart</selector>
+                <attrs>color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Border Button Cart</label>
+                <selector>.product-block .button-groups .added_to_cart, .product-block .button-groups .btn-cart</selector>
+                <attrs>border-color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Color Hover Button Cart</label>
+                <selector>.product-block .button-groups .added_to_cart:hover, .product-block .button-groups .btn-cart:hover</selector>
+                <attrs>color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Border hover Button Cart</label>
+                <selector>.product-block .button-groups .added_to_cart:hover, .product-block .button-groups .btn-cart:hover</selector>
+                <attrs>border-color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Bg wishlist</label>
+                <selector>.product-block .yith-wcwl-add-to-wishlist</selector>
+                <attrs>background-color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Border wishlist</label>
+                <selector>.product-block .yith-wcwl-add-to-wishlist</selector>
+                <attrs>border-color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Bg hover wishlist</label>
+                <selector>.product-block .yith-wcwl-add-to-wishlist:hover</selector>
+                <attrs>background-color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Border hover wishlist</label>
+                <selector>.product-block .yith-wcwl-add-to-wishlist:hover</selector>
+                <attrs>border-color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Bg Compare, Quickview</label>
+                <selector>.product-block .btn</selector>
+                <attrs>background-color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Border Compare, Quickview</label>
+                <selector>.product-block .btn</selector>
+                <attrs>border-color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Bg Hover Compare, Quickview</label>
+                <selector>.product-block .btn:hover</selector>
+                <attrs>background-color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>border Hover Compare, Quickview</label>
+                <selector>.product-block .btn:hover</selector>
+                <attrs>border-color</attrs>
+            </item>
+
+        </items>
+
+        <items>
+            <header>Modules Sidebar</header>
+            <match>modules</match>
+            <item>
+                <type>text</type>
+                <label>Before Color Heading</label>
+                <selector>.box .box-heading:before</selector>
+                <attrs>background-color</attrs>
+            </item>
+
+            <item>
+                <type>text</type>
+                <label>Color Heading</label>
+                <selector>.box .box-heading</selector>
+                <attrs>color</attrs>
+            </item>
+            <item>
+                <type>text</type>
+                <label>Sidebar Vertical Heading</label>
+                <selector>.wpo-sidebar .box.widget_wpo_menu_vertical .box-heading</selector>
+                <attrs>background-color</attrs>
+            </item>
+
+            <item>
+                <type>text</type>
+                <label>Heading Color Vertical</label>
+                <selector>.wpo-sidebar .box.widget_wpo_menu_vertical .box-heading span</selector>
+                <attrs>color</attrs>
+            </item>
+        </items>
+
+
+
+    </elements>
+</themeeditor>

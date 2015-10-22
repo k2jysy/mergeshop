@@ -1,0 +1,65 @@
+//
+// Variables
+// --------------------------------------------------
+
+
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+$gray-darker:            lighten(#000, 13.5%) !default; // #222
+$gray-dark:              lighten(#000, 47%) !default;   // #777
+$gray:                   lighten(#000, 33.5%) !default; // #555
+$gray-light:             lighten(#000, 60%) !default;   // #999
+$gray-lighter:           lighten(#000, 93.5%) !default; // #eee
+
+$white:                 #FFFFFF !default;
+$brand-primary:         #428bca !default;
+$brand-success:         #5cb85c !default;
+$brand-info:            #5bc0de !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #d9534f !default;
+
+//Theme colors
+
+$theme-color-default   : #CCB48E ; // using for default color of all pages such as background color for top menu, block header
+$theme-color-primary   : #111111 ; // using for default color of all pages such as background color for , block , and other
+$theme-color-secondary : #F05423 ;  // for hightligh block header, text , button as default it is  color, and other
+$theme-color-threedary : #E5E5E5 ;  // for button as default it is  color
+
+$text-color            : #696969;
+
+$link-color:  				$theme-color-primary ;
+$link-color-hover: 			$theme-color-default !default;
+$link-hover-color: 			$theme-color-default !default;
+$theme-color:               $theme-color-default !default;
+
+$theme-color-border    : $theme-color-threedary;
+
+$theme-font-path:  		  "../fonts/";
+
+$border-color: 			    #e5e5e5 !default;
+
+// Variables images
+// --------------------------------------------------
+$image-theme-path-base 				:'../images/' !default;
+$image-theme-path 					:'../images/default/';
+
+
+
+//== Scaffolding
+//
+// ## Settings for some of the most global styles.
+
+
+// Font
+//---------------------------------------
+
+$font-family-sans-serif:  'Lato', sans-serif;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-sans:        'rockwellregular' !default;
+$font-family-sans-bold:   'rockwellbold' !default;
+$font-family-base:        $font-family-sans-serif !default;
+

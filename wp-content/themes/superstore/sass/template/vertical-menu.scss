@@ -1,0 +1,207 @@
+// Vertical Menu
+// ------------------------------------
+
+
+.vertical-menu{
+    &.navbar-collapse{
+        position: static;
+        padding: 0;
+        max-height: 100%;
+    }
+    .navbar-nav{
+        list-style: none;
+        padding: 0;
+        background-color: transparent;
+        min-height: 422px;
+        > li{
+            height: auto;
+            position: static;
+            width: 100%;
+            @include transition( all 0.5s ease-out 0s);
+            border: 1px solid transparent;
+            padding: 0 $padding-large-horizontal + 4;
+            > a{
+                position: relative;
+                &:before{
+                    background-color: $theme-color-border;
+                    bottom: -1px;
+                    content: "";
+                    height: 1px;
+                    @include rtl-left(25px);
+                    position: absolute;
+                    width: 25px;
+                    z-index: 9;
+                }
+            }
+            &:last-child{
+                border-bottom: none;
+                > a{
+                    font-size: $font-size-base - 1;
+                    span{
+                        &:before{
+                            display: none;
+                        }
+                    }
+                }
+            }
+            > a{
+                color: $text-color;
+                font-weight: 500;
+                border-bottom: none;
+                padding: $padding-large-vertical 0;
+                span{
+                    position: relative;
+                }
+                &:hover,
+                &:focus{
+                    background-color: transparent;
+                    color: $theme-color-default;
+                    .fa{
+                        color: $theme-color-default;
+                    }
+                    .caret{
+                        border-left:  $caret-width-base solid $theme-color-default;
+                    }
+                }
+                .caret{
+                    position: relative;
+                    border: none;
+                    @include rtl-float-right();
+                    &:before{
+                        font-family: FontAwesome;
+                        content: "\f054";
+                        position: absolute;
+                        @include rtl-right(30px);
+                        top : 0;
+                        font-size: $font-size-base - 6;
+                        font-weight: lighter;
+                    }
+                }
+                .fa{
+                    font-size: $font-size-base - 1;
+                    margin-right: $margin-base-vertical + 5;
+                    text-align: center;
+                    color: $text-color;
+                    width: 15px;
+                }
+            }
+            &.dropdown{
+                &:hover{
+                    > a {
+                        &:after{
+                            border: 5px solid $white;
+                            content: "";
+                            height: 100%;
+                            position: absolute;
+                            right: -25px;
+                            top: 0;
+                            width: 0;
+                            z-index: 9999;
+                        }
+                    }
+                }
+            }
+            &:hover{
+                border: 1px solid $theme-color-border;
+                @include rtl-padding-left(25px);
+                > a {
+                    span{
+                        &:before{
+                            display: none;
+                        }
+                    }
+                }
+            }
+            .widget-title{
+                font-size: $font-size-base - 1;
+                font-weight: 600;
+                margin-bottom: $margin-base-vertical*2;
+                background-color: transparent;
+
+            }
+            .widget-title-sub{
+                font-size: $font-size-base - 2;
+                font-weight: 600;
+            }
+
+        }
+        li.open{
+            a{
+                background-color: transparent;
+                &:hover,
+                &:focus{
+                    background-color: transparent;
+                }
+
+            }
+        }
+    }
+    .dropdown-menu{
+        padding: $padding-large-vertical $padding-large-horizontal + 8;
+        @include rtl-left(100%!important);
+        font-family: $font-family-sans;
+        border: 1px solid $theme-color-border;
+        top: 0px;
+        min-height: 100%;
+        @include border-radius(0px);
+        @include box-shadow(none);
+        font-size: $font-size-base - 1;
+        background-color: $white !important;
+        .mega-col-inner{
+            ul{
+                padding: 0;
+                list-style: none;
+                li{
+                    line-height: 30px;
+                    font-weight: 400;
+                    border: none;
+                    padding: 0;
+                    &:hover{
+                        border: none;
+                        padding: 0;
+                    }
+                    &:before{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    .wpo-widget{
+        margin-bottom: 0;
+        .product-block{
+            background-color: transparent;
+            &:hover{
+                .button-groups{
+                    display: none;
+                }
+                .image{
+                    .price{
+                        @include opacity(0);
+                    }
+                }
+                .price,.rating{
+                    @include opacity(1);
+                }
+            }
+            .button{
+                display: none;
+            }
+        }
+    }
+    &.menu-right{
+        .dropdown-menu{
+            @include rtl-right(100% !important);
+            @include rtl-left(auto !important);
+        }
+        .navbar-nav{
+            > li.dropdown{
+                &:hover{
+                    > a:after{
+                        left: -18px;
+                    }
+                }
+            }
+        }
+    }
+}
