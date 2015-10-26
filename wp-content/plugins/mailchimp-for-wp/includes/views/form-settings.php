@@ -1,12 +1,12 @@
-<?php 
-if( ! defined("MC4WP_LITE_VERSION") ) {
+<?php
+if( ! defined( 'MC4WP_LITE_VERSION' ) ) {
 	header( 'Status: 403 Forbidden' );
 	header( 'HTTP/1.1 403 Forbidden' );
 	exit;
 } ?>
-<div id="mc4wp" class="wrap mc4wp-settings">
+<div id="mc4wp-admin" class="wrap mc4wp-settings">
 
-	<h2><img src="<?php echo MC4WP_LITE_PLUGIN_URL . 'assets/img/menu-icon.png'; ?>" /> <?php _e( 'MailChimp for WordPress', 'mailchimp-for-wp' ); ?>: <?php _e( 'Form Settings', 'mailchimp-for-wp' ); ?></h2>
+	<h1 class="page-title"><?php _e( 'MailChimp for WordPress', 'mailchimp-for-wp' ); ?>: <?php _e( 'Form Settings', 'mailchimp-for-wp' ); ?></h1>
 
 	<div id="mc4wp-content">
 
@@ -24,15 +24,15 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 						<th scope="row"><label for="mc4wp_load_stylesheet_select"><?php _e( 'Load form styles (CSS)?' ,'mailchimp-for-wp' ); ?></label></th>
 						<td class="nowrap valigntop">
 							<select name="mc4wp_lite_form[css]" id="mc4wp_load_stylesheet_select">
-								<option value="0" <?php selected($opts['css'], 0); ?>><?php _e( 'No', 'mailchimp-for-wp' ); ?></option>
-								<option value="default" <?php selected($opts['css'], 'default'); ?><?php selected($opts['css'], 1); ?>><?php _e( 'Yes, load basic form styles', 'mailchimp-for-wp' ); ?></option>
+								<option value="0" <?php selected( $opts['css'], 0 ); ?>><?php _e( 'No', 'mailchimp-for-wp' ); ?></option>
+								<option value="default" <?php selected( $opts['css'], 'default' ); ?><?php selected( $opts['css'], 1 ); ?>><?php _e( 'Yes, load basic form styles', 'mailchimp-for-wp' ); ?></option>
 								<option disabled><?php _e( '(PRO ONLY)', 'mailchimp-for-wp' ); ?> <?php _e( 'Yes, load my custom form styles', 'mailchimp-for-wp' ); ?></option>
 								<optgroup label="<?php _e( 'Yes, load default form theme', 'mailchimp-for-wp' ); ?>">
-									<option value="light" <?php selected($opts['css'], 'light'); ?>><?php _e( 'Light Theme', 'mailchimp-for-wp' ); ?></option>
-									<option value="red" <?php selected($opts['css'], 'red'); ?>><?php _e( 'Red Theme', 'mailchimp-for-wp' ); ?></option>
-									<option value="green" <?php selected($opts['css'], 'green'); ?>><?php _e( 'Green Theme', 'mailchimp-for-wp' ); ?></option>
-									<option value="blue" <?php selected($opts['css'], 'blue'); ?>><?php _e( 'Blue Theme', 'mailchimp-for-wp' ); ?></option>
-									<option value="dark" <?php selected($opts['css'], 'dark'); ?>><?php _e( 'Dark Theme', 'mailchimp-for-wp' ); ?></option>
+									<option value="light" <?php selected( $opts['css'], 'light' ); ?>><?php _e( 'Light Theme', 'mailchimp-for-wp' ); ?></option>
+									<option value="red" <?php selected( $opts['css'], 'red' ); ?>><?php _e( 'Red Theme', 'mailchimp-for-wp' ); ?></option>
+									<option value="green" <?php selected( $opts['css'], 'green' ); ?>><?php _e( 'Green Theme', 'mailchimp-for-wp' ); ?></option>
+									<option value="blue" <?php selected( $opts['css'], 'blue' ); ?>><?php _e( 'Blue Theme', 'mailchimp-for-wp' ); ?></option>
+									<option value="dark" <?php selected( $opts['css'], 'dark' ); ?>><?php _e( 'Dark Theme', 'mailchimp-for-wp' ); ?></option>
 									<option disabled><?php _e( '(PRO ONLY)', 'mailchimp-for-wp' ); ?> <?php _e( 'Custom Color Theme', 'mailchimp-for-wp' ); ?></option>
 								</optgroup>
 							</select>
@@ -45,7 +45,7 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 						<th scope="row"><?php _e( 'Lists this form subscribes to', 'mailchimp-for-wp' ); ?></th>
 					<?php // loop through lists
 					if( empty( $lists ) ) {
-						?><td colspan="2"><?php printf( __( 'No lists found, %sare you connected to MailChimp?%s', 'mailchimp-for-wp' ), '<a href="'. admin_url( 'admin.php?page=mc4wp-lite' ) .'">', '</a>' ); ?></td><?php
+						?><td colspan="2"><?php printf( __( 'No lists found, <a href="%s">are you connected to MailChimp</a>?', 'mailchimp-for-wp' ), admin_url( 'admin.php?page=mailchimp-for-wp' ) ); ?></td><?php
 					} else { ?>
 					<td>
 
@@ -53,7 +53,7 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 						<?php foreach($lists as $list) { ?>
 							<li>
 								<label>
-									<input type="checkbox" name="mc4wp_lite_form[lists][<?php echo esc_attr( $list->id ); ?>]" value="<?php echo esc_attr( $list->id ); ?>" data-list-groupings="<?php echo esc_attr(json_encode($list->interest_groupings)); ?>" data-list-fields="<?php echo esc_attr(json_encode($list->merge_vars)); ?>" <?php if(array_key_exists($list->id, $opts['lists'])) echo 'checked="checked"'; ?>> <?php echo esc_html( $list->name ); ?>
+									<input type="checkbox" name="mc4wp_lite_form[lists][<?php echo esc_attr( $list->id ); ?>]" value="<?php echo esc_attr( $list->id ); ?>" <?php if(array_key_exists( $list->id, $opts['lists'] )) { echo 'checked="checked"'; } ?>> <?php echo esc_html( $list->name ); ?>
 								</label>
 							</li>
 						<?php } ?>
@@ -68,24 +68,11 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 						<td colspan="3">
 							<h4><?php _e( 'Form mark-up', 'mailchimp-for-wp' ); ?></h4>
 
-							<?php if ( ! empty( $missing_form_fields ) ) {
-
-								?><p class="mc4wp-notice missing-form-fields"><?php
-
-								echo __( 'Your form is missing the following (required) form fields:', 'mailchimp-for-wp') . ' <br /><br />';
-
-								foreach( $missing_form_fields as $missing_field ) {
-									echo '- ' . $missing_field . '<br />';
-								}
-								?></p><?php
-
-							} ?>
-
 							<div class="mc4wp-wrapper">
 								<div class="mc4wp-col mc4wp-first">
-									<?php 
+									<?php
 									if( function_exists( 'wp_editor' ) ) {
-										wp_editor( esc_textarea( $opts['markup'] ), 'mc4wpformmarkup', array( 'tinymce' => false, 'media_buttons' => true, 'textarea_name' => 'mc4wp_lite_form[markup]'));
+										wp_editor( esc_textarea( $opts['markup'] ), 'mc4wpformmarkup', array( 'tinymce' => false, 'media_buttons' => true, 'textarea_name' => 'mc4wp_lite_form[markup]') );
 									} else {
 										?><textarea class="widefat" cols="160" rows="20" id="mc4wpformmarkup" name="mc4wp_lite_form[markup]"><?php echo esc_textarea( $opts['markup'] ); ?></textarea><?php
 									} ?>
@@ -98,10 +85,16 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 							</div>
 						</td>
 					</tr>
-
 			</table>
 
-	<?php submit_button(); ?>
+			<div id="missing-fields-notice" class="mc4wp-notice" style="display: none;">
+				<p>
+					<?php echo __( 'Your form is missing the following (required) form fields:', 'mailchimp-for-wp' ); ?>
+				</p>
+				<ul id="missing-fields-list" class="ul-square"></ul>
+			</div>
+
+		<?php submit_button(); ?>
 
 		<h3 class="mc4wp-title"><?php _e( 'MailChimp Settings', 'mailchimp-for-wp' ); ?></h3>
 		<table class="form-table">
@@ -113,19 +106,24 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 						<?php _e( 'Yes', 'mailchimp-for-wp' ); ?>
 					</label> &nbsp;
 					<label>
-						<input type="radio" name="mc4wp_lite_form[double_optin]" value="0" <?php checked( $opts['double_optin'], 0); ?> />
+						<input type="radio" name="mc4wp_lite_form[double_optin]" value="0" <?php checked( $opts['double_optin'], 0 ); ?> />
 						<?php _e( 'No', 'mailchimp-for-wp' ); ?>
 					</label>
 				</td>
 				<td class="desc"><?php _e( 'Select "yes" if you want people to confirm their email address before being subscribed (recommended)', 'mailchimp-for-wp' ); ?></td>
 			</tr>
-			<tr class="pro-feature" valign="top">
+			<?php $enabled = ! $opts['double_optin']; ?>
+			<tr id="mc4wp-send-welcome" valign="top" <?php if( ! $enabled ) { ?>class="hidden"<?php } ?>>
 				<th scope="row"><?php _e( 'Send Welcome Email?', 'mailchimp-for-wp' ); ?></th>
 				<td class="nowrap">
-					<input type="radio" readonly />
-					<label><?php _e( "Yes", 'mailchimp-for-wp' ); ?></label> &nbsp;
-					<input type="radio" checked readonly /> 
-					<label><?php _e( "No", 'mailchimp-for-wp' ); ?></label> &nbsp;
+					<label>
+						<input type="radio"  name="mc4wp_lite_form[send_welcome]" value="1" <?php if( $enabled ) { checked( $opts['send_welcome'], 1 ); } else { echo 'disabled'; } ?> />
+						<?php _e( 'Yes', 'mailchimp-for-wp' ); ?>
+					</label> &nbsp;
+					<label>
+						<input type="radio" name="mc4wp_lite_form[send_welcome]" value="0" <?php if( $enabled ) { checked( $opts['send_welcome'], 0 ); } else { echo 'disabled'; } ?> />
+						<?php _e( 'No', 'mailchimp-for-wp' ); ?>
+					</label>
 				</td>
 				<td class="desc"><?php _e( 'Select "yes" if you want to send your lists Welcome Email if a subscribe succeeds (only when double opt-in is disabled).' ,'mailchimp-for-wp' ); ?></td>
 			</tr>
@@ -133,7 +131,7 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 				<th scope="row"><?php _e( 'Update existing subscribers?', 'mailchimp-for-wp' ); ?></th>
 				<td class="nowrap">
 					<input type="radio" readonly /> 
-					<label><?php _e("Yes", 'mailchimp-for-wp'); ?></label> &nbsp; 
+					<label><?php _e( 'Yes', 'mailchimp-for-wp' ); ?></label> &nbsp; 
 					<input type="radio" checked readonly /> 
 					<label><?php _e( 'No', 'mailchimp-for-wp' ); ?></label> &nbsp;
 				</td>
@@ -144,14 +142,14 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 				<td class="nowrap">
 					<label>
 						<input type="radio" checked readonly />
-						<?php _e("Yes", 'mailchimp-for-wp'); ?>
+						<?php _e( 'Yes', 'mailchimp-for-wp' ); ?>
 					</label> &nbsp;
 					<label>
 						<input type="radio" readonly />
-						<?php _e("No", 'mailchimp-for-wp'); ?>
+						<?php _e( 'No', 'mailchimp-for-wp' ); ?>
 					</label>
 				</td>
-				<td class="desc"><?php _e( 'Select "yes" if you want to replace the interest groups with the groups provided instead of adding the provided groups to the member\'s interest groups (only when updating a subscriber).', 'mailchimp-for-wp'); ?></td>
+				<td class="desc"><?php _e( 'Select "yes" if you want to replace the interest groups with the groups provided instead of adding the provided groups to the member\'s interest groups (only when updating a subscriber).', 'mailchimp-for-wp' ); ?></td>
 			</tr>
 		</table>
 
@@ -163,21 +161,21 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 				<td class="nowrap">
 					<label>
 						<input type="radio" disabled />
-						<?php _e("Yes", 'mailchimp-for-wp'); ?>
+						<?php _e( 'Yes', 'mailchimp-for-wp' ); ?>
 					</label> &nbsp;
 					<label>
 						<input type="radio" checked disabled />
-						<?php _e("No", 'mailchimp-for-wp'); ?>
+						<?php _e( 'No', 'mailchimp-for-wp' ); ?>
 					</label>
 				</td>
-				<td class="desc"><?php _e( 'Select "yes" if you want to use AJAX (JavaScript) to submit forms.', 'mailchimp-for-wp' ); ?> <a href="https://mc4wp.com/demo/#utm_source=lite-plugin&utm_medium=link&utm_campaign=settings-demo-link">(demo)</a></td>
+				<td class="desc"><?php _e( 'Select "yes" if you want to use AJAX (JavaScript) to submit forms.', 'mailchimp-for-wp' ); ?> <a href="https://mc4wp.com/demo/#utm_source=wp-plugin&utm_medium=mailchimp-for-wp&utm_campaign=settings-demo-link">(demo)</a></td>
 			</tr>
 			<tr valign="top">
 				<th scope="row"><?php _e( 'Hide form after a successful sign-up?', 'mailchimp-for-wp' ); ?></th>
 				<td class="nowrap">
 					<label>
 						<input type="radio" name="mc4wp_lite_form[hide_after_success]" value="1" <?php checked( $opts['hide_after_success'], 1 ); ?> />
-						<?php _e( 'Yes', 'mailchimp-for-wp'); ?>
+						<?php _e( 'Yes', 'mailchimp-for-wp' ); ?>
 					</label> &nbsp;
 					<label>
 						<input type="radio" name="mc4wp_lite_form[hide_after_success]" value="0" <?php checked( $opts['hide_after_success'], 0 ); ?> />
@@ -189,35 +187,64 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 			<tr valign="top">
 				<th scope="row"><label for="mc4wp_form_redirect"><?php _e( 'Redirect to URL after successful sign-ups', 'mailchimp-for-wp' ); ?></label></th>
 				<td colspan="2">
-					<input type="text" class="widefat" name="mc4wp_lite_form[redirect]" id="mc4wp_form_redirect" placeholder="<?php printf( __( 'Example: %s', 'mailchimp-for-wp' ), esc_url( site_url('/thank-you/' ) ) ); ?>" value="<?php echo esc_url( $opts['redirect'] ); ?>" />
-					<p class="help"><?php _e( 'Leave empty or enter 0 for no redirection. Use complete (absolute) URLs, including <code>http://</code>', 'mailchimp-for-wp' ); ?></p>
+					<input type="text" class="widefat" name="mc4wp_lite_form[redirect]" id="mc4wp_form_redirect" placeholder="<?php printf( __( 'Example: %s', 'mailchimp-for-wp' ), esc_attr( site_url( '/thank-you/' ) ) ); ?>" value="<?php echo esc_attr( $opts['redirect'] ); ?>" />
+					<p class="help"><?php _e( 'Leave empty or enter <code>0</code> for no redirect. Otherwise, use complete (absolute) URLs, including <code>http://</code>.', 'mailchimp-for-wp' ); ?></p>
 				</td>
 			</tr>
 			<tr valign="top">
-				<th scope="row"><label for="mc4wp_form_text_success"><?php _e( 'Success message', 'mailchimp-for-wp' ); ?></label></th>
-				<td colspan="2" ><input type="text" class="widefat" id="mc4wp_form_text_success" name="mc4wp_lite_form[text_success]" value="<?php echo esc_attr( $opts['text_success'] ); ?>" required /></td>
+				<th scope="row"><label for="mc4wp_form_text_subscribed"><?php _e( 'Successfully subscribed', 'mailchimp-for-wp' ); ?></label></th>
+				<td colspan="2" >
+					<input type="text" class="widefat" id="mc4wp_form_text_subscribed" name="mc4wp_lite_form[text_subscribed]" value="<?php echo esc_attr( $opts['text_subscribed'] ); ?>" required />
+					<p class="help"><?php _e( 'The text that shows when an email address is successfully subscribed to the selected list(s).', 'mailchimp-for-wp' ); ?></p>
+				</td>
 			</tr>
 			<tr valign="top">
-				<th scope="row"><label for="mc4wp_form_text_invalid_email"><?php _e( 'Invalid email address message', 'mailchimp-for-wp' ); ?></label></th>
-				<td colspan="2" ><input type="text" class="widefat" id="mc4wp_form_text_invalid_email" name="mc4wp_lite_form[text_invalid_email]" value="<?php echo esc_attr( $opts['text_invalid_email'] ); ?>" required /></td>
+				<th scope="row"><label for="mc4wp_form_text_invalid_email"><?php _e( 'Invalid email address', 'mailchimp-for-wp' ); ?></label></th>
+				<td colspan="2" >
+					<input type="text" class="widefat" id="mc4wp_form_text_invalid_email" name="mc4wp_lite_form[text_invalid_email]" value="<?php echo esc_attr( $opts['text_invalid_email'] ); ?>" required />
+					<p class="help"><?php _e( 'The text that shows when an invalid email address is given.', 'mailchimp-for-wp' ); ?></p>
+				</td>
 			</tr>
 			<tr valign="top">
-				<th scope="row"><label for="mc4wp_form_text_required_field_missing"><?php _e( 'Required field missing message', 'mailchimp-for-wp' ); ?></label></th>
-				<td colspan="2" ><input type="text" class="widefat" id="mc4wp_form_text_required_field_missing" name="mc4wp_lite_form[text_required_field_missing]" value="<?php echo esc_attr( $opts['text_required_field_missing'] ); ?>" required /></td>
+				<th scope="row"><label for="mc4wp_form_text_required_field_missing"><?php _e( 'Required field missing', 'mailchimp-for-wp' ); ?></label></th>
+				<td colspan="2" >
+					<input type="text" class="widefat" id="mc4wp_form_text_required_field_missing" name="mc4wp_lite_form[text_required_field_missing]" value="<?php echo esc_attr( $opts['text_required_field_missing'] ); ?>" required />
+					<p class="help"><?php _e( 'The text that shows when a required field for the selected list(s) is missing.', 'mailchimp-for-wp' ); ?></p>
+				</td>
 			</tr>
 			<tr valign="top">
-				<th scope="row"><label for="mc4wp_form_text_already_subscribed"><?php _e( 'Already subscribed message', 'mailchimp-for-wp' ); ?></label></th>
-				<td colspan="2" ><input type="text" class="widefat" id="mc4wp_form_text_already_subscribed" name="mc4wp_lite_form[text_already_subscribed]" value="<?php echo esc_attr( $opts['text_already_subscribed'] ); ?>" required /></td>
+				<th scope="row"><label for="mc4wp_form_text_already_subscribed"><?php _e( 'Already subscribed', 'mailchimp-for-wp' ); ?></label></th>
+				<td colspan="2" >
+					<input type="text" class="widefat" id="mc4wp_form_text_already_subscribed" name="mc4wp_lite_form[text_already_subscribed]" value="<?php echo esc_attr( $opts['text_already_subscribed'] ); ?>" required />
+					<p class="help"><?php _e( 'The text that shows when the given email is already subscribed to the selected list(s).', 'mailchimp-for-wp' ); ?></p>
+				</td>
 			</tr>
 			<?php if( true === $this->has_captcha_plugin ) { ?>
 				<tr valign="top">
-					<th scope="row"><label for="mc4wp_form_text_invalid_captcha"><?php _e( 'Invalid CAPTCHA message', 'mailchimp-for-wp' ); ?></label></th>
+					<th scope="row"><label for="mc4wp_form_text_invalid_captcha"><?php _e( 'Invalid CAPTCHA', 'mailchimp-for-wp' ); ?></label></th>
 					<td colspan="2" ><input type="text" class="widefat" id="mc4wp_form_text_invalid_captcha" name="mc4wp_lite_form[text_invalid_captcha]" value="<?php echo esc_attr( $opts['text_invalid_captcha'] ); ?>" required /></td>
 				</tr>
 			<?php } ?>
 			<tr valign="top">
-				<th scope="row"><label for="mc4wp_form_text_error"><?php _e( 'General error message' ,'mailchimp-for-wp' ); ?></label></th>
-				<td colspan="2" ><input type="text" class="widefat" id="mc4wp_form_text_error" name="mc4wp_lite_form[text_error]" value="<?php echo esc_attr( $opts['text_error'] ); ?>" required /></td>
+				<th scope="row"><label for="mc4wp_form_text_error"><?php _e( 'General error' ,'mailchimp-for-wp' ); ?></label></th>
+				<td colspan="2" >
+					<input type="text" class="widefat" id="mc4wp_form_text_error" name="mc4wp_lite_form[text_error]" value="<?php echo esc_attr( $opts['text_error'] ); ?>" required />
+					<p class="help"><?php _e( 'The text that shows when a general error occured.', 'mailchimp-for-wp' ); ?></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<th scope="row"><label for="mc4wp_form_text_unsubscribed"><?php _e( 'Unsubscribed', 'mailchimp-for-wp' ); ?></label></th>
+				<td colspan="2" >
+					<input type="text" class="widefat" id="mc4wp_form_text_unsubscribed" name="mc4wp_lite_form[text_unsubscribed]" value="<?php echo esc_attr( $opts['text_unsubscribed'] ); ?>" required />
+					<p class="help"><?php _e( 'When using the unsubscribe method, this is the text that shows when the given email address is successfully unsubscribed from the selected list(s).', 'mailchimp-for-wp' ); ?></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<th scope="row"><label for="mc4wp_form_text_not_subscribed"><?php _e( 'Not subscribed', 'mailchimp-for-wp' ); ?></label></th>
+				<td colspan="2" >
+					<input type="text" class="widefat" id="mc4wp_form_text_not_subscribed" name="mc4wp_lite_form[text_not_subscribed]" value="<?php echo esc_attr( $opts['text_not_subscribed'] ); ?>" required />
+					<p class="help"><?php _e( 'When using the unsubscribe method, this is the text that shows when the given email address is not on the selected list(s).', 'mailchimp-for-wp' ); ?></p>
+				</td>
 			</tr>
 			<tr>
 				<th></th>
@@ -236,22 +263,24 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 	<?php include 'parts/admin-upgrade-to-pro.php'; ?>
 
 	<div class="mc4wp-box" id="mc4wp-info-tabs">
-		<h3 class="mc4wp-title">Building your sign-up form</h3>
-		<p>At a minimum, your form should include just an <strong>EMAIL</strong> field and a submit button.</p>
-		<p>Add more fields to your form if your list requires more fields. Field names should match your MailChimp list field tags. Use the "Add a new field" tool to have the correct HTML generated for you.</p>
+		<h3 class="mc4wp-title"><?php _e( 'Form Styling', 'mailchimp-for-wp' ); ?></h3>
+		<p><?php printf( __( 'Alter the visual appearance of the form by applying CSS rules to %s.', 'mailchimp-for-wp' ), '<b>.mc4wp-form</b>' ); ?></p>
+		<p><?php printf( __( 'You can add the CSS rules to your theme stylesheet using the <a href="%s">Theme Editor</a> or by using a plugin like %s', 'mailchimp-for-wp' ), admin_url( 'theme-editor.php?file=style.css' ), '<a href="https://wordpress.org/plugins/simple-custom-css/">Simple Custom CSS</a>' ); ?>.</p>
+		<p><?php printf( __( 'The <a href="%s" target="_blank">plugin FAQ</a> lists the various CSS selectors you can use to target the different form elements.', 'mailchimp-for-wp' ), 'https://wordpress.org/plugins/mailchimp-for-wp/faq/' ); ?></p>
+		<p><?php printf( __( 'If you need an easier way to style your forms, consider <a href="%s">upgrading to MailChimp for WordPress Pro</a> which comes with an easy Styles Builder.', 'mailchimp-for-wp' ), 'https://mc4wp.com/#utm_source=wp-plugin&utm_medium=mailchimp-for-wp&utm_campaign=form-settings' ); ?></p>
 
-		<h3 class="mc4wp-title">Form Styling</h3>
-		<p>Alter the visual appearance of the form by applying CSS rules to <b>.mc4wp-form</b> and its child elements.</p>
-		<p>You should add the CSS rules to your theme stylesheet using the <a href="<?php echo admin_url('theme-editor.php?file=style.css'); ?>">Theme Editor</a> or by editing <em><?php echo get_stylesheet_directory(); ?>/style.css</em> over FTP.</p>
-
-		<p>The <a href="http://wordpress.org/plugins/mailchimp-for-wp/faq/" target="_blank">FAQ</a> lists the various CSS selectors you can use to target the different elements.</p>
-		
-		<h3 class="mc4wp-title"><?php _e( 'Form variables', 'mailchimp-for-wp' ); ?></h3>
-		<p><?php _e( 'Use the following variables to add some dynamic content to your form.', 'mailchimp-for-wp' ); ?></p>
+		<h3 class="mc4wp-title"><?php _e( 'Variables', 'mailchimp-for-wp' ); ?></h3>
+		<p>
+			<?php echo sprintf( __( 'The following list of variables can be used to <a href="%s">add some dynamic content to your form or success and error messages</a>.', 'mailchimp-for-wp' ), 'https://mc4wp.com/kb/using-variables-in-your-form-or-messages/#utm_source=wp-plugin&utm_medium=mailchimp-for-wp&utm_campaign=form-settings' ) . ' ' . __( 'This allows you to personalise your form or response messages.', 'mailchimp-for-wp' ); ?>
+		</p>
 
 		<?php $language = defined( 'ICL_LANGUAGE_CODE' ) ? ICL_LANGUAGE_CODE : get_locale(); ?>
 
 		<table class="mc4wp-help">
+			<tr>
+				<th>{email}</th>
+				<td><?php _e( 'Replaced with the visitor\'s email (if set in URL or cookie).', 'mailchimp-for-wp' ); ?></td>
+			</tr>
 			<tr>
 				<th>{response}</th>
 				<td><?php _e( 'Replaced with the form response (error or success messages).', 'mailchimp-for-wp' ); ?></td>
@@ -276,11 +305,11 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 			</tr>
 			<tr>
 				<th>{date}</th>
-				<td><?php printf( __( 'Replaced with the current date (yyyy/mm/dd eg: %s)', 'mailchimp-for-wp' ), '<em>' . date("Y/m/d") . '</em>' ); ?></td>
+				<td><?php printf( __( 'Replaced with the current date (yyyy/mm/dd eg: %s)', 'mailchimp-for-wp' ), '<em>' . date( 'Y/m/d' ) . '</em>' ); ?></td>
 			</tr>
 			<tr>
 				<th>{time}</th>
-				<td><?php printf( __( 'Replaced with the current time (hh:mm:ss eg: %s)', 'mailchimp-for-wp' ), '<em>' . date("H:i:s") . '</em>' ); ?></td>
+				<td><?php printf( __( 'Replaced with the current time (hh:mm:ss eg: %s)', 'mailchimp-for-wp' ), '<em>' . date( 'H:i:s' ) . '</em>' ); ?></td>
 			</tr>
 			<tr>
 				<th>{user_email}</th>
@@ -301,6 +330,14 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 			<tr>
 				<th>{current_url}</th>
 				<td><?php _e( 'Current URL', 'mailchimp-for-wp' ); ?></td>
+			</tr>
+			<tr>
+				<th>{current_path}</th>
+				<td><?php _e( 'Current URL path', 'mailchimp-for-wp' ); ?></td>
+			</tr>
+			<tr>
+				<th>{data_FNAME}</th>
+				<td><?php _e( 'The value of the <strong>FNAME</strong> field, if set.', 'mailchimp-for-wp' ); ?></td>
 			</tr>
 		</table>
 	</div>

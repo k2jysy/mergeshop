@@ -1,5 +1,5 @@
-<?php 
-if( ! defined("MC4WP_LITE_VERSION") ) {
+<?php
+if( ! defined( 'MC4WP_LITE_VERSION' ) ) {
 	header( 'Status: 403 Forbidden' );
 	header( 'HTTP/1.1 403 Forbidden' );
 	exit;
@@ -11,13 +11,14 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 
 	<p><?php _e( 'Use the tool below to generate the HTML for your form fields.', 'mailchimp-for-wp' ); ?></p>
 	<p>
-		<select class="widefat" id="mc4wp-fw-mailchimp-fields">
+		<select class="widefat" id="mc4wp-fw-mailchimp-fields" style="<?php if( empty( $opts['lists'] ) ) { echo 'display: none;'; } ?>">
 			<option class="default" value="" disabled selected><?php _e( 'Select MailChimp field..', 'mailchimp-for-wp' ); ?></option>
 			<optgroup label="MailChimp merge fields" class="merge-fields"></optgroup>
-			<optgroup label="Interest groupings" class="groupings"></optgroup>
+			<optgroup label="Groupings" class="groupings"></optgroup>
 			<optgroup label="Other" class="other">
 				<option class="default" value="submit"><?php _e( 'Submit Button' ,'mailchimp-for-wp' ); ?></option>
-				<option class="default" disabled><?php _e( '(PRO ONLY)' ,'mailchimp-for-wp' ); ?> <?php _e( 'Lists Choice' ,'mailchimp-for-wp' ); ?></option>
+				<option class="default" value="_action"><?php echo __( 'Subscribe / unsubscribe choice', 'mailchimp-for-wp' ); ?></option>
+				<option class="default" disabled><?php echo __( '(PRO ONLY)' ,'mailchimp-for-wp' ) . ' ' . __( 'List choice' ,'mailchimp-for-wp' ); ?></option>
 			</optgroup>
 		</select>
 	</p>
@@ -25,7 +26,7 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 	<div id="mc4wp-fw-fields">
 
 		<p class="row label">
-			<label for="mc4wp-fw-label"><?php _e('Label', 'mailchimp-for-wp' ); ?> <small><?php _e( '(optional)', 'mailchimp-for-wp' ); ?></small></label>
+			<label for="mc4wp-fw-label"><?php _e( 'Label', 'mailchimp-for-wp' ); ?> <small><?php _e( '(optional)', 'mailchimp-for-wp' ); ?></small></label>
 			<input class="widefat" type="text" id="mc4wp-fw-label" />
 		</p>
 
@@ -59,12 +60,12 @@ if( ! defined("MC4WP_LITE_VERSION") ) {
 
 		<p>
 			<label for="mc4wp-fw-preview"><?php _e( 'Generated HTML', 'mailchimp-for-wp' ); ?></label>
-			<textarea class="widefat" id="mc4wp-fw-preview" rows="5"></textarea>
+			<textarea class="widefat" id="mc4wp-fw-preview" rows="5" readonly></textarea>
 		</p>
 
 	</div>
 
-	<p class="mc4wp-notice no-lists-selected" <?php if(!empty($opts['lists'])) { ?>style="display: none;" <?php } ?>>
+	<p class="mc4wp-notice no-lists-selected" <?php if( ! empty($opts['lists'])) { ?>style="display: none;" <?php } ?>>
 		<?php _e( 'Select at least one list first.', 'mailchimp-for-wp' ); ?>
 	</p>
 

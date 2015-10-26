@@ -1,0 +1,659 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Screets Chat v1.2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2013-08-02 06:45+0200\n"
+"Last-Translator: Screets Team <support@screets.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"Language: da_DK\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# @ sc_chat
+#: core/class.chat.php:25 core/class.chat.php:103
+msgid "Please fill out all required fields"
+msgstr "Udfyld venligst alle felter"
+
+# @ sc_chat
+#: core/class.chat.php:33
+msgid "E-mail is invalid"
+msgstr "E-mail er ikke rigtig"
+
+# @ sc_chat
+#: core/class.chat.php:52
+msgid "Name"
+msgstr "Navn"
+
+# @ sc_chat
+#: core/class.chat.php:53 core/class.logs.php:60 core/prepare.php:41
+msgid "E-mail"
+msgstr "Din e-mail"
+
+# @ sc_chat
+#: core/class.chat.php:54
+msgid "Message"
+msgstr "Besked"
+
+# @ sc_chat
+#: core/class.chat.php:62
+#, php-format
+msgid "%s wrote a note"
+msgstr "%s skrev"
+
+# @ sc_chat
+#: core/class.chat.php:67
+msgid "Successfully sent! Thank you"
+msgstr "Din besked er sendt. Mange tak!"
+
+# @ sc_chat
+#: core/class.chat.php:73
+msgid "Something went wrong! Try again"
+msgstr "Ups der gik noget galt! Prøv igen"
+
+# @ sc_chat
+#: core/class.chat.php:110
+msgid "Email is invalid"
+msgstr "E-mail er ikke rigtig"
+
+# @ sc_chat
+#: core/class.chat.php:300
+msgid "User has been sent this message after you disconnected from chat"
+msgstr "Brugeren har fået denne besked, efter du lukkede chatten"
+
+# @ sc_chat
+#: core/class.chat.php:310
+msgid ""
+"We are offline now. However, your message has been sent to us by email. We "
+"will contact you as soon as possible"
+msgstr ""
+"Æv vi er offline. Men din besked er blevet sendt til os som e-mail, og vi "
+"vil besvare den hurtigst muligt."
+
+# @ sc_chat
+#: core/class.chat.php:316
+msgid "You are not logged in"
+msgstr "Du er ikke logget ind"
+
+# @ sc_chat
+#: core/class.chat.php:319
+msgid "You haven't entered a chat message"
+msgstr "Du har ikke skrevet din besked"
+
+# @ sc_chat
+#: core/class.chat.php:414
+msgid "You"
+msgstr "Dig"
+
+# @ sc_chat
+#: core/class.chat.php:417
+msgid "Operator"
+msgstr "Operatør"
+
+# @ sc_chat
+#: core/class.chat.php:420 core/class.logs.php:59
+msgid "Visitor"
+msgstr "Gæst"
+
+# @ sc_chat
+#: core/class.chat.php:423
+msgid "Web User"
+msgstr "Web bruger"
+
+# @ sc_chat
+#: core/class.chat_user.php:56
+msgid ""
+"E-mail address has already been used by an operator. Please enter another one"
+msgstr "E-mail adressen er i brug af en operatør. Brug venligst en anden"
+
+# @ sc_chat
+#: core/class.logs.php:61
+msgid "Total Logs"
+msgstr "Logs ialt"
+
+# @ sc_chat
+#: core/class.logs.php:62
+msgid "Last Chat Date"
+msgstr "Seneste Chat"
+
+# @ sc_chat
+#: core/class.logs.php:89 core/fn.admin.php:117 core/fn.admin.php:142
+#: core/fn.admin.php:309 core/fn.admin.php:314 screets-chat.php:617
+msgid "Chat Logs"
+msgstr "Chat logs"
+
+# @ sc_chat
+#: core/class.logs.php:90 core/class.logs.php:189
+msgid "Delete"
+msgstr "Slet"
+
+# @ default
+#: core/class.logs.php:211
+msgid "Search"
+msgstr "Søg"
+
+# @ sc_chat
+#: core/class.logs.php:211
+msgid "Search in logs"
+msgstr "Søg i logs"
+
+# @ sc_chat
+#: core/fn.admin.php:83
+msgid "Chat Operator"
+msgstr "Chat operatør"
+
+# @ sc_chat
+#: core/fn.admin.php:112 core/templates/chat_console.php:22
+msgid "Chat Console"
+msgstr "Chat konsol"
+
+# @ sc_chat
+#: core/fn.admin.php:118 core/fn.admin.php:143
+msgid "Logs"
+msgstr "Log"
+
+# @ sc_chat
+#: core/fn.admin.php:127 core/fn.options.php:423 screets-chat.php:373
+#: screets-chat.php:391
+msgid "Chat Options"
+msgstr "Chat opsætning"
+
+# @ sc_chat
+#: core/fn.admin.php:128
+msgid "Options"
+msgstr "Opsætning"
+
+# @ sc_chat
+#: core/fn.admin.php:206
+msgid "Always show chatbox here"
+msgstr "Vis altid chat her"
+
+# @ sc_chat
+#: core/fn.admin.php:285
+msgid "Are you sure you want to delete?"
+msgstr "Er du sikker på at du vil slette?"
+
+# @ sc_chat
+#: core/fn.options.php:57
+msgid "General Settings"
+msgstr "Generel opsætning"
+
+# @ sc_chat
+#: core/fn.options.php:67
+msgid "Customize Skin"
+msgstr "Tilpas skin"
+
+# @ sc_chat
+#: core/fn.options.php:77
+msgid "Colors"
+msgstr "Farver"
+
+# @ sc_chat
+#: core/fn.options.php:87
+msgid "Messages"
+msgstr "Beskeder"
+
+# @ sc_chat
+#: core/fn.options.php:97
+msgid "Forms"
+msgstr "Formular"
+
+# @ sc_chat
+#: core/fn.options.php:107
+msgid "Advanced"
+msgstr "Avanceret"
+
+# @ sc_chat
+#: core/fn.options.php:115
+msgid "Display chatbox automatically"
+msgstr "Vis chat automatisk"
+
+# @ sc_chat
+#: core/fn.options.php:123
+msgid "Hide When Offline"
+msgstr "Skjul hvis offline"
+
+# @ sc_chat
+#: core/fn.options.php:131
+msgid "Always show in homepage"
+msgstr "Vis altid på forsiden"
+
+# @ sc_chat
+#: core/fn.options.php:139
+msgid "Where should offline messages go?"
+msgstr "Hvor skal offline beskeder sendes hen?"
+
+# @ sc_chat
+#: core/fn.options.php:147
+msgid "Default Skin"
+msgstr "Standard skin"
+
+# @ sc_chat
+#: core/fn.options.php:156
+msgid "CSS Animations"
+msgstr "CSS Animationer"
+
+# @ sc_chat
+#: core/fn.options.php:165
+msgid "Ask for name?"
+msgstr "Spørg efter navn?"
+
+# @ sc_chat
+#: core/fn.options.php:174
+msgid "Delay"
+msgstr "Forsinkelse"
+
+# @ sc_chat
+#: core/fn.options.php:182
+msgid "Width"
+msgstr "Bredde"
+
+# @ sc_chat
+#: core/fn.options.php:190
+msgid "Height"
+msgstr "Højde"
+
+# @ sc_chat
+#: core/fn.options.php:198
+msgid "Default Radius"
+msgstr "Standard radius"
+
+# @ sc_chat
+#: core/fn.options.php:206
+msgid "Load default skin CSS file"
+msgstr "Læs standard skin CSS fil"
+
+# @ sc_chat
+#: core/fn.options.php:214
+msgid "Compress CSS"
+msgstr "Komprimer CSS"
+
+# @ sc_chat
+#: core/fn.options.php:222
+msgid "Skin Type"
+msgstr "Skin type"
+
+# @ sc_chat
+#: core/fn.options.php:230
+msgid "Chat Box Background"
+msgstr "Chat baggrund"
+
+# @ sc_chat
+#: core/fn.options.php:238
+msgid "Chat Box Foreground"
+msgstr "Chat forgrund"
+
+# @ sc_chat
+#: core/fn.options.php:246
+msgid "Header Background"
+msgstr "Header baggrund"
+
+# @ sc_chat
+#: core/fn.options.php:254
+msgid "Header Foreground"
+msgstr "Header baggrund"
+
+# @ sc_chat
+#: core/fn.options.php:262
+msgid "Submit Button Background"
+msgstr "Send knap baggrund"
+
+# @ sc_chat
+#: core/fn.options.php:270
+msgid "Submit Button Foreground"
+msgstr "Send knap forgrund"
+
+# @ sc_chat
+#: core/fn.options.php:278
+msgid "Before Chat Header"
+msgstr "Før chat header"
+
+# @ sc_chat
+#: core/fn.options.php:286
+msgid "In Chat Header"
+msgstr "I chat header"
+
+# @ sc_chat
+#: core/fn.options.php:294
+msgid "Welcome Message (Pre-chat)"
+msgstr "Velkomst besked (før chat)"
+
+# @ sc_chat
+#: core/fn.options.php:302
+msgid "Welcome Message (During chat)"
+msgstr "Velkomst besked (under chat)"
+
+# @ sc_chat
+#: core/fn.options.php:310
+msgid "Offline Header"
+msgstr "Offline header"
+
+# @ sc_chat
+#: core/fn.options.php:318
+msgid "Offline Body"
+msgstr "Offline body"
+
+# @ sc_chat
+#: core/fn.options.php:326 core/prepare.php:54
+msgid "End chat"
+msgstr "Slut chat"
+
+# @ sc_chat
+#: core/fn.options.php:335
+msgid "Name Field"
+msgstr "Navne felt"
+
+# @ sc_chat
+#: core/fn.options.php:343
+msgid "E-mail Field"
+msgstr "E-mail felt"
+
+# @ sc_chat
+#: core/fn.options.php:351
+msgid "Question Field"
+msgstr "Spørgsmåls felt"
+
+# @ sc_chat
+#: core/fn.options.php:359
+msgid "Required text"
+msgstr "Krævet tekst"
+
+# @ sc_chat
+#: core/fn.options.php:367
+msgid "Chat Button"
+msgstr "Chat knap"
+
+# @ sc_chat
+#: core/fn.options.php:376
+msgid "Send Button"
+msgstr "Send knap"
+
+# @ sc_chat
+#: core/fn.options.php:385
+msgid "Input Box Placeholder"
+msgstr "Input boks pladsholder"
+
+# @ sc_chat
+#: core/fn.options.php:393
+msgid "Input Box Message"
+msgstr "Input boks besked"
+
+# @ sc_chat
+#: core/fn.options.php:401
+msgid "Item Purchase Key"
+msgstr "Produkt nøgle"
+
+# @ sc_chat
+#: core/fn.options.php:453
+msgid "Enter e-mail address"
+msgstr "Indtast din e-mail adresse"
+
+# @ sc_chat
+#: core/fn.options.php:572
+msgid "Use CSS Animations"
+msgstr "Brug CSS animationer"
+
+# @ sc_chat
+#: core/fn.options.php:592
+msgid "Yes"
+msgstr "Ja"
+
+# @ sc_chat
+#: core/fn.options.php:593
+msgid "No"
+msgstr "Nej"
+
+# @ sc_chat
+#: core/fn.options.php:594
+msgid "Yes, but make it optional"
+msgstr "Ja, men valgfrit"
+
+# @ sc_chat
+#: core/fn.options.php:615
+msgid "sec."
+msgstr "sek."
+
+# @ sc_chat
+#: core/fn.options.php:745
+msgid "Light"
+msgstr "Lys"
+
+# @ sc_chat
+#: core/fn.options.php:751
+msgid "Dark"
+msgstr "Mørk"
+
+# @ sc_chat
+#: core/fn.options.php:755
+msgid "This feature sets tones of custom colors you choiced below"
+msgstr "Denne funktion indstiller dine valgte farver"
+
+# @ sc_chat
+#: core/fn.options.php:1169
+msgid "It can be found in Licence Certificate under Downloads tab"
+msgstr "Kan findes i licens certikatet under download fanebladet"
+
+# @ sc_chat
+#: core/prepare.php:32
+msgid "Talk to us"
+msgstr "Tal med os"
+
+# @ sc_chat
+#: core/prepare.php:33
+msgid "Now Chatting"
+msgstr "Skriver nu"
+
+# @ sc_chat
+#: core/prepare.php:34
+msgid "Questions? We're here. Send us a message!"
+msgstr "Har du et spørgsmål? Vi er her, så send os en besked!"
+
+# @ sc_chat
+#: core/prepare.php:35
+msgid "Questions, issues or concerns? I'd love to help you!"
+msgstr "Spørgsmål, eller i tvivl om noget? Vi er klar til at hjælpe dig!"
+
+# @ sc_chat
+#: core/prepare.php:36
+msgid "Start Chat"
+msgstr "Start chat"
+
+# @ sc_chat
+#: core/prepare.php:37
+msgid "Send"
+msgstr "Send"
+
+# @ sc_chat
+#: core/prepare.php:38 screets-chat.php:611
+msgid "Click ENTER to chat"
+msgstr "Tryk ENTER for at sende"
+
+# @ sc_chat
+#: core/prepare.php:39 screets-chat.php:610
+msgid "Write a reply"
+msgstr "Skriv et svar"
+
+# @ sc_chat
+#: core/prepare.php:40
+msgid "Your name"
+msgstr "Dit navn"
+
+# @ sc_chat
+#: core/prepare.php:42
+msgid "Got a question?"
+msgstr "Har du et spørgsmål?"
+
+# @ sc_chat
+#: core/prepare.php:43
+msgid "Required"
+msgstr "Skal udfyldes"
+
+# @ sc_chat
+#: core/prepare.php:52
+msgid "Contact us"
+msgstr "Kontakt os"
+
+# @ sc_chat
+#: core/prepare.php:53
+msgid ""
+"We're not around right now. But you can send us an email and we'll get back "
+"to you, asap."
+msgstr ""
+"Vi er her ikke lige nu, men du kan sende os en e-mail og så vender vi til "
+"bage hurtigst muligt."
+
+# @ sc_chat
+#: core/templates/chat_console.php:8
+msgid "If you leave, you will lose all your conversations"
+msgstr "Hvis du forlader siden, forsvinder din chat"
+
+# @ sc_chat
+#: core/templates/chat_console.php:28
+msgid "Connecting"
+msgstr "Forbinder"
+
+# @ sc_chat
+#: core/templates/chat_console.php:31
+msgid "Logout from Chat"
+msgstr "Log ud fra chat"
+
+# @ sc_chat
+#: core/templates/chat_console.php:40
+msgid "Online Users"
+msgstr "Brugere online"
+
+# @ sc_chat
+#: core/templates/chat_console.php:53
+msgid "Welcome"
+msgstr "Velkommen"
+
+# @ sc_chat
+#. translators: plugin header field 'Name'
+#: screets-chat.php:0
+msgid "Screets Chat"
+msgstr "Screets Chat"
+
+# @ sc_chat
+#. translators: plugin header field 'PluginURI'
+#: screets-chat.php:0
+msgid "http://www.screets.com"
+msgstr "http://www.screets.com"
+
+# @ sc_chat
+#. translators: plugin header field 'Description'
+#: screets-chat.php:0
+msgid ""
+"Chat with your customers on your site for sales and support easily, and "
+"beautifully."
+msgstr "Chat med dine kunder på din side for salg og support, nemt og bekvemt."
+
+# @ sc_chat
+#. translators: plugin header field 'Author'
+#: screets-chat.php:0
+msgid "Screets"
+msgstr "Screets"
+
+# @ sc_chat
+#. translators: plugin header field 'AuthorURI'
+#: screets-chat.php:0
+msgid "http://screets.com"
+msgstr "http://screets.com"
+
+# @ sc_chat
+#. translators: plugin header field 'Version'
+#: screets-chat.php:0
+msgid "1.2.5"
+msgstr "1.2.5"
+
+# @ sc_chat
+#: screets-chat.php:221
+msgid "Chat Log has been deleted successfully"
+msgstr "Chat log blev slettet"
+
+# @ sc_chat
+#: screets-chat.php:395
+msgid "Operator Name"
+msgstr "Operatør navn"
+
+# @ sc_chat
+#: screets-chat.php:607 screets-chat.php:688
+msgid "No one is online"
+msgstr "Der er ingen online"
+
+# @ sc_chat
+#: screets-chat.php:608
+msgid "1 person online"
+msgstr "1 bruger online"
+
+# @ sc_chat
+#: screets-chat.php:609
+#, php-format
+msgid "%s people online"
+msgstr "%s brugere online"
+
+# @ sc_chat
+#: screets-chat.php:612 screets-chat.php:689
+msgid "Logout"
+msgstr "Log ud"
+
+# @ sc_chat
+#: screets-chat.php:613
+msgid "Online"
+msgstr "Online"
+
+# @ sc_chat
+#: screets-chat.php:614
+msgid "Offline"
+msgstr "Offline"
+
+# @ sc_chat
+#: screets-chat.php:615
+msgid "This conversation has ended"
+msgstr "Samtalen er slut"
+
+# @ sc_chat
+#: screets-chat.php:616 screets-chat.php:690
+msgid "Sending"
+msgstr "Sender"
+
+# @ sc_chat
+#: screets-chat.php:618
+msgid "Loading"
+msgstr "Indlæser"
+
+# @ default
+#: screets-chat.php:784
+msgid ""
+"An Unexpected HTTP Error occurred during the API request.</p> <p><a href=\"?"
+"\" onclick=\"document.location.reload(); return false;\">Try again</a>"
+msgstr ""
+"Der opstod en HTTP fejl under et API kald.</p> <p><a href=\"?\" onclick="
+"\"document.location.reload(); return false;\">Prøv igen</a>"
+
+# @ default
+#: screets-chat.php:789
+msgid "An unknown error occurred"
+msgstr "Der opstod en fejl"
+
+# @ sc_chat
+#: skins/basic/chatbox.php:37
+msgid "Operators are not allowed to chat from here"
+msgstr "Operatører kan ikke chatte her"
+
+msgid "%s just logged in chat"
+msgstr ""
+
+msgid "You have new notification"
+msgstr ""
+
+msgid "Offline Messages"
+msgstr ""

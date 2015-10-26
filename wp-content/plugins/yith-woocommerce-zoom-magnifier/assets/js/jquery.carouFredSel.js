@@ -817,7 +817,6 @@
 						opts.items[opts.d['width']] = 'variable';
 					}
 				}
-
 				//	save new sizes
 				var $cf2 = false,
 					i_siz = ms_getTotalSize(a_itm.slice(0, nI), opts, 'width'),
@@ -1275,7 +1274,6 @@
 						opts.items[opts.d['width']] = 'variable';
 					}
 				}
-
 				//	save new sizes
 				var $cf2 = false,
 					i_siz = ms_getTotalSize(a_itm.slice(0, nI), opts, 'width'),
@@ -3756,7 +3754,8 @@
 		return (is_string(c.classnames[n])) ? c.classnames[n] : n;
 	}
 	function cf_mapWrapperSizes(ws, o, p) {
-		if (!is_boolean(p))
+
+        if (!is_boolean(p))
 		{
 			p = true;
 		}

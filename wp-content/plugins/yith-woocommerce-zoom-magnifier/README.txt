@@ -1,15 +1,14 @@
 === YITH WooCommerce Zoom Magnifier ===
 
 Contributors: yithemes
-Tags: zoom, magnifier, woocommerce, products, themes, yit, e-commerce, shop
+Tags: zoom, magnifier, woocommerce, product image, themes, yit, e-commerce, shop, thumbnail, thumbnail slider, zoom image, carousel, image carousel
 Requires at least: 3.5.1
-Tested up to: 4.0
-Stable tag: 1.1.3
+Tested up to: 4.3.1
+Stable tag: 1.2.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-YITH WooCommerce Zoom Magnifier is a Wordpress plugins that enables you to add a zoom effect to product images.
-WooCommerce 2.2.x Compatible.
+YITH WooCommerce Zoom Magnifier add zoom effect to product images and a customizable image slider.
 
 == Description ==
 
@@ -18,42 +17,28 @@ WooCommerce 2.2.x Compatible.
 Offer to your visitors a chance to inspect in detail the quality of your products. With YITH WooCommerce Zoom Magnifier you can add a zoom effect to all your product images.
 The Wordpress plugin also adds a slider below the featured image with your product gallery images.
 
-Working demo are available:
+= Main features =
 
-**[LIVE DEMO 1](http://demo.yithemes.com/room09/product/africa-style/)** - **[LIVE DEMO 2](http://demo.yithemes.com/bazar/shop/ankle-shoes/)**
+* Show a bigger size product image on mouseover.
+* Customize zoom area width and height and the size of the image to show as zoomed image.
+* Enable or disable it on mobile devices.
+* Add a slider showing product image thumbnails.
+* Customize the slider behavior.
 
+For a more detailed list of options and features of the plugin, please look at the [official documentation](http://yithemes.com/docs-plugins/yith_woocommerce_magnifier/ "Yith WooCommerce Zoom Magnifier official documentation").
 
-Full documentation is available [here](http://yithemes.com/docs-plugins/yith_magnifier/).
-
-
-= Installation =
-
-Once you have installed the plugin, you just need to activate the plugin in order to enable it.
-
-= Configuration =
-
-YITH WooCommerce Zoom Magnifier will add a new tab called "Magnifier" below the Woocommerce -> Settings menu. Here you are able to configure all the plugin settings.
-
-= Developer =
-
-Are you a developer? Want to customize the templates or the style of the plugin? Read on the [documentation](http://yithemes.com/docs-plugins/yith_magnifier/) and discover how to do that.
-
-= Support =
-
-Hi there, we have good news here: all our plugins are released for free. Wow!
-Already knew it, right?! Great, but maybe you do not know that: if you're looking for how to install the plugins or how to use them within your Wordpress installations, which is the right way to ask support?
-That's the way:
-
-* Register on http://yithemes.com
-* Go to Support > Get Support
-
-Here we provide support, not on wordpress.org were, usually we do not read topics. It's better to follow us or write on our forum!
+Discover all the features of the plugin and install it in your theme: the result will be extremely satisfying.
 
 == Installation ==
+Important: First of all, you have to download and activate WooCommerce plugin, which is mandatory for Yith WooCommerce Zoom Magnifier to be working.
 
 1. Unzip the downloaded zip file.
 2. Upload the plugin folder into the `wp-content/plugins/` directory of your WordPress site.
 3. Activate `YITH WooCommerce Zoom Magnifier` from Plugins page
+
+= Configuration =
+
+YITH WooCommerce Zoom Magnifier will add a new tab called "Zoom Magnifier" in "YIT Plugins" menu item. There, you will find all Yithemes plugins with quick access to plugin setting page.
 
 == Frequently Asked Questions ==
 
@@ -65,10 +50,88 @@ The size of the Zoom Image is automatically setted. If you want to change these 
 
 == Screenshots ==
 
-1. The plugin at work displaying the magnifier
-2. The Magnifier settings page
+1. The General plugin settings page. You can disable the plugin for mobile devices.
+2. The Magnifier settings page. Choose the size of the zoom area, the size of the image to be shown in zoom area and the its position (on the right or over the image).
+3. The slider settings page. You can choose to use the slider for product image thumbnails, set how many images to show within the slider, and the behavior of the slider, choosing if circular, infinite or standard carousel.
+4. The zoom applied to a product image, showing zoomed image on the right side.
+5. The zoom applied to a product image, showing zoomed image over the same image.
+6. Choose how many items the slider should show, the image thumbnails will fit the available width.
 
 == Changelog ==
+
+= Version 1.2.11 - RELEASED: OCT 23, 2015 =
+
+* Updated: compatibility with YITH WooCommerce Quick View.
+
+= Version 1.2.10 - RELEASED: SEP 24, 2015 =
+
+* Updated: changed text domain as translate.wordpress.org requisite.
+
+= Version 1.2.9 - RELEASED: SEP 04, 2015 =
+
+* Updated: Languages file
+* Fix: Changed plugin text domain from yit to ywmz
+* Fix: featured image shown one time on slider.
+* Fix: div not shown if loading text is empty.
+
+= Version 1.2.8 - RELEASED: SEP 01, 2015 =
+
+* Fix: removed deprecated woocommerce_update_option_X hook.
+
+= Version 1.2.7 - RELEASED: AUG 27, 2015 =
+
+* Fix: resolved XSS vulnerability.
+
+= Version 1.2.6 - RELEASED: AUG 12, 2015 =
+
+* Tweak: update YITH Plugin framework.
+
+= Version 1.2.5 - RELEASED: JUL 23, 2015 =
+
+* Added: italian language.
+
+= Version 1.2.4 - RELEASED: JUN 26, 2015 =
+
+* Added: support to srcset and src-orig attributes.
+
+= Version 1.2.3 - RELEASED: MAY 29, 2015 =
+
+* Added: included jquery-migrate as prerequisite.
+
+= Version 1.2.2 - RELEASED: MAY 22, 2015 =
+
+* Fixed: CSS fix for EssentialGrid conflicts.
+
+= Version 1.2.1 - RELEASED: MAY 04, 2015 =
+
+* Fixed: removed z-index that made the zoom area hiding other elements in certain themes.
+
+= Version 1.2.0 - RELEASED: APR 22, 2015 =
+
+* Fix : security issue (https://make.wordpress.org/plugins/2015/04/20/fixing-add_query_arg-and-remove_query_arg-usage/)
+* Tweak : support up to Wordpress 4.2
+
+= 1.1.8 =
+
+* Fixed: compatibility with some YITHEMES themes.
+
+= 1.1.7 =
+
+* Fixed: Unwanted expand link on product image.
+
+= 1.1.6 =
+
+* Added: the plugin can be disabled on mobile devices.
+
+= 1.1.5 =
+
+* Fixed: multiple wrap
+
+= 1.1.4 =
+
+* Tweak: WooCommerce 2.2. support
+* Fixed: Placeholder in product without featured image
+* Fixed: Slider items number options doesn't work
 
 = 1.1.3 =
 
@@ -141,7 +204,7 @@ If you have created your own language pack, or have an update for an existing on
 
 == Documentation ==
 
-Full documentation is available [here](http://yithemes.com/docs-plugins/yith_magnifier/).
+Full documentation is available [here](http://yithemes.com/docs-plugins/yith_woocommerce_magnifier/).
 
 == Upgrade notice ==
 

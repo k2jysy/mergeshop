@@ -1,0 +1,529 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Screets Team <support@screets.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+
+msgid "Welcome"
+msgstr "Bienvenido"
+
+msgid "Chat Console"
+msgstr "Consola Chat"
+
+msgid "Chat Logs"
+msgstr "Registros Chat"
+
+msgid "Log"
+msgstr "Registro"
+
+msgid "Logs"
+msgstr "Registros"
+
+msgid "Total Logs"
+msgstr "Registros Totales"
+
+msgid "Chat Operator"
+msgstr "Operador Chat"
+
+msgid "Operator"
+msgstr "Operador"
+
+msgid "Operators"
+msgstr "Operadores"
+
+msgid "You"
+msgstr "Tú"
+
+msgid "Visitor"
+msgstr "Visitante"
+
+msgid "Sender"
+msgstr "Remitente"
+
+msgid "Receiver"
+msgstr "Receptor"
+
+msgid "Date"
+msgstr "Fecha"
+
+msgid "Last Chat Date"
+msgstr "Fecha de &Uacute;ltima Conversaci&oacute;n"
+
+msgid "Web User"
+msgstr "Usuario Web"
+
+msgid "Chat Options"
+msgstr "Opciones del Chat"
+
+msgid "Options"
+msgstr "Opciones"
+
+msgid "Required"
+msgstr "Requerido"
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "Your name"
+msgstr "Tu Nombre"
+
+msgid "Message"
+msgstr "Mensaje"
+
+msgid "Contact us"
+msgstr "Cont&aacute;ctenos"
+
+msgid "Talk to us"
+msgstr "Hable con nosotros"
+
+msgid "Questions? We're here. Send us a message!"
+msgstr "¿Preguntas? Estamos aqu&iacute;. Env&iacute;enos un mensaje!"
+
+msgid "Questions, issues or concerns? I'd love to help you!"
+msgstr "Preguntas, problemas o preocupaciones? Me gustar&iacute;a ayudarte!"
+
+msgid "Start Chat"
+msgstr "Comenzar"
+
+msgid ""
+"We're not around right now. But you can send us an email and we'll get back "
+"to you, asap."
+msgstr ""
+"No estamos en este momento. Pero puede enviarnos un correo electr&oacutenico "
+"y lo cont&aacute;ctaremos lo antes posible."
+
+msgid "Just now"
+msgstr "En este momento"
+
+msgid "A few seconds ago"
+msgstr "Hace un Momento"
+
+msgid "%s second ago"
+msgstr "%s segundo atr&aacute;s"
+
+msgid "%s seconds ago"
+msgstr "%s segundos atr&aacute;s"
+
+msgid "%s minute ago"
+msgstr "%s minuto atr&aacute;s"
+
+msgid "%s minutes ago"
+msgstr "%s minutos atr&aacute;s"
+
+msgid "%s hour ago"
+msgstr "%s hora atr&aacute;s"
+
+msgid "%s hours ago"
+msgstr "%s horas atr&aacute;s"
+
+msgid "%s day ago"
+msgstr "%s d&iacute;a atr&aacute;s"
+
+msgid "%s days ago"
+msgstr "%s d&iacute;as atr&aacute;s"
+
+msgid "%s week ago"
+msgstr "%s semana atr&aacute;s"
+
+msgid "%s weeks ago"
+msgstr "%s semanas atr&aacute;s"
+
+msgid "%s month ago"
+msgstr "%s mes atr&aacute;s"
+
+msgid "%s months ago"
+msgstr "%s meses atr&aacute;s"
+
+msgid "%s year ago"
+msgstr "%s a&ntilde;o atr&aacute;s"
+
+msgid "%s years ago"
+msgstr "%s a&ntilde;os atr&aacute;s"
+
+msgid "%s decade ago"
+msgstr "%s decada atr&aacute;s"
+
+msgid "%s decades ago"
+msgstr "%s decadas atr&aacute;s"
+
+# Abbr of 1 minute
+msgid "1m"
+msgstr "1m"
+
+# Abbr of Month
+msgid "%sm"
+msgstr "%sm"
+
+# Abbr of Hour
+msgid "%sh"
+msgstr "%sh"
+
+msgid "No one is online"
+msgstr "Nadie est&aacute en linea"
+
+msgid "Logout from Chat"
+msgstr "Salir del Chat"
+
+msgid "Online"
+msgstr "Conectado"
+
+msgid "Offline"
+msgstr "Desconectado"
+
+msgid "Online Users"
+msgstr "Usuarios Conectados"
+
+msgid "If you leave, you will lose all your conversations"
+msgstr "Si te vas, perder&aacute;s todas tus conversaciones"
+
+msgid "1 person online"
+msgstr "1 persona conectada"
+
+msgid "%s people online"
+msgstr "%s personas conectadas"
+
+msgid "Write a reply"
+msgstr "Escribe aqu&iacute;"
+
+msgid "Click ENTER to chat"
+msgstr "Presione ENTER para chatear"
+
+msgid "Logout"
+msgstr "Salir"
+
+msgid "Connecting"
+msgstr "Conectando"
+
+msgid "Email address is invalid"
+msgstr "La direcci&oacute;n Email es inv&aacute;lida"
+
+msgid "You are not logged in"
+msgstr "No est&aacute;s conectado"
+
+msgid "You haven't entered a chat message"
+msgstr "Usted no ha escrito ning&uacute;n mensaje"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Delete"
+msgstr "Borrar"
+
+msgid "This conversation has ended"
+msgstr "Esta conversaci&oacute;n ha finalizado"
+
+msgid "General Settings"
+msgstr "Configuraci&oacute;n general"
+
+msgid "Customize Skin"
+msgstr "Personalize el Estilo"
+
+msgid "Messages"
+msgstr "Mensajes"
+
+msgid "Forms"
+msgstr "Formularios"
+
+msgid "Default Skin"
+msgstr "Estilo por Defecto"
+
+msgid "Width"
+msgstr "Ancho"
+
+msgid "Height"
+msgstr "Alto"
+
+msgid "Header Background"
+msgstr "Fondo Cabecera"
+
+msgid "Header Foreground"
+msgstr "Texto Cabecera"
+
+msgid "Submit Button Background"
+msgstr "Fondo Bot&oacute;n Enviar"
+
+msgid "Submit Button Foreground"
+msgstr "Texto Bot&oacute;n Enviar"
+
+msgid "Before Chat Header"
+msgstr "Antes Cabecera del Chat"
+
+msgid "In Chat Header"
+msgstr "Cabecera Durante el Chat"
+
+msgid "Welcome Message (Pre-chat)"
+msgstr "Mensaje de Bienvenida (pre-ingreso)"
+
+msgid "Welcome Message (During chat)"
+msgstr "Mensaje de Bienvenida (post-ingreso)"
+
+msgid "Name Field"
+msgstr "Campo del Nombre"
+
+msgid "E-mail Field"
+msgstr "Campo E-mail"
+
+msgid "Required text"
+msgstr "Texto requerido"
+
+msgid "Chat Button"
+msgstr "Bot&oacute;n Chat"
+
+msgid "Input Box Message"
+msgstr "Zona de Entrada de Mensaje"
+
+msgid "Input Box Placeholder"
+msgstr "Zona  Marcador de Posici&oacute;n"
+
+msgid "Offline Header"
+msgstr "Cabecera de Desconectado"
+
+msgid "Offline Body"
+msgstr "Cuerpo de Desconectado"
+
+msgid "Hide When Offline"
+msgstr "Ocultar al estar Desconectado"
+
+msgid "Where should offline messages go?"
+msgstr "Donde ir&aacute;n los mensajes desconectado?"
+
+msgid "Enter e-mail address"
+msgstr "Ingrese direcci&oacute;n e-mail"
+
+msgid "Chat Box Background"
+msgstr "Fondo Zona de Chat"
+
+msgid "Chat Box Foreground"
+msgstr "Textos Zona de Chat"
+
+msgid "Operators are not allowed to chat from here"
+msgstr "A operadores no se les permite chatear desde aqu&iacute;"
+
+msgid "Got a question?"
+msgstr "Alguna Pregunta?"
+
+msgid "Send?"
+msgstr "Enviar?"
+
+msgid "%s wrote a note"
+msgstr "%s escribi&oacute; una nota"
+
+msgid "Please fill out all required fields"
+msgstr "Por favor, rellene todos los campos obligatorios"
+
+msgid "E-mail is invalid"
+msgstr "E-mail Invalido"
+
+msgid ""
+"E-mail address has already been used by an operator. Please enter another one"
+msgstr ""
+"El E-mail ya ha sido utilizado por un operador. Por favor, introduzca otro"
+
+msgid "Sending"
+msgstr "Enviando"
+
+msgid "Successfully sent! Thank you"
+msgstr "Enviado correctamente! Gracias"
+
+msgid "Something went wrong! Try again"
+msgstr "Algo sali&oacute; mal! Int&eacute;ntelo nuevamente"
+
+msgid "CSS Animations"
+msgstr "Animaciones CSS"
+
+msgid "Use CSS Animations"
+msgstr "Usar Animaciones CSS"
+
+msgid "Question Field"
+msgstr "Campo Pregunta"
+
+msgid "Skin Type"
+msgstr "Tipo de Estilo"
+
+msgid "Light"
+msgstr "Claro"
+
+msgid "Dark"
+msgstr "Sombra"
+
+msgid "This feature sets tones of custom colors you choiced below"
+msgstr ""
+"Esta funci&oacute;n ajusta los tonos de los colores personalizados mas abajo"
+
+msgid "Display chatbox automatically"
+msgstr "Mostrar ventana de conversaci&oacute;n autom&aacute;ticamente"
+
+msgid "Always show chatbox here"
+msgstr "Mostrar siempre la ventana de conversaci&oacute;n aqu&iacute;"
+
+msgid "Delay"
+msgstr "Demora"
+
+msgid "sec."
+msgstr "seg."
+
+msgid "Colors"
+msgstr "Colores"
+
+msgid "Advanced"
+msgstr "Avanzado"
+
+msgid "Unique ID"
+msgstr "Identificaci&oacute;n &Uacute;nica"
+
+msgid ""
+"Unique ID is useful when you need to use Chat Plugin more than one WordPress "
+"installation in same domain (You will want to give different ID's for each "
+"WP installation)"
+msgstr ""
+"Identificaci&oacute;n &Uacute;nica es &uacute;til cuando se necesita usar el "
+"plugin del chat en m&aacute;s de una instalaci&oacute;n de WordPress en el "
+"mismo dominio (Usted tendr&aacute; que dar una Identificaci&oacute;n "
+"diferente para cada instalaci&oacute;n WordPress)"
+
+msgid "Send Button"
+msgstr "Bot&oacute;n Enviar"
+
+msgid "Operator Name"
+msgstr "Nombre del Operador"
+
+msgid "User has been sent this message after you disconnected from chat"
+msgstr ""
+"El usuario ha enviado este mensaje despu&eacute;s de desconectarte del chat"
+
+msgid ""
+"We are offline now. However, your message has been sent to us by email. We "
+"will contact you as soon as possible"
+msgstr ""
+"Estamos desconectados. Sin embargo, su mensaje ha sido enviado a nosotros "
+"por correo electr&oacute;nico. Nos pondremos en contacto con usted lo antes "
+"posible"
+
+msgid "Ask for name?"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Yes, but make it optional"
+msgstr ""
+
+msgid "Loading"
+msgstr ""
+
+msgid "Always show in homepage"
+msgstr ""
+
+msgid "End chat"
+msgstr ""
+
+msgid "Load default skin CSS file"
+msgstr ""
+
+msgid "Item Purchase Key"
+msgstr ""
+
+msgid "It can be found in Licence Certificate under Downloads tab"
+msgstr ""
+
+msgid "Chat Log has been deleted successfully"
+msgstr ""
+
+msgid "Are you sure you want to delete?"
+msgstr ""
+
+msgid "Default Radius"
+msgstr ""
+
+msgid "Compress CSS"
+msgstr ""
+
+msgid "Search in logs"
+msgstr ""
+
+msgid "Disable in mobile devices"
+msgstr ""
+
+msgid "Allowed visitors at one time"
+msgstr ""
+
+msgid ""
+"Other visitors are allowed to fill out the contact form instead of "
+"connecting to chat"
+msgstr ""
+
+msgid "Offset"
+msgstr ""
+
+msgid "Position"
+msgstr ""
+
+msgid "left-bottom"
+msgstr ""
+
+msgid "right-bottom"
+msgstr ""
+
+msgid "Ask for phone field?"
+msgstr ""
+
+msgid "Only in contact form"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Phone Field"
+msgstr ""
+
+msgid "Users & Visitors"
+msgstr ""
+
+msgid "Operator Additional Role"
+msgstr ""
+
+msgid "N/A"
+msgstr ""
+
+msgid ""
+"Something went wrong! Please <a href='%s'>refresh the page</a> and try again"
+msgstr ""
+
+msgid "No operator is online. Please refresh the page and use contact form"
+msgstr ""
+
+msgid "Custom CSS"
+msgstr ""
+
+msgid "License is not valid"
+msgstr ""
+
+msgid "Compress JavaScript file"
+msgstr ""
+
+msgid "Sound"
+msgstr ""
+
+msgid "Mute sound"
+msgstr ""
+
+msgid "%s just logged in chat"
+msgstr ""
+
+msgid "You have new notification"
+msgstr ""
+
+msgid "Offline Messages"
+msgstr ""

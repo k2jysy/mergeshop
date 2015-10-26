@@ -22,7 +22,7 @@ if( !class_exists( 'YITH_WCMG' ) ) {
          * @var string
          * @since 1.0.0
          */
-        public $version = '1.1.3';
+        public $version = '1.2.11';
         
         /**
          * Plugin object

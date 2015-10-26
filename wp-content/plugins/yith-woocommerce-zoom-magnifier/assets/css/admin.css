@@ -14,3 +14,7 @@
 .yith_banner {
     margin-top: 10px;
 }
+
+#eg-wrap .select_fake {/* solve back-end conflict with Essential Grid */
+    height: 24px;
+}

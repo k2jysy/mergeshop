@@ -1,16 +1,40 @@
-<?php 
-if( ! defined("MC4WP_LITE_VERSION") ) {
-	header( 'Status: 403 Forbidden' );
-	header( 'HTTP/1.1 403 Forbidden' );
-	exit;
-}
+<?php
+// prevent direct file access
+defined( 'ABSPATH' ) or exit;
 ?>
-<div class="mc4wp-box" id="mc4wp-upgrade-box">
-	<h3>MailChimp for WordPress Pro</h3>
-	
-	<p><em>This plugin has an even better premium version, I am sure you will love it.</em></p>
 
-	<p>Pro features include better and multiple forms, advanced and easy form styling, more default themes, detailed statistics and priority support.</p>
+<div class="mc4wp-box">
+	<?php
+	// upgrade block
+	$block = new MC4WP_Remote_Content_Block( 'https://mc4wp.com/api/content-blocks?id=98121' );
+	echo $block;
+	?>
+</div>
 
-	<p><a href="https://mc4wp.com/#utm_source=lite-plugin&utm_medium=link&utm_campaign=upgrade-box">More information about MailChimp for WP Pro &raquo;</a></p>
+<div class="mc4wp-box" id="mc4wp-optin-box">
+
+	<?php $user = wp_get_current_user(); ?>
+	<!-- Begin MailChimp Signup Form -->
+	<div id="mc_embed_signup">
+		<h4 class="mc4wp-title"><?php _e( 'More subscribers, better newsletters.', 'mailchimp-for-wp' ); ?></h4>
+		<p><?php _e( 'Learn how to best grow your lists & write better emails by subscribing to our monthly tips.', 'mailchimp-for-wp' ); ?></p>
+		<form action="//mc4wp.us1.list-manage.com/subscribe/post?u=a2d08947dcd3683512ce174c5&amp;id=a940232df9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+			<p>
+				<label>Email Address </label>
+				<input type="email" value="<?php echo esc_attr( $user->user_email ); ?>" name="EMAIL" class="regular-text" required>
+			</p>
+			<p>
+				<label>First Name </label>
+				<input type="text" value="<?php echo esc_attr( $user->user_firstname ); ?>" name="FNAME" class="regular-text" id="mce-FNAME">
+			</p>
+			<div style="position: absolute; left: -5000px;">
+				<input type="text" name="b_a2d08947dcd3683512ce174c5_a940232df9" tabindex="-1" value="" />
+			</div>
+			<p>
+				<input type="submit" value="Subscribe" name="subscribe" class="button">
+			</p>
+
+			<input type="hidden" name="SOURCE" value="free-plugin" />
+		</form>
+	</div>
 </div>

@@ -353,7 +353,7 @@ class Options_Framework_Interface {
 				$default_editor_settings = array(
 					'textarea_name' => $textarea_name,
 					'media_buttons' => false,
-					'tinymce' => array( 'plugins' => 'wordpress' )
+					'tinymce' => array( 'plugins' => 'wordpress,wplink' )
 				);
 				$editor_settings = array();
 				if ( isset( $value['settings'] ) ) {
@@ -383,7 +383,7 @@ class Options_Framework_Interface {
 					$output .= '<h4 class="heading">' . esc_html( $value['name'] ) . '</h4>' . "\n";
 				}
 				if ( isset( $value['desc'] ) ) {
-					$output .= apply_filters('of_sanitize_info', $value['desc'] ) . "\n";
+					$output .= $value['desc'] . "\n";
 				}
 				$output .= '</div>' . "\n";
 				break;

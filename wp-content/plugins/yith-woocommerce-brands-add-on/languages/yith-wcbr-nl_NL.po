@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: YITH WooCommerce Brands Add-On\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-23 14:41+0100\n"
+"PO-Revision-Date: 2015-10-23 14:41+0100\n"
+"Last-Translator: admin <admin@localhost.local>\n"
+"Language-Team: Your Inspiration Themes <plugins@yithemes.com>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.8.1\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Loco-Target-Locale: nl_NL\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPathExcluded-0: ../plugin-fw\n"
+
+#: ../includes/class.yith-wcbr-admin.php:72
+#: ../includes/class.yith-wcbr-admin.php:293
+msgid "Settings"
+msgstr "Instellingen"
+
+#: ../includes/class.yith-wcbr-admin.php:73
+#: ../includes/class.yith-wcbr-admin.php:297
+msgid "Premium Version"
+msgstr "Premium Versie"
+
+#: ../includes/class.yith-wcbr-admin.php:119
+msgid "Choose an image"
+msgstr "Kies een afbeelding"
+
+#: ../includes/class.yith-wcbr-admin.php:120
+msgid "Use image"
+msgstr "Gebruik afbeelding"
+
+#: ../includes/class.yith-wcbr-admin.php:183
+msgid "Image"
+msgstr "afbeelding"
+
+#: ../includes/class.yith-wcbr-admin.php:213
+#: ../templates/admin/add-brand-taxonomy-form.php:17
+#: ../templates/admin/edit-brand-taxonomy-form.php:16
+msgid "Thumbnail"
+msgstr "Miniatuurweergave"
+
+#: ../includes/class.yith-wcbr-admin.php:227
+msgid ""
+"Product brands for your store can be managed here. To display more brands "
+"here, click on \"screen options\" link on top of the page."
+msgstr ""
+"Product merken voor uw winkel kan hier worden beheerd. Om meer merken te "
+"tonen hier. klik op \"beeld opties\" link boven aan de pagina."
+
+#: ../includes/class.yith-wcbr-admin.php:242
+#: ../includes/class.yith-wcbr-admin.php:243
+#: ../includes/class.yith-wcbr.php:101 ../includes/class.yith-wcbr.php:117
+msgid "Brands"
+msgstr "Merken"
+
+#: ../includes/class.yith-wcbr-admin.php:317
+msgid "Plugin Documentation"
+msgstr "Plugin Documentatie"
+
+#: ../includes/class.yith-wcbr.php:102
+msgid "Brand"
+msgstr "Merk"
+
+#: ../includes/class.yith-wcbr.php:103
+msgid "All Brands"
+msgstr "Alle Merken"
+
+#: ../includes/class.yith-wcbr.php:104
+msgid "Edit Brand"
+msgstr "Bewerk Merk"
+
+#: ../includes/class.yith-wcbr.php:105
+msgid "View Brand"
+msgstr "Bekijk Merk"
+
+#: ../includes/class.yith-wcbr.php:106
+msgid "Update Brand"
+msgstr "Update Merk"
+
+#: ../includes/class.yith-wcbr.php:107
+msgid "Add New Brand"
+msgstr "Nieuw Merk toevoegen"
+
+#: ../includes/class.yith-wcbr.php:108
+msgid "New Brand Name"
+msgstr "Nieuwe Merknaam"
+
+#: ../includes/class.yith-wcbr.php:109
+msgid "Parent Brand"
+msgstr "Bovenliggende Merk"
+
+#: ../includes/class.yith-wcbr.php:110
+msgid "Parent Brand:"
+msgstr "Bovenliggende Merk:"
+
+#: ../includes/class.yith-wcbr.php:111
+msgid "Search Brands"
+msgstr "Zoek Merken"
+
+#: ../includes/class.yith-wcbr.php:112
+msgid "Separate brands with commas"
+msgstr "Verdeel merken met comma's"
+
+#: ../includes/class.yith-wcbr.php:113
+msgid "No Brands Found"
+msgstr "Geen merken gevonden"
+
+#: ../init.php:107
+msgid ""
+"YITH WooCommerce Brands is enabled but not effective. It requires "
+"WooCommerce in order to work."
+msgstr ""
+"YITH WooCommerce Brands is ingeschakeld maar niet werkzaam, WooCommerce is "
+"nodig om het te laten werken."
+
+#: ../init.php:117
+msgid ""
+"You can't activate the free version of YITH WooCommerce Brands while you are "
+"using the premium one."
+msgstr ""
+"U kunt het gratis versie van YITH WooCommerce Brands niet activeren als u "
+"premium gebruikt"
+
+#: ../plugin-options/settings-options.php:20
+msgid "General"
+msgstr "Algemeen"
+
+#: ../plugin-options/settings-options.php:28
+msgid "Brand label"
+msgstr "Merk label"
+
+#: ../plugin-options/settings-options.php:30
+msgid "Label used for \"Brand\" link"
+msgstr "Label gebruikt voor \"Merk\" link"
+
+#: ../plugin-options/settings-options.php:31
+msgid "Brand:"
+msgstr "Merk:"
+
+#: ../templates/admin/add-brand-taxonomy-form.php:21
+#: ../templates/admin/edit-brand-taxonomy-form.php:21
+msgid "Upload/Add image"
+msgstr "Upload /Toevoegen afbeelding"
+
+#: ../templates/admin/add-brand-taxonomy-form.php:22
+#: ../templates/admin/edit-brand-taxonomy-form.php:22
+msgid "Remove image"
+msgstr "Afbeelding verwijderen"
+
+#: ../templates/admin/brand-premium-panel.php:217
+#: ../templates/admin/brand-premium-panel.php:324
+#, php-format
+msgid ""
+"Upgrade to %1$spremium version%2$s of %1$sYITH WooCommerce Brands Add-On%2$s "
+"to benefit from all features!"
+msgstr ""
+"Upgrade naar %1$spremium version%2$s van %1$sYITH WooCommerce Brands Add-On"
+"%2$s om te profiteren van alle functies!"
+
+#: ../templates/admin/brand-premium-panel.php:220
+#: ../templates/admin/brand-premium-panel.php:327
+msgid "UPGRADE"
+msgstr "UPGRADE"
+
+#: ../templates/admin/brand-premium-panel.php:221
+#: ../templates/admin/brand-premium-panel.php:328
+msgid "to the premium version"
+msgstr "naar het premium versie"
+
+#: ../templates/admin/brand-premium-panel.php:227
+msgid "Premium Features"
+msgstr "Premium Functies"
+
+#: ../templates/admin/brand-premium-panel.php:235
+msgid "Banners and links"
+msgstr "Banners en links"
+
+#: ../templates/admin/brand-premium-panel.php:238
+#, php-format
+msgid ""
+"Two additional details for each brand in your store: show a %1$sbanner%2$s "
+"to users when they access the page of the selected brand and specify a "
+"%1$slink%2$s redirecting users to a page different from brand archive page "
+"(e.g. brand official website)."
+msgstr ""
+"Twee extra details voor elk merk in uw winkel: Toon een %1$sbanner%2$s "
+"wanneer zij toegang hebben tot de pagina van het geselecteerde merk en geef "
+"een %1$slink%2$s gebruikers omleiden naar een pagina verschillend van merk "
+"archiefpagina (bijvoorbeeld merk officiële website). "
+
+#: ../templates/admin/brand-premium-panel.php:248
+msgid "Brand taxonomy"
+msgstr "Merk taxonomie"
+
+#: ../templates/admin/brand-premium-panel.php:251
+msgid ""
+"With the premium version of the plugin, all taxonomies defined for products "
+"(usually categories, tags and attributes) can be turned into brands for "
+"products of your shop!"
+msgstr ""
+"Met de premium-versie van de plugin, kunnen alle taxonomieën gedefinieerd "
+"voor producten (gewoonlijk categorieën, tags en kenmerken) worden omgezet in "
+"merken voor producten van uw winkel!"
+
+#: ../templates/admin/brand-premium-panel.php:266
+msgid "Position"
+msgstr "Positie"
+
+#: ../templates/admin/brand-premium-panel.php:268
+msgid ""
+"Position of product brand is no longer static: it will be up to you to "
+"choose the most suitable position for brands in product detail page and in "
+"shop page."
+msgstr ""
+"Positie van product merk is niet langer statisch: het is aan u om te kiezen "
+"voor de meest geschikte positie voor merken in de pagina met productgegevens "
+"en in de shop pagina."
+
+#: ../templates/admin/brand-premium-panel.php:278
+msgid "Content"
+msgstr "Inhoud"
+
+#: ../templates/admin/brand-premium-panel.php:281
+#, php-format
+msgid ""
+"Name, logo or both? You can decide what information to show to your users "
+"just with a click. Whether it is shown in %1$sshop page or in product detail "
+"page%2$s, decide the information you want to show about the selected brand."
+msgstr ""
+"Naam, logo of beide? U kunt beslissen welke informatie te laten zien aan uw "
+"gebruikers gewoon met een klik. Of is aangetoond in %1$swinkel pagina of in "
+"product detail pagina %2$s, beslis de informatie die u wilt weergeven over "
+"het geselecteerde merk."
+
+#: ../templates/admin/brand-premium-panel.php:297
+msgid "5 widgets"
+msgstr "5 widgets"
+
+#: ../templates/admin/brand-premium-panel.php:300
+#, php-format
+msgid ""
+"5 different solutions to add and show all your brands in your sidebars! "
+"Beautiful and useful, thanks to them, %1$syour brands will become dynamic"
+"%2$s and you will be able to further value them using the numerous options "
+"availble for each widget. Discover them now!"
+msgstr ""
+"5 verschillende oplossingen voor het toevoegen en weergeven van alle uw "
+"merken in uw sidebars! Mooi en nuttig, dank aan hen, %1$s uw merken wordt "
+"dynamische %2$s en je zult in staat zijn om ze verder te waarderen met "
+"behulp van de vele opties die beschikbaar zijn voor elke widget. Ontdek ze "
+"nu!"
+
+#: ../templates/admin/brand-premium-panel.php:309
+msgid "8 shortcodes"
+msgstr "8 shortcodes"
+
+#: ../templates/admin/brand-premium-panel.php:312
+#, php-format
+msgid ""
+"8 new solutions to add brands to your e-commerce pages. %1$sEight different "
+"ways to value your brands and brand products:%2$s you can show them either "
+"in a slider or as a simple list and users will also be able to filter them "
+"and restrict seach results only to those they are interested in."
+msgstr ""
+"8 nieuwe oplossingen voor merken toe te voegen aan uw e-commerce pagina's. "
+"%1$s Acht verschillende manieren om uw merken en producten van het merk "
+"waarderen:%2$ s u kunt laten zien, hetzij in een slider of als een "
+"eenvoudige lijst en de gebruikers zal ook in staat zijn om ze te filteren en "
+"de zoek resultaten te beperken voor alleen de mensen die er in zijn "
+"geïnteresseerd."
+
+#~ msgid ""
+#~ "Two additional details for each brand in your store: show a %1$sbanner"
+#~ "%2$s to users when they access the page of the selected brand and specify "
+#~ "a %1$slink%2$s redirecting users to a page different from brand archive "
+#~ "page (e.g. brand official website).\n"
+#~ "                "
+#~ msgstr ""
+#~ "Twee extra details voor elk merk in uw winkel: Toon een %1$sbanner%2$s "
+#~ "wanneer zij toegang hebben tot de pagina van het geselecteerde merk en "
+#~ "geef een %1$slink%2$s gebruikers omleiden naar een pagina verschillend "
+#~ "van merk archiefpagina (bijvoorbeeld merk officiële website).\n"
+#~ "\n"

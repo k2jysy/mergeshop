@@ -1,0 +1,523 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 逍遥乐汉化版\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Screets Team <support@screets.com>\n"
+"Language-Team: 逍遥乐汉化 <luoxiao123@outlook.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"Language: zh_CN\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+msgid "Welcome"
+msgstr "欢迎光临！"
+
+msgid "Chat Console"
+msgstr "聊天控制台"
+
+msgid "Chat Logs"
+msgstr "聊天记录"
+
+msgid "Log"
+msgstr "记录"
+
+msgid "Logs"
+msgstr "记录"
+
+msgid "Total Logs"
+msgstr "总记录"
+
+msgid "Chat Operator"
+msgstr "聊天接线员"
+
+msgid "Operator"
+msgstr "接线员"
+
+msgid "Operators"
+msgstr "接线员"
+
+msgid "You"
+msgstr "你"
+
+msgid "Visitor"
+msgstr "访客"
+
+msgid "Sender"
+msgstr "发件人 "
+
+msgid "Receiver"
+msgstr "收件人"
+
+msgid "Date"
+msgstr "日期"
+
+msgid "Last Chat Date"
+msgstr "最后聊天日期"
+
+msgid "Web User"
+msgstr "Web用户"
+
+msgid "Chat Options"
+msgstr "聊天选项"
+
+msgid "Options"
+msgstr "选项"
+
+msgid "Required"
+msgstr "必须"
+
+msgid "E-mail"
+msgstr "电子邮件"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "Your name"
+msgstr "您的名称"
+
+msgid "Message"
+msgstr "信息"
+
+msgid "Contact us"
+msgstr "联系我们"
+
+msgid "Talk to us"
+msgstr "与我们交谈"
+
+msgid "Questions? We're here. Send us a message!"
+msgstr "有什么问题吗？我们在这里。给我们留言！谢谢"
+
+msgid "Questions, issues or concerns? I'd love to help you!"
+msgstr "您有什么问题或者疑惑？我们很高兴来帮助您！"
+
+msgid "Start Chat"
+msgstr "开始聊天"
+
+msgid ""
+"We're not around right now. But you can send us an email and we'll get back "
+"to you, asap."
+msgstr "我们此刻不在上班时间。请发送电子邮件给我们，我们会尽快回复您。"
+
+msgid "Just now"
+msgstr "刚才"
+
+msgid "A few seconds ago"
+msgstr "几秒钟前"
+
+msgid "%s second ago"
+msgstr "%s 秒前"
+
+msgid "%s seconds ago"
+msgstr "%s 秒前"
+
+msgid "%s minute ago"
+msgstr "%s 分钟前"
+
+msgid "%s minutes ago"
+msgstr "%s 分钟前"
+
+msgid "%s hour ago"
+msgstr "%s 小时前"
+
+msgid "%s hours ago"
+msgstr "%s 小时前"
+
+msgid "%s day ago"
+msgstr "%s 天前"
+
+msgid "%s days ago"
+msgstr "%s 天前"
+
+msgid "%s week ago"
+msgstr "%s 周前"
+
+msgid "%s weeks ago"
+msgstr "%s 周前"
+
+msgid "%s month ago"
+msgstr "%s 月前"
+
+msgid "%s months ago"
+msgstr "%s 月前"
+
+msgid "%s year ago"
+msgstr "%s 年前"
+
+msgid "%s years ago"
+msgstr "%s 年前"
+
+msgid "%s decade ago"
+msgstr "%s 十年前"
+
+msgid "%s decades ago"
+msgstr "%s 十年前"
+
+# Abbr of 1 minute
+msgid "1m"
+msgstr "1m"
+
+# Abbr of Month
+msgid "%sm"
+msgstr "%sm"
+
+# Abbr of Hour
+msgid "%sh"
+msgstr "%sh"
+
+msgid "No one is online"
+msgstr "目前无人在线！"
+
+msgid "Logout from Chat"
+msgstr "从聊天中注销"
+
+msgid "Online"
+msgstr "在线"
+
+msgid "Offline"
+msgstr "离线"
+
+msgid "Online Users"
+msgstr "在线用户"
+
+msgid "If you leave, you will lose all your conversations"
+msgstr "当你离开时，你将失去所有的交谈"
+
+msgid "1 person online"
+msgstr "1人在线"
+
+msgid "%s people online"
+msgstr "%s 人在线"
+
+msgid "Write a reply"
+msgstr "发表回复"
+
+msgid "Click ENTER to chat"
+msgstr "输入完毕后，请点击ENTER回车键聊天！"
+
+msgid "Logout"
+msgstr "注销"
+
+msgid "Connecting"
+msgstr "连接"
+
+msgid "Email address is invalid"
+msgstr "电子邮件地址是无效的，请重新输入！"
+
+msgid "You are not logged in"
+msgstr "您还没有登录！"
+
+msgid "You haven't entered a chat message"
+msgstr "您还没有进入一个聊天信息！"
+
+msgid "Edit"
+msgstr "编辑"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "This conversation has ended"
+msgstr "本次交谈已经结束！"
+
+msgid "General Settings"
+msgstr "常规设置"
+
+msgid "Customize Skin"
+msgstr "自定义皮肤"
+
+msgid "Messages"
+msgstr "信息"
+
+msgid "Forms"
+msgstr "表单"
+
+msgid "Default Skin"
+msgstr "默认外观"
+
+msgid "Width"
+msgstr "宽度"
+
+msgid "Height"
+msgstr "高度"
+
+msgid "Header Background"
+msgstr "标题背景"
+
+msgid "Header Foreground"
+msgstr "标题前景"
+
+msgid "Submit Button Background"
+msgstr "提交按钮背景"
+
+msgid "Submit Button Foreground"
+msgstr "提交按钮前景"
+
+msgid "Before Chat Header"
+msgstr "聊天之前标题"
+
+msgid "In Chat Header"
+msgstr "聊天中标题"
+
+msgid "Welcome Message (Pre-chat)"
+msgstr "欢迎辞（聊天之前）"
+
+msgid "Welcome Message (During chat)"
+msgstr "欢迎辞（在聊天过程中）"
+
+msgid "Name Field"
+msgstr "名称字段"
+
+msgid "E-mail Field"
+msgstr "电子邮件字段"
+
+msgid "Required text"
+msgstr "必需的文本"
+
+msgid "Chat Button"
+msgstr "聊天按钮"
+
+msgid "Input Box Message"
+msgstr "输入框信息"
+
+msgid "Input Box Placeholder"
+msgstr "输入框占位"
+
+msgid "Offline Header"
+msgstr "离线标题"
+
+msgid "Offline Body"
+msgstr "离线主体"
+
+msgid "Hide When Offline"
+msgstr "当离线时隐藏"
+
+msgid "Where should offline messages go?"
+msgstr "将离线消息发送到那儿？"
+
+msgid "Enter e-mail address"
+msgstr "输入电子邮件地址"
+
+msgid "Chat Box Background"
+msgstr "聊天框背景"
+
+msgid "Chat Box Foreground"
+msgstr "聊天框前景"
+
+msgid "Operators are not allowed to chat from here"
+msgstr "接线员不能从这里开始聊天"
+
+msgid "Got a question?"
+msgstr "有什么问题吗？"
+
+msgid "Send?"
+msgstr "发送？"
+
+msgid "%s wrote a note"
+msgstr "来自 %s 的信息 ！"
+
+msgid "Please fill out all required fields"
+msgstr "请填写所有必填字段"
+
+msgid "E-mail is invalid"
+msgstr "E-mail是无效的！"
+
+msgid ""
+"E-mail address has already been used by an operator. Please enter another one"
+msgstr "E-mail地址已经由接线员使用。请另外输入一个"
+
+msgid "Sending"
+msgstr "发送"
+
+msgid "Successfully sent! Thank you"
+msgstr "发送成功！谢谢"
+
+msgid "Something went wrong! Try again"
+msgstr "发送失败！再试一次！或者请刷新页面！"
+
+msgid "CSS Animations"
+msgstr "CSS动画"
+
+msgid "Use CSS Animations"
+msgstr "使用CSS动画"
+
+msgid "Question Field"
+msgstr "问题字段"
+
+msgid "Skin Type"
+msgstr "皮肤类型"
+
+msgid "Light"
+msgstr "明亮的"
+
+msgid "Dark"
+msgstr "黑暗的"
+
+msgid "This feature sets tones of custom colors you choiced below"
+msgstr "此功能可设置自定义颜色，请您选择下面的色调"
+
+msgid "Display chatbox automatically"
+msgstr "自动显示聊天框"
+
+msgid "Always show chatbox here"
+msgstr "总是显示聊天框"
+
+msgid "Delay"
+msgstr "延迟"
+
+msgid "sec."
+msgstr "秒。"
+
+msgid "Colors"
+msgstr "颜色"
+
+msgid "Advanced"
+msgstr "高级"
+
+msgid "Unique ID"
+msgstr "唯一ID"
+
+msgid ""
+"Unique ID is useful when you need to use Chat Plugin more than one WordPress "
+"installation in same domain (You will want to give different ID's for each "
+"WP installation)"
+msgstr ""
+"唯一的ID是非常有用的，当聊天插件用来在一个以上的WordPress的安装在同一个域（你"
+"会想给每个WP安装不同的ID）。"
+
+msgid "Send Button"
+msgstr "发送按钮"
+
+msgid "Operator Name"
+msgstr "接线员名称"
+
+msgid "User has been sent this message after you disconnected from chat"
+msgstr "用户发送消息后，你已经离开了聊天"
+
+msgid ""
+"We are offline now. However, your message has been sent to us by email. We "
+"will contact you as soon as possible"
+msgstr ""
+"我们现在都处于离线状态。然而，你的信息已经通过电子邮件发送给我们。我们将尽快"
+"与您联系！"
+
+msgid "Ask for name?"
+msgstr "要求填写名称？"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "No"
+msgstr "否"
+
+msgid "Yes, but make it optional"
+msgstr "是的，但它可选"
+
+msgid "Loading"
+msgstr "加载..."
+
+msgid "Always show in homepage"
+msgstr "总是显示在主页"
+
+msgid "End chat"
+msgstr "结束聊天"
+
+msgid "Load default skin CSS file"
+msgstr "加载默认皮肤的CSS文件"
+
+msgid "Item Purchase Key"
+msgstr "插件购买密钥"
+
+msgid "It can be found in Licence Certificate under Downloads tab"
+msgstr "它可以发现在许可证书下载选项卡下"
+
+msgid "Chat Log has been deleted successfully"
+msgstr "已成功删除聊天记录"
+
+msgid "Are you sure you want to delete?"
+msgstr "您确定您要删除吗？"
+
+msgid "Default Radius"
+msgstr "默认半径"
+
+msgid "Compress CSS"
+msgstr "压缩CSS"
+
+msgid "Search in logs"
+msgstr "记录中搜索"
+
+msgid "Disable in mobile devices"
+msgstr "在移动设备中禁用"
+
+msgid "Allowed visitors at one time"
+msgstr "同时游客数量"
+
+msgid ""
+"Other visitors are allowed to fill out the contact form instead of "
+"connecting to chat"
+msgstr "其他观众可以填写联系表单，而不是连接到聊天"
+
+msgid "Offset"
+msgstr "位移"
+
+msgid "Position"
+msgstr "位置"
+
+msgid "left-bottom"
+msgstr "左下方 "
+
+msgid "right-bottom"
+msgstr "右下方"
+
+msgid "Ask for phone field?"
+msgstr "要求填写电话?"
+
+msgid "Only in contact form"
+msgstr "只有在联系表格"
+
+msgid "Phone"
+msgstr "电话"
+
+msgid "Phone Field"
+msgstr "电话字段"
+
+msgid "Users & Visitors"
+msgstr "用户 & 访客"
+
+msgid "Operator Additional Role"
+msgstr "接线员附加角色"
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid ""
+"Something went wrong! Please <a href='%s'>refresh the page</a> and try again"
+msgstr "发送失败! 请<a href='%s'>刷新页面</a> ，再试一次！谢谢"
+
+msgid "No operator is online. Please refresh the page and use contact form"
+msgstr "没有接线员在线。请刷新页面，使用的联系方式"
+
+msgid "Custom CSS"
+msgstr "自定义CSS"
+
+msgid "License is not valid"
+msgstr "许可证是无效的"
+
+msgid "Compress JavaScript file"
+msgstr "压缩JavaScript文件"
+
+msgid "Sound"
+msgstr "提示音"
+
+msgid "Mute sound"
+msgstr "静音"
+
+msgid "%s just logged in chat"
+msgstr "%s 已经登录聊天"
+
+msgid "You have new notification"
+msgstr "你有新的通知"
+
+msgid "Offline Messages"
+msgstr "离线留言"

@@ -14,7 +14,11 @@ global $post, $product, $woocommerce;
 $enable_slider = get_option('yith_wcmg_enableslider') == 'yes' ? true : false;
 
 $attachment_ids = $product->get_gallery_attachment_ids();
+
 if ( ! empty( $attachment_ids ) ) array_unshift( $attachment_ids, get_post_thumbnail_id() );
+
+//  make sure attachments ids are unique
+$attachment_ids = array_unique($attachment_ids);
 
 if ( $attachment_ids ) {
     ?>
@@ -23,6 +27,8 @@ if ( $attachment_ids ) {
         <?php
         $loop = 0;
         $columns = apply_filters( 'woocommerce_product_thumbnails_columns', get_option( 'yith_wcmg_slider_items', 3 ) );
+
+        if( !isset( $columns ) || $columns == null ) $columns = 3;
 
         foreach ( $attachment_ids as $attachment_id ) {
             $classes = array( 'yith_magnifier_thumbnail' );

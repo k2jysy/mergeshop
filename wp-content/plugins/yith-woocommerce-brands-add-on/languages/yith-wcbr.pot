@@ -1,0 +1,248 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: YITH WooCommerce Brands Add-On\n"
+"POT-Creation-Date: 2015-10-23 14:41+0100\n"
+"PO-Revision-Date: 2015-04-30 17:08+0100\n"
+"Last-Translator: Nicola Mustone <mail@nicolamustone.it>\n"
+"Language-Team: Your Inspiration Themes <plugins@yithemes.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.1\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e;_n:1,2;__ngettext:1,2;"
+"__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;"
+"_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPathExcluded-0: ../plugin-fw\n"
+
+#: ../includes/class.yith-wcbr-admin.php:72
+#: ../includes/class.yith-wcbr-admin.php:293
+msgid "Settings"
+msgstr ""
+
+#: ../includes/class.yith-wcbr-admin.php:73
+#: ../includes/class.yith-wcbr-admin.php:297
+msgid "Premium Version"
+msgstr ""
+
+#: ../includes/class.yith-wcbr-admin.php:119
+msgid "Choose an image"
+msgstr ""
+
+#: ../includes/class.yith-wcbr-admin.php:120
+msgid "Use image"
+msgstr ""
+
+#: ../includes/class.yith-wcbr-admin.php:183
+msgid "Image"
+msgstr ""
+
+#: ../includes/class.yith-wcbr-admin.php:213
+#: ../templates/admin/add-brand-taxonomy-form.php:17
+#: ../templates/admin/edit-brand-taxonomy-form.php:16
+msgid "Thumbnail"
+msgstr ""
+
+#: ../includes/class.yith-wcbr-admin.php:227
+msgid ""
+"Product brands for your store can be managed here. To display more brands "
+"here, click on \"screen options\" link on top of the page."
+msgstr ""
+
+#: ../includes/class.yith-wcbr-admin.php:242
+#: ../includes/class.yith-wcbr-admin.php:243
+#: ../includes/class.yith-wcbr.php:101 ../includes/class.yith-wcbr.php:117
+msgid "Brands"
+msgstr ""
+
+#: ../includes/class.yith-wcbr-admin.php:317
+msgid "Plugin Documentation"
+msgstr ""
+
+#: ../includes/class.yith-wcbr.php:102
+msgid "Brand"
+msgstr ""
+
+#: ../includes/class.yith-wcbr.php:103
+msgid "All Brands"
+msgstr ""
+
+#: ../includes/class.yith-wcbr.php:104
+msgid "Edit Brand"
+msgstr ""
+
+#: ../includes/class.yith-wcbr.php:105
+msgid "View Brand"
+msgstr ""
+
+#: ../includes/class.yith-wcbr.php:106
+msgid "Update Brand"
+msgstr ""
+
+#: ../includes/class.yith-wcbr.php:107
+msgid "Add New Brand"
+msgstr ""
+
+#: ../includes/class.yith-wcbr.php:108
+msgid "New Brand Name"
+msgstr ""
+
+#: ../includes/class.yith-wcbr.php:109
+msgid "Parent Brand"
+msgstr ""
+
+#: ../includes/class.yith-wcbr.php:110
+msgid "Parent Brand:"
+msgstr ""
+
+#: ../includes/class.yith-wcbr.php:111
+msgid "Search Brands"
+msgstr ""
+
+#: ../includes/class.yith-wcbr.php:112
+msgid "Separate brands with commas"
+msgstr ""
+
+#: ../includes/class.yith-wcbr.php:113
+msgid "No Brands Found"
+msgstr ""
+
+#: ../init.php:107
+msgid ""
+"YITH WooCommerce Brands is enabled but not effective. It requires "
+"WooCommerce in order to work."
+msgstr ""
+
+#: ../init.php:117
+msgid ""
+"You can't activate the free version of YITH WooCommerce Brands while you "
+"are using the premium one."
+msgstr ""
+
+#: ../plugin-options/settings-options.php:20
+msgid "General"
+msgstr ""
+
+#: ../plugin-options/settings-options.php:28
+msgid "Brand label"
+msgstr ""
+
+#: ../plugin-options/settings-options.php:30
+msgid "Label used for \"Brand\" link"
+msgstr ""
+
+#: ../plugin-options/settings-options.php:31
+msgid "Brand:"
+msgstr ""
+
+#: ../templates/admin/add-brand-taxonomy-form.php:21
+#: ../templates/admin/edit-brand-taxonomy-form.php:21
+msgid "Upload/Add image"
+msgstr ""
+
+#: ../templates/admin/add-brand-taxonomy-form.php:22
+#: ../templates/admin/edit-brand-taxonomy-form.php:22
+msgid "Remove image"
+msgstr ""
+
+#: ../templates/admin/brand-premium-panel.php:217
+#: ../templates/admin/brand-premium-panel.php:324
+#, php-format
+msgid ""
+"Upgrade to %1$spremium version%2$s of %1$sYITH WooCommerce Brands Add-On"
+"%2$s to benefit from all features!"
+msgstr ""
+
+#: ../templates/admin/brand-premium-panel.php:220
+#: ../templates/admin/brand-premium-panel.php:327
+msgid "UPGRADE"
+msgstr ""
+
+#: ../templates/admin/brand-premium-panel.php:221
+#: ../templates/admin/brand-premium-panel.php:328
+msgid "to the premium version"
+msgstr ""
+
+#: ../templates/admin/brand-premium-panel.php:227
+msgid "Premium Features"
+msgstr ""
+
+#: ../templates/admin/brand-premium-panel.php:235
+msgid "Banners and links"
+msgstr ""
+
+#: ../templates/admin/brand-premium-panel.php:238
+#, php-format
+msgid ""
+"Two additional details for each brand in your store: show a %1$sbanner"
+"%2$s to users when they access the page of the selected brand and specify "
+"a %1$slink%2$s redirecting users to a page different from brand archive "
+"page (e.g. brand official website)."
+msgstr ""
+
+#: ../templates/admin/brand-premium-panel.php:248
+msgid "Brand taxonomy"
+msgstr ""
+
+#: ../templates/admin/brand-premium-panel.php:251
+msgid ""
+"With the premium version of the plugin, all taxonomies defined for "
+"products (usually categories, tags and attributes) can be turned into "
+"brands for products of your shop!"
+msgstr ""
+
+#: ../templates/admin/brand-premium-panel.php:266
+msgid "Position"
+msgstr ""
+
+#: ../templates/admin/brand-premium-panel.php:268
+msgid ""
+"Position of product brand is no longer static: it will be up to you to "
+"choose the most suitable position for brands in product detail page and "
+"in shop page."
+msgstr ""
+
+#: ../templates/admin/brand-premium-panel.php:278
+msgid "Content"
+msgstr ""
+
+#: ../templates/admin/brand-premium-panel.php:281
+#, php-format
+msgid ""
+"Name, logo or both? You can decide what information to show to your users "
+"just with a click. Whether it is shown in %1$sshop page or in product "
+"detail page%2$s, decide the information you want to show about the "
+"selected brand."
+msgstr ""
+
+#: ../templates/admin/brand-premium-panel.php:297
+msgid "5 widgets"
+msgstr ""
+
+#: ../templates/admin/brand-premium-panel.php:300
+#, php-format
+msgid ""
+"5 different solutions to add and show all your brands in your sidebars! "
+"Beautiful and useful, thanks to them, %1$syour brands will become dynamic"
+"%2$s and you will be able to further value them using the numerous "
+"options availble for each widget. Discover them now!"
+msgstr ""
+
+#: ../templates/admin/brand-premium-panel.php:309
+msgid "8 shortcodes"
+msgstr ""
+
+#: ../templates/admin/brand-premium-panel.php:312
+#, php-format
+msgid ""
+"8 new solutions to add brands to your e-commerce pages. %1$sEight "
+"different ways to value your brands and brand products:%2$s you can show "
+"them either in a slider or as a simple list and users will also be able "
+"to filter them and restrict seach results only to those they are "
+"interested in."
+msgstr ""

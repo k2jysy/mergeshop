@@ -1,0 +1,535 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Screets Team <support@screets.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+msgid "Welcome"
+msgstr "Hoşgeldiniz"
+
+msgid "Chat Console"
+msgstr "Chat Konsolu"
+
+msgid "Chat Logs"
+msgstr "Chat Kayıtları"
+
+msgid "Log"
+msgstr "Kayıt"
+
+msgid "Logs"
+msgstr "Kayıtlar"
+
+msgid "Total Logs"
+msgstr "Toplam Kayıt"
+
+msgid "Chat Operator"
+msgstr "Chat Operatörü"
+
+msgid "Operator"
+msgstr "Operatör"
+
+msgid "Operators"
+msgstr "Operatörler"
+
+msgid "You"
+msgstr "Sen"
+
+msgid "Visitor"
+msgstr "Ziyaretçi"
+
+msgid "Sender"
+msgstr "Gönderen"
+
+msgid "Receiver"
+msgstr "Alıcı"
+
+msgid "Date"
+msgstr "Tarih"
+
+msgid "Last Chat Date"
+msgstr "Son Chat Tarihi"
+
+msgid "Web User"
+msgstr "Web Kullanıcısı"
+
+msgid "Chat Options"
+msgstr "Chat Ayarları"
+
+msgid "Options"
+msgstr "Ayarlar"
+
+msgid "Required"
+msgstr "Zorunlu"
+
+msgid "E-mail"
+msgstr "E-posta"
+
+msgid "Name"
+msgstr "Adı"
+
+msgid "Your name"
+msgstr "Adınız"
+
+msgid "Message"
+msgstr "Mesaj"
+
+msgid "Contact us"
+msgstr "Bize ulaşın"
+
+msgid "Talk to us"
+msgstr "Bize yazın"
+
+msgid "Questions? We're here. Send us a message!"
+msgstr "Şu an burdayız! Bize bir mesaj gönderin."
+
+msgid "Questions, issues or concerns? I'd love to help you!"
+msgstr ""
+"Endişe ettiğiniz bir konu veya bir sorunuz mu var? Yardımcı olmaktan "
+"mutluluk duyarım."
+
+msgid "Start Chat"
+msgstr "Sohbeti başlat"
+
+msgid ""
+"We're not around right now. But you can send us an email and we'll get back "
+"to you, asap."
+msgstr ""
+"Şu an çevrimiçi değiliz. Eğer bize email atarsanız en kısa sürede size cevap "
+"vermekten mutluluk duyarız."
+
+msgid "Just now"
+msgstr "Az önce"
+
+msgid "A few seconds ago"
+msgstr "Bir kaç saniye önce"
+
+msgid "%s second ago"
+msgstr "%s saniye önce"
+
+msgid "%s seconds ago"
+msgstr "%s saniye önce"
+
+msgid "%s minute ago"
+msgstr "%s dakika önce"
+
+msgid "%s minutes ago"
+msgstr "%s dakika önce"
+
+msgid "%s hour ago"
+msgstr "%s saat önce"
+
+msgid "%s hours ago"
+msgstr "%s saat önce"
+
+msgid "%s day ago"
+msgstr "%s gün önce"
+
+msgid "%s days ago"
+msgstr "%s gün önce"
+
+msgid "%s week ago"
+msgstr "%s hafta önce"
+
+msgid "%s weeks ago"
+msgstr "%s hafta önce"
+
+msgid "%s month ago"
+msgstr "%s ay önce"
+
+msgid "%s months ago"
+msgstr "%s ay önce"
+
+msgid "%s year ago"
+msgstr "%s yıl önce"
+
+msgid "%s years ago"
+msgstr "%s yıl önce"
+
+msgid "%s decade ago"
+msgstr "%s onyıl önce"
+
+msgid "%s decades ago"
+msgstr "%s onyıl önce"
+
+# Abbr of 1 minute
+msgid "1m"
+msgstr "1dk"
+
+# Abbr of Month
+msgid "%sm"
+msgstr "%sdk"
+
+# Abbr of Hour
+msgid "%sh"
+msgstr "%ssn"
+
+msgid "No one is online"
+msgstr "Kimse çevrimiçi değil"
+
+msgid "Logout from Chat"
+msgstr "Konuşmadan Çık"
+
+msgid "Online"
+msgstr "Çevrimiçi"
+
+msgid "Offline"
+msgstr "Çevrimdışı"
+
+msgid "Online Users"
+msgstr "Çevrimiçi Kullanıcılar"
+
+msgid "If you leave, you will lose all your conversations"
+msgstr "Eğer ayrılırsanız, bütün konuşmalarınızı kaybedeceksinız"
+
+msgid "1 person online"
+msgstr "1 kişi çevrimiçi"
+
+msgid "%s people online"
+msgstr "%s kişi çevrimiçi"
+
+msgid "Write a reply"
+msgstr "Bir cevap yazın"
+
+msgid "Click ENTER to chat"
+msgstr "Mesajı göndermek için ENTER tuşuna basın"
+
+msgid "Logout"
+msgstr "Çıkış"
+
+msgid "Connecting"
+msgstr "Bağlanılıyor"
+
+msgid "Email address is invalid"
+msgstr "E-posta adresi geçersiz"
+
+msgid "You are not logged in"
+msgstr "Giriş yapmadınız"
+
+msgid "You haven't entered a chat message"
+msgstr "Bir mesaj yazmadınız"
+
+msgid "Edit"
+msgstr "Düzenle"
+
+msgid "Delete"
+msgstr "Sil"
+
+msgid "This conversation has ended"
+msgstr "Konuşma sonlandırıldı"
+
+msgid "General Settings"
+msgstr "Genel Ayarlar"
+
+msgid "Customize Skin"
+msgstr "Temayı Özelleştir"
+
+msgid "Messages"
+msgstr "Mesajlar"
+
+msgid "Forms"
+msgstr "Formlar"
+
+msgid "Default Skin"
+msgstr "Varsayılan Tema"
+
+msgid "Width"
+msgstr "Genişlik"
+
+msgid "Height"
+msgstr "Yükseklik"
+
+msgid "Header Background"
+msgstr "Header Arkaplanı"
+
+msgid "Header Foreground"
+msgstr "Header Önplanı"
+
+msgid "Submit Button Background"
+msgstr "Buton Arkaplanı Gönder"
+
+msgid "Submit Button Foreground"
+msgstr "Buton Önplanı Gönder"
+
+msgid "Before Chat Header"
+msgstr "Sohbet Başlığından Önce"
+
+msgid "In Chat Header"
+msgstr "Chat Başlığında"
+
+msgid "Welcome Message (Pre-chat)"
+msgstr "Hoşgeldin Mesajı (Chat Öncesinde)"
+
+msgid "Welcome Message (During chat)"
+msgstr "Hoşgeldin Mesajı (Chat Sırasında)"
+
+msgid "Name Field"
+msgstr "İsim Alanı"
+
+msgid "E-mail Field"
+msgstr "E-posta Alanı"
+
+msgid "Required text"
+msgstr "İstenen Metin"
+
+msgid "Chat Button"
+msgstr "Sohbet Butonu"
+
+msgid "Input Box Message"
+msgstr "Metin Kutusu Mesajı"
+
+msgid "Input Box Placeholder"
+msgstr "Metin Kutusu Saydam Metin"
+
+msgid "Offline Header"
+msgstr "Çevrimdışı başlığı"
+
+msgid "Offline Body"
+msgstr "Çevrimdışı mesajı"
+
+msgid "Hide When Offline"
+msgstr "Çevrimdışı Olduğunda Gizle"
+
+msgid "Where should offline messages go?"
+msgstr "Çevrimdışı mesajlar nereye gitsin?"
+
+msgid "Enter e-mail address"
+msgstr "E-mail adresi girin"
+
+msgid "Chat Box Background"
+msgstr "Chat Kutusu Arkaplanı"
+
+msgid "Chat Box Foreground"
+msgstr "Chat Kutusu Önplanı"
+
+msgid "Operators are not allowed to chat from here"
+msgstr "Operator'ler bu alanı kullanamazlar"
+
+msgid "Got a question?"
+msgstr "Bir sorunuz mu var?"
+
+msgid "Send?"
+msgstr "Gönder?"
+
+msgid "%s wrote a note"
+msgstr "%s bir not yazdı"
+
+msgid "Please fill out all required fields"
+msgstr "Lütfen bütün istenen boşlukları doldurun"
+
+msgid "E-mail is invalid"
+msgstr "E-posta geçersiz"
+
+msgid ""
+"E-mail address has already been used by an operator. Please enter another one"
+msgstr ""
+"E-posta adresi bir kullanıcı tarafından kullanılıyor. Lütfen başka bir tane "
+"girin."
+
+msgid "Sending"
+msgstr "Gönderiliyor"
+
+msgid "Successfully sent! Thank you"
+msgstr "Başarıyla gönderildi! Teşekkürler"
+
+msgid "Something went wrong! Try again"
+msgstr "Bir şeyler ters gitti! Tekrar deneyin"
+
+msgid "CSS Animations"
+msgstr "CSS Animasyonları"
+
+msgid "Use CSS Animations"
+msgstr "CSS animasyonlarını kullan"
+
+msgid "Question Field"
+msgstr "Soru Alanı"
+
+msgid "Skin Type"
+msgstr "Tema Tipi"
+
+msgid "Light"
+msgstr "Açık"
+
+msgid "Dark"
+msgstr "Koyu"
+
+msgid "This feature sets tones of custom colors you choiced below"
+msgstr "Bu özellik aşağıda seçtiğiniz renklerin tonlarını ayarlar"
+
+msgid "Display chatbox automatically"
+msgstr "Chat kutusunu otomatik olarak göster"
+
+msgid "Always show chatbox here"
+msgstr "Chat kutusunu her zaman burada göster"
+
+msgid "Delay"
+msgstr "Ertele"
+
+msgid "sec."
+msgstr "sn."
+
+msgid "Colors"
+msgstr "Renkler"
+
+msgid "Advanced"
+msgstr "Gelişmiş"
+
+msgid "Unique ID"
+msgstr "Benzersiz ID"
+
+msgid ""
+"Unique ID is useful when you need to use Chat Plugin more than one WordPress "
+"installation in same domain (You will want to give different ID's for each "
+"WP installation)"
+msgstr ""
+"Benzersiz ID aynı alan adıyla yapılan Wordpress Kurulumlarında Chat Plugin'e "
+"ihtiyaç duyduğunuzda faydalıdır (WP kurulumuna erişmek için farklı bir ID "
+"isteyebilirsiniz)"
+
+msgid "Send Button"
+msgstr "Gönder Butonu"
+
+msgid "Operator Name"
+msgstr "Kullanıcı Adı"
+
+msgid "User has been sent this message after you disconnected from chat"
+msgstr "Kullanıcı siz sohbetten ayrılınca bu mesajı gönderdi"
+
+msgid ""
+"We are offline now. However, your message has been sent to us by email. We "
+"will contact you as soon as possible"
+msgstr ""
+"Şu an çevrimdışıyız. Ancak, mesajınız bize e-mail aracılığıyla gönderildi. "
+"En kısa sürede sizinle iletişime geçeceğiz."
+
+msgid "Ask for name?"
+msgstr "İsim sorulsun mu?"
+
+msgid "Yes"
+msgstr "Evet"
+
+msgid "No"
+msgstr "Hayır"
+
+msgid "Yes, but make it optional"
+msgstr "Evet, ama bunu isteğe bağlı yap"
+
+msgid "Loading"
+msgstr "Yükleniyor"
+
+msgid "Always show in homepage"
+msgstr "Her zaman anasayfada göster"
+
+msgid "End chat"
+msgstr "Sohbeti bitir"
+
+msgid "Load default skin CSS file"
+msgstr "Varsayılan CSS dosyasını yükle"
+
+msgid "Item Purchase Key"
+msgstr "Ürün Lisans Şifresi"
+
+msgid "It can be found in Licence Certificate under Downloads tab"
+msgstr ""
+"Downloads sekmesinde Licence Certificate bağlantısının altında bulunabilir"
+
+msgid "Chat Log has been deleted successfully"
+msgstr "Sohbet kaydı başarıyla Silindi"
+
+msgid "Are you sure you want to delete?"
+msgstr "Silmek istediğinden emin misin?"
+
+msgid "Default Radius"
+msgstr "Varsayılan CSS Radius"
+
+msgid "Compress CSS"
+msgstr "CSS'i sıkıştır"
+
+msgid "Search in logs"
+msgstr "Kayıtlarda ara"
+
+msgid "Disable in mobile devices"
+msgstr "Mobil cihazlarda gizle"
+
+msgid "Allowed visitors at one time"
+msgstr "Aynı anda izin verilen ziyaretçi sayısı"
+
+msgid ""
+"Other visitors are allowed to fill out the contact form instead of "
+"connecting to chat"
+msgstr ""
+"Diğer ziyaretçiler chat'e bağlanmak yerine iletişim formunu kullanabilecekler"
+
+msgid "Offset"
+msgstr "Kenar boşluk"
+
+msgid "Position"
+msgstr "Pozisyon"
+
+msgid "left-bottom"
+msgstr "sol-alt"
+
+msgid "right-bottom"
+msgstr "sağ-alt"
+
+msgid "Ask for phone field?"
+msgstr "Telefon sorulsun mu?"
+
+msgid "Only in contact form"
+msgstr "Sadece iletişim formunda"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Phone Field"
+msgstr "Telefon alanı"
+
+msgid "Users & Visitors"
+msgstr "Kullanıcılar & Ziyaretçiler"
+
+msgid "Operator Additional Role"
+msgstr "Operator Ek Rolü"
+
+msgid "N/A"
+msgstr "Bilinmiyor"
+
+msgid ""
+"Something went wrong! Please <a href='%s'>refresh the page</a> and try again"
+msgstr ""
+"Bir şeyler ters gitti! Lütfen <a href='%s'>sayfayı yenileyin</a> ve tekrar "
+"deneyin"
+
+msgid "No operator is online. Please refresh the page and use contact form"
+msgstr ""
+"Hiç operator online değil. Lütfen sayfayı yenileyip iletişim formunu kullanın"
+
+msgid "Custom CSS"
+msgstr "Özel CSS"
+
+msgid "License is not valid"
+msgstr "Lisans geçerli değil"
+
+msgid "Compress JavaScript file"
+msgstr "JavaScript dosyasını sıkıştır"
+
+msgid "Sound"
+msgstr "Ses"
+
+msgid "Mute sound"
+msgstr "Sesi kıs"
+
+msgid "%s just logged in chat"
+msgstr "%s şimdi chat'e bağlandı"
+
+msgid "You have new notification"
+msgstr "Yeni bir bildiriniz var"
+
+msgid "Offline Messages"
+msgstr "Çevrimdışı Mesajlar"
