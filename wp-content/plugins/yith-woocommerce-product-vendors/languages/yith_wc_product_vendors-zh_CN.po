@@ -1,0 +1,1969 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: YITH WooCommerce Multi Vendor\n"
+"POT-Creation-Date: 2015-10-27 18:57+0800\n"
+"PO-Revision-Date: 2015-10-27 19:42+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: init.php\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: includes/class.yith-commission.php:461
+#, php-format
+msgid "Commission status changed from %s to %s."
+msgstr "佣金状态变化从%s - %s."
+
+#: includes/class.yith-commissions.php:170
+msgid "Commission status not updated!"
+msgstr "佣金状态没有更新！"
+
+#: includes/class.yith-commissions.php:171
+msgid "Commission status updated!"
+msgstr "佣金状态已更新！"
+
+#: includes/class.yith-commissions.php:172
+msgid ""
+"Payment successful. In a few minutes you will receive an email with the "
+"outcome of the payment and the commission state will be changed accordingly."
+msgstr ""
+"付款成功。稍后您将受到一封电子邮件关于这支付结果并且佣金状态将根据这个发生变"
+"化。"
+
+#: includes/class.yith-commissions.php:173
+msgid "Payment failed."
+msgstr "付款失败。"
+
+#: includes/class.yith-commissions.php:213
+msgid "Paid"
+msgstr "已付款"
+
+#: includes/class.yith-commissions.php:214
+msgid "Unpaid"
+msgstr "未付款"
+
+#: includes/class.yith-commissions.php:215
+msgid "Pending"
+msgstr "未处理"
+
+#: includes/class.yith-commissions.php:216
+msgid "Refunded"
+msgstr "已退款"
+
+#: includes/class.yith-commissions.php:217
+msgid "Cancelled"
+msgstr "取消"
+
+#: includes/class.yith-commissions.php:218
+msgid "Processing"
+msgstr "处理中"
+
+#: includes/class.yith-commissions.php:276
+#: includes/class.yith-commissions.php:277
+#: includes/class.yith-commissions.php:1170
+#: includes/class.yith-vendors-admin.php:151
+msgid "Commissions"
+msgstr "佣金"
+
+#: includes/class.yith-commissions.php:341
+#, php-format
+msgid "Commission #%d details"
+msgstr ""
+
+#: includes/class.yith-commissions.php:342
+#, php-format
+msgid "%1$s &lsaquo; %2$s &#8212; WordPress"
+msgstr ""
+
+#: includes/class.yith-commissions.php:1036
+#, php-format
+msgid "Refunded %s from order"
+msgstr ""
+
+#: includes/class.yith-commissions.php:1069
+#, php-format
+msgid "Cancelled %s refund from order"
+msgstr ""
+
+#: includes/class.yith-commissions.php:1206 includes/class.yith-orders.php:1449
+msgid "commission_id"
+msgstr ""
+
+#: includes/class.yith-orders.php:179
+#, php-format
+msgid "Order &ndash; %s"
+msgstr ""
+
+#: includes/class.yith-orders.php:179
+msgctxt "Order date parsed by strftime"
+msgid "%b %d, %Y @ %I:%M %p"
+msgstr ""
+
+#: includes/class.yith-orders.php:388 includes/class.yith-orders.php:710
+msgctxt "Order note"
+msgid "Update by admin: "
+msgstr ""
+
+#: includes/class.yith-orders.php:703
+msgid "Delete note"
+msgstr ""
+
+#: includes/class.yith-orders.php:805
+#, php-format
+msgid "Item #%s stock reduced from %s to %s."
+msgstr ""
+
+#: includes/class.yith-orders.php:811
+#, php-format
+msgid "Item #%s stock increased from %s to %s."
+msgstr ""
+
+#: includes/class.yith-orders.php:1507
+msgctxt "Admin: Order table column"
+msgid "Suborders"
+msgstr ""
+
+#: includes/class.yith-orders.php:1546 includes/class.yith-orders.php:1610
+msgid "in"
+msgstr ""
+
+#: includes/class.yith-orders.php:1574
+msgctxt "Admin: Single order page. Suborder details box"
+msgid "Suborders"
+msgstr ""
+
+#: includes/class.yith-orders.php:1574
+msgid ""
+"Note: from this box you can monitor the status of suborders associated to "
+"individual vendors."
+msgstr ""
+
+#: includes/class.yith-orders.php:1579
+msgctxt "Admin: Single order page. Parent order details box"
+msgid "Parent order"
+msgstr ""
+
+#: includes/class.yith-orders.php:1621
+msgctxt "Admin: single order page. Link to parent order"
+msgid "Return to main order"
+msgstr ""
+
+#: includes/class.yith-vendors-admin.php:152
+#: includes/class.yith-vendors.php:269
+msgid "Vendors"
+msgstr "商家"
+
+#: includes/class.yith-vendors-admin.php:153
+#: includes/class.yith-vendors-admin.php:897
+msgid "Premium Version"
+msgstr "白金版"
+
+#: includes/class.yith-vendors-admin.php:160
+#: includes/class.yith-vendors-admin.php:161
+msgid "Multi Vendor"
+msgstr "多个商家"
+
+#: includes/class.yith-vendors-admin.php:295
+#, php-format
+msgid ""
+"You do not have permission to edit this product. %1$sClick here to view and "
+"edit your products%2$s."
+msgstr ""
+
+#: includes/class.yith-vendors-admin.php:339
+#: includes/class.yith-vendors-admin.php:340
+#: templates/admin/vendor-admin.php:17
+msgid "Vendor Details"
+msgstr "商家细节"
+
+#: includes/class.yith-vendors-admin.php:480
+#: includes/class.yith-vendors-admin.php:500
+msgid "A vendor with this name already exists."
+msgstr "这个商家名字已经存在"
+
+#: includes/class.yith-vendors-admin.php:481
+msgid "Vendor name already exists"
+msgstr "这个商家名字已经存在"
+
+#: includes/class.yith-vendors-admin.php:811
+#, php-format
+msgid "No %s"
+msgstr ""
+
+#: includes/class.yith-vendors-admin.php:892
+#: plugin-fw/lib/yit-cpt-unlimited.php:1048
+#: plugin-fw/lib/yit-cpt-unlimited.php:1196
+#: plugin-fw/lib/yit-cpt-unlimited.php:1202
+#: plugin-fw/lib/yit-plugin-panel.php:64
+msgid "Settings"
+msgstr "设置"
+
+#: includes/class.yith-vendors-admin.php:893
+msgid "Premium live demo"
+msgstr ""
+
+#: includes/class.yith-vendors-admin.php:893
+msgid "Live demo"
+msgstr ""
+
+#: includes/class.yith-vendors-admin.php:921
+msgid "Plugin Documentation"
+msgstr ""
+
+#: includes/class.yith-vendors-admin.php:1013
+msgid "Visit Store"
+msgstr "访问商店"
+
+#: includes/class.yith-vendors.php:267 includes/class.yith-vendors.php:268
+#: templates/admin/commission-view.php:193
+msgid "Vendor"
+msgstr "商家"
+
+#: includes/class.yith-vendors.php:270
+msgid "Search Vendors"
+msgstr "查找商家"
+
+#: includes/class.yith-vendors.php:271
+msgid "All Vendors"
+msgstr "所有商家"
+
+#: includes/class.yith-vendors.php:272
+msgid "Parent Vendor"
+msgstr "父商家"
+
+#: includes/class.yith-vendors.php:273
+msgid "Parent Vendor:"
+msgstr "父商家"
+
+#: includes/class.yith-vendors.php:274
+msgid "View Vendor"
+msgstr "查看商家"
+
+#: includes/class.yith-vendors.php:275
+msgid "Edit Vendor"
+msgstr "编辑商家"
+
+#: includes/class.yith-vendors.php:276
+msgid "Update Vendor"
+msgstr "更新商家"
+
+#: includes/class.yith-vendors.php:277
+msgid "Add New Vendor"
+msgstr "添加商家"
+
+#: includes/class.yith-vendors.php:278
+msgid "New Vendor's Name"
+msgstr "新商家名字"
+
+#: includes/class.yith-vendors.php:280
+msgid "Separate vendors with commas"
+msgstr "用逗号分开商家"
+
+#: includes/class.yith-vendors.php:281
+msgid "Add or remove vendors"
+msgstr "添加或删除商家"
+
+#: includes/class.yith-vendors.php:282
+msgid "Choose from most used vendors"
+msgstr "选择最常用的商家"
+
+#: includes/class.yith-vendors.php:283
+msgid "No vendors found"
+msgstr "没有找到商家"
+
+#: includes/lib/class.yith-commissions-list-table.php:59
+msgid "ID"
+msgstr "序号"
+
+#: includes/lib/class.yith-commissions-list-table.php:60
+#: templates/admin/commission-view.php:158
+msgid "Status"
+msgstr "状态"
+
+#: includes/lib/class.yith-commissions-list-table.php:61
+msgid "Order"
+msgstr "订单"
+
+#: includes/lib/class.yith-commissions-list-table.php:62
+msgid "Product"
+msgstr "商品"
+
+#: includes/lib/class.yith-commissions-list-table.php:63
+#: templates/admin/commission-view.php:462
+msgid "Rate"
+msgstr "比例"
+
+#: includes/lib/class.yith-commissions-list-table.php:64
+msgid "User"
+msgstr "用户"
+
+#: includes/lib/class.yith-commissions-list-table.php:66
+msgid "Amount"
+msgstr "合计"
+
+#: includes/lib/class.yith-commissions-list-table.php:67
+msgid "Date"
+msgstr "日期"
+
+#: includes/lib/class.yith-commissions-list-table.php:68
+#: templates/admin/commission-view.php:166
+msgid "Last update"
+msgstr "最近更新"
+
+#: includes/lib/class.yith-commissions-list-table.php:69
+#: templates/admin/commission-view.php:45
+msgid "Actions"
+msgstr "操作"
+
+#: includes/lib/class.yith-commissions-list-table.php:206
+msgid "Order Deleted"
+msgstr "订单已删除"
+
+#: includes/lib/class.yith-commissions-list-table.php:237
+#: templates/admin/commission-view.php:126
+msgid "Guest"
+msgstr "访客"
+
+#: includes/lib/class.yith-commissions-list-table.php:257
+#, php-format
+msgctxt "Order number by user"
+msgid "%s by %s"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:285
+#: templates/admin/commission-view.php:188
+msgid "User deleted"
+msgstr "用户已删除"
+
+#: includes/lib/class.yith-commissions-list-table.php:297
+#: templates/admin/commission-view.php:199
+msgid "Vendor deleted"
+msgstr "商家已删除"
+
+#: includes/lib/class.yith-commissions-list-table.php:310
+msgid "View"
+msgstr "查看"
+
+#: includes/lib/class.yith-commissions-list-table.php:315
+#: includes/lib/class.yith-commissions-list-table.php:335
+#: templates/admin/commission-view.php:169
+msgid "Y/m/d g:i:s A"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:322
+#: includes/lib/class.yith-commissions-list-table.php:342
+#: templates/admin/commission-view.php:170
+#, php-format
+msgid "%s ago"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:325
+#: includes/lib/class.yith-commissions-list-table.php:344
+msgid "Y/m/d"
+msgstr ""
+
+#: includes/lib/class.yith-commissions-list-table.php:376
+msgid "No commissions found."
+msgstr "没有佣金"
+
+#: includes/widgets/class.yith-woocommerce-vendors-widget.php:29
+msgid "YITH Vendor List"
+msgstr ""
+
+#: includes/widgets/class.yith-woocommerce-vendors-widget.php:31
+msgid "Display the list with enabled vendors."
+msgstr "显示有效商家列表"
+
+#: includes/widgets/class.yith-woocommerce-vendors-widget.php:67
+msgid "Vendor List"
+msgstr "商家列表"
+
+#: includes/widgets/class.yith-woocommerce-vendors-widget.php:76
+msgid "Title"
+msgstr "标题"
+
+#: includes/widgets/class.yith-woocommerce-vendors-widget.php:81
+msgid "Hide this widget on vendor page"
+msgstr ""
+
+#: includes/widgets/class.yith-woocommerce-vendors-widget.php:86
+msgid "Vendor's products amount"
+msgstr ""
+
+#: includes/widgets/class.yith-woocommerce-vendors-widget.php:91
+msgid "Hide vendors with no products"
+msgstr ""
+
+#: init.php:34
+msgid ""
+"YITH WooCommerce Multi Vendor is enabled but not effective. It requires "
+"WooCommerce in order to work."
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:460
+#: plugin-fw/lib/yit-cpt-unlimited.php:574
+#: plugin-fw/lib/yit-cpt-unlimited.php:719
+#: plugin-fw/lib/yit-cpt-unlimited.php:1632
+#, php-format
+msgid "Add %s"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:461
+#: plugin-fw/lib/yit-cpt-unlimited.php:575
+#, php-format
+msgid "Add New %s"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:462
+#: plugin-fw/lib/yit-cpt-unlimited.php:576
+#: plugin-fw/lib/yit-cpt-unlimited.php:1267
+#: plugin-fw/lib/yit-cpt-unlimited.php:1304
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:463
+#: plugin-fw/lib/yit-cpt-unlimited.php:577
+#, php-format
+msgid "New %s"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:464
+#: plugin-fw/lib/yit-cpt-unlimited.php:578
+#, php-format
+msgid "All %s"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:465
+#: plugin-fw/lib/yit-cpt-unlimited.php:579
+#: plugin-fw/lib/yit-cpt-unlimited.php:1251
+#: plugin-fw/lib/yit-cpt-unlimited.php:1305
+#, php-format
+msgid "View %s"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:466
+#: plugin-fw/lib/yit-cpt-unlimited.php:580
+#, php-format
+msgid "Search %s"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:467
+#: plugin-fw/lib/yit-cpt-unlimited.php:581
+#, php-format
+msgid "No %s found"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:468
+#: plugin-fw/lib/yit-cpt-unlimited.php:582
+#, php-format
+msgid "No %s found in Trash"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:625
+#, php-format
+msgctxt "taxonomy general name"
+msgid "%s Categories"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:626
+msgctxt "taxonomy singular name"
+msgid "Category"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:627
+msgid "Search Categories"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:628
+msgid "All Categories"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:629
+msgid "Parent Category"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:630
+msgid "Parent Category:"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:631
+msgid "Edit Category"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:632
+msgid "Update Category"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:633
+msgid "Add New Category"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:634
+msgid "New Category Name"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:635
+msgid "Category"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:724
+msgid "Categories"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1042
+#, php-format
+msgid "%s Settings"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1051
+msgid "Type"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1052
+#, php-format
+msgid "Layout for this %s"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1058
+msgid "Rewrite"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1059
+msgid ""
+"Univocal identification name in the URL for each product (slug from post if "
+"empty)"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1064
+msgid "Label in Singular"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1065
+msgid "Set a label in singular (title of portfolio if empty)"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1070
+msgid "Label in Plural"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1071
+msgid "Set a label in plural (title of portfolio if empty)"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1076
+msgid "Taxonomy"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1077
+msgid ""
+"If you want to use categories in the portfolio, set a name for taxonomy. "
+"Name should be a slug (must not contain capital letters nor spaces) and must "
+"not be more than 32 characters long (database structure restriction)."
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1082
+msgid "Taxonomy Rewrite"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1083
+msgid "Set univocal name for each category page URL."
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1088
+msgid "Single layout"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1089
+msgid "Layout for single page of this portfolio"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1130
+msgid "layout settings"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1222
+#: plugin-fw/lib/yit-cpt-unlimited.php:1235
+msgid "Quick links"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1475
+#, php-format
+msgid "Show frontend of the %s"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1482
+#: plugin-fw/templates/metaboxes/types/customtabs.php:46
+#: plugin-fw/templates/metaboxes/types/customtabs.php:90
+msgid "Name"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1631
+#, php-format
+msgid "Add %s from images"
+msgstr ""
+
+#: plugin-fw/lib/yit-cpt-unlimited.php:1633
+msgid "Upload multiple files"
+msgstr ""
+
+#: plugin-fw/lib/yit-plugin-panel-wc.php:323
+msgid "The changes you have made will be lost if you leave this page."
+msgstr ""
+
+#: plugin-fw/lib/yit-plugin-panel.php:63
+msgid "Plugin Settings"
+msgstr ""
+
+#: plugin-fw/lib/yit-plugin-panel.php:96
+#: plugin-fw/lib/yit-plugin-subpanel.php:101
+msgid "YIT Plugins"
+msgstr ""
+
+#: plugin-fw/lib/yit-plugin-panel.php:293
+#: plugin-fw/lib/yit-plugin-subpanel.php:143
+#: plugin-fw/templates/panel/woocommerce/woocommerce-form.php:5
+msgid "Save Changes"
+msgstr ""
+
+#: plugin-fw/lib/yit-plugin-panel.php:296
+#: plugin-fw/templates/panel/woocommerce/woocommerce-form.php:8
+msgid ""
+"If you continue with this action, you will reset all options in this page."
+msgstr ""
+
+#: plugin-fw/lib/yit-plugin-panel.php:298
+#: plugin-fw/lib/yit-plugin-subpanel.php:148
+msgid "Reset to default"
+msgstr ""
+
+#: plugin-fw/lib/yit-plugin-panel.php:298
+#: plugin-fw/lib/yit-plugin-subpanel.php:148
+#: plugin-fw/templates/panel/woocommerce/woocommerce-form.php:11
+msgid "Are you sure?"
+msgstr ""
+
+#: plugin-fw/lib/yit-plugin-panel.php:432
+msgid ""
+"The element you have entered already exists. Please, enter another name."
+msgstr ""
+
+#: plugin-fw/lib/yit-plugin-panel.php:433
+msgid "Settings saved"
+msgstr ""
+
+#: plugin-fw/lib/yit-plugin-panel.php:434
+msgid "Settings reset"
+msgstr ""
+
+#: plugin-fw/lib/yit-plugin-panel.php:435
+msgid "Element deleted correctly."
+msgstr ""
+
+#: plugin-fw/lib/yit-plugin-panel.php:436
+#: plugin-fw/lib/yit-plugin-panel.php:437
+msgid "Element updated correctly."
+msgstr ""
+
+#: plugin-fw/lib/yit-plugin-panel.php:438
+msgid "Database imported correctly."
+msgstr ""
+
+#: plugin-fw/lib/yit-plugin-panel.php:439
+msgid "An error has occurred during import. Please try again."
+msgstr ""
+
+#: plugin-fw/lib/yit-plugin-panel.php:440
+msgid "The added file is not valid."
+msgstr ""
+
+#: plugin-fw/lib/yit-plugin-panel.php:441
+msgid "Sorry, import is disabled."
+msgstr ""
+
+#: plugin-fw/lib/yit-plugin-panel.php:442
+msgid "Sorting successful."
+msgstr ""
+
+#: plugin-fw/lib/yit-plugin-subpanel.php:146
+msgid ""
+"If you continue with this action, you will reset all the options in this "
+"page."
+msgstr ""
+
+#: plugin-fw/lib/yit-pointers.php:70
+msgid "Plugins Activated"
+msgstr ""
+
+#: plugin-fw/lib/yit-pointers.php:71
+msgid ""
+"From now on, you can find all plugin options in YIT Plugin menu.\n"
+"                                     For each plugin installed, "
+"customization settings will be available as a new entry in YIT Plugin menu."
+msgstr ""
+
+#: plugin-fw/lib/yit-pointers.php:73 plugin-fw/lib/yit-pointers.php:89
+msgid "Discover all our plugins available on:"
+msgstr ""
+
+#: plugin-fw/lib/yit-pointers.php:74 plugin-fw/lib/yit-pointers.php:90
+msgid "and"
+msgstr ""
+
+#: plugin-fw/lib/yit-pointers.php:84
+msgid "Plugins Upgraded"
+msgstr ""
+
+#: plugin-fw/lib/yit-pointers.php:85
+msgid ""
+"From now on, you can find all options of your plugins in YIT Plugin menu.\n"
+"                                    Any time one of our plugins is updated, "
+"a new entry will be added to this menu.\n"
+"                                    For example, after the update, plugin "
+"options (such as for YITH WooCommerce Wishlist, YITH WooCommerce Ajax "
+"Search, etc.)\n"
+"                                    will be moved from previous location to "
+"YIT Plugin tab."
+msgstr ""
+
+#: plugin-fw/lib/yit-upgrade.php:123
+msgid "There is a new version of %plugin_name% available."
+msgstr ""
+
+#: plugin-fw/lib/yit-upgrade.php:124
+msgid "View version %latest% details."
+msgstr ""
+
+#: plugin-fw/lib/yit-upgrade.php:125
+msgid "Automatic update is unavailable for this plugin,"
+msgstr ""
+
+#: plugin-fw/lib/yit-upgrade.php:126
+msgid ""
+"please <a href=\"%activate_link%\">activate</a> your copy of %plugin_name%."
+msgstr ""
+
+#: plugin-fw/lib/yit-upgrade.php:127
+msgid "Update now."
+msgstr ""
+
+#: plugin-fw/lib/yit-upgrade.php:250
+msgid "Yithemes Repository"
+msgstr ""
+
+#: plugin-fw/lib/yit-upgrade.php:284
+msgid "Invalid URL Provided."
+msgstr ""
+
+#: plugin-fw/lib/yit-upgrade.php:297
+msgid "Could not create Temporary file."
+msgstr ""
+
+#: plugin-fw/lib/yit-upgrade.php:439
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a href=\"%2$s\" class=\"thickbox "
+"yit-changelog-button\" title=\"%3$s\">View version %4$s details</a>."
+msgstr ""
+
+#: plugin-fw/lib/yit-upgrade.php:441
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a href=\"%2$s\" class=\"thickbox "
+"yit-changelog-button\" title=\"%3$s\">View version %4$s details</a>. <em>You "
+"have to activate the plugin on a single site of the network to benefit from "
+"automatic updates.</em>"
+msgstr ""
+
+#: plugin-fw/lib/yit-upgrade.php:443
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a href=\"%2$s\" class=\"thickbox "
+"yit-changelog-button\" title=\"%3$s\">View version %4$s details</a>. "
+"<em>Automatic update is unavailable for this plugin, please <a href=\"%5$s\" "
+"title=\"Licence activation\">activate</a> your copy of %6s.</em>"
+msgstr ""
+
+#: plugin-fw/lib/yit-upgrade.php:445
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a href=\"%2$s\" class=\"thickbox "
+"yit-changelog-button\" title=\"%3$s\">View version %4$s details</a> or <a "
+"href=\"%5$s\">update now</a>."
+msgstr ""
+
+#: plugin-fw/lib/yit-upgrade.php:518
+msgid "You can't update the plugins for this site."
+msgstr ""
+
+#: plugin-fw/lib/yit-upgrade.php:522
+msgid ""
+"You do not have sufficient permissions to update the plugins for this site."
+msgstr ""
+
+#: plugin-fw/lib/yit-upgrade.php:529
+msgid "Update Plugin"
+msgstr ""
+
+#: plugin-fw/licence/lib/yit-licence.php:161
+#, php-format
+msgctxt "%s = field name"
+msgid "%s field cannot be empty"
+msgstr ""
+
+#: plugin-fw/licence/lib/yit-licence.php:162
+#, php-format
+msgid "%s and %s fields cannot be empty"
+msgstr ""
+
+#: plugin-fw/licence/lib/yit-licence.php:163
+msgid "Unable to contact the remote server, please try again later. Thanks!"
+msgstr ""
+
+#: plugin-fw/licence/lib/yit-licence.php:548
+msgid "Invalid Request"
+msgstr ""
+
+#: plugin-fw/licence/lib/yit-licence.php:549
+msgid "Invalid licence key"
+msgstr ""
+
+#: plugin-fw/licence/lib/yit-licence.php:550
+msgid "Software has been deactivated"
+msgstr ""
+
+#: plugin-fw/licence/lib/yit-licence.php:551
+msgid "Maximum number of activations exceeded"
+msgstr ""
+
+#: plugin-fw/licence/lib/yit-licence.php:552
+msgid "Invalid instance ID"
+msgstr ""
+
+#: plugin-fw/licence/lib/yit-licence.php:553
+msgid "Invalid security key"
+msgstr ""
+
+#: plugin-fw/licence/lib/yit-licence.php:554
+msgid "Licence key has expired"
+msgstr ""
+
+#: plugin-fw/licence/lib/yit-licence.php:555
+msgid "Licence key has been banned"
+msgstr ""
+
+#: plugin-fw/licence/lib/yit-plugin-licence.php:68
+#: plugin-fw/licence/lib/yit-plugin-licence.php:69
+#: plugin-fw/licence/lib/yit-theme-licence.php:64
+#: plugin-fw/licence/lib/yit-theme-licence.php:65
+#: plugin-fw/licence/lib/yit-theme-licence.php:107
+#: plugin-fw/licence/lib/yit-theme-licence.php:108
+msgid "Licence Activation"
+msgstr ""
+
+#: plugin-fw/licence/lib/yit-theme-licence.php:115
+#: plugin-fw/licence/lib/yit-theme-licence.php:116
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:19
+msgid "Yithemes Licence Activation"
+msgstr ""
+
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:23
+msgid ""
+"I cannot find the license key for activating the theme I have bought some "
+"time ago. Where can I find it?"
+msgstr ""
+
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:26
+msgid ""
+"If you have purchased one of our products before 27 January 2015, you can "
+"benefit from support and updates (the services offered with the license)\n"
+"            until 27 January 2016 and you do not have to purchase it again "
+"to get a new license key, because, before this date, your license used to be "
+"activated automatically by our system.\n"
+"            After 27 January 2016, instead, if you want to benefit from "
+"support and updates you have to buy a new license and activate it through "
+"the license key you will be\n"
+"            provided with and that you can find in your YIThemes account, in "
+"section \"My licenses\"."
+msgstr ""
+
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:37
+msgid ""
+"Have you updated your licenses? Have you asked for an extension? Update "
+"information concerning your products."
+msgstr ""
+
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:39
+msgid "Update licence information"
+msgstr ""
+
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:49
+msgid "Products to be activated"
+msgstr ""
+
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:68
+msgid "Activate"
+msgstr ""
+
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:87
+msgid "Activated"
+msgstr ""
+
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:91
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:123
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:147
+msgid "Product Name"
+msgstr ""
+
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:92
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:124
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:148
+#: plugin-fw/templates/metaboxes/types/contactform.php:148
+#: plugin-fw/templates/metaboxes/types/contactform.php:340
+#: templates/admin/commission-view.php:185
+msgid "Email"
+msgstr ""
+
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:93
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:125
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:149
+msgid "Licence Key"
+msgstr ""
+
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:94
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:150
+msgid "Expires"
+msgstr ""
+
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:95
+msgid "Remaining"
+msgstr ""
+
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:96
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:109
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:151
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:161
+msgid "Renew"
+msgstr ""
+
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:107
+#, php-format
+msgid "%1s out of %2s"
+msgstr ""
+
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:119
+msgid "Banned"
+msgstr ""
+
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:143
+msgid "Expired"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/ajax-products.php:23
+msgid "Search for a product"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/categories.php:36
+msgid "No categories."
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/categories.php:42
+msgid "+ Add New Category"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/categories.php:46
+msgid "Add"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:7
+msgid "Text Input"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:8
+msgid "Checkbox"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:9
+msgid "Select"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:10
+msgid "Textarea"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:11
+msgid "Radio Input"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:12
+msgid "Password Field"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:13
+msgid "File Upload"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:47
+msgid "Theme Icon"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:48
+msgid "Custom Icon"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:49
+#: plugin-fw/templates/metaboxes/types/responsivesliders.php:24
+msgid "None"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:60
+msgid "Add field"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:69
+#: plugin-fw/templates/metaboxes/types/contactform.php:261
+#: plugin-fw/templates/metaboxes/types/customtabs.php:37
+#: plugin-fw/templates/metaboxes/types/customtabs.php:82
+msgid "Remove"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:70
+#: plugin-fw/templates/metaboxes/types/contactform.php:262
+msgid "Click to toggle"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:77
+#: plugin-fw/templates/metaboxes/types/contactform.php:269
+msgid "Field Title"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:81
+#: plugin-fw/templates/metaboxes/types/contactform.php:273
+msgid "Insert the title for the field."
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:86
+#: plugin-fw/templates/metaboxes/types/contactform.php:278
+msgid "Data Name"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:90
+#: plugin-fw/templates/metaboxes/types/contactform.php:282
+msgid ""
+"REQUIRED: Field identification name to be entered into email body. "
+"<strong>Note:</strong>Use only lowercase characters and underscores."
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:95
+#: plugin-fw/templates/metaboxes/types/contactform.php:287
+msgid "Field Type"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:103
+#: plugin-fw/templates/metaboxes/types/contactform.php:295
+msgid "Select the type for this field."
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:108
+#: plugin-fw/templates/metaboxes/types/contactform.php:300
+msgid "Checked"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:112
+#: plugin-fw/templates/metaboxes/types/contactform.php:304
+msgid "Select this option if you want this field appears as already checked."
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:117
+#: plugin-fw/templates/metaboxes/types/contactform.php:309
+msgid "Add options "
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:118
+#: plugin-fw/templates/metaboxes/types/contactform.php:310
+msgid "Add option"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:121
+#: plugin-fw/templates/metaboxes/types/contactform.php:313
+#: plugin-fw/templates/metaboxes/types/contactform.php:436
+msgid "Selected"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:124
+#: plugin-fw/templates/metaboxes/types/contactform.php:316
+#: plugin-fw/templates/metaboxes/types/contactform.php:436
+msgid "Delete option"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:130
+#: plugin-fw/templates/metaboxes/types/contactform.php:322
+msgid "Error Message"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:134
+#: plugin-fw/templates/metaboxes/types/contactform.php:326
+msgid "Insert the error message for validation."
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:139
+#: plugin-fw/templates/metaboxes/types/contactform.php:331
+msgid "Required"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:143
+#: plugin-fw/templates/metaboxes/types/contactform.php:335
+msgid "Select this option if it must be required."
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:152
+#: plugin-fw/templates/metaboxes/types/contactform.php:344
+msgid "Select this option if the email must be valid."
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:157
+#: plugin-fw/templates/metaboxes/types/contactform.php:349
+msgid "Reply To"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:161
+#: plugin-fw/templates/metaboxes/types/contactform.php:353
+msgid "Select this if it is the email you can reply to."
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:166
+#: plugin-fw/templates/metaboxes/types/contactform.php:358
+msgid "Class"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:170
+#: plugin-fw/templates/metaboxes/types/contactform.php:362
+msgid ""
+"Insert additional class(es) (separated by commas) for more personalization."
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:175
+#: plugin-fw/templates/metaboxes/types/contactform.php:367
+msgid "Icon"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:203
+#: plugin-fw/templates/metaboxes/types/contactform.php:391
+#: plugin-fw/templates/metaboxes/types/icon-list.php:69
+#: plugin-fw/templates/metaboxes/types/select-icon.php:33
+#: plugin-fw/templates/metaboxes/types/upload.php:21
+#: plugin-fw/templates/panel/types/upload.php:31
+#: plugin-fw/templates/panel/woocommerce/woocommerce-upload.php:35
+msgid "Upload"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:209
+#: plugin-fw/templates/metaboxes/types/contactform.php:397
+#: plugin-fw/templates/metaboxes/types/icon-list.php:75
+#: plugin-fw/templates/metaboxes/types/select-icon.php:39
+msgid "Image preview"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:217
+#: plugin-fw/templates/metaboxes/types/contactform.php:405
+msgid "Insert an icon for more personalization."
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:222
+#: plugin-fw/templates/metaboxes/types/contactform.php:409
+msgid "Width"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/contactform.php:247
+#: plugin-fw/templates/metaboxes/types/contactform.php:421
+msgid "Set field length."
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/customtabs.php:28
+msgid "Close all"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/customtabs.php:28
+msgid "Expand all"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/customtabs.php:52
+#: plugin-fw/templates/metaboxes/types/customtabs.php:95
+msgid "Value"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/customtabs.php:53
+#: plugin-fw/templates/metaboxes/types/customtabs.php:96
+msgid "Content of the tab. (HTML is supported)"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/customtabs.php:65
+msgid "Add custom product tab"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/customtabs.php:107
+msgid "Do you want to remove the custom tab?"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/icon-list.php:89
+#, php-format
+msgid "(Default: %s <img src=\"%s\"/>)"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/icon-list.php:91
+#, php-format
+msgid "(Default: <i %s></i> )"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/image-gallery.php:40
+#: plugin-fw/templates/metaboxes/types/image-gallery.php:45
+#: plugin-fw/templates/metaboxes/types/images.php:38
+#: plugin-fw/templates/metaboxes/types/images.php:64
+msgid "Delete image"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/image-gallery.php:45
+msgid "Add Images to Gallery"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/image-gallery.php:45
+msgid "Add to gallery"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/image-gallery.php:45
+msgid "Add images"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/image-gallery.php:45
+msgid "Delete"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/images.php:42
+msgid "Upload new images"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/images.php:75
+msgid "Are you sure you want to remove this image?"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/sidebar-layout.php:25
+#: plugin-fw/templates/metaboxes/types/sidebars.php:36
+msgid "Left sidebar"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/sidebar-layout.php:28
+#: plugin-fw/templates/metaboxes/types/sidebars.php:42
+#: plugin-fw/templates/metaboxes/types/sidebars.php:45
+msgid "No sidebar"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/sidebar-layout.php:31
+#: plugin-fw/templates/metaboxes/types/sidebars.php:39
+msgid "Right sidebar"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/sidebar-layout.php:34
+#: plugin-fw/templates/metaboxes/types/sidebars.php:53
+#: plugin-fw/templates/metaboxes/types/sidebars.php:64
+msgid "Choose a sidebar"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/sidebars.php:51
+msgid "Left Sidebar"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/sidebars.php:62
+msgid "Right Sidebar"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/typography.php:42
+msgid "px"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/typography.php:43
+msgid "em"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/typography.php:44
+msgid "pt"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/typography.php:45
+msgid "rem"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/typography.php:59
+#: plugin-fw/templates/metaboxes/types/typography.php:153
+#: plugin-fw/templates/metaboxes/types/typography.php:217
+msgid "Web fonts"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/typography.php:71
+msgid "Google fonts"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/typography.php:96
+msgid "Regular"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/typography.php:97
+msgid "Bold"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/typography.php:98
+msgid "Extra bold"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/typography.php:99
+msgid "Italic"
+msgstr ""
+
+#: plugin-fw/templates/metaboxes/types/typography.php:100
+msgid "Italic bold"
+msgstr ""
+
+#: plugin-fw/templates/panel/woocommerce/woocommerce-form.php:11
+msgid "Reset Defaults"
+msgstr ""
+
+#: plugin-options/commissions-options.php:20
+msgid "General settings"
+msgstr ""
+
+#: plugin-options/commissions-options.php:27
+msgid "Commission Base"
+msgstr ""
+
+#: plugin-options/commissions-options.php:30
+msgid "Default commission percentage"
+msgstr ""
+
+#: plugin-options/vendors-options.php:20
+msgid "Product management"
+msgstr "商品管理"
+
+#: plugin-options/vendors-options.php:27
+msgid "Vendor name label color"
+msgstr ""
+
+#: plugin-options/vendors-options.php:29
+msgid "Use in shop page and single product page"
+msgstr ""
+
+#: plugin-options/vendors-options.php:43
+msgid "Order management"
+msgstr ""
+
+#: plugin-options/vendors-options.php:50
+msgid "Enable order management"
+msgstr ""
+
+#: plugin-options/vendors-options.php:52
+msgid ""
+"If you enable this option, each vendor will be able to manage orders on his/"
+"her own products independently."
+msgstr ""
+
+#: plugin-options/vendors-options.php:58
+msgid "Order synchronization"
+msgstr ""
+
+#: plugin-options/vendors-options.php:60
+msgid ""
+"All changes to general orders will be synchronized with the individual "
+"vendor's order"
+msgstr ""
+
+#: templates/admin/add-product-vendors-taxonomy.php:12
+#: templates/admin/edit-product-vendors-taxonomy.php:13
+msgid "Vendor Shop Owner"
+msgstr "商家所有者账号"
+
+#: templates/admin/add-product-vendors-taxonomy.php:17
+msgid ""
+"User that can manage products in this vendor shop and view sale reports."
+msgstr "用户登录后可以对商家商店中的商品进行管理和查看销售报表"
+
+#: templates/admin/add-product-vendors-taxonomy.php:21
+#: templates/admin/edit-product-vendors-taxonomy.php:26
+msgid "PayPal email address"
+msgstr "电子邮件地址"
+
+#: templates/admin/add-product-vendors-taxonomy.php:23
+#: templates/admin/edit-product-vendors-taxonomy.php:31
+msgid "Vendor's PayPal email address where profits will be delivered."
+msgstr "商家的电子邮件地址"
+
+#: templates/admin/add-product-vendors-taxonomy.php:27
+#: templates/admin/edit-product-vendors-taxonomy.php:37
+msgid "Enable sales"
+msgstr "允许销售"
+
+#: templates/admin/add-product-vendors-taxonomy.php:29
+#: templates/admin/edit-product-vendors-taxonomy.php:43
+msgid "Enable or disable product sales."
+msgstr "允许或拒绝商家销售商品"
+
+#: templates/admin/add-product-vendors-taxonomy.php:34
+#: templates/admin/edit-product-vendors-taxonomy.php:50
+msgid "Commission:"
+msgstr "佣金："
+
+#: templates/admin/add-product-vendors-taxonomy.php:38
+msgid "Percentage of the total sale price that this vendor receives"
+msgstr "商家将收到的商品销售价格比例作为佣金"
+
+#: templates/admin/commission-view.php:25
+msgid "View Commission"
+msgstr "查看佣金"
+
+#: templates/admin/commission-view.php:26
+msgid "Back"
+msgstr "返回"
+
+#: templates/admin/commission-view.php:39
+msgid "Commission Actions"
+msgstr "佣金操作"
+
+#: templates/admin/commission-view.php:47
+#, php-format
+msgid "Change to %s"
+msgstr ""
+
+#: templates/admin/commission-view.php:53
+msgid "Apply"
+msgstr "应用"
+
+#: templates/admin/commission-view.php:62
+msgid "Commission notes"
+msgstr "佣金备注"
+
+#: templates/admin/commission-view.php:73
+#, php-format
+msgid "added on %1$s at %2$s"
+msgstr ""
+
+#: templates/admin/commission-view.php:78
+msgid "There are no notes yet."
+msgstr ""
+
+#: templates/admin/commission-view.php:99
+#, php-format
+msgid "Commission %s Details"
+msgstr ""
+
+#: templates/admin/commission-view.php:148
+#, php-format
+msgctxt "Commission credited to [user]"
+msgid "credited to %s &#8212; from order %s &#8212; order status: %s"
+msgstr ""
+
+#: templates/admin/commission-view.php:155
+msgid "General details"
+msgstr "总体信息"
+
+#: templates/admin/commission-view.php:162
+msgid "Commission date"
+msgstr "佣金日期"
+
+#: templates/admin/commission-view.php:180
+msgid "User details"
+msgstr "用户细节"
+
+#: templates/admin/commission-view.php:204
+msgid "PayPal"
+msgstr "PayPal"
+
+#: templates/admin/commission-view.php:212
+msgid "Billing information"
+msgstr "账单信息"
+
+#: templates/admin/commission-view.php:237
+msgid "Shipping information"
+msgstr "物流信息"
+
+#: templates/admin/commission-view.php:272
+msgid "Item data"
+msgstr "项目数据"
+
+#: templates/admin/commission-view.php:279
+msgid "Item"
+msgstr "项目"
+
+#: templates/admin/commission-view.php:280
+msgid "Qty"
+msgstr "数量"
+
+#: templates/admin/commission-view.php:281
+msgid "Cost"
+msgstr "金额"
+
+#: templates/admin/commission-view.php:293
+msgid "Product ID:"
+msgstr "商品ID"
+
+#: templates/admin/commission-view.php:296
+#: templates/admin/commission-view.php:298
+msgid "Variation ID:"
+msgstr "变化ID"
+
+#: templates/admin/commission-view.php:298
+msgid "No longer exists"
+msgstr "不存在"
+
+#: templates/admin/commission-view.php:302
+msgid "Product SKU:"
+msgstr "商品SKU"
+
+#: templates/admin/commission-view.php:408
+msgid "Refund"
+msgstr "退款"
+
+#: templates/admin/commission-view.php:438
+msgid "Coupon(s) Used"
+msgstr "优惠券已用"
+
+#: templates/admin/commission-view.php:468
+msgid "Commission"
+msgstr "佣金"
+
+#: templates/admin/commissions.php:18
+msgid "Vendor Commissions"
+msgstr "商家佣金"
+
+#: templates/admin/commissions.php:24
+msgid "Search commissions"
+msgstr "查找佣金"
+
+#: templates/admin/edit-product-vendors-taxonomy.php:16
+msgid "Search users"
+msgstr "查找用户"
+
+#: templates/admin/edit-product-vendors-taxonomy.php:20
+msgid "User that can manage products in this shop and view sale reports."
+msgstr "用这个账号登录能管理商店中的商品和查看销售报表。"
+
+#: templates/admin/edit-product-vendors-taxonomy.php:56
+msgid "Percentage of the total sale price that this vendor receives."
+msgstr "商家能收到的销售价格提成比例"
+
+#: templates/admin/premium.php:239 templates/admin/premium.php:691
+#, php-format
+msgid ""
+"Upgrade to the %1$spremium version%2$s of %1$sYITH WooCommerce Multi Vendor"
+"%2$s to benefit from all features!"
+msgstr ""
+
+#: templates/admin/premium.php:243 templates/admin/premium.php:695
+#, php-format
+msgid "%1$s UPGRADE %2$s %3$s to the premium version %2$s"
+msgstr ""
+
+#: templates/admin/premium.php:250
+msgid "Premium Features"
+msgstr ""
+
+#: templates/admin/premium.php:259
+msgid "A richer vendor shop page"
+msgstr ""
+
+#: templates/admin/premium.php:262
+#, php-format
+msgid ""
+"The vendor page gets more details!Vendors will be able to add their %s "
+"contact details %s (email, address, phone number) and the most common social "
+"network profiles (Facebook, Twitter, Google+, LinkedIn and YouTube)"
+msgstr ""
+
+#: templates/admin/premium.php:265
+#, php-format
+msgid ""
+"These pieces of information are gathered in the page of every vendor shop "
+"with a %sheader%s where style and images can be customized."
+msgstr ""
+
+#: templates/admin/premium.php:276
+msgid "One or more administrators for every vendor shop"
+msgstr ""
+
+#: templates/admin/premium.php:279
+#, php-format
+msgid ""
+"The administrators of the vendor shop are one of the most important new "
+"features.%s They are simple registered users of the shop that have been "
+"admitted to %smanage the products%s and all the information about a vendor "
+"shop by the administrator of the store or the owner of the vendor shop."
+msgstr ""
+
+#: templates/admin/premium.php:282
+#, php-format
+msgid ""
+"The only element they can't change is the %stype of payment%s that only "
+"administrator of the store or the owner of the vendor shop can set."
+msgstr ""
+
+#: templates/admin/premium.php:299
+msgid "Direct product sale"
+msgstr ""
+
+#: templates/admin/premium.php:302
+#, php-format
+msgid ""
+"Thanks to the %s“Skip Admin review”%s option, vendors can publish new "
+"products without the store administrator approval. This option can be "
+"applied to all the vendor shops, or just to the selected ones."
+msgstr ""
+
+#: templates/admin/premium.php:313
+msgid "Actions for commissions"
+msgstr ""
+
+#: templates/admin/premium.php:316
+msgid ""
+"A commissions table with more details to be always up-to-date. Every "
+"commission offers a set of buttons to quickly proceed to the PayPal payments "
+"(if set as manual), or to change the state of the commission."
+msgstr ""
+
+#: templates/admin/premium.php:333 templates/admin/premium.php:367
+msgid "Variable commission rates"
+msgstr ""
+
+#: templates/admin/premium.php:336 templates/admin/premium.php:370
+#, php-format
+msgid ""
+"%sNo more single commission rate for all the vendor shops:%s in the premium "
+"version of the plugin, this rate can be modified for every single vendor "
+"shop and for every product associated."
+msgstr ""
+
+#: templates/admin/premium.php:347
+msgid "Coupon handling"
+msgstr ""
+
+#: templates/admin/premium.php:350
+#, php-format
+msgid ""
+"If users use a coupon during a purchase, how will vendor commissions be "
+"calculated? It's up to you: with the %s\"Coupon handling\"%s option, you can "
+"decide whether you want to calculate the commission for the discounted total "
+"or not."
+msgstr ""
+
+#: templates/admin/premium.php:381
+msgid "COUPON CREATION"
+msgstr ""
+
+#: templates/admin/premium.php:384
+#, php-format
+msgid ""
+"With the option %s “Enable coupon management” %s, the vendors of your shop "
+"can create coupons regarding the products they own. A nice innovation to "
+"offer to your vendor-users."
+msgstr ""
+
+#: templates/admin/premium.php:401
+msgid "REVIEWS"
+msgstr ""
+
+#: templates/admin/premium.php:404
+#, php-format
+msgid ""
+" Just like coupons, this option is tailored on the need to manage reviews "
+"and it has been added to the premium version of the plugin. Activating the "
+"%s“Enable review management”%s option from the option panel of the plugin, "
+"vendors will be free to manage the reviews of the products they own, and act "
+"with the same privileges of the administrator of the store."
+msgstr ""
+
+#: templates/admin/premium.php:415
+msgid "Advanced reports"
+msgstr ""
+
+#: templates/admin/premium.php:418
+#, php-format
+msgid ""
+"Statistics have a central relevance in the e-commerce field and WooCommerce "
+"Multi Vendor offers you different reports to %sanalyze your data%s: from the "
+"most lucrative vendors, to the best sellers, including convenient commission "
+"diagrams for each of them."
+msgstr ""
+
+#: templates/admin/premium.php:435
+msgid "CSV exportation of the reports"
+msgstr ""
+
+#: templates/admin/premium.php:438
+#, php-format
+msgid ""
+"For each report, %syou can export its data in the CSV format%s: in this way, "
+"you will be free to use all the report details in every fields not "
+"expressively related to WordPress."
+msgstr ""
+
+#: templates/admin/premium.php:449
+msgid "Vendor's product exclusion from the shop (Product listing)"
+msgstr ""
+
+#: templates/admin/premium.php:452
+#, php-format
+msgid ""
+"The %s\"Product listing\"%s option has been conceived to exclude from the "
+"shop the products of a particular vendor. In this way, these would be "
+"consultable only from the relative vendor's page."
+msgstr ""
+
+#: templates/admin/premium.php:469
+msgid "Three widgets for your sidebars"
+msgstr ""
+
+#: templates/admin/premium.php:472
+#, php-format
+msgid ""
+"%1$sYITH Vendor List, YITH Vendor Quick Info%2$s and %1$sYITH Vendor Store "
+"Location%2$s: these are the three widgets that the plugin offers you. Thanks "
+"to these widgets, you will be able to show the list of the registered "
+"vendors of your shop, and enrich the detail page of the vendor shops with "
+"information about their locations, or a contact form users can use to send "
+"emails to the shop administrators."
+msgstr ""
+
+#: templates/admin/premium.php:482
+msgid "Shortcode"
+msgstr ""
+
+#: templates/admin/premium.php:485
+msgid ""
+"Take advantage of the YITH WooCommerce Multi Vendor List shortcode to show "
+"the complete list of your shop vendors in any page."
+msgstr ""
+
+#: templates/admin/premium.php:502
+msgid "VISUALIZATION OF THE VENDOR'S NAME"
+msgstr ""
+
+#: templates/admin/premium.php:505
+msgid ""
+"The default setting of the plugin shows the name of each vendor in three "
+"pages of your site: the shop page, the product detail page and product "
+"category page. Now you can decide whether you want to show their name and "
+"hide them whenever you want with three different options."
+msgstr ""
+
+#: templates/admin/premium.php:515
+msgid "VENDOR REGISTRATION"
+msgstr ""
+
+#: templates/admin/premium.php:518
+#, php-format
+msgid ""
+"A more dynamic management for whoever wants to become a vendor in your "
+"store. It doesn't matter whether you are a registered user or a new one: "
+"everyone will be free to register as a vendor with the related "
+"%1$sregistration form.%2$s Following your settings, the registration request "
+"can be accepted automatically or manually by administrators"
+msgstr ""
+
+#: templates/admin/premium.php:535
+msgid "RESTRICTED NUMBER OF PRODUCTS"
+msgstr ""
+
+#: templates/admin/premium.php:538
+msgid ""
+"The option “Enable product amount limit” has been conceived to whoever would "
+"like to limit the creation of products of the shop vendors, with the freedom "
+"to indicate a specific maximum number of products that each vendor can "
+"create."
+msgstr ""
+
+#: templates/admin/premium.php:548
+msgid "BULK ACTIONS ON VENDORS"
+msgstr ""
+
+#: templates/admin/premium.php:551
+msgid ""
+"How many times did you find yourself annoyed by the repetition of the same "
+"passages with a huge waste of time? Well, now vendors management is "
+"completely renewed! You will be able to apply bulk actions on all the "
+"registered vendors, approving or deleting them all together with just one "
+"click."
+msgstr ""
+
+#: templates/admin/premium.php:567
+msgid "Advanced administration area for each vendor"
+msgstr ""
+
+#: templates/admin/premium.php:570
+msgid ""
+"A breath of fresh air for the \"vendor users\" that can take advantage of a "
+"big and advanced administrative area. From this place, they will be free to "
+"consult the reports about their products,change their profile information "
+"and choose the payment method they prefer. Each vendor can also check the "
+"commissions table, with the whole sum of the relative commissions up to that "
+"moment."
+msgstr ""
+
+#: templates/admin/premium.php:580
+msgid "ABUSE REPORT"
+msgstr ""
+
+#: templates/admin/premium.php:583
+msgid ""
+"With this feature, your users will be able to send you a message about one "
+"of the products of your shop with a dedicated form that will open in a popup "
+"within the related product detail page."
+msgstr ""
+
+#: templates/admin/premium.php:599
+msgid "Second email"
+msgstr ""
+
+#: templates/admin/premium.php:602
+msgid ""
+"Each time that a new order is registered or cancelled, a notification email "
+"is sent to the corresponding vendor. This sending can sometimes be affected "
+"by some problems, and this is why you should be able to send again the lost "
+"email. With the premium version of the plugin, you will just have to go to "
+"the detail page of the order and with a single click everything will be "
+"solved."
+msgstr ""
+
+#: templates/admin/premium.php:612
+msgid "Minimum amount of commissions"
+msgstr ""
+
+#: templates/admin/premium.php:615
+msgid ""
+"If each vendor can decide a commission threshold for which asking the "
+"payment, administrators must be free to control how this works.Setting a "
+"minimum amount of commissions, you will be free to pay commissions starting "
+"from the amount you have set."
+msgstr ""
+
+#: templates/admin/premium.php:631
+msgid "Highlighted products"
+msgstr ""
+
+#: templates/admin/premium.php:634
+msgid ""
+"Setting a WooCommerce product as \"Featured\" means standing it out among "
+"the others, maybe putting it in the main part of the homepage, or in one of "
+"the widgets of the siderbars of your shop. With the related option, you will "
+"be free to allow or block vendors to set their products as \"featured\"."
+msgstr ""
+
+#: templates/admin/premium.php:644
+msgid "Sales amount"
+msgstr "销售合计"
+
+#: templates/admin/premium.php:647
+msgid ""
+"Enrich your shop with more information. Show the amount of sales made by "
+"each vendor, placing it in the detail page of the related product, and for "
+"each single product assigned to a vendor."
+msgstr ""
+
+#: templates/admin/premium.php:663
+msgid "Shop closed"
+msgstr "商店已关门"
+
+#: templates/admin/premium.php:666
+msgid ""
+"Even the owners of online shops need a break, maybe for deserved vacations "
+"or for other reasons. Therefore, when administrators offers this freedom to "
+"their vendors, they will be free to close their stores, showing a customized "
+"message to users. Vendors will also be free to decide whether they want to "
+"keep their products purchasable, or showing them in catalogue mode with no "
+"opportunity to add them to the cart. "
+msgstr ""
+
+#: templates/admin/premium.php:676
+msgid "Vendor Chat"
+msgstr "联系商家"
+
+#: templates/admin/premium.php:679
+#, php-format
+msgid ""
+"Thanks to the integration with %1$sYITH Live Chat%2$s, vendors of your site "
+"will be free to answer immediately to their customers' questions. In this "
+"way, vendors and purchasers will be even nearer, for a complete success of "
+"your e-commerce."
+msgstr ""
+
+#: templates/admin/vendor-admin.php:24
+msgid "Name:"
+msgstr "名字："
+
+#: templates/admin/vendor-admin.php:29
+msgid "Slug:"
+msgstr "链接标志："
+
+#: templates/admin/vendor-admin.php:34
+msgid "PayPal email address:"
+msgstr "电子邮件地址："
+
+#: templates/admin/vendor-admin.php:39
+msgid "Description:"
+msgstr "描述："
+
+#: templates/admin/vendor-admin.php:45
+msgid "Commission Rate: "
+msgstr "佣金比例："
+
+#: templates/admin/vendor-admin.php:52
+msgid "Vendor's selling status: "
+msgstr "商家销售状态："
+
+#: templates/admin/vendor-admin.php:54
+msgid "Enabled"
+msgstr "生效"
+
+#: templates/admin/vendor-admin.php:54
+msgid "Disabled"
+msgstr "失效"
+
+#: templates/admin/vendor-admin.php:60
+msgid "Save Vendor Information"
+msgstr "保存商家信息"
+
+#: templates/woocommerce/loop/vendor-name-title.php:20
+#: templates/woocommerce/single-product/vendor-name-title.php:20
+msgid "by"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "YITH WooCommerce Multi Vendor"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://yithemes.com/themes/plugins/yith-woocommerce-product-vendors/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"YITH WooCommerce Multi Vendor is a plugin explicitly developed to switch "
+"your website into a platform hosting more than one shop."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "yithemes"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://yithemes.com/"
+msgstr ""

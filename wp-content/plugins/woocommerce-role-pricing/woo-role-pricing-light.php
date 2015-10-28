@@ -123,7 +123,7 @@ class WooRolePricingLight_Plugin {
 	public static function woorolepricinglight_settings () {
 	?>
 	<div class="wrap">
-	<h2><?php echo __( 'Woocommerce Role Pricing Light', WOO_ROLE_PRICING_LIGHT_DOMAIN ); ?></h2>
+	<h2><?php echo __( '价格策略工具', WOO_ROLE_PRICING_LIGHT_DOMAIN ); ?></h2>
 	<?php 
 	$alert = "";
 	
@@ -136,7 +136,7 @@ class WooRolePricingLight_Plugin {
 	}
 		
 	if ( isset( $_POST['submit'] ) ) {
-		$alert = __("Saved", WOO_ROLE_PRICING_LIGHT_DOMAIN);
+		$alert = __("成功保存", WOO_ROLE_PRICING_LIGHT_DOMAIN);
 		
 		add_option( "wrp-method",$_POST[ "wrp-method" ] );
 		update_option( "wrp-method", $_POST[ "wrp-method" ] );
@@ -164,19 +164,19 @@ class WooRolePricingLight_Plugin {
 	<form method="post" action="">
 	    <table class="form-table">
 	        <tr valign="top">
-	        <th scope="row"><strong><?php echo __( 'Products discount method:', WOO_ROLE_PRICING_LIGHT_DOMAIN ); ?></strong></th>
+	        <th scope="row"><strong><?php echo __( '商品折扣方法:', WOO_ROLE_PRICING_LIGHT_DOMAIN ); ?></strong></th>
 	        <td>
 	        	<select name="wrp-method">
 	        	<?php 
 	        	if ( get_option("wrp-method") == "amount" ) {
 	        	?>
-	        		<option value="rate">Rate</option>
-	        		<option value="amount" selected="selected">Amount</option>
+	        		<option value="rate">比例</option>
+	        		<option value="amount" selected="selected">金额</option>
 	        	<?php 
 	        	} else {
 	        	?>
-	        		<option value="rate" selected="selected">Rate</option>
-	        		<option value="amount">Amount</option>
+	        		<option value="rate" selected="selected">比例</option>
+	        		<option value="amount">金额</option>
 	        	<?php 
 	        	}
 	        	?>
@@ -184,46 +184,71 @@ class WooRolePricingLight_Plugin {
 	        </tr>
 	        
 	        <tr valign="top">
-	        <th scope="row"><strong><?php echo __( 'Apply to:', WOO_ROLE_PRICING_LIGHT_DOMAIN ); ?></strong></th>
+	        <th scope="row"><strong><?php echo __( '应用在：', WOO_ROLE_PRICING_LIGHT_DOMAIN ); ?></strong></th>
 	        <td>
 	        	<select name="wrp-baseprice">
 	        	<?php 
 	        	if ( get_option("wrp-baseprice") == "sale" ) {
 	        	?>
-	        		<option value="regular">Regular price</option>
-	        		<option value="sale" selected="selected">Sale price</option>
+	        		<option value="regular">市场价</option>
+	        		<option value="sale" selected="selected">销售价</option>
 	        	<?php 
 	        	} else {
 	        	?>
-	        		<option value="regular" selected="selected">Regular price</option>
-	        		<option value="sale">Sale price</option>
+	        		<option value="regular" selected="selected">市场价</option>
+	        		<option value="sale">销售价</option>
 	        	<?php 
 	        	}
 	        	?>
 	        	</select>
 	        </tr>
 	    </table>
-	    <h3><?php echo __( 'Roles:', WOO_ROLE_PRICING_LIGHT_DOMAIN ); ?></h3>
-	    <div class="description">Leave empty if no role discount should be applied (default setting).<br>
-	    Example with rate method: Indicate 0.1 for 10% discounts on every product.
+	    <h3><?php echo __( '角色:', WOO_ROLE_PRICING_LIGHT_DOMAIN ); ?></h3>
+	    <div class="description">缺省设置为空，该角色没有特殊价格策略.<br>
+	    比例设置为小数: 例如 0.1 即 10% 折扣（针对所有商品）.
 	    </div>
 		
 		<table class="form-table">
-	    <?php 
-	    	foreach ( $wp_roles->role_objects as $role ) {
+	    <?php
+		    
+			$amount = count($wp_roles->role_objects); //取得角色数量
+			$roles_title = array($amount);            //设定存储角色标题的数组变量
+			$roles_name  = array($amount);            //设定存储角色名称的数组变量
+			
+			//调用系统对象$wp_roles->roles,把所有角色标题赋值于数组变量中
+            $i=0;			
+			foreach ( $wp_roles->roles as $roleTitle ) {
+				$roles_title[$i] = $roleTitle['name'];
+				//echo $roles_title[$i];
+				$i++;				
+			}
+			
+			//调用系统对象$wp_roles->role_objects,把所有角色名称赋值于数组变量中
+            $j=0;			
+			foreach ( $wp_roles->role_objects as $roleName ) {
+				$roles_name[$j] = $roleName->name;
+				//echo $roles_name[$j];
+				$j++;				
+			}
+			
+			for($n=0; $n < $amount ;$n++) {
+  			
 			        ?>
 			        <tr valign="top">
-			        <th scope="row"><?php echo ucwords($role->name) . ':'; ?></th>
+			        <th scope="row">
+					<?php 
+					echo  translate_user_role($roles_title[$n]) . ':'; ?></th>
 			        <td>
-			        	<input type="text" name="wrp-<?php echo $role->name;?>" value="<?php echo get_option( "wrp-" . $role->name ); ?>" />
+			        	<input type="text" name="wrp-<?php echo $roles_name[$n];?>" value="<?php echo get_option( "wrp-" . $roles_name[$n] ); ?>" />
 			        </td>
 			        </tr>
 			        <?php 
 			}
+			
 		?>
 	    </table>
 	    
-	    <?php submit_button( __( "Save", WOO_ROLE_PRICING_LIGHT_DOMAIN ) ); ?>
+	    <?php submit_button( __( "保存", WOO_ROLE_PRICING_LIGHT_DOMAIN ) ); ?>
 	    
 	    <?php settings_fields( 'woorolepricinglight' ); ?>
 	    
