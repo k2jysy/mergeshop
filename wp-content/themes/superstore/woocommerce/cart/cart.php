@@ -2,14 +2,14 @@
 /**
  * Cart Page
  *
- * @author 		WooThemes
- * @package 	WooCommerce/Templates
- * @version     2.1.0
+ * @author  WooThemes
+ * @package WooCommerce/Templates
+ * @version 2.3.8
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-
-global $woocommerce;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 wc_print_notices();
 
@@ -19,9 +19,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 <?php do_action( 'woocommerce_before_cart_table' ); ?>
 
-<div class="table-responsive">
-
-<table class="shop_table table cart" cellspacing="0">
+<table class="shop_table cart" cellspacing="0">
 	<thead>
 		<tr>
 			<th class="product-remove">&nbsp;</th>
@@ -46,7 +44,13 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 					<td class="product-remove">
 						<?php
-							echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf( '<a href="%s" class="remove" title="%s">&times;</a>', esc_url( WC()->cart->get_remove_url( $cart_item_key ) ), __( 'Remove this item', 'woocommerce' ) ), $cart_item_key );
+							echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
+								'<a href="%s" class="remove" title="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
+								esc_url( WC()->cart->get_remove_url( $cart_item_key ) ),
+								__( 'Remove this item', 'woocommerce' ),
+								esc_attr( $product_id ),
+								esc_attr( $_product->get_sku() )
+							), $cart_item_key );
 						?>
 					</td>
 
@@ -54,26 +58,29 @@ do_action( 'woocommerce_before_cart' ); ?>
 						<?php
 							$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 
-							if ( ! $_product->is_visible() )
+							if ( ! $_product->is_visible() ) {
 								echo $thumbnail;
-							else
-								printf( '<a href="%s">%s</a>', $_product->get_permalink(), $thumbnail );
+							} else {
+								printf( '<a href="%s">%s</a>', esc_url( $_product->get_permalink( $cart_item ) ), $thumbnail );
+							}
 						?>
 					</td>
 
 					<td class="product-name">
 						<?php
-							if ( ! $_product->is_visible() )
-								echo apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key );
-							else
-								echo apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', $_product->get_permalink(), $_product->get_title() ), $cart_item, $cart_item_key );
+							if ( ! $_product->is_visible() ) {
+								echo apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key ) . '&nbsp;';
+							} else {
+								echo apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s </a>', esc_url( $_product->get_permalink( $cart_item ) ), $_product->get_title() ), $cart_item, $cart_item_key );
+							}
 
 							// Meta data
 							echo WC()->cart->get_item_data( $cart_item );
 
-               				// Backorder notification
-               				if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) )
-               					echo '<p class="backorder_notification">' . __( 'Available on backorder', 'woocommerce' ) . '</p>';
+							// Backorder notification
+							if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
+								echo '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'woocommerce' ) . '</p>';
+							}
 						?>
 					</td>
 
@@ -92,10 +99,11 @@ do_action( 'woocommerce_before_cart' ); ?>
 									'input_name'  => "cart[{$cart_item_key}][qty]",
 									'input_value' => $cart_item['quantity'],
 									'max_value'   => $_product->backorders_allowed() ? '' : $_product->get_stock_quantity(),
+									'min_value'   => '0'
 								), $_product, false );
 							}
 
-							echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key );
+							echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item );
 						?>
 					</td>
 
@@ -117,16 +125,15 @@ do_action( 'woocommerce_before_cart' ); ?>
 				<?php if ( WC()->cart->coupons_enabled() ) { ?>
 					<div class="coupon">
 
-						<label for="coupon_code"><?php _e( 'Coupon', 'woocommerce' ); ?>:</label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php _e( 'Coupon code', 'woocommerce' ); ?>" /> <input type="submit" class="btn btn-default btn-sm btn-theme-default" name="apply_coupon" value="<?php _e( 'Apply Coupon', 'woocommerce' ); ?>" />
+						<label for="coupon_code"><?php _e( 'Coupon', 'woocommerce' ); ?>:</label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> <input type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply Coupon', 'woocommerce' ); ?>" />
 
-						<?php do_action('woocommerce_cart_coupon'); ?>
-
+						<?php do_action( 'woocommerce_cart_coupon' ); ?>
 					</div>
 				<?php } ?>
 
-				<input type="submit" class="btn btn-default btn-sm btn-theme-default" name="update_cart" value="<?php _e( 'Update Cart', 'woocommerce' ); ?>" /> <input type="submit" class="checkout-button btn btn-primary alt wc-forward btn-sm btn-theme-default" name="proceed" value="<?php _e( 'Proceed to Checkout', 'woocommerce' ); ?>" />
+				<input type="submit" class="button" name="update_cart" value="<?php esc_attr_e( 'Update Cart', 'woocommerce' ); ?>" />
 
-				<?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
+				<?php do_action( 'woocommerce_cart_actions' ); ?>
 
 				<?php wp_nonce_field( 'woocommerce-cart' ); ?>
 			</td>
@@ -136,8 +143,6 @@ do_action( 'woocommerce_before_cart' ); ?>
 	</tbody>
 </table>
 
-</div>
-
 <?php do_action( 'woocommerce_after_cart_table' ); ?>
 
 </form>
@@ -145,10 +150,6 @@ do_action( 'woocommerce_before_cart' ); ?>
 <div class="cart-collaterals">
 
 	<?php do_action( 'woocommerce_cart_collaterals' ); ?>
-
-	<?php woocommerce_cart_totals(); ?>
-
-	<?php woocommerce_shipping_calculator(); ?>
 
 </div>
 

@@ -7691,7 +7691,7 @@ msgstr "未找到文章。"
 
 #: wp-includes/admin-bar.php:246 wp-includes/class-wp-admin-bar.php:417
 msgid "Log Out"
-msgstr "登出"
+msgstr "退出"
 
 #: wp-includes/admin-bar.php:294 wp-includes/admin-bar.php:478
 #: wp-includes/deprecated.php:2846

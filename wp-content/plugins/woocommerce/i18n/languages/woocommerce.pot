@@ -10334,7 +10334,7 @@ msgstr ""
 
 #: templates/myaccount/my-account.php:19
 msgid "Hello <strong>%1$s</strong> (not %1$s? <a href=\"%2$s\">Sign out</a>)."
-msgstr ""
+msgstr "您好 <strong>%1$s</strong> (不是 %1$s 吗? <a href=\"%2$s\"> 请退出</a>)."
 
 #: templates/myaccount/my-account.php:24
 msgid ""

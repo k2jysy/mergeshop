@@ -13,24 +13,27 @@
  */
 /* line 11, ../sass/template/_page-layout.scss */
 .topbar {
-  background: #121212;
+  background: #ccb48e;
   padding: 10px 0;
   border-bottom: 1px solid #e5e5e5;
   color: dimgrey;
-  font-size: 13px;
+  font-size: 14px;
 }
 /* line 17, ../sass/template/_page-layout.scss */
 .topbar a {
-  color: dimgrey;
+  color: #ffffff; 
+  
 }
 /* line 19, ../sass/template/_page-layout.scss */
 .topbar a:hover {
-  color: #ccb48e;
+  color: #F77504;
+  font-size: 15px;
 }
 /* line 24, ../sass/template/_page-layout.scss */
 .topbar .user-login a {
-  color: #ccb48e;
+  color: #ffff;
   margin: 0px 5px;
+ 
 }
 /* line 28, ../sass/template/_page-layout.scss */
 .topbar .user-login > * {
@@ -39,31 +42,34 @@
 
 /* line 35, ../sass/template/_page-layout.scss */
 .topbar-menu ul {
-  margin-bottom: 0;
+  margin-bottom: 0;  
 }
 /* line 37, ../sass/template/_page-layout.scss */
 .topbar-menu ul li {
   display: inline-block;
-  margin: 0 4px;
+  margin: 0 4px;  
 }
 /* line 40, ../sass/template/_page-layout.scss */
 .topbar-menu ul li .fa {
   margin-right: 10px;
+  
 }
 /* line 21, ../sass/rtl/_rtl.scss */
 .rtl .topbar-menu ul li .fa {
   margin-left: 10px;
   margin-right: inherit;
+  
 }
 /* line 43, ../sass/template/_page-layout.scss */
 .topbar-menu ul li a {
-  font-size: 10px;
+  font-size: 14px;
   text-transform: uppercase;
 }
 
 /* line 52, ../sass/template/_page-layout.scss */
 ul.menu {
   margin: 0;
+  
 }
 /* line 21, ../sass/core/_mixins.scss */
 ul.menu:before, ul.menu:after {

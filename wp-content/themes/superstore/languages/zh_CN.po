@@ -3,20 +3,20 @@ msgstr ""
 "Project-Id-Version: Superstore Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-28 09:19+0800\n"
-"PO-Revision-Date: 2014-09-29 16:45+0800\n"
+"PO-Revision-Date: 2015-10-28 19:51+0800\n"
 "Last-Translator: 1 <a@163.com>\n"
 "Language-Team: weidea.net <130200251@qq.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.6.6\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
 "_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
 "esc_html_e;_n\n"
-"X-Poedit-Basepath: ../\n"
+"X-Poedit-Basepath: ..\n"
 "X-Textdomain-Support: yes\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -104,7 +104,7 @@ msgstr "右 & 右侧边栏"
 #: framework/admin/templates/options/page.php:52 sub/customfield/page.php:42
 #: sub/customfield/page.php:52
 msgid "--Please Select Sidebar--"
-msgstr "--Please Select Sidebar--"
+msgstr "请选择滚动条"
 
 #: framework/classes/core/megamenu-config.php:79
 #, php-format
@@ -286,7 +286,7 @@ msgstr "选中该复选框来显示博客文章Pinterest的分享图标。"
 #: framework/classes/core/options.php:275
 #: woocommerce/single-product-reviews.php:64
 msgid "Email"
-msgstr "Email"
+msgstr "电子邮件"
 
 #: framework/classes/core/options.php:276
 msgid "Check the box to show the email sharing icon in blog posts."
@@ -531,7 +531,6 @@ msgstr "未知错误。"
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
 msgstr[0] "主题必需安装以下插件: %1$s."
-msgstr[1] "主题必需安装以下插件: %1$s."
 
 # @ kleo_framework
 #: framework/classes/core/plugin-activation.php:143
@@ -540,7 +539,6 @@ msgstr[1] "主题必需安装以下插件: %1$s."
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
 msgstr[0] "主题推荐安装以下插件: %1$s."
-msgstr[1] "主题推荐安装以下插件: %1$s."
 
 # @ kleo_framework
 #: framework/classes/core/plugin-activation.php:144
@@ -555,7 +553,6 @@ msgid_plural ""
 "plugins. Contact the administrator of this site for help on getting the "
 "plugins installed."
 msgstr[0] "对不起，你无权安装%s 插件。请联系站长处理"
-msgstr[1] "对不起，你无权安装%s 插件。请联系站长处理"
 
 # @ kleo_framework
 #: framework/classes/core/plugin-activation.php:145
@@ -564,7 +561,6 @@ msgstr[1] "对不起，你无权安装%s 插件。请联系站长处理"
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
 msgstr[0] "以下必需插件当前未激活: %1$s."
-msgstr[1] "以下必需插件当前未激活: %1$s."
 
 # @ kleo_framework
 #: framework/classes/core/plugin-activation.php:146
@@ -573,7 +569,6 @@ msgstr[1] "以下必需插件当前未激活: %1$s."
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] "以下推荐插件当前未激活: %1$s."
-msgstr[1] "以下推荐插件当前未激活: %1$s."
 
 # @ kleo_framework
 #: framework/classes/core/plugin-activation.php:147
@@ -588,7 +583,6 @@ msgid_plural ""
 "plugins. Contact the administrator of this site for help on getting the "
 "plugins activated."
 msgstr[0] "对不起，你无权激活%s 插件。请联系站长处理"
-msgstr[1] "对不起，你无权激活%s 插件。请联系站长处理"
 
 # @ kleo_framework
 #: framework/classes/core/plugin-activation.php:148
@@ -601,7 +595,6 @@ msgid_plural ""
 "The following plugins need to be updated to their latest version to ensure "
 "maximum compatibility with this theme: %1$s."
 msgstr[0] "以下插件需要更新到最新版本以兼容当前主题: %1$s."
-msgstr[1] "以下插件需要更新到最新版本以兼容当前主题: %1$s."
 
 # @ kleo_framework
 #: framework/classes/core/plugin-activation.php:149
@@ -616,7 +609,6 @@ msgid_plural ""
 "Contact the administrator of this site for help on getting the plugins "
 "updated."
 msgstr[0] "对不起，你无权更新%s 插件。请联系站长处理"
-msgstr[1] "对不起，你无权更新%s 插件。请联系站长处理"
 
 # @ kleo_framework
 #: framework/classes/core/plugin-activation.php:150
@@ -624,7 +616,6 @@ msgstr[1] "对不起，你无权更新%s 插件。请联系站长处理"
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] "开始安装插件"
-msgstr[1] "开始安装插件"
 
 # @ kleo_framework
 #: framework/classes/core/plugin-activation.php:151
@@ -632,7 +623,6 @@ msgstr[1] "开始安装插件"
 msgid "Activate installed plugin"
 msgid_plural "Activate installed plugins"
 msgstr[0] "激活已安装的插件"
-msgstr[1] "激活已安装的插件"
 
 # @ kleo_framework
 #: framework/classes/core/plugin-activation.php:152
@@ -656,7 +646,6 @@ msgstr "插件激活成功"
 msgid "The following plugin was activated successfully:"
 msgid_plural "The following plugins were activated successfully:"
 msgstr[0] "以下插件激活成功："
-msgstr[1] "以下插件激活成功："
 
 # @ kleo_framework
 #: framework/classes/core/plugin-activation.php:156
@@ -898,8 +887,7 @@ msgstr "占位符"
 # @ buddypress
 # @ kleo_framework
 # @ woocommerce
-#: framework/classes/woocommerce.php:101
-#: woocommerce/myaccount/my-orders.php:86
+#: framework/classes/woocommerce.php:101 woocommerce/myaccount/my-orders.php:86
 msgid "View"
 msgstr "查看"
 
@@ -913,23 +901,23 @@ msgstr "平铺"
 
 #: framework/functions/functions.php:46
 msgid " seconds ago"
-msgstr "秒前"
+msgstr "几秒前"
 
 #: framework/functions/functions.php:52
 msgid " minutes ago"
-msgstr " minutes ago"
+msgstr "几分钟前"
 
 #: framework/functions/functions.php:58
 msgid " hours ago"
-msgstr "小时前"
+msgstr "几小时前"
 
 #: framework/functions/functions.php:65
 msgid " days ago"
-msgstr "天前"
+msgstr "几天前"
 
 #: framework/functions/functions.php:68
 msgid " weeks ago"
-msgstr "周前"
+msgstr "几周前"
 
 #: framework/shortcodes/accordion.php:40 framework/shortcodes/accordion.php:57
 msgid "Input 1"
@@ -954,9 +942,8 @@ msgstr "数项"
 
 #: framework/shortcodes/blog_tab.php:58 framework/shortcodes/content.php:39
 #: framework/shortcodes/gallery.php:39 framework/shortcodes/image.php:39
-#: framework/shortcodes/raw_html.php:40
-#: framework/shortcodes/recent_post.php:48 framework/shortcodes/sidebar.php:37
-#: framework/shortcodes/submenu.php:67
+#: framework/shortcodes/raw_html.php:40 framework/shortcodes/recent_post.php:48
+#: framework/shortcodes/sidebar.php:37 framework/shortcodes/submenu.php:67
 msgid "Addition Class"
 msgstr "除了类"
 
@@ -1630,7 +1617,7 @@ msgstr "Tiwtter用户名："
 
 #: framework/widgets/twitter/twitter.php:142
 msgid "Custommer key:"
-msgstr "Custommer key:"
+msgstr "客户 key:"
 
 # @ woocommerce
 #: framework/widgets/twitter/twitter.php:146
@@ -1691,7 +1678,6 @@ msgstr "查看你的购物车"
 msgid "%d item"
 msgid_plural "%d items"
 msgstr[0] "%d 项目"
-msgstr[1] "%d 项目"
 
 #: header.php:61
 msgid "Welcome visitor you can"
@@ -2054,14 +2040,12 @@ msgid "Cart Totals"
 msgstr "购物车汇总"
 
 # @ buddypress
-#: woocommerce/cart/cart-totals.php:21
-#: woocommerce/checkout/review-order.php:27
+#: woocommerce/cart/cart-totals.php:21 woocommerce/checkout/review-order.php:27
 msgid "Cart Subtotal"
 msgstr "购物车小计"
 
 # @ woocommerce
-#: woocommerce/cart/cart-totals.php:75
-#: woocommerce/checkout/review-order.php:81
+#: woocommerce/cart/cart-totals.php:75 woocommerce/checkout/review-order.php:81
 msgid "Order Total"
 msgstr "订单总额"
 
@@ -2280,7 +2264,7 @@ msgstr ""
 # @ woocommerce
 #: woocommerce/checkout/form-pay.php:21
 msgid "Qty"
-msgstr "Qty"
+msgstr "数量"
 
 # @ woocommerce
 #: woocommerce/checkout/form-pay.php:22
@@ -2694,28 +2678,24 @@ msgstr "用户名或email"
 # @ bbpress
 # @ kleo_framework
 # @ woocommerce
-#: woocommerce/global/form-login.php:30
-#: woocommerce/myaccount/form-login.php:36
+#: woocommerce/global/form-login.php:30 woocommerce/myaccount/form-login.php:36
 #: woocommerce/myaccount/form-login.php:88
 msgid "Password"
 msgstr "密码"
 
 # @ woocommerce
-#: woocommerce/global/form-login.php:40
-#: woocommerce/myaccount/form-login.php:25
+#: woocommerce/global/form-login.php:40 woocommerce/myaccount/form-login.php:25
 #: woocommerce/myaccount/form-login.php:44
 msgid "Login"
 msgstr "登录"
 
 # @ buddypress
-#: woocommerce/global/form-login.php:45
-#: woocommerce/myaccount/form-login.php:49
+#: woocommerce/global/form-login.php:45 woocommerce/myaccount/form-login.php:49
 msgid "Remember me"
 msgstr "记住我"
 
 # @ woocommerce
-#: woocommerce/global/form-login.php:50
-#: woocommerce/myaccount/form-login.php:54
+#: woocommerce/global/form-login.php:50 woocommerce/myaccount/form-login.php:54
 msgid "Lost your password?"
 msgstr "丢失你的密码？"
 
@@ -2873,7 +2853,7 @@ msgstr "用户名"
 
 #: woocommerce/myaccount/form-login.php:93
 msgid "Anti-spam"
-msgstr "Anti-spam"
+msgstr "反垃圾"
 
 # @ woocommerce
 #: woocommerce/myaccount/form-lost-password.php:22
@@ -2895,7 +2875,7 @@ msgstr "重置密码"
 #: woocommerce/myaccount/my-account.php:19
 #, php-format
 msgid "Hello <strong>%1$s</strong> (not %1$s? <a href=\"%2$s\">Sign out</a>)."
-msgstr "您好<strong>%1$s</strong> (not %1$s? <a href=\"%2$s\">登出</a>)."
+msgstr "您好<strong>%1$s</strong> (不是 %1$s? <a href=\"%2$s\">请退出</a>)."
 
 #: woocommerce/myaccount/my-account.php:24
 #, php-format
@@ -2944,7 +2924,6 @@ msgstr "可用的下载"
 msgid "%s download remaining"
 msgid_plural "%s downloads remaining"
 msgstr[0] "%s 下载剩余"
-msgstr[1] "%s 下载剩余"
 
 # @ woocommerce
 #: woocommerce/myaccount/my-orders.php:26
@@ -2967,7 +2946,6 @@ msgstr "日期"
 msgid "%s for %s item"
 msgid_plural "%s for %s items"
 msgstr[0] "%s 为 %s 项目"
-msgstr[1] "%s 为 %s 项目"
 
 # @ woocommerce
 #: woocommerce/myaccount/view-order.php:20 woocommerce/order/tracking.php:31
@@ -3052,7 +3030,6 @@ msgstr "以前"
 msgid "%s review for %s"
 msgid_plural "%s reviews for %s"
 msgstr[0] "%s 评分 %s"
-msgstr[1] "%s 评分 %s"
 
 # @ woocommerce
 #: woocommerce/single-product-reviews.php:23
@@ -3157,13 +3134,11 @@ msgstr "n/a"
 msgid "Category:"
 msgid_plural "Categories:"
 msgstr[0] "类别："
-msgstr[1] "分类："
 
 #: woocommerce/single-product/meta.php:29
 msgid "Tag:"
 msgid_plural "Tags:"
 msgstr[0] "标签："
-msgstr[1] "标签："
 
 # @ kleo_framework
 #: woocommerce/single-product/product-attributes.php:30
@@ -3191,7 +3166,6 @@ msgstr "总分 5"
 msgid "%s customer review"
 msgid_plural "%s customer reviews"
 msgstr[0] "%s顾客评分"
-msgstr[1] "%s顾客评分"
 
 # @ woocommerce
 #: woocommerce/single-product/related.php:37
