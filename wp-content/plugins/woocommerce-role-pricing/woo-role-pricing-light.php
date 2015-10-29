@@ -68,7 +68,7 @@ class WooRolePricingLight_Plugin {
 		$woo_is_active = in_array( 'woocommerce/woocommerce.php', $active_plugins );
 		
 		if ( !$woo_is_active ) {
-			self::$notices[] = "<div class='error'>" . __( 'The <strong>Woocommerce Role Pricing Light</strong> plugin requires the <a href="http://wordpress.org/extend/plugins/woocommerce" target="_blank">Woocommerce</a> plugin to be activated.', WOO_ROLE_PRICING_LIGHT_DOMAIN ) . "</div>";
+			self::$notices[] = "<div class='error'>" . __( 'The <strong>价格策略工具</strong> plugin requires the <a href="http://wordpress.org/extend/plugins/woocommerce" target="_blank">Woocommerce</a> plugin to be activated.', WOO_ROLE_PRICING_LIGHT_DOMAIN ) . "</div>";
 
 			include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 			deactivate_plugins( array( __FILE__ ) );
@@ -190,13 +190,13 @@ class WooRolePricingLight_Plugin {
 	        	<?php 
 	        	if ( get_option("wrp-baseprice") == "sale" ) {
 	        	?>
-	        		<option value="regular">市场价</option>
-	        		<option value="sale" selected="selected">销售价</option>
+	        		<option value="regular">原价</option>
+	        		<option value="sale" selected="selected">网售价</option>
 	        	<?php 
 	        	} else {
 	        	?>
-	        		<option value="regular" selected="selected">市场价</option>
-	        		<option value="sale">销售价</option>
+	        		<option value="regular" selected="selected">原价</option>
+	        		<option value="sale">网售价</option>
 	        	<?php 
 	        	}
 	        	?>

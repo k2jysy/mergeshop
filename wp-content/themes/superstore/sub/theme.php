@@ -64,7 +64,7 @@ class WPO_SubTheme extends WPO_Framework {
 			'wrap_after' => '</nav>',
 			'before' => '',
 			'after' => '',
-			'home' => _x( '<span class="fa fa-home"></span> Home', 'breadcrumb', 'woocommerce' )
+			'home' => _x( 'Home', 'breadcrumb', 'woocommerce' )
 			);
 	}
 

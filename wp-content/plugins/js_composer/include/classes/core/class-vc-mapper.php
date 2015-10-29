@@ -1,21 +1,33 @@
 <?php
+
 /**
  * WPBakery Visual Composer Main manager.
  *
  * @package WPBakeryVisualComposer
  * @since   4.2
  */
+
 /**
  * Vc mapper new class. On maintenance
  * Allows to bind hooks for shortcodes.
+ * @since 4.2
  */
 class Vc_Mapper {
 	/**
+	 * @since 4.2
 	 * Stores mapping activities list which where called before initialization
 	 * @var array
 	 */
 	protected $init_activity = array();
 
+	protected $hasAccess = array();
+
+	// @todo fix_roles and maybe remove/@deprecate this
+	protected $checkForAccess = true;
+
+	/**
+	 * @since 4.2
+	 */
 	function __construct() {
 	}
 
@@ -26,12 +38,12 @@ class Vc_Mapper {
 	 * @access public
 	 */
 	public function init() {
-		do_action('vc_mapper_init_before');
+		do_action( 'vc_mapper_init_before' );
 		require_once vc_path_dir( 'PARAMS_DIR', 'load.php' );
 		WPBMap::setInit();
 		require_once vc_path_dir( 'CONFIG_DIR', 'map.php' );
 		$this->callActivities();
-		do_action('vc_mapper_init_after');
+		do_action( 'vc_mapper_init_after' );
 	}
 
 	/**
@@ -40,6 +52,7 @@ class Vc_Mapper {
 	 * @see WPBMAP
 	 * @since  4.2
 	 * @access public
+	 *
 	 * @param $object - mame of class object
 	 * @param $method - method name
 	 * @param array $params - list of attributes for object method
@@ -58,9 +71,10 @@ class Vc_Mapper {
 	 * @access public
 	 */
 	protected function callActivities() {
+		do_action( 'vc_mapper_call_activities_before' );
 		while ( $activity = each( $this->init_activity ) ) {
 			list( $object, $method, $params ) = $activity[1];
-			if ( $object == 'mapper' ) {
+			if ( 'mapper' === $object ) {
 				switch ( $method ) {
 					case 'map':
 						WPBMap::map( $params['tag'], $params['attributes'] );
@@ -74,6 +88,9 @@ class Vc_Mapper {
 					case 'mutate_param':
 						WPBMap::mutateParam( $params['name'], $params['attribute'] );
 						break;
+					case 'drop_all_shortcodes':
+						WPBMap::dropAllShortcodes();
+						break;
 					case 'drop_shortcode':
 						WPBMap::dropShortcode( $params['name'] );
 						break;
@@ -83,5 +100,47 @@ class Vc_Mapper {
 				}
 			}
 		}
+	}
+
+	/**
+	 * Does user has access to modify/clone/delete/add shortcode
+	 *
+	 * @param $shortcode
+	 *
+	 * @todo fix_roles and maybe remove/@deprecate this
+	 * @since 4.5
+	 * @return bool
+	 */
+	public function userHasAccess( $shortcode ) {
+		if ( $this->isCheckForAccess() ) {
+			if ( isset( $this->hasAccess[ $shortcode ] ) ) {
+				return $this->hasAccess[ $shortcode ];
+			} else {
+				$this->hasAccess[ $shortcode ] = vc_user_access_check_shortcode_edit( $shortcode );
+			}
+
+			return $this->hasAccess[ $shortcode ];
+		}
+
+		return true;
+	}
+
+	/**
+	 * @todo fix_roles and maybe remove/@deprecate this
+	 * @since 4.5
+	 * @return bool
+	 */
+	public function isCheckForAccess() {
+		return $this->checkForAccess;
+	}
+
+	/**
+	 * @todo fix_roles and maybe remove/@deprecate this
+	 * @since 4.5
+	 *
+	 * @param bool $checkForAccess
+	 */
+	public function setCheckForAccess( $checkForAccess ) {
+		$this->checkForAccess = $checkForAccess;
 	}
 }

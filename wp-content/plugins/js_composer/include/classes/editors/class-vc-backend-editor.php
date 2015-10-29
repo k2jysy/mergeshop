@@ -1,11 +1,11 @@
 <?php
+
 /**
  * WPBakery Visual Composer admin editor
  *
  * @package WPBakeryVisualComposer
  *
  */
-
 
 /**
  * VC backend editor.
@@ -17,7 +17,18 @@
  */
 class Vc_Backend_Editor implements Vc_Editor_Interface {
 
+	/**
+	 * @var
+	 */
 	protected $layout;
+	/**
+	 * @var
+	 */
+	public $post_custom_css;
+	/**
+	 * @var bool|string $post - stores data about post.
+	 */
+	public $post = false;
 
 	/**
 	 * This method is called by Vc_Manager to register required action hooks for VC backend editor.
@@ -26,47 +37,88 @@ class Vc_Backend_Editor implements Vc_Editor_Interface {
 	 * @access public
 	 */
 	public function addHooksSettings() {
-		add_action( 'edit_post', array( &$this, 'save' ) );
-		add_action( 'wp_ajax_wpb_get_element_backend_html', array( &$this, 'elementBackendHtml' ) );
+		// @todo - fix_roles do this only if be editor is enabled.
+		add_action( 'wp_ajax_wpb_get_element_backend_html', array(
+			&$this,
+			'elementBackendHtml',
+		) );
 		// load backend editor
 		if ( function_exists( 'add_theme_support' ) ) {
-			add_theme_support( 'post-thumbnails' );
+			add_theme_support( 'post-thumbnails' ); // @todo check is it needed?
 		}
-		add_post_type_support( 'page', 'excerpt' );
 		add_action( 'admin_init', array( &$this, 'render' ), 5 );
-		add_action( 'admin_print_scripts-post.php', array( &$this, 'printScriptsMessages' ) );
-		add_action( 'admin_print_scripts-post-new.php', array( &$this, 'printScriptsMessages' ) );
-		// Load required vendors classes;
-		// visual_composer()->vendorsManager()->load();
+		add_action( 'admin_print_scripts-post.php', array(
+			&$this,
+			'printScriptsMessages',
+		) );
+		add_action( 'admin_print_scripts-post-new.php', array(
+			&$this,
+			'printScriptsMessages',
+		) );
+
 	}
 
 	/**
-	 *	Calls add_meta_box to create Editor block. Block is rendered by WPBakeryVisualComposerLayout.
+	 *    Calls add_meta_box to create Editor block. Block is rendered by WPBakeryVisualComposerLayout.
 	 *
 	 * @see WPBakeryVisualComposerLayout
 	 * @since  4.2
 	 * @access public
 	 */
 	public function render() {
-		$post_types = vc_editor_post_types();
-		foreach ( $post_types as $type ) {
-			add_meta_box( 'wpb_visual_composer', __( 'Visual Composer', "js_composer" ), Array( &$this, 'renderEditor' ), $type, 'normal', 'high' );
+		// @todo fix_roles bc for post_types, maybe initialize ajax hooks also when we are inside vc_editor_post_types?
+		global $pagenow;
+		if ( 'post.php' === $pagenow ) {
+			do_action( 'vc_backend_editor_before_render' );
+			// we editing existing entity
+			$id = (int) vc_request_param( 'post' );
+			// @todo add check if vc is enabled for this post_type
+			$type = get_post_type( $id );
+			$valid = vc_check_post_type( $type );
+			if ( $valid ) {
+				add_meta_box( 'wpb_visual_composer', __( 'Visual Composer', 'js_composer' ), array(
+					&$this,
+					'renderEditor',
+				), $type, 'normal', 'high' );
+			}
+		} elseif ( 'post-new.php' === $pagenow ) {
+			// we creating new entitiy
+			$type = sanitize_text_field( vc_request_param( 'post_type' ) );
+			$type = empty( $type ) ? 'post' : $type;
+			$valid = vc_check_post_type( $type );
+			if ( $valid ) {
+				add_meta_box( 'wpb_visual_composer', __( 'Visual Composer', 'js_composer' ), array(
+					&$this,
+					'renderEditor',
+				), $type, 'normal', 'high' );
+			}
 		}
 	}
 
 	/**
 	 * Output html for backend editor meta box.
-	 * @param null $post
+	 *
+	 * @param null|Wp_Post $post
+	 *
+	 * @return bool
 	 */
-	public function renderEditor($post = null) {
+	public function renderEditor( $post = null ) {
+		/**
+		 * TODO: setter/getter for $post
+		 */
+		if ( ! is_object( $post ) || 'WP_Post' !== get_class( $post ) || ! isset( $post->ID ) ) {
+			return false;
+		}
 		$this->post = $post;
 		$this->post_custom_css = get_post_meta( $post->ID, '_wpb_post_custom_css', true );
-		vc_include_template('editors/backend_editor.tpl.php' , array(
+		vc_include_template( 'editors/backend_editor.tpl.php', array(
 			'editor' => $this,
-			'post' => $this->post
-		));
-		add_action('admin_footer', array(&$this, 'renderEditorFooter'));
-		do_action('vc_backend_editor_render');
+			'post' => $this->post,
+		) );
+		add_action( 'admin_footer', array( &$this, 'renderEditorFooter' ) );
+		do_action( 'vc_backend_editor_render' );
+
+		return true;
 	}
 
 	/**
@@ -75,12 +127,22 @@ class Vc_Backend_Editor implements Vc_Editor_Interface {
 	 * Here comes panels, modals and js objects with data for mapped shortcodes.
 	 */
 	public function renderEditorFooter() {
-		vc_include_template('editors/partials/backend_editor_footer.tpl.php' , array(
+		vc_include_template( 'editors/partials/backend_editor_footer.tpl.php', array(
 			'editor' => $this,
-			'post' => $this->post
-		));
-		do_action('vc_backend_editor_footer_render');
+			'post' => $this->post,
+		) );
+		do_action( 'vc_backend_editor_footer_render' );
 	}
+
+	/**
+	 * Check is post type is valid for rendering VC backend editor.
+	 *
+	 * @return bool
+	 */
+	public function isValidPostType() {
+		return vc_check_post_type( get_post_type() );
+	}
+
 	/**
 	 * Enqueue required javascript libraries and css files.
 	 *
@@ -90,89 +152,100 @@ class Vc_Backend_Editor implements Vc_Editor_Interface {
 	 * @access public
 	 */
 	public function printScriptsMessages() {
-		if ( in_array( get_post_type(), vc_editor_post_types() )) {
-			vc_license()->setupReminder();
-			wp_enqueue_style( 'wp-color-picker' );
-			wp_enqueue_script( 'wp-color-picker' );
-			wp_enqueue_style( 'farbtastic' );
-			wp_enqueue_style( 'ui-custom-theme' );
-			wp_enqueue_style( 'isotope-css' );
-			wp_enqueue_style( 'animate-css' );
-			wp_enqueue_style( 'js_composer' );
-			wp_enqueue_style( 'wpb_jscomposer_autosuggest' );
-
-			WPBakeryShortCode_Settings::enqueueCss();
-
-			wp_enqueue_script( 'jquery-ui-tabs' );
-			wp_enqueue_script( 'jquery-ui-sortable' );
-			wp_enqueue_script( 'jquery-ui-droppable' );
-			wp_enqueue_script( 'jquery-ui-draggable' );
-			wp_enqueue_script( 'jquery-ui-accordion' );
-			wp_enqueue_script( 'jquery-ui-autocomplete' );
-			wp_enqueue_script( 'farbtastic' );
-			wp_enqueue_script( 'isotope' );
-			wp_enqueue_script( 'vc_bootstrap_js', vc_asset_url( 'lib/bootstrap3/dist/js/bootstrap.min.js' ), array( 'jquery' ), '3.0.2', true );
-			wp_enqueue_script( 'wpb_scrollTo_js' );
-			wp_enqueue_script( 'wpb_php_js' );
-			wp_enqueue_script( 'wpb_js_composer_js_sortable' );
-			wp_enqueue_script( 'wpb_json-js' );
-			wp_enqueue_style( 'js_composer_settings', vc_asset_url( 'css/js_composer_settings.css' ), false, WPB_VC_VERSION, false );
-			wp_enqueue_script( 'ace-editor' );
-            wp_enqueue_script( 'webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js' ); // Google Web Font CDN
-			wp_enqueue_script( 'wpb_js_composer_js_tools' );
-			wp_enqueue_script( 'wpb_js_composer_js_storage' );
-			wp_enqueue_script( 'wpb_js_composer_js_models' );
-			wp_enqueue_script( 'wpb_js_composer_js_view' );
-			wp_enqueue_script( 'wpb_js_composer_js_custom_views' );
-			/**
-			 * Enqueue deprecated
-			 */
-			wp_enqueue_script( 'vc_js_composer_js_backend_deprecated', vc_asset_url('js/backend/deprecated.js'), array('wpb_js_composer_js_view'), WPB_VC_VERSION, true );
-			wp_enqueue_script( 'wpb_js_composer_js_backbone' );
-			wp_enqueue_script( 'wpb_jscomposer_composer_js' );
-			wp_enqueue_script( 'wpb_jscomposer_shortcode_js' );
-			wp_enqueue_script( 'wpb_jscomposer_modal_js' );
-			wp_enqueue_script( 'wpb_jscomposer_templates_js' );
-			wp_enqueue_script( 'wpb_jscomposer_stage_js' );
-			wp_enqueue_script( 'wpb_jscomposer_layout_js' );
-			wp_enqueue_script( 'wpb_jscomposer_row_js' );
-			wp_enqueue_script( 'wpb_jscomposer_settings_js' );
-			wp_enqueue_script( 'wpb_jscomposer_media_editor_js' );
-			wp_enqueue_script( 'wpb_jscomposer_autosuggest_js' );
-			// }}
-			wp_enqueue_script( 'wpb_js_composer_js' );
-			WPBakeryShortCode_Settings::enqueueJs();
+		if ( $this->isValidPostType() ) {
+			if ( vc_user_access()
+				->wpAny( 'manage_options' )
+				->part( 'settings' )
+				->can( 'vc-updater-tab' )
+				->get()
+			) {
+				vc_license()->setupReminder();
+			}
+			$this->enqueueEditorScripts();
 		}
+	}
+
+	/**
+	 * Enqueue required javascript libraries and css files.
+	 *
+	 * @since  4.8
+	 * @access public
+	 */
+	public function enqueueEditorScripts() {
+		wp_enqueue_style( 'wp-color-picker' );
+		wp_enqueue_script( 'wp-color-picker' );
+		wp_enqueue_style( 'farbtastic' );
+		wp_enqueue_style( 'ui-custom-theme' );
+		wp_enqueue_style( 'isotope-css' );
+		wp_enqueue_style( 'animate-css' );
+		wp_enqueue_style( 'font-awesome' );
+		wp_enqueue_style( 'js_composer' );
+		wp_enqueue_style( 'wpb_jscomposer_autosuggest' );
+		wp_enqueue_style( 'js_composer_settings', vc_asset_url( 'css/js_composer_settings.min.css' ), array(), WPB_VC_VERSION, false );
+		WPBakeryShortCodeFishBones::enqueueCss();
+
+		wp_enqueue_script( 'jquery-ui-tabs' );
+		wp_enqueue_script( 'jquery-ui-sortable' );
+		wp_enqueue_script( 'jquery-ui-droppable' );
+		wp_enqueue_script( 'jquery-ui-draggable' );
+		wp_enqueue_script( 'jquery-ui-accordion' );
+		wp_enqueue_script( 'jquery-ui-autocomplete' );
+		wp_enqueue_script( 'jquery-ui-resizable' );
+		wp_enqueue_script( 'farbtastic' );
+		wp_enqueue_script( 'isotope' );
+		$bootstrap_version = '3.0.2';
+		wp_enqueue_script( 'vc_bootstrap_js_1', vc_asset_url( 'lib/bower/bootstrap3/js/modal.js' ), array( 'jquery' ), $bootstrap_version, true );
+		wp_enqueue_script( 'vc_bootstrap_js_2', vc_asset_url( 'lib/bower/bootstrap3/js/dropdown.js' ), array( 'jquery' ), $bootstrap_version, true );
+		wp_enqueue_script( 'vc_bootstrap_js_11', vc_asset_url( 'lib/bower/bootstrap3/js/transition.js' ), array( 'jquery' ), $bootstrap_version, true );
+		wp_enqueue_script( 'wpb_scrollTo_js' );
+		wp_enqueue_script( 'wpb_php_js' );
+		wp_enqueue_script( 'wpb_js_composer_js_sortable' );
+		wp_enqueue_script( 'wpb_json-js' );
+		wp_enqueue_script( 'ace-editor' );
+		wp_enqueue_script( 'webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js' ); // Google Web Font CDN
+		wp_enqueue_script( 'wpb_js_composer_js_tools' );
+		wp_enqueue_script( 'wpb_js_composer_js_storage' );
+		wp_enqueue_script( 'wpb_js_composer_js_models' );
+		wp_enqueue_script( 'wpb_js_composer_js_view' );
+		wp_enqueue_script( 'wpb_js_composer_js_custom_views' );
+		/**
+		 * Enqueue deprecated
+		 * @since 4.4 removed
+		 */
+		wp_enqueue_script( 'wpb_js_composer_js_backbone' );
+		wp_enqueue_script( 'wpb_jscomposer_composer_js' );
+		wp_enqueue_script( 'wpb_jscomposer_shortcode_js' );
+		wp_enqueue_script( 'wpb_jscomposer_modal_js' );
+		wp_enqueue_script( 'wpb_jscomposer_templates_js' );
+		wp_enqueue_script( 'wpb_jscomposer_stage_js' );
+		wp_enqueue_script( 'wpb_jscomposer_layout_js' );
+		wp_enqueue_script( 'wpb_jscomposer_row_js' );
+		wp_enqueue_script( 'wpb_jscomposer_settings_js' );
+		wp_enqueue_script( 'wpb_jscomposer_media_editor_js' );
+		wp_enqueue_script( 'wpb_jscomposer_autosuggest_js' );
+		wp_enqueue_script( 'wpb_js_composer_js' );
+		/**
+		 * @since 4.4
+		 */
+		do_action( 'vc_backend_editor_enqueue_js_css' );
+		WPBakeryShortCodeFishBones::enqueueJs();
 	}
 
 	/**
 	 * Save generated shortcodes, html and visual composer status in posts meta.
 	 *
+	 * @deprecated 4.4
+	 * @remove @todo remove this. comment added in 4.8
+	 * @unused.
 	 * @since  3.0
 	 * @access public
+	 *
 	 * @param $post_id - current post id
+	 *
 	 * @return void
 	 */
 	public function save( $post_id ) {
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
-		$value = vc_post_param( 'wpb_vc_js_status' );
-		if ( $value !== null ) {
-			// Add value
-			if ( get_post_meta( $post_id, '_wpb_vc_js_status' ) == '' ) {
-				add_post_meta( $post_id, '_wpb_vc_js_status', $value, true );
-			} // Update value
-			elseif ( $value != get_post_meta( $post_id, '_wpb_vc_js_status', true ) ) {
-				update_post_meta( $post_id, '_wpb_vc_js_status', $value );
-			}
-			// Delete value
-			elseif ( $value == '' ) {
-				delete_post_meta( $post_id, '_wpb_vc_js_status', get_post_meta( $post_id, '_wpb_vc_js_status', true ) );
-			}
-		}
-
-		if ( ( $value = vc_post_param( 'wpb_vc_js_interface_version' ) ) !== null ) {
-			update_post_meta( $post_id, '_wpb_vc_js_interface_version', $value );
-		}
+		visual_composer()->postAdmin()->save( $post_id );
 	}
 
 	/**
@@ -183,32 +256,41 @@ class Vc_Backend_Editor implements Vc_Editor_Interface {
 	 * @deprecated
 	 */
 	public function elementBackendHtml() {
-		global $current_user;
-		get_currentuserinfo();
+		vc_user_access()
+			->checkAdminNonce()
+			->validateDie()
+			->wpAny( 'edit_posts', 'edit_pages' )
+			->validateDie()
+			->part( 'backend_editor' )
+			->can() // checks is backend_editor enabled( !== false )
+			->validateDie();
+
 		$data_element = vc_post_param( 'data_element' );
 
-		/** @var $settings - get use group access rules */
-		$settings = WPBakeryVisualComposerSettings::get( 'groups_access_rules' );
-		$role = $current_user->roles[0];
-
-		if ( $data_element == 'vc_column' && vc_post_param( 'data_width' ) !== null ) {
+		if ( 'vc_column' === $data_element && null !== vc_post_param( 'data_width' ) ) {
 			$output = do_shortcode( '[vc_column width="' . vc_post_param( 'data_width' ) . '"]' );
 			echo $output;
-		} elseif ( $data_element == 'vc_row' || $data_element == 'vc_row_inner' ) {
+		} elseif ( 'vc_row' === $data_element || 'vc_row_inner' === $data_element ) {
 			$output = do_shortcode( '[' . $data_element . ']' );
 			echo $output;
-		} elseif ( ! isset( $settings[$role]['shortcodes'] ) || ( isset( $settings[$role]['shortcodes'][$data_element] ) && (int)$settings[$role]['shortcodes'][$data_element] == 1 ) ) {
+		} else {
 			$output = do_shortcode( '[' . $data_element . ']' );
 			echo $output;
 		}
 		die();
 	}
+
+	/**
+	 * @deprecated since 4.8
+	 * @return string
+	 */
 	public function showRulesValue() {
 		global $current_user;
 		get_currentuserinfo();
 		/** @var $settings - get use group access rules */
 		$settings = vc_settings()->get( 'groups_access_rules' );
-		$role = is_object($current_user) && isset($current_user->roles[0]) ? $current_user->roles[0] : '';
-		return isset($settings[$role]['show']) ? $settings[$role]['show'] : '';
+		$role = is_object( $current_user ) && isset( $current_user->roles[0] ) ? $current_user->roles[0] : '';
+
+		return isset( $settings[ $role ]['show'] ) ? $settings[ $role ]['show'] : '';
 	}
 }

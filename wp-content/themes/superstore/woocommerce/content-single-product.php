@@ -56,17 +56,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 						 */
 						do_action( 'woocommerce_single_product_summary' );
 					?>
-					<div class="addthis">
-						<!-- AddThis Button BEGIN -->
-						<div class="addthis_toolbox addthis_default_style">
-							<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-							<a class="addthis_button_tweet"></a>
-							<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-							<a class="addthis_counter addthis_pill_style"></a>
-						</div>
-						<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-533e342d186e8c37"></script>
-						<!-- AddThis Button END -->
-					</div>
+				    <!-- JiaThis Button BEGIN -->
+				    <div id="ckepop">
+                    <span class="jiathis_txt">分享到：</span>
+                    <a class="jiathis_button_weixin">微信</a> 
+                    <a href="http://www.jiathis.com/share"  class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+                    <a class="jiathis_counter_style"></a> 
+					</div> 
+                    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1" charset="utf-8"></script>
+                    <!-- JiaThis Button END -->	
 				</div><!-- .summary -->
 			</div>
 		</div>
