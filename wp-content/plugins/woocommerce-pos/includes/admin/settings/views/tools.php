@@ -35,7 +35,7 @@
         <a href="<?php esc_attr_e( wc_pos_url('#print') ); ?>" target="_blank" class="button">
           <?php _e( 'View Sample Receipt', 'woocommerce-pos' ); ?>
         </a>
-        <?php printf( __( '<strong class="red">Template path:</strong> %s', 'woocommerce-pos' ), '<code style="font-size: 11px">'. wc_pos_locate_template('print/receipt.php') .'</code>' ); ?>
+        <?php printf( __( '<strong class="red">Template path:</strong> %s', 'woocommerce-pos' ), '<code style="font-size: 11px">'. WC_POS_Template::locate_template_file('print/tmpl-receipt.php') .'</code>' ); ?>
       </td>
     </tr>
 
@@ -50,6 +50,20 @@
       </td>
     </tr>
 
+    <tr>
+      <th><?php _e( 'Local Data', 'woocommerce-pos' ); ?></th>
+      <td>
+        <a href="#"
+           class="button"
+           data-action="delete-local-data"
+           data-title="<?php esc_attr_e( 'Clear Local Data', 'woocommerce-pos' ); ?>"
+          >
+          <?php
+            _e( 'Clear All Local Data', 'woocommerce-pos' );
+          ?>
+        </a>
+      </td>
+    </tr>
 
   </tbody>
 </table>

@@ -13,14 +13,6 @@
 class WC_POS_API_Products extends WC_POS_API_Abstract {
 
   /**
-   * postmeta key to use for barcode
-   * - defaults to '_sku'
-   * - can be overwritten using the woocommerce_pos_barcode_meta_key filter
-   * @var array
-   */
-  private $barcode_meta_key;
-
-  /**
    * Product fields used by the POS
    * @var array
    */
@@ -98,8 +90,6 @@ class WC_POS_API_Products extends WC_POS_API_Abstract {
     add_filter( 'woocommerce_api_product_response', array( $this, 'product_response' ), 10, 4 );
     add_action( 'pre_get_posts', array( $this, 'pre_get_posts' ) );
     add_filter( 'posts_where', array( $this, 'posts_where' ), 10 , 2 );
-
-    $this->barcode_meta_key = apply_filters( 'woocommerce_pos_barcode_meta_key', '_sku' );
   }
 
   /**
@@ -229,8 +219,9 @@ class WC_POS_API_Products extends WC_POS_API_Abstract {
     $barcode = isset( $data['sku'] ) ? $data['sku'] : '';
 
     // allow custom barcode field
-    if( $this->barcode_meta_key !== '_sku' ){
-      $barcode = get_post_meta( $id, $this->barcode_meta_key, true );
+    $barcode_meta_key = apply_filters( 'woocommerce_pos_barcode_meta_key', '_sku' );
+    if( $barcode_meta_key !== '_sku' ){
+      $barcode = get_post_meta( $id, $barcode_meta_key, true );
     }
 
     $data['featured_src'] = $this->get_thumbnail( $id );
@@ -329,6 +320,8 @@ class WC_POS_API_Products extends WC_POS_API_Abstract {
 
       if( isset($filter['barcode']) ){
 
+        $barcode_meta_key = apply_filters( 'woocommerce_pos_barcode_meta_key', '_sku' );
+
         // gets post ids and parent ids
         $result = $wpdb->get_results(
           $wpdb->prepare("
@@ -338,7 +331,7 @@ class WC_POS_API_Products extends WC_POS_API_Abstract {
             ON p.ID = pm.post_id
             WHERE pm.meta_key = %s
             AND pm.meta_value LIKE %s
-          ", $this->barcode_meta_key, '%'.$filter['barcode'].'%' ),
+          ", $barcode_meta_key, '%'.$filter['barcode'].'%' ),
           ARRAY_N
         );
 
@@ -362,7 +355,7 @@ class WC_POS_API_Products extends WC_POS_API_Abstract {
    * @param $updated_at_min
    * @return array
    */
-  static public function get_ids($updated_at_min){
+  public function get_ids($updated_at_min){
     $args = array(
       'post_type'     => array('product'),
       'post_status'   => array('publish'),

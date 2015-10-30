@@ -399,11 +399,6 @@ class WC_POS_API_Orders extends WC_POS_API_Abstract {
       return;
     }
 
-    // special case, pos_card cashback
-    if(isset($data['payment_details']['pos-cashback'])){
-      $_POST['pos-cashback'] = $data['payment_details']['pos-cashback'];
-    }
-
     // some gateways check if a user is signed in, so let's switch to customer
     $logged_in_user = get_current_user_id();
     $customer_id = isset( $data['customer_id'] ) ? $data['customer_id'] : 0 ;
@@ -674,7 +669,7 @@ class WC_POS_API_Orders extends WC_POS_API_Abstract {
    * @param $updated_at_min
    * @return array
    */
-  static public function get_ids($updated_at_min){
+  public function get_ids($updated_at_min){
     $args = array(
       'post_type'     => array('shop_order'),
       'post_status'   => array('any'),

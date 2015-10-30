@@ -25,18 +25,21 @@ class WC_POS_Params {
     $this->accounting      = $this->accounting();
     $this->ajaxurl         = admin_url( 'admin-ajax.php', 'relative' );
     $this->customers       = $this->customers();
-    $this->i18n            = WC_POS_i18n::translations();
+    $this->debug           = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
     $this->nonce           = wp_create_nonce( WC_POS_PLUGIN_NAME );
     $this->wc_api          = get_woocommerce_api_url( '' );
     $this->emulateHTTP     = get_option( 'woocommerce_pos_emulateHTTP' ) === '1';
+    $this->idbVersion      = WC_POS_Settings::get_idb_version();
 
     // frontend params
-    if( !is_admin() ){
+    if( is_pos() ) {
       $this->auto_print    = wc_pos_get_option( 'checkout', 'auto_print_receipt' );
       $this->denominations = WC_POS_i18n::currency_denominations();
       $this->discount_keys = wc_pos_get_option( 'general', 'discount_quick_keys' );
       $this->hotkeys       = wc_pos_get_option( 'hotkeys', 'hotkeys' );
+      $this->menu          = $this->menu();
       $this->shipping      = $this->shipping_labels();
+      $this->store         = array( 'name' => get_bloginfo( 'name' ) );
       $this->tabs          = $this->product_tabs();
       $this->tax           = $this->tax();
       $this->tax_classes   = WC_POS_Tax::tax_classes();
@@ -44,15 +47,20 @@ class WC_POS_Params {
       $this->user          = $this->user();
     }
 
+    // admin params
+    if( is_admin() ) {
+      $this->search_customers_nonce = wp_create_nonce( 'search-customers' );
+    }
+
   }
 
   /**
-   * Converts class properties to JSON
-   * @return string JSON
+   * Params payload for
+   * Converts class properties to array
+   * @return array
    */
-  public function toJSON() {
-    $params = apply_filters( 'woocommerce_pos_params', get_object_vars( $this ), $this );
-    return json_encode( $params );
+  public function payload() {
+    return apply_filters( 'woocommerce_pos_params', get_object_vars( $this ), $this );
   }
 
   /**
@@ -73,7 +81,7 @@ class WC_POS_Params {
         'id' => 'featured:true'
       ),
       'onsale' => array(
-        'label' => _x( 'On Sale', 'Product tab: \'On Sale\' products', 'woocommerce-pos'),
+        'label' => _x( '热销', 'Product tab: \'On Sale\' products', 'woocommerce-pos'),
         'id' => 'on_sale:true'
       ),
     );
@@ -132,16 +140,10 @@ class WC_POS_Params {
    * @return object $customer
    */
   private function customers() {
-    $settings = wc_pos_get_option( 'general' );
-    $user_id = false;
 
-    if(isset($settings['customer']['id'])){
-      $user_id = $settings['customer']['id'];
-    }
-
-    if(isset($settings['logged_in_user']) && $settings['logged_in_user']){
-      $user_id = get_current_user_id();
-    }
+    $user_id = wc_pos_get_option( 'general', 'logged_in_user' ) ?
+      get_current_user_id() :
+      wc_pos_get_option( 'general', 'default_customer' );
 
     if( $user_id ) {
       $user = get_userdata($user_id);
@@ -211,6 +213,51 @@ class WC_POS_Params {
     $labels['other'] = __( 'Other', 'woocommerce' );
 
     return $labels;
+  }
+
+  /**
+   *
+   */
+  private function menu() {
+
+    return apply_filters( 'woocommerce_pos_menu', array(
+      array(
+        'id'     => 'pos',
+        'label'  => __( 'POS', 'woocommerce-pos' ),
+        'href'   => '#'
+      ),
+      array(
+        'id'     => 'products',
+        /* translators: woocommerce */
+        'label'  => __( 'Products', 'woocommerce' ),
+        'href'   => admin_url('edit.php?post_type=product')
+      ),
+      array(
+        'id'     => 'orders',
+        /* translators: woocommerce */
+        'label'  => __( 'Orders', 'woocommerce' ),
+        'href'   => admin_url('edit.php?post_type=shop_order')
+      ),
+      array(
+        'id'     => 'customers',
+        /* translators: woocommerce */
+        'label'  => __( 'Customers', 'woocommerce' ),
+        'href'   => admin_url('users.php')
+      ),
+      array(
+        'id'     => 'coupons',
+        /* translators: woocommerce */
+        'label' => __( 'Coupons', 'woocommerce' ),
+        'href'   => admin_url('edit.php?post_type=shop_coupon')
+      ),
+      array(
+        'id'     => 'support',
+        /* translators: woocommerce */
+        'label'  => __( 'Support', 'woocommerce' ),
+        'href'   => '#support'
+      )
+    ));
+
   }
 
 }

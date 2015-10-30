@@ -1,0 +1,827 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Display Product for WooCommerce\n"
+"POT-Creation-Date: 2015-10-29 17:26+0800\n"
+"PO-Revision-Date: 2015-10-30 04:08+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: displayProduct.php\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: admin/metabox.php:14
+msgid "My Post Section Title"
+msgstr "我的文章标题"
+
+#: admin/post_type.php:7
+msgid "Display Product Template Editor"
+msgstr "显示商品模板编辑器"
+
+#: admin/post_type.php:8 admin/post_type.php:10
+msgid "List Templates Editor"
+msgstr "列表模板编辑器"
+
+#: admin/post_type.php:9
+msgid "Display Product"
+msgstr "显示商品"
+
+#: admin/post_type.php:11
+msgid "Add New"
+msgstr "新添加"
+
+#: admin/post_type.php:12
+msgid "Add New List Template"
+msgstr "添加新列表模板"
+
+#: admin/post_type.php:13
+msgid "New List Template"
+msgstr "新列表模板"
+
+#: admin/post_type.php:14
+msgid "Edit List Template"
+msgstr "编辑列表模板"
+
+#: admin/post_type.php:15
+msgid "View List Template"
+msgstr "查看列表模板"
+
+#: admin/post_type.php:16
+msgid "All List Template"
+msgstr "所有列表模板"
+
+#: admin/post_type.php:17
+msgid "Search List Template"
+msgstr "查找列表模板"
+
+#: admin/post_type.php:18
+msgid "Parent List Template:"
+msgstr "父列表模板"
+
+#: admin/post_type.php:19
+msgid "No books found."
+msgstr "没有书签"
+
+#: admin/post_type.php:20
+msgid "No books found in Trash."
+msgstr "没有书签在回收站"
+
+#. Plugin Name of the plugin/theme
+#: admin/vcmap.php:22
+msgid "Display Product for WooCommerce"
+msgstr "显示商品模板编辑器"
+
+#: admin/vcmap.php:25
+msgid "Content"
+msgstr "内容"
+
+#: admin/vcmap.php:35
+msgid "Select Layout"
+msgstr "选择布局。"
+
+#: displayProduct-hooks.php:10
+msgid "DP Settings"
+msgstr "DP设置"
+
+#: displayProduct-shortcodes.php:491
+msgid ""
+"Sorry, no products matched your selection. Please choose a different "
+"combination."
+msgstr "对不起，没有产品匹配您的选择。请选择一个不同的组合"
+
+#: displayProduct-shortcodes.php:492
+msgid ""
+"Sorry, this product is unavailable. Please choose a different combination."
+msgstr "对不起，这个产品不可用。请选择一个不同的组合。"
+
+#: displayProduct-shortcodes.php:576
+msgid "Sale!"
+msgstr "热销！"
+
+#: displayProduct-shortcodes.php:585 displayProduct-shortcodes.php:616
+msgid "Read More"
+msgstr "阅读更多"
+
+#: displayProduct-shortcodes.php:599
+msgid "Select options"
+msgstr "选择选项"
+
+#: displayProduct-shortcodes.php:603
+msgid "View options"
+msgstr "查看选项"
+
+#: displayProduct-shortcodes.php:612
+msgid "Add to cart"
+msgstr "添加到购物车"
+
+#: displayProduct-shortcodes.php:689
+#, php-format
+msgid "Rated %s out of 5"
+msgstr ""
+
+#: displayProduct-shortcodes.php:691
+msgid "out of 5"
+msgstr "总分 5"
+
+#: displayProduct.php:101
+msgid "Settings"
+msgstr "设置"
+
+#: displayProduct.php:102
+msgid "Docs"
+msgstr ""
+
+#: include/displayProduct-init.php:65
+msgctxt "page_slug"
+msgid "dp-shop"
+msgstr ""
+
+#: include/displayProduct-init.php:65
+msgid "My Shop"
+msgstr "我的商店"
+
+#: include/displayProduct-init.php:68
+msgctxt "page_slug"
+msgid "dp-category"
+msgstr ""
+
+#: include/displayProduct-init.php:68 include/displayProduct-init.php:143
+msgid "Product Category"
+msgstr "商品分类"
+
+#: include/displayProduct-init.php:71
+msgctxt "page_slug"
+msgid "dp-tag"
+msgstr ""
+
+#: include/displayProduct-init.php:71
+msgid "Product Tags"
+msgstr "商品标签"
+
+#: include/displayProduct-init.php:74
+msgctxt "page_slug"
+msgid "dp-search"
+msgstr ""
+
+#: include/displayProduct-init.php:74
+msgid "Product Search"
+msgstr "查找商品"
+
+#: include/displayProduct-init.php:128
+msgid "1. Select list style"
+msgstr "选择列表风格"
+
+#: include/displayProduct-init.php:129
+msgid "Grid"
+msgstr ""
+
+#: include/displayProduct-init.php:130
+msgid "List"
+msgstr ""
+
+#: include/displayProduct-init.php:131
+msgid "Table"
+msgstr ""
+
+#: include/displayProduct-init.php:132
+msgid "Box"
+msgstr ""
+
+#: include/displayProduct-init.php:133
+msgid "Carousel Box"
+msgstr ""
+
+#: include/displayProduct-init.php:134
+msgid "Carousel Grid"
+msgstr ""
+
+#: include/displayProduct-init.php:135
+msgid "2. Display Options"
+msgstr "显示选项"
+
+#: include/displayProduct-init.php:136 include/displayProduct-init.php:138
+msgid "Select Product"
+msgstr "选择商品"
+
+#: include/displayProduct-init.php:137
+msgid "All Product"
+msgstr "所有商品"
+
+#: include/displayProduct-init.php:139
+msgid "Featured Product"
+msgstr "特色商品"
+
+#: include/displayProduct-init.php:140
+msgid "Sales Product"
+msgstr "热销商品"
+
+#: include/displayProduct-init.php:141
+msgid "In Stock Product"
+msgstr "现货商品"
+
+#: include/displayProduct-init.php:142
+msgid "Out of Stock Product"
+msgstr "缺货商品"
+
+#: include/displayProduct-init.php:144
+msgid "All Category"
+msgstr "所有分类"
+
+#: include/displayProduct-init.php:145
+msgid "Select Category"
+msgstr "选择分类"
+
+#: include/displayProduct-init.php:146
+msgid "Sort by"
+msgstr "排序"
+
+#: include/displayProduct-init.php:147 templates/sorter.php:46
+msgid "Default sorting"
+msgstr "缺省排序"
+
+#: include/displayProduct-init.php:148 templates/sorter.php:47
+msgid "Sort by popularity"
+msgstr "按热门程度排序"
+
+#: include/displayProduct-init.php:149 templates/sorter.php:48
+msgid "Sort by newness"
+msgstr "按新上架排序"
+
+#: include/displayProduct-init.php:150 templates/sorter.php:49
+msgid "Sort by oldest"
+msgstr "按旧上架排序"
+
+#: include/displayProduct-init.php:151
+msgid "Sort by Product title a to z"
+msgstr "按商品名称排序：从头到尾"
+
+#: include/displayProduct-init.php:152
+msgid "Sort by Product title z to a"
+msgstr "按商品名称排序：从尾到头"
+
+#: include/displayProduct-init.php:153
+msgid "Sort by Price low to high"
+msgstr "按价格排序：从低到高"
+
+#: include/displayProduct-init.php:154
+msgid "Sort by Price high to low"
+msgstr "按价格排序：从高到低"
+
+#: include/displayProduct-init.php:155
+msgid "Sort by SKU low to high"
+msgstr "按SKU排序：从低到高"
+
+#: include/displayProduct-init.php:156
+msgid "Sort by SKU high to low"
+msgstr "按SKU排序：从高到低"
+
+#: include/displayProduct-init.php:157
+msgid "Sort by stock low to high"
+msgstr "按库存排序：从低到高"
+
+#: include/displayProduct-init.php:158
+msgid "Sort by stock high to low"
+msgstr "按库存排序：从高到低"
+
+#: include/displayProduct-init.php:159 templates/sorter.php:58
+msgid "Sort by random"
+msgstr "按随机排序"
+
+#: include/displayProduct-init.php:160
+msgid "Columns"
+msgstr "列数"
+
+#: include/displayProduct-init.php:161
+msgid "Products displayed per page"
+msgstr "每页产品总数"
+
+#: include/displayProduct-init.php:162
+msgid "Pagination"
+msgstr "分页"
+
+#: include/displayProduct-init.php:163 templates/sorter.php:71
+msgid "Default"
+msgstr "默认"
+
+#: include/displayProduct-init.php:164
+msgid "Disable"
+msgstr "失效"
+
+#: include/displayProduct-init.php:165
+msgid "Quick View"
+msgstr "快速查看"
+
+#: include/displayProduct-init.php:166
+msgid "Trim words"
+msgstr "装饰词"
+
+#: include/displayProduct-init.php:167
+msgid "Show"
+msgstr "显示"
+
+#: include/displayProduct-init.php:168
+msgid "Title"
+msgstr "标题"
+
+#: include/displayProduct-init.php:169
+msgid "Excerpt"
+msgstr "摘录"
+
+#: include/displayProduct-init.php:170
+msgid "Image"
+msgstr "图像"
+
+#: include/displayProduct-init.php:171
+msgid "Price"
+msgstr "价格"
+
+#: include/displayProduct-init.php:172
+msgid "Star"
+msgstr "评星"
+
+#: include/displayProduct-init.php:173
+msgid "SKU"
+msgstr "SKU"
+
+#: include/displayProduct-init.php:174
+msgid "Category"
+msgstr "分类"
+
+#: include/displayProduct-init.php:175
+msgid "Tag"
+msgstr "标签"
+
+#: include/displayProduct-init.php:176
+msgid "Button"
+msgstr "按钮"
+
+#: include/displayProduct-init.php:177
+msgid "Featured"
+msgstr "特色"
+
+#: include/displayProduct-init.php:178
+msgid "Sale"
+msgstr "热销"
+
+#: include/displayProduct-init.php:179
+msgid "Out of Stock"
+msgstr "缺货"
+
+#: include/displayProduct-init.php:180
+msgid "Link to Product Page"
+msgstr "链接到商品页"
+
+#: include/displayProduct-init.php:181
+msgid "Frontend Sorter"
+msgstr "前端分类"
+
+#: include/displayProduct-init.php:182 include/displayProduct-init.php:184
+msgid "Button & Quantity"
+msgstr "按钮和数量"
+
+#: include/displayProduct-init.php:183
+msgid "Button default"
+msgstr "按钮默认"
+
+#: include/displayProduct-init.php:185
+msgid "Product Detail"
+msgstr "产品描述"
+
+#: include/displayProduct-init.php:187
+msgid "Custom Button"
+msgstr "定制按钮"
+
+#: include/displayProduct-init.php:188
+msgid "Custom Text: Call for price"
+msgstr "自定义文本：调用价格"
+
+#: include/displayProduct-init.php:189
+msgid "Button Custom URL"
+msgstr "按钮定制URL"
+
+#: include/displayProduct-init.php:190
+msgid "Button Custom Text"
+msgstr "按钮定制文本"
+
+#: include/displayProduct-init.php:191
+msgid "Quickview"
+msgstr "快速查看"
+
+#: include/displayProduct-init.php:192
+msgid "3. Color"
+msgstr ""
+
+#: include/displayProduct-init.php:193 include/displayProduct-init.php:196
+msgid "Arrow & Dot"
+msgstr ""
+
+#: include/displayProduct-init.php:194
+msgid "Arrow"
+msgstr ""
+
+#: include/displayProduct-init.php:195
+msgid "Show pagination: Dot"
+msgstr ""
+
+#: include/displayProduct-init.php:197
+msgid "Arrow Style"
+msgstr ""
+
+#: include/displayProduct-init.php:198
+msgid "Arrow Position"
+msgstr ""
+
+#: include/displayProduct-init.php:199
+msgid "Side & Middle"
+msgstr ""
+
+#: include/displayProduct-init.php:200
+msgid "Top_Right"
+msgstr ""
+
+#: include/displayProduct-init.php:201
+msgid "Top & Left"
+msgstr ""
+
+#: include/displayProduct-init.php:203
+msgid "Select Thumbnail Hover Effect"
+msgstr ""
+
+#: include/displayProduct-init.php:204
+msgid "Select Hover Effect(Product Name)"
+msgstr ""
+
+#: include/displayProduct-init.php:205
+msgid "Select Hover Effect(excerpt and star)"
+msgstr ""
+
+#: include/displayProduct-init.php:206
+msgid "Select Hover Effect(Price)"
+msgstr ""
+
+#: include/displayProduct-init.php:207
+msgid "Table Background color"
+msgstr ""
+
+#: include/displayProduct-init.php:208
+msgid "Table Head Background color"
+msgstr ""
+
+#: include/displayProduct-init.php:209
+msgid "Table Head Text color"
+msgstr ""
+
+#: include/displayProduct-init.php:210
+msgid "Table Row hover color"
+msgstr ""
+
+#: include/displayProduct-init.php:211
+msgid "Background color"
+msgstr ""
+
+#: include/displayProduct-init.php:212
+msgid "Featured color"
+msgstr ""
+
+#: include/displayProduct-init.php:213
+msgid "Sale color"
+msgstr ""
+
+#: include/displayProduct-init.php:214
+msgid "Border color"
+msgstr ""
+
+#: include/displayProduct-init.php:215
+msgid "Product name color"
+msgstr ""
+
+#: include/displayProduct-init.php:216
+msgid "Product name hover color"
+msgstr ""
+
+#: include/displayProduct-init.php:217
+msgid "Price color"
+msgstr ""
+
+#: include/displayProduct-init.php:218
+msgid "Text color"
+msgstr ""
+
+#: include/displayProduct-init.php:219
+msgid "Link color"
+msgstr ""
+
+#: include/displayProduct-init.php:220
+msgid "Link hover color"
+msgstr ""
+
+#: include/displayProduct-init.php:221
+msgid "Button color"
+msgstr ""
+
+#: include/displayProduct-init.php:222
+msgid "Button hover color"
+msgstr ""
+
+#: include/displayProduct-init.php:223
+msgid "Select Font"
+msgstr ""
+
+#: include/displayProduct-init.php:224
+msgid "Insert Product Shortcode"
+msgstr ""
+
+#: include/displayProduct-init.php:225
+msgid "Edit"
+msgstr ""
+
+#: include/displayProduct-init.php:226
+msgid "4. Customizing Product Layouts"
+msgstr "设置商品布局"
+
+#: include/displayProduct-init.php:227 include/displayProduct-init.php:233
+msgid "Date"
+msgstr "日期"
+
+#: include/displayProduct-init.php:228
+msgid "Author"
+msgstr "作者:"
+
+#: include/displayProduct-init.php:229
+msgid "Tags"
+msgstr "商品标签"
+
+#: include/displayProduct-init.php:230
+msgid "Filter by tag"
+msgstr "按标签筛选"
+
+#: include/displayProduct-init.php:231
+msgid "Custom Field"
+msgstr "自定义字段"
+
+#: include/displayProduct-init.php:232
+msgid "Variable"
+msgstr "变量"
+
+#: include/displayProduct-init.php:234
+msgid "Product Name"
+msgstr "商品名称"
+
+#: include/displayProduct-init.php:235
+msgid "Color"
+msgstr "颜色"
+
+#: include/displayProduct-init.php:236
+msgid "Hover Color"
+msgstr "悬停颜色"
+
+#: include/displayProduct-init.php:237
+msgid "Meta Group"
+msgstr "元组"
+
+#: include/displayProduct-init.php:238
+msgid "Filter by category"
+msgstr "按分类筛选"
+
+#: include/displayProduct-init.php:239
+msgid "Filter by tags"
+msgstr "按标签筛选"
+
+#: include/displayProduct-init.php:240
+msgid "All tag"
+msgstr "所有标签"
+
+#: include/displayProduct-init.php:241
+msgid "Custom tag"
+msgstr "自定义标签"
+
+#: include/displayProduct-init.php:242
+msgid "Width"
+msgstr "宽"
+
+#: include/displayProduct-init.php:243
+msgid "Height"
+msgstr "高"
+
+#: include/displayProduct-init.php:244
+msgid "Filter by shipping class"
+msgstr "按配送筛选"
+
+#: include/displayProduct-init.php:245
+msgid "All Shipping Class"
+msgstr "所有配送类型"
+
+#: include/displayProduct-init.php:246
+msgid "Custom Shipping Class"
+msgstr "自定义配送类型"
+
+#: include/displayProduct-init.php:247
+msgid "Crop"
+msgstr "剪裁"
+
+#: include/displayProduct-notice-install.php:6
+msgid ""
+"<strong>Welcome to Display Product for WooCommerce</strong> &#8211; We're "
+"glad you like it :). Warning! If you not sure please click \"Skip setup\" "
+"button."
+msgstr ""
+
+#: include/displayProduct-notice-install.php:7
+msgid "Install Display Product Pages"
+msgstr ""
+
+#: include/displayProduct-notice-install.php:7
+msgid "Skip setup"
+msgstr ""
+
+#: include/dp-quickview.php:128
+msgid "View Product &rarr;"
+msgstr ""
+
+#: include/wp-updates-plugin.php:86
+msgid ""
+"An Unexpected HTTP Error occurred during the API request.</p> <p><a href=\"?"
+"\" onclick=\"document.location.reload(); return false;\">Try again</a>"
+msgstr ""
+
+#: include/wp-updates-plugin.php:90
+msgid "An unknown error occurred"
+msgstr ""
+
+#: plugin/BFI_Thumb.php:145
+msgid ""
+"The server does not have ImageMagick or GD installed and/or enabled! Any of "
+"these libraries are required for WordPress to be able to resize images. "
+"Please contact your server administrator to enable this before continuing."
+msgstr ""
+
+#: plugin/BFI_Thumb.php:273
+msgid "Image rotate failed."
+msgstr ""
+
+#: plugin/BFI_Thumb.php:296
+msgid "Image opacity change failed."
+msgstr ""
+
+#: plugin/BFI_Thumb.php:383
+msgid "Image color change failed."
+msgstr ""
+
+#: plugin/BFI_Thumb.php:400
+msgid "Image grayscale failed."
+msgstr ""
+
+#: plugin/BFI_Thumb.php:417
+msgid "Image negate failed."
+msgstr ""
+
+#: templates/404.php:7
+msgid "No product found."
+msgstr "商品没找到"
+
+#: templates/grid.php:56 templates/gridCarousel.php:55 templates/list.php:33
+#: templates/table.php:87
+msgid "Out of stock"
+msgstr "缺货"
+
+#: templates/grid.php:91 templates/gridCarousel.php:90
+msgid "SKU: "
+msgstr "SKU："
+
+#: templates/grid.php:98 templates/gridCarousel.php:97
+msgid "Category: "
+msgid_plural "Categories:"
+msgstr[0] "分类："
+
+#: templates/grid.php:104 templates/gridCarousel.php:103
+msgid "Tag: "
+msgid_plural "Tags: "
+msgstr[0] "标签："
+
+#: templates/list.php:59
+msgid "SKU:"
+msgstr "SKU："
+
+#: templates/list.php:64 templates/table.php:63
+msgid "Category:"
+msgid_plural "Categories:"
+msgstr[0] "分类："
+
+#: templates/list.php:68 templates/table.php:67
+msgid "Tag:"
+msgid_plural "Tags:"
+msgstr[0] "标签："
+
+#: templates/sorter.php:19
+msgid "Showing the single result"
+msgstr "显示单个结果"
+
+#: templates/sorter.php:21
+#, php-format
+msgid "Showing all %d results"
+msgstr "显示所有  %d 结果"
+
+#: templates/sorter.php:23
+#, php-format
+msgctxt "%1$d = first, %2$d = last, %3$d = total"
+msgid "Showing %1$d–%2$d of %3$d results"
+msgstr "显示 %1$d–%2$d of %3$d 结果"
+
+#: templates/sorter.php:44
+msgid "Sort By "
+msgstr "排序"
+
+#: templates/sorter.php:50
+msgid "Sort by name: a to z"
+msgstr "按名称排序：从头到尾"
+
+#: templates/sorter.php:51
+msgid "Sort by name: z to a"
+msgstr "按名称排序：从尾到头"
+
+#: templates/sorter.php:52
+msgid "Sort by price: low to high"
+msgstr "按价格排序：从低到高"
+
+#: templates/sorter.php:53
+msgid "Sort by price: high to low"
+msgstr "按价格排序：从高到低"
+
+#: templates/sorter.php:54
+msgid "Sort by SKU: low to high"
+msgstr "按SKU排序：从低到高"
+
+#: templates/sorter.php:55
+msgid "Sort by SKU: high to low"
+msgstr "按SKU排序：从高到低"
+
+#: templates/sorter.php:56
+msgid "Sort by stock: low to high"
+msgstr "按库存排序：从低到高"
+
+#: templates/sorter.php:57
+msgid "Sort by stock: high to low"
+msgstr "按库存排序：从高到低"
+
+#: templates/sorter.php:68
+msgid "Show "
+msgstr "显示"
+
+#: templates/sorter.php:72
+msgid "4"
+msgstr ""
+
+#: templates/sorter.php:73
+msgid "8"
+msgstr ""
+
+#: templates/sorter.php:74
+msgid "12"
+msgstr ""
+
+#: templates/sorter.php:75
+msgid "15"
+msgstr ""
+
+#: templates/sorter.php:76
+msgid "30"
+msgstr ""
+
+#: templates/sorter.php:77
+msgid "80"
+msgstr ""
+
+#: templates/sorter.php:78
+msgid "All"
+msgstr "所有"
+
+#: templates/sorter.php:87
+msgid "per page"
+msgstr "每页"
+
+#: templates/table.php:89
+msgid "In stock"
+msgstr "现货"
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "http://sureshopress.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "A simple user interface for Display Product shortcode"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Sureshopress"
+msgstr ""

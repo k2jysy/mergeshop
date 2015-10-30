@@ -245,7 +245,7 @@ function displayproduct_textdomain($text=NULL){
         'allshippingclass'=>__('All Shipping Class',DP_TEXTDOMAN),
         'customshippingclass'=>__('Custom Shipping Class',DP_TEXTDOMAN),
         'Crop'=>__('Crop', DP_TEXTDOMAN),
-        'ProductShortDescription'=>'Product Short Description'
+        'ProductShortDescription'=>'商品简介'
     );
     if($text){
         return $strings[$text];

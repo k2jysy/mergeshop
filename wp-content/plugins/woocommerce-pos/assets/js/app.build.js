@@ -1,3 +1,4 @@
+var POS =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -44,35 +45,34 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var POS = __webpack_require__(36);
-	var Application = __webpack_require__(145);
+	var Application = __webpack_require__(112);
 
 	// sync config
-	__webpack_require__(147);
+	__webpack_require__(114);
 
 	/**
 	 * Services
 	 */
-	var EntitiesService = __webpack_require__(52);
-	var HeaderService = __webpack_require__(149);
-	var ModalService = __webpack_require__(92);
-	var PopoverService = __webpack_require__(191);
-	var PrintService = __webpack_require__(194);
-	var TabsService = __webpack_require__(103);
-	var ButtonsService = __webpack_require__(110);
-	var NumpadService = __webpack_require__(195);
+	var EntitiesService = __webpack_require__(19);
+	var HeaderService = __webpack_require__(116);
+	var ModalService = __webpack_require__(58);
+	var PopoverService = __webpack_require__(157);
+	var PrintService = __webpack_require__(158);
+	var TabsService = __webpack_require__(68);
+	var ButtonsService = __webpack_require__(75);
+	var NumpadService = __webpack_require__(159);
 
 	/**
 	 * SubApps
 	 */
-	var POSRouter = __webpack_require__(201);
-	var SupportRouter = __webpack_require__(242);
-	var PrintRouter = __webpack_require__(251);
+	var POSRouter = __webpack_require__(165);
+	var SupportRouter = __webpack_require__(209);
+	var PrintRouter = __webpack_require__(218);
 
 	/**
 	 * bootstrap Handlebars Helpers
 	 */
-	__webpack_require__(255);
+	__webpack_require__(111);
 
 	/**
 	 * Create the app ...
@@ -116,686 +116,337 @@
 	/**
 	 * Attach app to window for third party plugins
 	 */
-	module.exports = window.POS = POS.create(app);
+	module.exports = app;
 
 /***/ },
 /* 1 */,
 /* 2 */
-/***/ function(module, exports) {
-
-	module.exports = _;
-
-/***/ },
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */,
-/* 32 */,
-/* 33 */,
-/* 34 */,
-/* 35 */,
-/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _ = __webpack_require__(2);
-	var debugFunc = __webpack_require__(37);
-	var $ = __webpack_require__(40);
-	var Radio = __webpack_require__(41);
+	var Mn = __webpack_require__(3);
+	var Radio = __webpack_require__(4);
+	var _ = __webpack_require__(5);
+	var $ = __webpack_require__(6);
+	var hbs = __webpack_require__(7);
+	var Utils = __webpack_require__(8);
+	var polyglot = __webpack_require__(10);
+	var debugFunction = __webpack_require__(13);
+	var bb = __webpack_require__(16);
+	var accounting = __webpack_require__(9);
+
+	module.exports = Mn.Application.extend({
 
-	if(window.wc_pos_debug){
-	  debugFunc.enable('*');
-	}
-
-	var debug = debugFunc().enabled;
-	Radio.DEBUG = debug;
-	console.info(
-	  'Debugging is ' +
-	  ( debug ? 'on' : 'off' )  +
-	  ', visit http://woopos.com.au/docs/debugging'
-	);
-
-	/**
-	 * create a global variable
-	 */
-	module.exports = {
-	  VERSION: (4004), // injected by webpack
-	  attach: function(deepProperty, value){
-	    deepProperty = deepProperty.split('.');
-	    var nestedObj = _.reduceRight(deepProperty, function (child, parent) {
-	      var obj = {};
-	      obj[parent] = child;
-	      return obj;
-	    }, value || {});
-	    $.extend(true, this, nestedObj);
-	  },
-	  create: function(app){
-	    return _.defaults( app, this );
-	  },
-	  debug: debugFunc,
-	  getOption: function(){}
-	};
-
-/***/ },
-/* 37 */
-/***/ function(module, exports, __webpack_require__) {
-
-	
-	/**
-	 * This is the web browser implementation of `debug()`.
-	 *
-	 * Expose `debug()` as the module.
-	 */
-
-	exports = module.exports = __webpack_require__(38);
-	exports.log = log;
-	exports.formatArgs = formatArgs;
-	exports.save = save;
-	exports.load = load;
-	exports.useColors = useColors;
-	exports.storage = 'undefined' != typeof chrome
-	               && 'undefined' != typeof chrome.storage
-	                  ? chrome.storage.local
-	                  : localstorage();
-
-	/**
-	 * Colors.
-	 */
-
-	exports.colors = [
-	  'lightseagreen',
-	  'forestgreen',
-	  'goldenrod',
-	  'dodgerblue',
-	  'darkorchid',
-	  'crimson'
-	];
-
-	/**
-	 * Currently only WebKit-based Web Inspectors, Firefox >= v31,
-	 * and the Firebug extension (any Firefox version) are known
-	 * to support "%c" CSS customizations.
-	 *
-	 * TODO: add a `localStorage` variable to explicitly enable/disable colors
-	 */
-
-	function useColors() {
-	  // is webkit? http://stackoverflow.com/a/16459606/376773
-	  return ('WebkitAppearance' in document.documentElement.style) ||
-	    // is firebug? http://stackoverflow.com/a/398120/376773
-	    (window.console && (console.firebug || (console.exception && console.table))) ||
-	    // is firefox >= v31?
-	    // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
-	    (navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31);
-	}
-
-	/**
-	 * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
-	 */
-
-	exports.formatters.j = function(v) {
-	  return JSON.stringify(v);
-	};
-
-
-	/**
-	 * Colorize log arguments if enabled.
-	 *
-	 * @api public
-	 */
-
-	function formatArgs() {
-	  var args = arguments;
-	  var useColors = this.useColors;
-
-	  args[0] = (useColors ? '%c' : '')
-	    + this.namespace
-	    + (useColors ? ' %c' : ' ')
-	    + args[0]
-	    + (useColors ? '%c ' : ' ')
-	    + '+' + exports.humanize(this.diff);
-
-	  if (!useColors) return args;
-
-	  var c = 'color: ' + this.color;
-	  args = [args[0], c, 'color: inherit'].concat(Array.prototype.slice.call(args, 1));
-
-	  // the final "%c" is somewhat tricky, because there could be other
-	  // arguments passed either before or after the %c, so we need to
-	  // figure out the correct index to insert the CSS into
-	  var index = 0;
-	  var lastC = 0;
-	  args[0].replace(/%[a-z%]/g, function(match) {
-	    if ('%%' === match) return;
-	    index++;
-	    if ('%c' === match) {
-	      // we only are interested in the *last* %c
-	      // (the user may have provided their own)
-	      lastC = index;
-	    }
-	  });
-
-	  args.splice(lastC, 0, c);
-	  return args;
-	}
-
-	/**
-	 * Invokes `console.log()` when available.
-	 * No-op when `console.log` is not a "function".
-	 *
-	 * @api public
-	 */
-
-	function log() {
-	  // this hackery is required for IE8/9, where
-	  // the `console.log` function doesn't have 'apply'
-	  return 'object' === typeof console
-	    && console.log
-	    && Function.prototype.apply.call(console.log, console, arguments);
-	}
-
-	/**
-	 * Save `namespaces`.
-	 *
-	 * @param {String} namespaces
-	 * @api private
-	 */
-
-	function save(namespaces) {
-	  try {
-	    if (null == namespaces) {
-	      exports.storage.removeItem('debug');
-	    } else {
-	      exports.storage.debug = namespaces;
-	    }
-	  } catch(e) {}
-	}
-
-	/**
-	 * Load `namespaces`.
-	 *
-	 * @return {String} returns the previously persisted debug modes
-	 * @api private
-	 */
-
-	function load() {
-	  var r;
-	  try {
-	    r = exports.storage.debug;
-	  } catch(e) {}
-	  return r;
-	}
-
-	/**
-	 * Enable namespaces listed in `localStorage.debug` initially.
-	 */
-
-	exports.enable(load());
-
-	/**
-	 * Localstorage attempts to return the localstorage.
-	 *
-	 * This is necessary because safari throws
-	 * when a user disables cookies/localstorage
-	 * and you attempt to access it.
-	 *
-	 * @return {LocalStorage}
-	 * @api private
-	 */
-
-	function localstorage(){
-	  try {
-	    return window.localStorage;
-	  } catch (e) {}
-	}
-
-
-/***/ },
-/* 38 */
-/***/ function(module, exports, __webpack_require__) {
-
-	
-	/**
-	 * This is the common logic for both the Node.js and web browser
-	 * implementations of `debug()`.
-	 *
-	 * Expose `debug()` as the module.
-	 */
-
-	exports = module.exports = debug;
-	exports.coerce = coerce;
-	exports.disable = disable;
-	exports.enable = enable;
-	exports.enabled = enabled;
-	exports.humanize = __webpack_require__(39);
-
-	/**
-	 * The currently active debug mode names, and names to skip.
-	 */
-
-	exports.names = [];
-	exports.skips = [];
-
-	/**
-	 * Map of special "%n" handling functions, for the debug "format" argument.
-	 *
-	 * Valid key names are a single, lowercased letter, i.e. "n".
-	 */
-
-	exports.formatters = {};
-
-	/**
-	 * Previously assigned color.
-	 */
-
-	var prevColor = 0;
-
-	/**
-	 * Previous log timestamp.
-	 */
-
-	var prevTime;
-
-	/**
-	 * Select a color.
-	 *
-	 * @return {Number}
-	 * @api private
-	 */
-
-	function selectColor() {
-	  return exports.colors[prevColor++ % exports.colors.length];
-	}
-
-	/**
-	 * Create a debugger with the given `namespace`.
-	 *
-	 * @param {String} namespace
-	 * @return {Function}
-	 * @api public
-	 */
-
-	function debug(namespace) {
-
-	  // define the `disabled` version
-	  function disabled() {
-	  }
-	  disabled.enabled = false;
-
-	  // define the `enabled` version
-	  function enabled() {
-
-	    var self = enabled;
-
-	    // set `diff` timestamp
-	    var curr = +new Date();
-	    var ms = curr - (prevTime || curr);
-	    self.diff = ms;
-	    self.prev = prevTime;
-	    self.curr = curr;
-	    prevTime = curr;
-
-	    // add the `color` if not set
-	    if (null == self.useColors) self.useColors = exports.useColors();
-	    if (null == self.color && self.useColors) self.color = selectColor();
-
-	    var args = Array.prototype.slice.call(arguments);
-
-	    args[0] = exports.coerce(args[0]);
-
-	    if ('string' !== typeof args[0]) {
-	      // anything else let's inspect with %o
-	      args = ['%o'].concat(args);
-	    }
-
-	    // apply any `formatters` transformations
-	    var index = 0;
-	    args[0] = args[0].replace(/%([a-z%])/g, function(match, format) {
-	      // if we encounter an escaped % then don't increase the array index
-	      if (match === '%%') return match;
-	      index++;
-	      var formatter = exports.formatters[format];
-	      if ('function' === typeof formatter) {
-	        var val = args[index];
-	        match = formatter.call(self, val);
-
-	        // now we need to remove `args[index]` since it's inlined in the `format`
-	        args.splice(index, 1);
-	        index--;
-	      }
-	      return match;
-	    });
-
-	    if ('function' === typeof exports.formatArgs) {
-	      args = exports.formatArgs.apply(self, args);
-	    }
-	    var logFn = enabled.log || exports.log || console.log.bind(console);
-	    logFn.apply(self, args);
-	  }
-	  enabled.enabled = true;
-
-	  var fn = exports.enabled(namespace) ? enabled : disabled;
-
-	  fn.namespace = namespace;
-
-	  return fn;
-	}
-
-	/**
-	 * Enables a debug mode by namespaces. This can include modes
-	 * separated by a colon and wildcards.
-	 *
-	 * @param {String} namespaces
-	 * @api public
-	 */
-
-	function enable(namespaces) {
-	  exports.save(namespaces);
-
-	  var split = (namespaces || '').split(/[\s,]+/);
-	  var len = split.length;
-
-	  for (var i = 0; i < len; i++) {
-	    if (!split[i]) continue; // ignore empty strings
-	    namespaces = split[i].replace(/\*/g, '.*?');
-	    if (namespaces[0] === '-') {
-	      exports.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
-	    } else {
-	      exports.names.push(new RegExp('^' + namespaces + '$'));
-	    }
-	  }
-	}
-
-	/**
-	 * Disable debug output.
-	 *
-	 * @api public
-	 */
-
-	function disable() {
-	  exports.enable('');
-	}
-
-	/**
-	 * Returns true if the given mode name is enabled, false otherwise.
-	 *
-	 * @param {String} name
-	 * @return {Boolean}
-	 * @api public
-	 */
-
-	function enabled(name) {
-	  var i, len;
-	  for (i = 0, len = exports.skips.length; i < len; i++) {
-	    if (exports.skips[i].test(name)) {
-	      return false;
-	    }
-	  }
-	  for (i = 0, len = exports.names.length; i < len; i++) {
-	    if (exports.names[i].test(name)) {
-	      return true;
-	    }
-	  }
-	  return false;
-	}
-
-	/**
-	 * Coerce `val`.
-	 *
-	 * @param {Mixed} val
-	 * @return {Mixed}
-	 * @api private
-	 */
-
-	function coerce(val) {
-	  if (val instanceof Error) return val.stack || val.message;
-	  return val;
-	}
-
-
-/***/ },
-/* 39 */
-/***/ function(module, exports) {
-
-	/**
-	 * Helpers.
-	 */
-
-	var s = 1000;
-	var m = s * 60;
-	var h = m * 60;
-	var d = h * 24;
-	var y = d * 365.25;
-
-	/**
-	 * Parse or format the given `val`.
-	 *
-	 * Options:
-	 *
-	 *  - `long` verbose formatting [false]
-	 *
-	 * @param {String|Number} val
-	 * @param {Object} options
-	 * @return {String|Number}
-	 * @api public
-	 */
-
-	module.exports = function(val, options){
-	  options = options || {};
-	  if ('string' == typeof val) return parse(val);
-	  return options.long
-	    ? long(val)
-	    : short(val);
-	};
-
-	/**
-	 * Parse the given `str` and return milliseconds.
-	 *
-	 * @param {String} str
-	 * @return {Number}
-	 * @api private
-	 */
-
-	function parse(str) {
-	  str = '' + str;
-	  if (str.length > 10000) return;
-	  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(str);
-	  if (!match) return;
-	  var n = parseFloat(match[1]);
-	  var type = (match[2] || 'ms').toLowerCase();
-	  switch (type) {
-	    case 'years':
-	    case 'year':
-	    case 'yrs':
-	    case 'yr':
-	    case 'y':
-	      return n * y;
-	    case 'days':
-	    case 'day':
-	    case 'd':
-	      return n * d;
-	    case 'hours':
-	    case 'hour':
-	    case 'hrs':
-	    case 'hr':
-	    case 'h':
-	      return n * h;
-	    case 'minutes':
-	    case 'minute':
-	    case 'mins':
-	    case 'min':
-	    case 'm':
-	      return n * m;
-	    case 'seconds':
-	    case 'second':
-	    case 'secs':
-	    case 'sec':
-	    case 's':
-	      return n * s;
-	    case 'milliseconds':
-	    case 'millisecond':
-	    case 'msecs':
-	    case 'msec':
-	    case 'ms':
-	      return n;
-	  }
-	}
-
-	/**
-	 * Short format for `ms`.
-	 *
-	 * @param {Number} ms
-	 * @return {String}
-	 * @api private
-	 */
-
-	function short(ms) {
-	  if (ms >= d) return Math.round(ms / d) + 'd';
-	  if (ms >= h) return Math.round(ms / h) + 'h';
-	  if (ms >= m) return Math.round(ms / m) + 'm';
-	  if (ms >= s) return Math.round(ms / s) + 's';
-	  return ms + 'ms';
-	}
-
-	/**
-	 * Long format for `ms`.
-	 *
-	 * @param {Number} ms
-	 * @return {String}
-	 * @api private
-	 */
-
-	function long(ms) {
-	  return plural(ms, d, 'day')
-	    || plural(ms, h, 'hour')
-	    || plural(ms, m, 'minute')
-	    || plural(ms, s, 'second')
-	    || ms + ' ms';
-	}
-
-	/**
-	 * Pluralization helper.
-	 */
-
-	function plural(ms, n, name) {
-	  if (ms < n) return;
-	  if (ms < n * 1.5) return Math.floor(ms / n) + ' ' + name;
-	  return Math.ceil(ms / n) + ' ' + name + 's';
-	}
-
-
-/***/ },
-/* 40 */
-/***/ function(module, exports) {
-
-	module.exports = jQuery;
-
-/***/ },
-/* 41 */
-/***/ function(module, exports) {
-
-	module.exports = Backbone.Radio;
-
-/***/ },
-/* 42 */,
-/* 43 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Mn = __webpack_require__(44);
-	var POS = __webpack_require__(36);
-	var Radio = __webpack_require__(41);
-	var _ = __webpack_require__(2);
-
-	module.exports = POS.Application = Mn.Application.extend({
 	  _initChannel: function () {
 	    this.channelName = _.result(this, 'channelName') || 'global';
 	    this.channel = _.result(this, 'channel') ||
 	    Radio.channel(this.channelName);
-	  }
+	  },
+
+	  _initDebug: function( debug ){
+	    if( debug ){
+	      debugFunction.enable('*');
+	    }
+	    Radio.DEBUG = debug;
+	    console.info(
+	      'Debugging is ' +
+	      ( debug ? 'on' : 'off' )  +
+	      ', visit http://woopos.com.au/docs/debugging'
+	    );
+	  },
+
+	  _initOptions: function( payload ){
+	    payload = payload || {};
+
+	    // templates
+	    hbs.Templates = payload.templates || {};
+
+	    // polyglot
+	    polyglot.extend( payload.i18n );
+
+	    // options
+	    this.options = payload.params || {};
+
+	    // debug
+	    this._initDebug( this.options.debug );
+
+	    // emulateHTTP
+	    bb.emulateHTTP = this.options.emulateHTTP === true;
+
+	    // bootstrap accounting settings
+	    accounting.settings = this.options.accounting;
+	  },
+
+	  /**
+	   * todo: handle errors
+	   * @param options
+	   */
+	  start: function( options ){
+	    var self = this;
+	    $.getJSON(
+	      options.ajaxurl, {
+	        action: options.action || 'wc_pos_payload',
+	        security: options.nonce
+	      }, function( payload ){
+	        self._initOptions( payload );
+	        Mn.Application.prototype.start.call(self, payload);
+	      }
+	    );
+	  },
+
+	  set: function( path, value ){
+	    _.set( this, path, value );
+	  },
+
+	  // namespace prefix for WP Admin
+	  namespace: function( str ){
+	    var prefix = window.adminpage ? 'wc_pos-' : '' ;
+	    return prefix + str;
+	  },
+
+	  // extend app for third party plugins
+	  debug: debugFunction,
+	  polyglot: polyglot,
+	  Utils: Utils
+
 	});
 
+	/**
+	 * Custom Template Access
+	 **/
+	Mn.TemplateCache.prototype.loadTemplate = function(templateId){
+	  return _.get( hbs.Templates, templateId.split('.'), $(templateId).html() );
+	};
+
+	Mn.TemplateCache.prototype.compileTemplate = function(rawTemplate) {
+	  return hbs.compile(rawTemplate);
+	};
+
 /***/ },
-/* 44 */
+/* 3 */
 /***/ function(module, exports) {
 
 	module.exports = Marionette;
 
 /***/ },
-/* 45 */
+/* 4 */
 /***/ function(module, exports) {
 
-	module.exports = Backbone;
+	module.exports = Backbone.Radio;
 
 /***/ },
-/* 46 */,
-/* 47 */
+/* 5 */
+/***/ function(module, exports) {
+
+	module.exports = _;
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	module.exports = jQuery;
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	module.exports = Handlebars;
+
+/***/ },
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Mn = __webpack_require__(44);
-	var POS = __webpack_require__(36);
+	var accounting = __webpack_require__(9);
+	var _ = __webpack_require__(5);
+	var Utils = {};
 
-	module.exports = POS.LayoutView = Mn.LayoutView.extend({
+	/**
+	 * Using the same function as Woo: /assets/js/admin/round.js
+	 * PHP_ROUND_HALF_EVEN should be the default?!
+	 * @param value
+	 * @param precision
+	 * @param mode
+	 * @returns {number}
+	 */
+	/* jshint -W018, -W071, -W074 */
+	Utils.round = function(value, precision, mode) {
+	  // http://kevin.vanzonneveld.net
+	  // +   original by: Philip Peterson
+	  // +    revised by: Onno Marsman
+	  // +      input by: Greenseed
+	  // +    revised by: T.Wild
+	  // +      input by: meo
+	  // +      input by: William
+	  // +   bugfixed by: Brett Zamir (http://brett-zamir.me)
+	  // +      input by: Josep Sanz (http://www.ws3.es/)
+	  // +    revised by: Rafał Kukawski (http://blog.kukawski.pl/)
+	  // %        note 1: Great work. Ideas for improvement:
+	  // %        note 1:  - code more compliant with developer guidelines
+	  // %        note 1:  - for implementing PHP constant arguments look at
+	  // %        note 1:  the pathinfo() function, it offers the greatest
+	  // %        note 1:  flexibility & compatibility possible
+	  // *     example 1: round(1241757, -3);
+	  // *     returns 1: 1242000
+	  // *     example 2: round(3.6);
+	  // *     returns 2: 4
+	  // *     example 3: round(2.835, 2);
+	  // *     returns 3: 2.84
+	  // *     example 4: round(1.1749999999999, 2);
+	  // *     returns 4: 1.17
+	  // *     example 5: round(58551.799999999996, 2);
+	  // *     returns 5: 58551.8
 
-	  working: function( action ) {
-	    if (action === 'start') {
-	      this.$el.addClass('working');
-	    } else {
-	      this.$el.removeClass('working');
+	  //
+	  //mode = mode || 'PHP_ROUND_HALF_EVEN';
+
+	  if( !_.isFinite( parseInt(precision, 10) ) ) {
+	    precision = accounting.settings.currency.precision;
+	  }
+
+	  var m, f, isHalf, sgn; // helper variables
+	  //precision |= 0; // making sure precision is integer
+	  m = Math.pow(10, precision);
+	  value *= m;
+	  sgn = (value > 0) | -(value < 0); // sign of the number
+	  isHalf = value % 1 === 0.5 * sgn;
+	  f = Math.floor(value);
+
+	  if (isHalf) {
+	    switch (mode) {
+	      case '2':
+	      case 'PHP_ROUND_HALF_DOWN':
+	        value = f + (sgn < 0); // rounds .5 toward zero
+	        break;
+	      case '3':
+	      case 'PHP_ROUND_HALF_EVEN':
+	        value = f + (f % 2 * sgn); // rouds .5 towards the next even integer
+	        break;
+	      case '4':
+	      case 'PHP_ROUND_HALF_ODD':
+	        value = f + !(f % 2); // rounds .5 towards the next odd integer
+	        break;
+	      default:
+	        value = f + (sgn > 0); // rounds .5 away from zero
 	    }
 	  }
 
-	});
+	  return (isHalf ? value : Math.round(value)) / m;
+	};
+	/* jshint +W018, +W071, +W074 */
+
+	/**
+	 * Number of significant decimal places
+	 */
+	Utils.decimalPlaces = function(num){
+	  return ((+num).toFixed(4)).replace(/^-?\d*\.?|0+$/g, '').length;
+	};
+
+	/**
+	 *
+	 */
+	Utils.unformat = function( num ) {
+	  return accounting.unformat( num, accounting.settings.number.decimal );
+	};
+
+	/**
+	 *
+	 */
+	Utils.formatNumber = function( num, precision ) {
+	  if( precision === 'auto' ) {
+	    precision = Utils.decimalPlaces(num);
+	  }
+	  if( !_.isFinite( parseInt(precision, 10) ) ) {
+	    precision = accounting.settings.currency.precision;
+	  }
+	  return accounting.formatNumber(num, precision);
+	};
+
+	/**
+	 *
+	 */
+	Utils.formatMoney = function( num, precision ) {
+	  if( precision === 'auto' ) {
+	    precision = Utils.decimalPlaces(num);
+	  }
+	  if( !_.isFinite( parseInt(precision, 10) ) ) {
+	    precision = accounting.settings.currency.precision;
+	  }
+	  // round the number to even
+	  num = Utils.round(num, precision);
+	  return accounting.formatMoney(num);
+	};
+
+	/**
+	 *
+	 */
+	Utils.isPositiveInteger = function( num, allowZero ){
+	  var n = ~~Number(num);
+	  if(allowZero) {
+	    return String(n) === num && n >= 0;
+	  } else {
+	    return String(n) === num && n > 0;
+	  }
+	};
+
+	/**
+	 * Parse error messages from the server
+	 */
+	Utils.parseErrorResponse = function( jqXHR ){
+	  var resp = jqXHR.responseJSON;
+	  if( resp.errors ){
+	    return resp.errors[0].message;
+	  }
+
+	  return jqXHR.responseText;
+	};
+
+	/**
+	 * returns the variable type
+	 * http://wp.me/pQpop-JM
+	 *
+	 *
+	toType({a: 4}); //"object"
+	toType([1, 2, 3]); //"array"
+	(function() {console.log(toType(arguments))})(); //arguments
+	toType(new ReferenceError); //"error"
+	toType(new Date); //"date"
+	toType(/a-z/); //"regexp"
+	toType(Math); //"math"
+	toType(JSON); //"json"
+	toType(new Number(4)); //"number"
+	toType(new String("abc")); //"string"
+	toType(new Boolean(true)); //"boolean"
+
+	 */
+	Utils.toType = function(obj) {
+	  return ({}).toString.call(obj).match(/\s([a-z|A-Z]+)/)[1].toLowerCase();
+	};
+
+	module.exports = Utils;
 
 /***/ },
-/* 48 */
+/* 9 */
 /***/ function(module, exports) {
 
 	module.exports = accounting;
 
 /***/ },
-/* 49 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Polyglot = __webpack_require__(50);
-	var POS = __webpack_require__(36);
-	var polyglot = new Polyglot();
-	module.exports = POS.polyglot = polyglot;
+	var Polyglot = __webpack_require__(11);
+	module.exports = new Polyglot();
 
 /***/ },
-/* 50 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Added for convenience in the Node environment.
 	// The meat and potatoes exist in ./lib/polyglot.js.
-	module.exports = __webpack_require__(51);
+	module.exports = __webpack_require__(12);
 
 
 /***/ },
-/* 51 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     (c) 2012 Airbnb, Inc.
@@ -1102,27 +753,558 @@
 
 
 /***/ },
-/* 52 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var Service = __webpack_require__(53);
-	var Products = __webpack_require__(54);
-	var Orders = __webpack_require__(79);
-	var Cart = __webpack_require__(82);
-	var Customers = __webpack_require__(84);
-	var Coupons = __webpack_require__(86);
-	var Settings = __webpack_require__(88);
-	var SettingsCollection = __webpack_require__(89);
-	var Gateways = __webpack_require__(90);
-	//var Variations = require('./variations/collection');
-	var FilteredCollection = __webpack_require__(68);
-	var debug = __webpack_require__(37)('entities');
-	var POS = __webpack_require__(36);
-	//var $ = require('jquery');
-	var _ = __webpack_require__(2);
+	
+	/**
+	 * This is the web browser implementation of `debug()`.
+	 *
+	 * Expose `debug()` as the module.
+	 */
+
+	exports = module.exports = __webpack_require__(14);
+	exports.log = log;
+	exports.formatArgs = formatArgs;
+	exports.save = save;
+	exports.load = load;
+	exports.useColors = useColors;
+	exports.storage = 'undefined' != typeof chrome
+	               && 'undefined' != typeof chrome.storage
+	                  ? chrome.storage.local
+	                  : localstorage();
+
+	/**
+	 * Colors.
+	 */
+
+	exports.colors = [
+	  'lightseagreen',
+	  'forestgreen',
+	  'goldenrod',
+	  'dodgerblue',
+	  'darkorchid',
+	  'crimson'
+	];
+
+	/**
+	 * Currently only WebKit-based Web Inspectors, Firefox >= v31,
+	 * and the Firebug extension (any Firefox version) are known
+	 * to support "%c" CSS customizations.
+	 *
+	 * TODO: add a `localStorage` variable to explicitly enable/disable colors
+	 */
+
+	function useColors() {
+	  // is webkit? http://stackoverflow.com/a/16459606/376773
+	  return ('WebkitAppearance' in document.documentElement.style) ||
+	    // is firebug? http://stackoverflow.com/a/398120/376773
+	    (window.console && (console.firebug || (console.exception && console.table))) ||
+	    // is firefox >= v31?
+	    // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+	    (navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31);
+	}
+
+	/**
+	 * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
+	 */
+
+	exports.formatters.j = function(v) {
+	  return JSON.stringify(v);
+	};
+
+
+	/**
+	 * Colorize log arguments if enabled.
+	 *
+	 * @api public
+	 */
+
+	function formatArgs() {
+	  var args = arguments;
+	  var useColors = this.useColors;
+
+	  args[0] = (useColors ? '%c' : '')
+	    + this.namespace
+	    + (useColors ? ' %c' : ' ')
+	    + args[0]
+	    + (useColors ? '%c ' : ' ')
+	    + '+' + exports.humanize(this.diff);
+
+	  if (!useColors) return args;
+
+	  var c = 'color: ' + this.color;
+	  args = [args[0], c, 'color: inherit'].concat(Array.prototype.slice.call(args, 1));
+
+	  // the final "%c" is somewhat tricky, because there could be other
+	  // arguments passed either before or after the %c, so we need to
+	  // figure out the correct index to insert the CSS into
+	  var index = 0;
+	  var lastC = 0;
+	  args[0].replace(/%[a-z%]/g, function(match) {
+	    if ('%%' === match) return;
+	    index++;
+	    if ('%c' === match) {
+	      // we only are interested in the *last* %c
+	      // (the user may have provided their own)
+	      lastC = index;
+	    }
+	  });
+
+	  args.splice(lastC, 0, c);
+	  return args;
+	}
+
+	/**
+	 * Invokes `console.log()` when available.
+	 * No-op when `console.log` is not a "function".
+	 *
+	 * @api public
+	 */
+
+	function log() {
+	  // this hackery is required for IE8/9, where
+	  // the `console.log` function doesn't have 'apply'
+	  return 'object' === typeof console
+	    && console.log
+	    && Function.prototype.apply.call(console.log, console, arguments);
+	}
+
+	/**
+	 * Save `namespaces`.
+	 *
+	 * @param {String} namespaces
+	 * @api private
+	 */
+
+	function save(namespaces) {
+	  try {
+	    if (null == namespaces) {
+	      exports.storage.removeItem('debug');
+	    } else {
+	      exports.storage.debug = namespaces;
+	    }
+	  } catch(e) {}
+	}
+
+	/**
+	 * Load `namespaces`.
+	 *
+	 * @return {String} returns the previously persisted debug modes
+	 * @api private
+	 */
+
+	function load() {
+	  var r;
+	  try {
+	    r = exports.storage.debug;
+	  } catch(e) {}
+	  return r;
+	}
+
+	/**
+	 * Enable namespaces listed in `localStorage.debug` initially.
+	 */
+
+	exports.enable(load());
+
+	/**
+	 * Localstorage attempts to return the localstorage.
+	 *
+	 * This is necessary because safari throws
+	 * when a user disables cookies/localstorage
+	 * and you attempt to access it.
+	 *
+	 * @return {LocalStorage}
+	 * @api private
+	 */
+
+	function localstorage(){
+	  try {
+	    return window.localStorage;
+	  } catch (e) {}
+	}
+
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	/**
+	 * This is the common logic for both the Node.js and web browser
+	 * implementations of `debug()`.
+	 *
+	 * Expose `debug()` as the module.
+	 */
+
+	exports = module.exports = debug;
+	exports.coerce = coerce;
+	exports.disable = disable;
+	exports.enable = enable;
+	exports.enabled = enabled;
+	exports.humanize = __webpack_require__(15);
+
+	/**
+	 * The currently active debug mode names, and names to skip.
+	 */
+
+	exports.names = [];
+	exports.skips = [];
+
+	/**
+	 * Map of special "%n" handling functions, for the debug "format" argument.
+	 *
+	 * Valid key names are a single, lowercased letter, i.e. "n".
+	 */
+
+	exports.formatters = {};
+
+	/**
+	 * Previously assigned color.
+	 */
+
+	var prevColor = 0;
+
+	/**
+	 * Previous log timestamp.
+	 */
+
+	var prevTime;
+
+	/**
+	 * Select a color.
+	 *
+	 * @return {Number}
+	 * @api private
+	 */
+
+	function selectColor() {
+	  return exports.colors[prevColor++ % exports.colors.length];
+	}
+
+	/**
+	 * Create a debugger with the given `namespace`.
+	 *
+	 * @param {String} namespace
+	 * @return {Function}
+	 * @api public
+	 */
+
+	function debug(namespace) {
+
+	  // define the `disabled` version
+	  function disabled() {
+	  }
+	  disabled.enabled = false;
+
+	  // define the `enabled` version
+	  function enabled() {
+
+	    var self = enabled;
+
+	    // set `diff` timestamp
+	    var curr = +new Date();
+	    var ms = curr - (prevTime || curr);
+	    self.diff = ms;
+	    self.prev = prevTime;
+	    self.curr = curr;
+	    prevTime = curr;
+
+	    // add the `color` if not set
+	    if (null == self.useColors) self.useColors = exports.useColors();
+	    if (null == self.color && self.useColors) self.color = selectColor();
+
+	    var args = Array.prototype.slice.call(arguments);
+
+	    args[0] = exports.coerce(args[0]);
+
+	    if ('string' !== typeof args[0]) {
+	      // anything else let's inspect with %o
+	      args = ['%o'].concat(args);
+	    }
+
+	    // apply any `formatters` transformations
+	    var index = 0;
+	    args[0] = args[0].replace(/%([a-z%])/g, function(match, format) {
+	      // if we encounter an escaped % then don't increase the array index
+	      if (match === '%%') return match;
+	      index++;
+	      var formatter = exports.formatters[format];
+	      if ('function' === typeof formatter) {
+	        var val = args[index];
+	        match = formatter.call(self, val);
+
+	        // now we need to remove `args[index]` since it's inlined in the `format`
+	        args.splice(index, 1);
+	        index--;
+	      }
+	      return match;
+	    });
+
+	    if ('function' === typeof exports.formatArgs) {
+	      args = exports.formatArgs.apply(self, args);
+	    }
+	    var logFn = enabled.log || exports.log || console.log.bind(console);
+	    logFn.apply(self, args);
+	  }
+	  enabled.enabled = true;
+
+	  var fn = exports.enabled(namespace) ? enabled : disabled;
+
+	  fn.namespace = namespace;
+
+	  return fn;
+	}
+
+	/**
+	 * Enables a debug mode by namespaces. This can include modes
+	 * separated by a colon and wildcards.
+	 *
+	 * @param {String} namespaces
+	 * @api public
+	 */
+
+	function enable(namespaces) {
+	  exports.save(namespaces);
+
+	  var split = (namespaces || '').split(/[\s,]+/);
+	  var len = split.length;
+
+	  for (var i = 0; i < len; i++) {
+	    if (!split[i]) continue; // ignore empty strings
+	    namespaces = split[i].replace(/\*/g, '.*?');
+	    if (namespaces[0] === '-') {
+	      exports.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
+	    } else {
+	      exports.names.push(new RegExp('^' + namespaces + '$'));
+	    }
+	  }
+	}
+
+	/**
+	 * Disable debug output.
+	 *
+	 * @api public
+	 */
+
+	function disable() {
+	  exports.enable('');
+	}
+
+	/**
+	 * Returns true if the given mode name is enabled, false otherwise.
+	 *
+	 * @param {String} name
+	 * @return {Boolean}
+	 * @api public
+	 */
+
+	function enabled(name) {
+	  var i, len;
+	  for (i = 0, len = exports.skips.length; i < len; i++) {
+	    if (exports.skips[i].test(name)) {
+	      return false;
+	    }
+	  }
+	  for (i = 0, len = exports.names.length; i < len; i++) {
+	    if (exports.names[i].test(name)) {
+	      return true;
+	    }
+	  }
+	  return false;
+	}
+
+	/**
+	 * Coerce `val`.
+	 *
+	 * @param {Mixed} val
+	 * @return {Mixed}
+	 * @api private
+	 */
+
+	function coerce(val) {
+	  if (val instanceof Error) return val.stack || val.message;
+	  return val;
+	}
+
+
+/***/ },
+/* 15 */
+/***/ function(module, exports) {
+
+	/**
+	 * Helpers.
+	 */
+
+	var s = 1000;
+	var m = s * 60;
+	var h = m * 60;
+	var d = h * 24;
+	var y = d * 365.25;
+
+	/**
+	 * Parse or format the given `val`.
+	 *
+	 * Options:
+	 *
+	 *  - `long` verbose formatting [false]
+	 *
+	 * @param {String|Number} val
+	 * @param {Object} options
+	 * @return {String|Number}
+	 * @api public
+	 */
+
+	module.exports = function(val, options){
+	  options = options || {};
+	  if ('string' == typeof val) return parse(val);
+	  return options.long
+	    ? long(val)
+	    : short(val);
+	};
+
+	/**
+	 * Parse the given `str` and return milliseconds.
+	 *
+	 * @param {String} str
+	 * @return {Number}
+	 * @api private
+	 */
+
+	function parse(str) {
+	  str = '' + str;
+	  if (str.length > 10000) return;
+	  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(str);
+	  if (!match) return;
+	  var n = parseFloat(match[1]);
+	  var type = (match[2] || 'ms').toLowerCase();
+	  switch (type) {
+	    case 'years':
+	    case 'year':
+	    case 'yrs':
+	    case 'yr':
+	    case 'y':
+	      return n * y;
+	    case 'days':
+	    case 'day':
+	    case 'd':
+	      return n * d;
+	    case 'hours':
+	    case 'hour':
+	    case 'hrs':
+	    case 'hr':
+	    case 'h':
+	      return n * h;
+	    case 'minutes':
+	    case 'minute':
+	    case 'mins':
+	    case 'min':
+	    case 'm':
+	      return n * m;
+	    case 'seconds':
+	    case 'second':
+	    case 'secs':
+	    case 'sec':
+	    case 's':
+	      return n * s;
+	    case 'milliseconds':
+	    case 'millisecond':
+	    case 'msecs':
+	    case 'msec':
+	    case 'ms':
+	      return n;
+	  }
+	}
+
+	/**
+	 * Short format for `ms`.
+	 *
+	 * @param {Number} ms
+	 * @return {String}
+	 * @api private
+	 */
+
+	function short(ms) {
+	  if (ms >= d) return Math.round(ms / d) + 'd';
+	  if (ms >= h) return Math.round(ms / h) + 'h';
+	  if (ms >= m) return Math.round(ms / m) + 'm';
+	  if (ms >= s) return Math.round(ms / s) + 's';
+	  return ms + 'ms';
+	}
+
+	/**
+	 * Long format for `ms`.
+	 *
+	 * @param {Number} ms
+	 * @return {String}
+	 * @api private
+	 */
+
+	function long(ms) {
+	  return plural(ms, d, 'day')
+	    || plural(ms, h, 'hour')
+	    || plural(ms, m, 'minute')
+	    || plural(ms, s, 'second')
+	    || ms + ' ms';
+	}
+
+	/**
+	 * Pluralization helper.
+	 */
+
+	function plural(ms, n, name) {
+	  if (ms < n) return;
+	  if (ms < n * 1.5) return Math.floor(ms / n) + ' ' + name;
+	  return Math.ceil(ms / n) + ' ' + name + 's';
+	}
+
+
+/***/ },
+/* 16 */
+/***/ function(module, exports) {
+
+	module.exports = Backbone;
+
+/***/ },
+/* 17 */,
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Mn = __webpack_require__(3);
+	var app = __webpack_require__(2);
+
+	module.exports = app.prototype.LayoutView = Mn.LayoutView.extend({
+
+	  working: function( action ) {
+	    if (action === 'start') {
+	      this.$el.addClass('working');
+	    } else {
+	      this.$el.removeClass('working');
+	    }
+	  }
+
+	});
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {var Service = __webpack_require__(20);
+	var Products = __webpack_require__(21);
+	var Orders = __webpack_require__(46);
+	var Cart = __webpack_require__(48);
+	var Customers = __webpack_require__(50);
+	var Coupons = __webpack_require__(52);
+	var Settings = __webpack_require__(54);
+	var SettingsCollection = __webpack_require__(55);
+	var Gateways = __webpack_require__(56);
+	var FilteredCollection = __webpack_require__(35);
+	var debug = __webpack_require__(13)('entities');
+	var App = __webpack_require__(2);
+	var _ = __webpack_require__(5);
 	var storage = global.localStorage || window.localStorage;
 	var JSON = global.JSON || window.JSON;
-	//var Radio = require('backbone.radio');
 
 	var EntitiesService = Service.extend({
 	  channelName: 'entities',
@@ -1141,7 +1323,6 @@
 	    customers : Customers,
 	    coupons   : Coupons,
 	    gateways  : Gateways,
-	    //variations: Variations,
 	    settings  : SettingsCollection
 	  },
 
@@ -1149,7 +1330,6 @@
 	    collection  : 'getCollection',
 	    model       : 'getModel',
 	    filtered    : 'getFiltered',
-	    //variations  : 'getVariations',
 	    option      : 'getOption',
 	    settings    : 'getSettings',
 	    localStorage: 'getLocalStorage'
@@ -1294,19 +1474,9 @@
 	    }
 	  },
 
-	  //getVariations: function(options){
-	  //  var parent_id = options.parent.get('id');
-	  //  if( !this._variations || !this._variations[parent_id] ){
-	  //    var vars = new Variations(options.parent.get('variations'), options);
-	  //    this._variations = this._variations || {};
-	  //    this._variations[parent_id] = new FilteredCollection(vars, options);
-	  //  }
-	  //  return this._variations[parent_id];
-	  //},
-
 	  idbCollections: function(){
 	    return _.reduce( this.getAllCollections(), function(result, col, key){
-	      if( col instanceof POS.IndexedDBCollection ){
+	      if( col instanceof App.IndexedDBCollection ){
 	        result[key] = col;
 	      }
 	      return result;
@@ -1316,19 +1486,19 @@
 	});
 
 	module.exports = EntitiesService;
-	POS.attach('Entities.Service', EntitiesService);
+	App.prototype.set('Entities.Service', EntitiesService);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 53 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Mn = __webpack_require__(44);
-	var Radio = __webpack_require__(41);
-	var POS = __webpack_require__(36);
-	var _ = __webpack_require__(2);
+	var Mn = __webpack_require__(3);
+	var Radio = __webpack_require__(4);
+	var app = __webpack_require__(2);
+	var _ = __webpack_require__(5);
 
-	module.exports = POS.Service = Mn.Object.extend({
+	module.exports = app.prototype.Service = Mn.Object.extend({
 	  constructor: function(options) {
 	    options = options || {};
 
@@ -1363,11 +1533,11 @@
 	});
 
 /***/ },
-/* 54 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var DualCollection = __webpack_require__(55);
-	var Model = __webpack_require__(61);
+	var DualCollection = __webpack_require__(22);
+	var Model = __webpack_require__(28);
 
 	module.exports = DualCollection.extend({
 	  model: Model,
@@ -1375,7 +1545,7 @@
 	});
 
 /***/ },
-/* 55 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1383,16 +1553,16 @@
 	 * stay in sync.
 	 */
 
-	var Backbone = __webpack_require__(45);
+	var Backbone = __webpack_require__(16);
 	var Radio = Backbone.Radio;
-	var debug = __webpack_require__(37)('dualCollection');
-	var IDBCollection = __webpack_require__(56);
-	var POS = __webpack_require__(36);
-	var _ = __webpack_require__(2);
-	var $ = __webpack_require__(40);
-	var moment = __webpack_require__(60);
+	var debug = __webpack_require__(13)('dualCollection');
+	var IDBCollection = __webpack_require__(23);
+	var app = __webpack_require__(2);
+	var _ = __webpack_require__(5);
+	var $ = __webpack_require__(6);
+	var moment = __webpack_require__(27);
 
-	module.exports = POS.DualCollection = IDBCollection.extend({
+	module.exports = app.prototype.DualCollection = IDBCollection.extend({
 	  keyPath: 'local_id',
 	  mergeKeyPath: 'id',
 	  _syncDelayed: true,
@@ -1718,23 +1888,23 @@
 	});
 
 /***/ },
-/* 56 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * TODO: merge sync/idb.js & sync/idbsync.js?
 	 */
 
-	var Collection = __webpack_require__(57);
+	var Collection = __webpack_require__(24);
 	//var debug = require('debug')('idbCollection');
-	var POS = __webpack_require__(36);
-	var IndexedDB = __webpack_require__(58);
-	var Radio = __webpack_require__(41);
+	var app = __webpack_require__(2);
+	var IndexedDB = __webpack_require__(25);
+	var Radio = __webpack_require__(4);
 
-	module.exports = POS.IndexedDBCollection = Collection.extend({
+	module.exports = app.prototype.IndexedDBCollection = Collection.extend({
 	  name          : 'store',
 	  storePrefix   : 'wc_pos_',
-	  dbVersion     : POS.VERSION,
+	  dbVersion     : 4005,
 	  keyPath       : 'local_id',
 	  autoIncrement : true,
 	  indexes       : [
@@ -1758,13 +1928,11 @@
 	          status: error.target.error.name,
 	          message: error.target.error.message
 	        });
-	      },
-	      onVersionChange: function(store){
-	        store.clear();
 	      }
 	    };
 
 	    this.db = new IndexedDB(options, this);
+	    this.versionCheck();
 	    this.db.open()
 	      // error opening db
 	      .fail(function(error){
@@ -1798,19 +1966,47 @@
 	        self.reset();
 	        return self.db.clear();
 	      });
+	  },
+
+	  /**
+	   * Each website will have a unique idbVersion number
+	   * the version number is incremented on plugin update and some user actions
+	   * this version check will compare the version numbers
+	   * idb is flushed on version change
+	   */
+	  versionCheck: function(){
+	    var name = this.name;
+
+	    var newVersion = parseInt( Radio.request('entities', 'get', {
+	      type: 'option',
+	      name: 'idbVersion'
+	    }), 10 ) || 0;
+	    var oldVersion = parseInt( Radio.request('entities', 'get', {
+	      type: 'localStorage',
+	      name: name + '_idbVersion'
+	    }), 10 ) || 0;
+
+	    if( newVersion !== oldVersion ){
+	      this.clear().then(function(){
+	        Radio.request('entities', 'set', {
+	          type : 'localStorage',
+	          name : name + '_idbVersion',
+	          data : newVersion
+	        });
+	      });
+	    }
 	  }
 
 	});
 
 /***/ },
-/* 57 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var bb = __webpack_require__(45);
-	var POS = __webpack_require__(36);
-	//var Radio = require('backbone.radio');
+	var bb = __webpack_require__(16);
+	var app = __webpack_require__(2);
 
-	module.exports = POS.Collection = bb.Collection.extend({
+	module.exports = app.prototype.Collection = bb.Collection.extend({
 	  constructor: function() {
 	    bb.Collection.apply(this, arguments);
 	    this._isNew = true;
@@ -1834,16 +2030,16 @@
 	});
 
 /***/ },
-/* 58 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Backbone adapter for idb-wrapper api
 	 */
-	var IDBStore = __webpack_require__(59);
-	var $ = __webpack_require__(40);
-	var _ = __webpack_require__(2);
-	var bb = __webpack_require__(45);
+	var IDBStore = __webpack_require__(26);
+	var $ = __webpack_require__(6);
+	var _ = __webpack_require__(5);
+	var bb = __webpack_require__(16);
 	var noop = function (){};
 	var defaultErrorHandler = function (error) {
 	  throw error;
@@ -2162,1377 +2358,25 @@
 	module.exports = IndexedDB;
 
 /***/ },
-/* 59 */
-/***/ function(module, exports, __webpack_require__) {
+/* 26 */
+/***/ function(module, exports) {
 
-	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*global window:false, self:false, define:false, module:false */
-
-	/**
-	 * @license IDBWrapper - A cross-browser wrapper for IndexedDB
-	 * Copyright (c) 2011 - 2015 Jens Arps
-	 * http://jensarps.de/
-	 *
-	 * Licensed under the MIT (X11) license
-	 */
-
-	(function (name, definition, global) {
-	  if (true) {
-	    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (definition), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	  } else if (typeof module !== 'undefined' && module.exports) {
-	    module.exports = definition();
-	  } else {
-	    global[name] = definition();
-	  }
-	})('IDBStore', function () {
-
-	  'use strict';
-
-	  var defaultErrorHandler = function (error) {
-	    throw error;
-	  };
-	  var defaultSuccessHandler = function () {};
-	  var defaultVersionChangeHandler = function () {};
-
-	  var defaults = {
-	    storeName: 'Store',
-	    storePrefix: 'IDBWrapper-',
-	    dbVersion: 1,
-	    keyPath: 'id',
-	    autoIncrement: true,
-	    onStoreReady: function () {
-	    },
-	    onError: defaultErrorHandler,
-	    onVersionChange: defaultVersionChangeHandler,
-	    indexes: []
-	  };
-
-	  /**
-	   *
-	   * The IDBStore constructor
-	   *
-	   * @constructor
-	   * @name IDBStore
-	   * @version 1.5
-	   *
-	   * @param {Object} [kwArgs] An options object used to configure the store and
-	   *  set callbacks
-	   * @param {String} [kwArgs.storeName='Store'] The name of the store
-	   * @param {String} [kwArgs.storePrefix='IDBWrapper-'] A prefix that is
-	   *  internally used to construct the name of the database, which will be
-	   *  kwArgs.storePrefix + kwArgs.storeName
-	   * @param {Number} [kwArgs.dbVersion=1] The version of the store
-	   * @param {String} [kwArgs.keyPath='id'] The key path to use. If you want to
-	   *  setup IDBWrapper to work with out-of-line keys, you need to set this to
-	   *  `null`
-	   * @param {Boolean} [kwArgs.autoIncrement=true] If set to true, IDBStore will
-	   *  automatically make sure a unique keyPath value is present on each object
-	   *  that is stored.
-	   * @param {Function} [kwArgs.onStoreReady] A callback to be called when the
-	   *  store is ready to be used.
-	   * @param {Function} [kwArgs.onError=throw] A callback to be called when an
-	   *  error occurred during instantiation of the store.
-	   * @param {Array} [kwArgs.indexes=[]] An array of indexData objects
-	   *  defining the indexes to use with the store. For every index to be used
-	   *  one indexData object needs to be passed in the array.
-	   *  An indexData object is defined as follows:
-	   * @param {Object} [kwArgs.indexes.indexData] An object defining the index to
-	   *  use
-	   * @param {String} kwArgs.indexes.indexData.name The name of the index
-	   * @param {String} [kwArgs.indexes.indexData.keyPath] The key path of the index
-	   * @param {Boolean} [kwArgs.indexes.indexData.unique] Whether the index is unique
-	   * @param {Boolean} [kwArgs.indexes.indexData.multiEntry] Whether the index is multi entry
-	   * @param {Function} [onStoreReady] A callback to be called when the store
-	   * is ready to be used.
-	   * @example
-	      // create a store for customers with an additional index over the
-	      // `lastname` property.
-	      var myCustomerStore = new IDBStore({
-	        dbVersion: 1,
-	        storeName: 'customer-index',
-	        keyPath: 'customerid',
-	        autoIncrement: true,
-	        onStoreReady: populateTable,
-	        indexes: [
-	          { name: 'lastname', keyPath: 'lastname', unique: false, multiEntry: false }
-	        ]
-	      });
-	   * @example
-	      // create a generic store
-	      var myCustomerStore = new IDBStore({
-	        storeName: 'my-data-store',
-	        onStoreReady: function(){
-	          // start working with the store.
-	        }
-	      });
-	   */
-	  var IDBStore = function (kwArgs, onStoreReady) {
-
-	    if (typeof onStoreReady == 'undefined' && typeof kwArgs == 'function') {
-	      onStoreReady = kwArgs;
-	    }
-	    if (Object.prototype.toString.call(kwArgs) != '[object Object]') {
-	      kwArgs = {};
-	    }
-
-	    for (var key in defaults) {
-	      this[key] = typeof kwArgs[key] != 'undefined' ? kwArgs[key] : defaults[key];
-	    }
-
-	    this.dbName = this.storePrefix + this.storeName;
-	    this.dbVersion = parseInt(this.dbVersion, 10) || 1;
-
-	    onStoreReady && (this.onStoreReady = onStoreReady);
-
-	    var env = typeof window == 'object' ? window : self;
-	    this.idb = env.indexedDB || env.webkitIndexedDB || env.mozIndexedDB || env.shimIndexedDB;
-	    this.keyRange = env.IDBKeyRange || env.webkitIDBKeyRange || env.mozIDBKeyRange;
-
-	    this.features = {
-	      hasAutoIncrement: !env.mozIndexedDB
-	    };
-
-	    this.consts = {
-	      'READ_ONLY':         'readonly',
-	      'READ_WRITE':        'readwrite',
-	      'VERSION_CHANGE':    'versionchange',
-	      'NEXT':              'next',
-	      'NEXT_NO_DUPLICATE': 'nextunique',
-	      'PREV':              'prev',
-	      'PREV_NO_DUPLICATE': 'prevunique'
-	    };
-
-	    this.openDB();
-	  };
-
-	  IDBStore.prototype = /** @lends IDBStore */ {
-
-	    /**
-	     * A pointer to the IDBStore ctor
-	     *
-	     * @type IDBStore
-	     */
-	    constructor: IDBStore,
-
-	    /**
-	     * The version of IDBStore
-	     *
-	     * @type String
-	     */
-	    version: '1.5',
-
-	    /**
-	     * A reference to the IndexedDB object
-	     *
-	     * @type Object
-	     */
-	    db: null,
-
-	    /**
-	     * The full name of the IndexedDB used by IDBStore, composed of
-	     * this.storePrefix + this.storeName
-	     *
-	     * @type String
-	     */
-	    dbName: null,
-
-	    /**
-	     * The version of the IndexedDB used by IDBStore
-	     *
-	     * @type Number
-	     */
-	    dbVersion: null,
-
-	    /**
-	     * A reference to the objectStore used by IDBStore
-	     *
-	     * @type Object
-	     */
-	    store: null,
-
-	    /**
-	     * The store name
-	     *
-	     * @type String
-	     */
-	    storeName: null,
-
-	    /**
-	     * The prefix to prepend to the store name
-	     *
-	     * @type String
-	     */
-	    storePrefix: null,
-
-	    /**
-	     * The key path
-	     *
-	     * @type String
-	     */
-	    keyPath: null,
-
-	    /**
-	     * Whether IDBStore uses autoIncrement
-	     *
-	     * @type Boolean
-	     */
-	    autoIncrement: null,
-
-	    /**
-	     * The indexes used by IDBStore
-	     *
-	     * @type Array
-	     */
-	    indexes: null,
-
-	    /**
-	     * A hashmap of features of the used IDB implementation
-	     *
-	     * @type Object
-	     * @proprty {Boolean} autoIncrement If the implementation supports
-	     *  native auto increment
-	     */
-	    features: null,
-
-	    /**
-	     * The callback to be called when the store is ready to be used
-	     *
-	     * @type Function
-	     */
-	    onStoreReady: null,
-
-	    /**
-	     * The callback to be called if an error occurred during instantiation
-	     * of the store
-	     *
-	     * @type Function
-	     */
-	    onError: null,
-
-	    /**
-	     * The internal insertID counter
-	     *
-	     * @type Number
-	     * @private
-	     */
-	    _insertIdCount: 0,
-
-	    /**
-	     * Opens an IndexedDB; called by the constructor.
-	     *
-	     * Will check if versions match and compare provided index configuration
-	     * with existing ones, and update indexes if necessary.
-	     *
-	     * Will call this.onStoreReady() if everything went well and the store
-	     * is ready to use, and this.onError() is something went wrong.
-	     *
-	     * @private
-	     *
-	     */
-	    openDB: function () {
-
-	      var openRequest = this.idb.open(this.dbName, this.dbVersion);
-	      var preventSuccessCallback = false;
-
-	      openRequest.onerror = function (error) {
-
-	        var gotVersionErr = false;
-	        if ('error' in error.target) {
-	          gotVersionErr = error.target.error.name == 'VersionError';
-	        } else if ('errorCode' in error.target) {
-	          gotVersionErr = error.target.errorCode == 12;
-	        }
-
-	        if (gotVersionErr) {
-	          this.onError(new Error('The version number provided is lower than the existing one.'));
-	        } else {
-	          this.onError(error);
-	        }
-	      }.bind(this);
-
-	      openRequest.onsuccess = function (event) {
-
-	        if (preventSuccessCallback) {
-	          return;
-	        }
-
-	        if(this.db){
-	          this.onStoreReady();
-	          return;
-	        }
-
-	        this.db = event.target.result;
-
-	        if(typeof this.db.version == 'string'){
-	          this.onError(new Error('The IndexedDB implementation in this browser is outdated. Please upgrade your browser.'));
-	          return;
-	        }
-
-	        if(!this.db.objectStoreNames.contains(this.storeName)){
-	          // We should never ever get here.
-	          // Lets notify the user anyway.
-	          this.onError(new Error('Something is wrong with the IndexedDB implementation in this browser. Please upgrade your browser.'));
-	          return;
-	        }
-
-	        var emptyTransaction = this.db.transaction([this.storeName], this.consts.READ_ONLY);
-	        this.store = emptyTransaction.objectStore(this.storeName);
-
-	        // check indexes
-	        var existingIndexes = Array.prototype.slice.call(this.getIndexList());
-	        this.indexes.forEach(function(indexData){
-	          var indexName = indexData.name;
-
-	          if(!indexName){
-	            preventSuccessCallback = true;
-	            this.onError(new Error('Cannot create index: No index name given.'));
-	            return;
-	          }
-
-	          this.normalizeIndexData(indexData);
-
-	          if(this.hasIndex(indexName)){
-	            // check if it complies
-	            var actualIndex = this.store.index(indexName);
-	            var complies = this.indexComplies(actualIndex, indexData);
-	            if(!complies){
-	              preventSuccessCallback = true;
-	              this.onError(new Error('Cannot modify index "' + indexName + '" for current version. Please bump version number to ' + ( this.dbVersion + 1 ) + '.'));
-	            }
-
-	            existingIndexes.splice(existingIndexes.indexOf(indexName), 1);
-	          } else {
-	            preventSuccessCallback = true;
-	            this.onError(new Error('Cannot create new index "' + indexName + '" for current version. Please bump version number to ' + ( this.dbVersion + 1 ) + '.'));
-	          }
-
-	        }, this);
-
-	        if (existingIndexes.length) {
-	          preventSuccessCallback = true;
-	          this.onError(new Error('Cannot delete index(es) "' + existingIndexes.toString() + '" for current version. Please bump version number to ' + ( this.dbVersion + 1 ) + '.'));
-	        }
-
-	        preventSuccessCallback || this.onStoreReady();
-	      }.bind(this);
-
-	      openRequest.onupgradeneeded = function(/* IDBVersionChangeEvent */ event){
-
-	        this.db = event.target.result;
-
-	        if(this.db.objectStoreNames.contains(this.storeName)){
-	          this.store = event.target.transaction.objectStore(this.storeName);
-	        } else {
-	          var optionalParameters = { autoIncrement: this.autoIncrement };
-	          if (this.keyPath !== null) {
-	            optionalParameters.keyPath = this.keyPath;
-	          }
-	          this.store = this.db.createObjectStore(this.storeName, optionalParameters);
-	        }
-
-	        /**
-	         * Trigger onVersionChange method
-	         */
-	        this.onVersionChange(this.store, event);
-
-	        var existingIndexes = Array.prototype.slice.call(this.getIndexList());
-	        this.indexes.forEach(function(indexData){
-	          var indexName = indexData.name;
-
-	          if(!indexName){
-	            preventSuccessCallback = true;
-	            this.onError(new Error('Cannot create index: No index name given.'));
-	          }
-
-	          this.normalizeIndexData(indexData);
-
-	          if(this.hasIndex(indexName)){
-	            // check if it complies
-	            var actualIndex = this.store.index(indexName);
-	            var complies = this.indexComplies(actualIndex, indexData);
-	            if(!complies){
-	              // index differs, need to delete and re-create
-	              this.store.deleteIndex(indexName);
-	              this.store.createIndex(indexName, indexData.keyPath, { unique: indexData.unique, multiEntry: indexData.multiEntry });
-	            }
-
-	            existingIndexes.splice(existingIndexes.indexOf(indexName), 1);
-	          } else {
-	            this.store.createIndex(indexName, indexData.keyPath, { unique: indexData.unique, multiEntry: indexData.multiEntry });
-	          }
-
-	        }, this);
-
-	        if (existingIndexes.length) {
-	          existingIndexes.forEach(function(_indexName){
-	            this.store.deleteIndex(_indexName);
-	          }, this);
-	        }
-
-	      }.bind(this);
-	    },
-
-	    /**
-	     * Deletes the database used for this store if the IDB implementations
-	     * provides that functionality.
-	     *
-	     * @param {Function} [onSuccess] A callback that is called if deletion
-	     *  was successful.
-	     * @param {Function} [onError] A callback that is called if deletion
-	     *  failed.
-	     */
-	    deleteDatabase: function (onSuccess, onError) {
-	      if (this.idb.deleteDatabase) {
-	        this.db.close();
-	        var deleteRequest = this.idb.deleteDatabase(this.dbName);
-	        deleteRequest.onsuccess = onSuccess;
-	        deleteRequest.onerror = onError;
-	      } else {
-	        onError(new Error('Browser does not support IndexedDB deleteDatabase!'));
-	      }
-	    },
-
-	    /*********************
-	     * data manipulation *
-	     *********************/
-
-	    /**
-	     * Puts an object into the store. If an entry with the given id exists,
-	     * it will be overwritten. This method has a different signature for inline
-	     * keys and out-of-line keys; please see the examples below.
-	     *
-	     * @param {*} [key] The key to store. This is only needed if IDBWrapper
-	     *  is set to use out-of-line keys. For inline keys - the default scenario -
-	     *  this can be omitted.
-	     * @param {Object} value The data object to store.
-	     * @param {Function} [onSuccess] A callback that is called if insertion
-	     *  was successful.
-	     * @param {Function} [onError] A callback that is called if insertion
-	     *  failed.
-	     * @returns {IDBTransaction} The transaction used for this operation.
-	     * @example
-	        // Storing an object, using inline keys (the default scenario):
-	        var myCustomer = {
-	          customerid: 2346223,
-	          lastname: 'Doe',
-	          firstname: 'John'
-	        };
-	        myCustomerStore.put(myCustomer, mySuccessHandler, myErrorHandler);
-	        // Note that passing success- and error-handlers is optional.
-	     * @example
-	        // Storing an object, using out-of-line keys:
-	       var myCustomer = {
-	         lastname: 'Doe',
-	         firstname: 'John'
-	       };
-	       myCustomerStore.put(2346223, myCustomer, mySuccessHandler, myErrorHandler);
-	      // Note that passing success- and error-handlers is optional.
-	     */
-	    put: function (key, value, onSuccess, onError) {
-	      if (this.keyPath !== null) {
-	        onError = onSuccess;
-	        onSuccess = value;
-	        value = key;
-	      }
-	      onError || (onError = defaultErrorHandler);
-	      onSuccess || (onSuccess = defaultSuccessHandler);
-
-	      var hasSuccess = false,
-	          result = null,
-	          putRequest;
-
-	      var putTransaction = this.db.transaction([this.storeName], this.consts.READ_WRITE);
-	      putTransaction.oncomplete = function () {
-	        var callback = hasSuccess ? onSuccess : onError;
-	        callback(result);
-	      };
-	      putTransaction.onabort = onError;
-	      putTransaction.onerror = onError;
-
-	      if (this.keyPath !== null) { // in-line keys
-	        this._addIdPropertyIfNeeded(value);
-	        putRequest = putTransaction.objectStore(this.storeName).put(value);
-	      } else { // out-of-line keys
-	        putRequest = putTransaction.objectStore(this.storeName).put(value, key);
-	      }
-	      putRequest.onsuccess = function (event) {
-	        hasSuccess = true;
-	        result = event.target.result;
-	      };
-	      putRequest.onerror = onError;
-
-	      return putTransaction;
-	    },
-
-	    /**
-	     * Retrieves an object from the store. If no entry exists with the given id,
-	     * the success handler will be called with null as first and only argument.
-	     *
-	     * @param {*} key The id of the object to fetch.
-	     * @param {Function} [onSuccess] A callback that is called if fetching
-	     *  was successful. Will receive the object as only argument.
-	     * @param {Function} [onError] A callback that will be called if an error
-	     *  occurred during the operation.
-	     * @returns {IDBTransaction} The transaction used for this operation.
-	     */
-	    get: function (key, onSuccess, onError) {
-	      onError || (onError = defaultErrorHandler);
-	      onSuccess || (onSuccess = defaultSuccessHandler);
-
-	      var hasSuccess = false,
-	          result = null;
-	      
-	      var getTransaction = this.db.transaction([this.storeName], this.consts.READ_ONLY);
-	      getTransaction.oncomplete = function () {
-	        var callback = hasSuccess ? onSuccess : onError;
-	        callback(result);
-	      };
-	      getTransaction.onabort = onError;
-	      getTransaction.onerror = onError;
-	      var getRequest = getTransaction.objectStore(this.storeName).get(key);
-	      getRequest.onsuccess = function (event) {
-	        hasSuccess = true;
-	        result = event.target.result;
-	      };
-	      getRequest.onerror = onError;
-
-	      return getTransaction;
-	    },
-
-	    /**
-	     * Removes an object from the store.
-	     *
-	     * @param {*} key The id of the object to remove.
-	     * @param {Function} [onSuccess] A callback that is called if the removal
-	     *  was successful.
-	     * @param {Function} [onError] A callback that will be called if an error
-	     *  occurred during the operation.
-	     * @returns {IDBTransaction} The transaction used for this operation.
-	     */
-	    remove: function (key, onSuccess, onError) {
-	      onError || (onError = defaultErrorHandler);
-	      onSuccess || (onSuccess = defaultSuccessHandler);
-
-	      var hasSuccess = false,
-	          result = null;
-
-	      var removeTransaction = this.db.transaction([this.storeName], this.consts.READ_WRITE);
-	      removeTransaction.oncomplete = function () {
-	        var callback = hasSuccess ? onSuccess : onError;
-	        callback(result);
-	      };
-	      removeTransaction.onabort = onError;
-	      removeTransaction.onerror = onError;
-
-	      var deleteRequest = removeTransaction.objectStore(this.storeName)['delete'](key);
-	      deleteRequest.onsuccess = function (event) {
-	        hasSuccess = true;
-	        result = event.target.result;
-	      };
-	      deleteRequest.onerror = onError;
-
-	      return removeTransaction;
-	    },
-
-	    /**
-	     * Runs a batch of put and/or remove operations on the store.
-	     *
-	     * @param {Array} dataArray An array of objects containing the operation to run
-	     *  and the data object (for put operations).
-	     * @param {Function} [onSuccess] A callback that is called if all operations
-	     *  were successful.
-	     * @param {Function} [onError] A callback that is called if an error
-	     *  occurred during one of the operations.
-	     * @returns {IDBTransaction} The transaction used for this operation.
-	     */
-	    batch: function (dataArray, onSuccess, onError) {
-	      onError || (onError = defaultErrorHandler);
-	      onSuccess || (onSuccess = defaultSuccessHandler);
-
-	      if(Object.prototype.toString.call(dataArray) != '[object Array]'){
-	        onError(new Error('dataArray argument must be of type Array.'));
-	      }
-	      var batchTransaction = this.db.transaction([this.storeName] , this.consts.READ_WRITE);
-	      batchTransaction.oncomplete = function () {
-	        var callback = hasSuccess ? onSuccess : onError;
-	        callback(hasSuccess);
-	      };
-	      batchTransaction.onabort = onError;
-	      batchTransaction.onerror = onError;
-	      
-	      var count = dataArray.length;
-	      var called = false;
-	      var hasSuccess = false;
-
-	      var onItemSuccess = function () {
-	        count--;
-	        if (count === 0 && !called) {
-	          called = true;
-	          hasSuccess = true;
-	        }
-	      };
-
-	      dataArray.forEach(function (operation) {
-	        var type = operation.type;
-	        var key = operation.key;
-	        var value = operation.value;
-
-	        var onItemError = function (err) {
-	          batchTransaction.abort();
-	          if (!called) {
-	            called = true;
-	            onError(err, type, key);
-	          }
-	        };
-
-	        if (type == 'remove') {
-	          var deleteRequest = batchTransaction.objectStore(this.storeName)['delete'](key);
-	          deleteRequest.onsuccess = onItemSuccess;
-	          deleteRequest.onerror = onItemError;
-	        } else if (type == 'put') {
-	          var putRequest;
-	          if (this.keyPath !== null) { // in-line keys
-	            this._addIdPropertyIfNeeded(value);
-	            putRequest = batchTransaction.objectStore(this.storeName).put(value);
-	          } else { // out-of-line keys
-	            putRequest = batchTransaction.objectStore(this.storeName).put(value, key);
-	          }
-	          putRequest.onsuccess = onItemSuccess;
-	          putRequest.onerror = onItemError;
-	        }
-	      }, this);
-
-	      return batchTransaction;
-	    },
-
-	    /**
-	     * Takes an array of objects and stores them in a single transaction.
-	     *
-	     * @param {Array} dataArray An array of objects to store
-	     * @param {Function} [onSuccess] A callback that is called if all operations
-	     *  were successful.
-	     * @param {Function} [onError] A callback that is called if an error
-	     *  occurred during one of the operations.
-	     * @returns {IDBTransaction} The transaction used for this operation.
-	     */
-	    putBatch: function (dataArray, onSuccess, onError) {
-	      var batchData = dataArray.map(function(item){
-	        return { type: 'put', value: item };
-	      });
-
-	      return this.batch(batchData, onSuccess, onError);
-	    },
-
-	    /**
-	     * Like putBatch, takes an array of objects and stores them in a single
-	     * transaction, but allows processing of the result values.  Returns the
-	     * processed records containing the key for newly created records to the
-	     * onSuccess calllback instead of only returning true or false for success.
-	     * In addition, added the option for the caller to specify a key field that
-	     * should be set to the newly created key.
-	     *
-	     * @param {Array} dataArray An array of objects to store
-	     * @param {Object} [options] An object containing optional options
-	     * @param {String} [options.keyField=this.keyPath] Specifies a field in the record to update
-	     *  with the auto-incrementing key. Defaults to the store's keyPath.
-	     * @param {Function} [onSuccess] A callback that is called if all operations
-	     *  were successful.
-	     * @param {Function} [onError] A callback that is called if an error
-	     *  occurred during one of the operations.
-	     * @returns {IDBTransaction} The transaction used for this operation.
-	     *
-	     */
-	    upsertBatch: function (dataArray, options, onSuccess, onError) {
-	      // handle `dataArray, onSuccess, onError` signature
-	      if (typeof options == 'function') {
-	        onSuccess = options;
-	        onError = onSuccess;
-	        options = {};
-	      }
-
-	      onError || (onError = defaultErrorHandler);
-	      onSuccess || (onSuccess = defaultSuccessHandler);
-	      options || (options = {});
-
-	      if (Object.prototype.toString.call(dataArray) != '[object Array]') {
-	        onError(new Error('dataArray argument must be of type Array.'));
-	      }
-	      var batchTransaction = this.db.transaction([this.storeName], this.consts.READ_WRITE);
-	      batchTransaction.oncomplete = function () {
-	        if (hasSuccess) {
-	          onSuccess(dataArray);
-	        } else {
-	          onError(false);
-	        }
-	      };
-	      batchTransaction.onabort = onError;
-	      batchTransaction.onerror = onError;
-
-	      var keyField = options.keyField || this.keyPath;
-	      var count = dataArray.length;
-	      var called = false;
-	      var hasSuccess = false;
-	      var index = 0; // assume success callbacks are executed in order
-
-	      var onItemSuccess = function (event) {
-	        var record = dataArray[index++];
-	        record[keyField] = event.target.result;
-
-	        count--;
-	        if (count === 0 && !called) {
-	          called = true;
-	          hasSuccess = true;
-	        }
-	      };
-
-	      dataArray.forEach(function (record) {
-	        var key = record.key;
-
-	        var onItemError = function (err) {
-	          batchTransaction.abort();
-	          if (!called) {
-	            called = true;
-	            onError(err);
-	          }
-	        };
-
-	        var putRequest;
-	        if (this.keyPath !== null) { // in-line keys
-	          this._addIdPropertyIfNeeded(record);
-	          putRequest = batchTransaction.objectStore(this.storeName).put(record);
-	        } else { // out-of-line keys
-	          putRequest = batchTransaction.objectStore(this.storeName).put(record, key);
-	        }
-	        putRequest.onsuccess = onItemSuccess;
-	        putRequest.onerror = onItemError;
-	      }, this);
-
-	      return batchTransaction;
-	    },
-
-	    /**
-	     * Takes an array of keys and removes matching objects in a single
-	     * transaction.
-	     *
-	     * @param {Array} keyArray An array of keys to remove
-	     * @param {Function} [onSuccess] A callback that is called if all operations
-	     *  were successful.
-	     * @param {Function} [onError] A callback that is called if an error
-	     *  occurred during one of the operations.
-	     * @returns {IDBTransaction} The transaction used for this operation.
-	     */
-	    removeBatch: function (keyArray, onSuccess, onError) {
-	      var batchData = keyArray.map(function(key){
-	        return { type: 'remove', key: key };
-	      });
-
-	      return this.batch(batchData, onSuccess, onError);
-	    },
-
-	    /**
-	     * Takes an array of keys and fetches matching objects
-	     *
-	     * @param {Array} keyArray An array of keys identifying the objects to fetch
-	     * @param {Function} [onSuccess] A callback that is called if all operations
-	     *  were successful.
-	     * @param {Function} [onError] A callback that is called if an error
-	     *  occurred during one of the operations.
-	     * @param {String} [arrayType='sparse'] The type of array to pass to the
-	     *  success handler. May be one of 'sparse', 'dense' or 'skip'. Defaults to
-	     *  'sparse'. This parameter specifies how to handle the situation if a get
-	     *  operation did not throw an error, but there was no matching object in
-	     *  the database. In most cases, 'sparse' provides the most desired
-	     *  behavior. See the examples for details.
-	     * @returns {IDBTransaction} The transaction used for this operation.
-	     * @example
-	     // given that there are two objects in the database with the keypath
-	     // values 1 and 2, and the call looks like this:
-	     myStore.getBatch([1, 5, 2], onError, function (data) { … }, arrayType);
-
-	     // this is what the `data` array will be like:
-
-	     // arrayType == 'sparse':
-	     // data is a sparse array containing two entries and having a length of 3:
-	       [Object, 2: Object]
-	         0: Object
-	         2: Object
-	         length: 3
-	         __proto__: Array[0]
-	     // calling forEach on data will result in the callback being called two
-	     // times, with the index parameter matching the index of the key in the
-	     // keyArray.
-
-	     // arrayType == 'dense':
-	     // data is a dense array containing three entries and having a length of 3,
-	     // where data[1] is of type undefined:
-	       [Object, undefined, Object]
-	         0: Object
-	         1: undefined
-	         2: Object
-	         length: 3
-	         __proto__: Array[0]
-	     // calling forEach on data will result in the callback being called three
-	     // times, with the index parameter matching the index of the key in the
-	     // keyArray, but the second call will have undefined as first argument.
-
-	     // arrayType == 'skip':
-	     // data is a dense array containing two entries and having a length of 2:
-	       [Object, Object]
-	         0: Object
-	         1: Object
-	         length: 2
-	         __proto__: Array[0]
-	     // calling forEach on data will result in the callback being called two
-	     // times, with the index parameter not matching the index of the key in the
-	     // keyArray.
-	     */
-	    getBatch: function (keyArray, onSuccess, onError, arrayType) {
-	      onError || (onError = defaultErrorHandler);
-	      onSuccess || (onSuccess = defaultSuccessHandler);
-	      arrayType || (arrayType = 'sparse');
-
-	      if(Object.prototype.toString.call(keyArray) != '[object Array]'){
-	        onError(new Error('keyArray argument must be of type Array.'));
-	      }
-	      var batchTransaction = this.db.transaction([this.storeName] , this.consts.READ_ONLY);
-	      batchTransaction.oncomplete = function () {
-	        var callback = hasSuccess ? onSuccess : onError;
-	        callback(result);
-	      };
-	      batchTransaction.onabort = onError;
-	      batchTransaction.onerror = onError;
-
-	      var data = [];
-	      var count = keyArray.length;
-	      var called = false;
-	      var hasSuccess = false;
-	      var result = null;
-
-	      var onItemSuccess = function (event) {
-	        if (event.target.result || arrayType == 'dense') {
-	          data.push(event.target.result);
-	        } else if (arrayType == 'sparse') {
-	          data.length++;
-	        }
-	        count--;
-	        if (count === 0) {
-	          called = true;
-	          hasSuccess = true;
-	          result = data;
-	        }
-	      };
-
-	      keyArray.forEach(function (key) {
-
-	        var onItemError = function (err) {
-	          called = true;
-	          result = err;
-	          onError(err);
-	          batchTransaction.abort();
-	        };
-
-	        var getRequest = batchTransaction.objectStore(this.storeName).get(key);
-	        getRequest.onsuccess = onItemSuccess;
-	        getRequest.onerror = onItemError;
-
-	      }, this);
-
-	      return batchTransaction;
-	    },
-
-	    /**
-	     * Fetches all entries in the store.
-	     *
-	     * @param {Function} [onSuccess] A callback that is called if the operation
-	     *  was successful. Will receive an array of objects.
-	     * @param {Function} [onError] A callback that will be called if an error
-	     *  occurred during the operation.
-	     * @returns {IDBTransaction} The transaction used for this operation.
-	     */
-	    getAll: function (onSuccess, onError) {
-	      onError || (onError = defaultErrorHandler);
-	      onSuccess || (onSuccess = defaultSuccessHandler);
-	      var getAllTransaction = this.db.transaction([this.storeName], this.consts.READ_ONLY);
-	      var store = getAllTransaction.objectStore(this.storeName);
-	      if (store.getAll) {
-	        this._getAllNative(getAllTransaction, store, onSuccess, onError);
-	      } else {
-	        this._getAllCursor(getAllTransaction, store, onSuccess, onError);
-	      }
-
-	      return getAllTransaction;
-	    },
-
-	    /**
-	     * Implements getAll for IDB implementations that have a non-standard
-	     * getAll() method.
-	     *
-	     * @param {Object} getAllTransaction An open READ transaction.
-	     * @param {Object} store A reference to the store.
-	     * @param {Function} onSuccess A callback that will be called if the
-	     *  operation was successful.
-	     * @param {Function} onError A callback that will be called if an
-	     *  error occurred during the operation.
-	     * @private
-	     */
-	    _getAllNative: function (getAllTransaction, store, onSuccess, onError) {
-	      var hasSuccess = false,
-	          result = null;
-
-	      getAllTransaction.oncomplete = function () {
-	        var callback = hasSuccess ? onSuccess : onError;
-	        callback(result);
-	      };
-	      getAllTransaction.onabort = onError;
-	      getAllTransaction.onerror = onError;
-
-	      var getAllRequest = store.getAll();
-	      getAllRequest.onsuccess = function (event) {
-	        hasSuccess = true;
-	        result = event.target.result;
-	      };
-	      getAllRequest.onerror = onError;
-	    },
-
-	    /**
-	     * Implements getAll for IDB implementations that do not have a getAll()
-	     * method.
-	     *
-	     * @param {Object} getAllTransaction An open READ transaction.
-	     * @param {Object} store A reference to the store.
-	     * @param {Function} onSuccess A callback that will be called if the
-	     *  operation was successful.
-	     * @param {Function} onError A callback that will be called if an
-	     *  error occurred during the operation.
-	     * @private
-	     */
-	    _getAllCursor: function (getAllTransaction, store, onSuccess, onError) {
-	      var all = [],
-	          hasSuccess = false,
-	          result = null;
-
-	      getAllTransaction.oncomplete = function () {
-	        var callback = hasSuccess ? onSuccess : onError;
-	        callback(result);
-	      };
-	      getAllTransaction.onabort = onError;
-	      getAllTransaction.onerror = onError;
-
-	      var cursorRequest = store.openCursor();
-	      cursorRequest.onsuccess = function (event) {
-	        var cursor = event.target.result;
-	        if (cursor) {
-	          all.push(cursor.value);
-	          cursor['continue']();
-	        }
-	        else {
-	          hasSuccess = true;
-	          result = all;
-	        }
-	      };
-	      cursorRequest.onError = onError;
-	    },
-
-	    /**
-	     * Clears the store, i.e. deletes all entries in the store.
-	     *
-	     * @param {Function} [onSuccess] A callback that will be called if the
-	     *  operation was successful.
-	     * @param {Function} [onError] A callback that will be called if an
-	     *  error occurred during the operation.
-	     * @returns {IDBTransaction} The transaction used for this operation.
-	     */
-	    clear: function (onSuccess, onError) {
-	      onError || (onError = defaultErrorHandler);
-	      onSuccess || (onSuccess = defaultSuccessHandler);
-
-	      var hasSuccess = false,
-	          result = null;
-
-	      var clearTransaction = this.db.transaction([this.storeName], this.consts.READ_WRITE);
-	      clearTransaction.oncomplete = function () {
-	        var callback = hasSuccess ? onSuccess : onError;
-	        callback(result);
-	      };
-	      clearTransaction.onabort = onError;
-	      clearTransaction.onerror = onError;
-
-	      var clearRequest = clearTransaction.objectStore(this.storeName).clear();
-	      clearRequest.onsuccess = function (event) {
-	        hasSuccess = true;
-	        result = event.target.result;
-	      };
-	      clearRequest.onerror = onError;
-
-	      return clearTransaction;
-	    },
-
-	    /**
-	     * Checks if an id property needs to present on a object and adds one if
-	     * necessary.
-	     *
-	     * @param {Object} dataObj The data object that is about to be stored
-	     * @private
-	     */
-	    _addIdPropertyIfNeeded: function (dataObj) {
-	      if (!this.features.hasAutoIncrement && typeof dataObj[this.keyPath] == 'undefined') {
-	        dataObj[this.keyPath] = this._insertIdCount++ + Date.now();
-	      }
-	    },
-
-	    /************
-	     * indexing *
-	     ************/
-
-	    /**
-	     * Returns a DOMStringList of index names of the store.
-	     *
-	     * @return {DOMStringList} The list of index names
-	     */
-	    getIndexList: function () {
-	      return this.store.indexNames;
-	    },
-
-	    /**
-	     * Checks if an index with the given name exists in the store.
-	     *
-	     * @param {String} indexName The name of the index to look for
-	     * @return {Boolean} Whether the store contains an index with the given name
-	     */
-	    hasIndex: function (indexName) {
-	      return this.store.indexNames.contains(indexName);
-	    },
-
-	    /**
-	     * Normalizes an object containing index data and assures that all
-	     * properties are set.
-	     *
-	     * @param {Object} indexData The index data object to normalize
-	     * @param {String} indexData.name The name of the index
-	     * @param {String} [indexData.keyPath] The key path of the index
-	     * @param {Boolean} [indexData.unique] Whether the index is unique
-	     * @param {Boolean} [indexData.multiEntry] Whether the index is multi entry
-	     */
-	    normalizeIndexData: function (indexData) {
-	      indexData.keyPath = indexData.keyPath || indexData.name;
-	      indexData.unique = !!indexData.unique;
-	      indexData.multiEntry = !!indexData.multiEntry;
-	    },
-
-	    /**
-	     * Checks if an actual index complies with an expected index.
-	     *
-	     * @param {Object} actual The actual index found in the store
-	     * @param {Object} expected An Object describing an expected index
-	     * @return {Boolean} Whether both index definitions are identical
-	     */
-	    indexComplies: function (actual, expected) {
-	      var complies = ['keyPath', 'unique', 'multiEntry'].every(function (key) {
-	        // IE10 returns undefined for no multiEntry
-	        if (key == 'multiEntry' && actual[key] === undefined && expected[key] === false) {
-	          return true;
-	        }
-	        // Compound keys
-	        if (key == 'keyPath' && Object.prototype.toString.call(expected[key]) == '[object Array]') {
-	          var exp = expected.keyPath;
-	          var act = actual.keyPath;
-
-	          // IE10 can't handle keyPath sequences and stores them as a string.
-	          // The index will be unusable there, but let's still return true if
-	          // the keyPath sequence matches.
-	          if (typeof act == 'string') {
-	            return exp.toString() == act;
-	          }
-
-	          // Chrome/Opera stores keyPath squences as DOMStringList, Firefox
-	          // as Array
-	          if ( ! (typeof act.contains == 'function' || typeof act.indexOf == 'function') ) {
-	            return false;
-	          }
-
-	          if (act.length !== exp.length) {
-	            return false;
-	          }
-
-	          for (var i = 0, m = exp.length; i<m; i++) {
-	            if ( ! ( (act.contains && act.contains(exp[i])) || act.indexOf(exp[i] !== -1) )) {
-	              return false;
-	            }
-	          }
-	          return true;
-	        }
-	        return expected[key] == actual[key];
-	      });
-	      return complies;
-	    },
-
-	    /**********
-	     * cursor *
-	     **********/
-
-	    /**
-	     * Iterates over the store using the given options and calling onItem
-	     * for each entry matching the options.
-	     *
-	     * @param {Function} onItem A callback to be called for each match
-	     * @param {Object} [options] An object defining specific options
-	     * @param {Object} [options.index=null] An IDBIndex to operate on
-	     * @param {String} [options.order=ASC] The order in which to provide the
-	     *  results, can be 'DESC' or 'ASC'
-	     * @param {Boolean} [options.autoContinue=true] Whether to automatically
-	     *  iterate the cursor to the next result
-	     * @param {Boolean} [options.filterDuplicates=false] Whether to exclude
-	     *  duplicate matches
-	     * @param {Object} [options.keyRange=null] An IDBKeyRange to use
-	     * @param {Boolean} [options.writeAccess=false] Whether grant write access
-	     *  to the store in the onItem callback
-	     * @param {Function} [options.onEnd=null] A callback to be called after
-	     *  iteration has ended
-	     * @param {Function} [options.onError=throw] A callback to be called
-	     *  if an error occurred during the operation.
-	     * @param {Number} [options.limit=Infinity] Limit the number of returned
-	     *  results to this number
-	     * @param {Number} [options.offset=0] Skip the provided number of results
-	     *  in the resultset
-	     * @returns {IDBTransaction} The transaction used for this operation.
-	     */
-	    iterate: function (onItem, options) {
-	      options = mixin({
-	        index: null,
-	        order: 'ASC',
-	        autoContinue: true,
-	        filterDuplicates: false,
-	        keyRange: null,
-	        writeAccess: false,
-	        onEnd: null,
-	        onError: defaultErrorHandler,
-	        limit: Infinity,
-	        offset: 0
-	      }, options || {});
-
-	      var directionType = options.order.toLowerCase() == 'desc' ? 'PREV' : 'NEXT';
-	      if (options.filterDuplicates) {
-	        directionType += '_NO_DUPLICATE';
-	      }
-
-	      var hasSuccess = false;
-	      var cursorTransaction = this.db.transaction([this.storeName], this.consts[options.writeAccess ? 'READ_WRITE' : 'READ_ONLY']);
-	      var cursorTarget = cursorTransaction.objectStore(this.storeName);
-	      if (options.index) {
-	        cursorTarget = cursorTarget.index(options.index);
-	      }
-	      var recordCount = 0;
-
-	      cursorTransaction.oncomplete = function () {
-	        if (!hasSuccess) {
-	          options.onError(null);
-	          return;
-	        }
-	        if (options.onEnd) {
-	          options.onEnd();
-	        } else {
-	          onItem(null);
-	        }
-	      };
-	      cursorTransaction.onabort = options.onError;
-	      cursorTransaction.onerror = options.onError;
-
-	      var cursorRequest = cursorTarget.openCursor(options.keyRange, this.consts[directionType]);
-	      cursorRequest.onerror = options.onError;
-	      cursorRequest.onsuccess = function (event) {
-	        var cursor = event.target.result;
-	        if (cursor) {
-	          if (options.offset) {
-	            cursor.advance(options.offset);
-	            options.offset = 0;
-	          } else {
-	            onItem(cursor.value, cursor, cursorTransaction);
-	            recordCount++;
-	            if (options.autoContinue) {
-	              if (recordCount + options.offset < options.limit) {
-	                cursor['continue']();
-	              } else {
-	                hasSuccess = true;
-	              }
-	            }
-	          }
-	        } else {
-	          hasSuccess = true;
-	        }
-	      };
-
-	      return cursorTransaction;
-	    },
-
-	    /**
-	     * Runs a query against the store and passes an array containing matched
-	     * objects to the success handler.
-	     *
-	     * @param {Function} onSuccess A callback to be called when the operation
-	     *  was successful.
-	     * @param {Object} [options] An object defining specific options
-	     * @param {Object} [options.index=null] An IDBIndex to operate on
-	     * @param {String} [options.order=ASC] The order in which to provide the
-	     *  results, can be 'DESC' or 'ASC'
-	     * @param {Boolean} [options.filterDuplicates=false] Whether to exclude
-	     *  duplicate matches
-	     * @param {Object} [options.keyRange=null] An IDBKeyRange to use
-	     * @param {Function} [options.onError=throw] A callback to be called
-	     *  if an error occurred during the operation.
-	     * @param {Number} [options.limit=Infinity] Limit the number of returned
-	     *  results to this number
-	     * @param {Number} [options.offset=0] Skip the provided number of results
-	     *  in the resultset
-	     * @returns {IDBTransaction} The transaction used for this operation.
-	     */
-	    query: function (onSuccess, options) {
-	      var result = [];
-	      options = options || {};
-	      options.autoContinue = true;
-	      options.writeAccess = false;
-	      options.onEnd = function () {
-	        onSuccess(result);
-	      };
-	      return this.iterate(function (item) {
-	        result.push(item);
-	      }, options);
-	    },
-
-	    /**
-	     *
-	     * Runs a query against the store, but only returns the number of matches
-	     * instead of the matches itself.
-	     *
-	     * @param {Function} onSuccess A callback to be called if the opration
-	     *  was successful.
-	     * @param {Object} [options] An object defining specific options
-	     * @param {Object} [options.index=null] An IDBIndex to operate on
-	     * @param {Object} [options.keyRange=null] An IDBKeyRange to use
-	     * @param {Function} [options.onError=throw] A callback to be called if an error
-	     *  occurred during the operation.
-	     * @returns {IDBTransaction} The transaction used for this operation.
-	     */
-	    count: function (onSuccess, options) {
-
-	      options = mixin({
-	        index: null,
-	        keyRange: null
-	      }, options || {});
-
-	      var onError = options.onError || defaultErrorHandler;
-
-	      var hasSuccess = false,
-	          result = null;
-
-	      var cursorTransaction = this.db.transaction([this.storeName], this.consts.READ_ONLY);
-	      cursorTransaction.oncomplete = function () {
-	        var callback = hasSuccess ? onSuccess : onError;
-	        callback(result);
-	      };
-	      cursorTransaction.onabort = onError;
-	      cursorTransaction.onerror = onError;
-
-	      var cursorTarget = cursorTransaction.objectStore(this.storeName);
-	      if (options.index) {
-	        cursorTarget = cursorTarget.index(options.index);
-	      }
-	      var countRequest = cursorTarget.count(options.keyRange);
-	      countRequest.onsuccess = function (evt) {
-	        hasSuccess = true;
-	        result = evt.target.result;
-	      };
-	      countRequest.onError = onError;
-
-	      return cursorTransaction;
-	    },
-
-	    /**************/
-	    /* key ranges */
-	    /**************/
-
-	    /**
-	     * Creates a key range using specified options. This key range can be
-	     * handed over to the count() and iterate() methods.
-	     *
-	     * Note: You must provide at least one or both of "lower" or "upper" value.
-	     *
-	     * @param {Object} options The options for the key range to create
-	     * @param {*} [options.lower] The lower bound
-	     * @param {Boolean} [options.excludeLower] Whether to exclude the lower
-	     *  bound passed in options.lower from the key range
-	     * @param {*} [options.upper] The upper bound
-	     * @param {Boolean} [options.excludeUpper] Whether to exclude the upper
-	     *  bound passed in options.upper from the key range
-	     * @param {*} [options.only] A single key value. Use this if you need a key
-	     *  range that only includes one value for a key. Providing this
-	     *  property invalidates all other properties.
-	     * @return {Object} The IDBKeyRange representing the specified options
-	     */
-	    makeKeyRange: function(options){
-	      /*jshint onecase:true */
-	      var keyRange,
-	          hasLower = typeof options.lower != 'undefined',
-	          hasUpper = typeof options.upper != 'undefined',
-	          isOnly = typeof options.only != 'undefined';
-
-	      switch(true){
-	        case isOnly:
-	          keyRange = this.keyRange.only(options.only);
-	          break;
-	        case hasLower && hasUpper:
-	          keyRange = this.keyRange.bound(options.lower, options.upper, options.excludeLower, options.excludeUpper);
-	          break;
-	        case hasLower:
-	          keyRange = this.keyRange.lowerBound(options.lower, options.excludeLower);
-	          break;
-	        case hasUpper:
-	          keyRange = this.keyRange.upperBound(options.upper, options.excludeUpper);
-	          break;
-	        default:
-	          throw new Error('Cannot create KeyRange. Provide one or both of "lower" or "upper" value, or an "only" value.');
-	      }
-
-	      return keyRange;
-
-	    }
-
-	  };
-
-	  /** helpers **/
-
-	  // TODO: Check Object.create support to get rid of this
-	  var empty = {};
-	  var mixin = function (target, source) {
-	    var name, s;
-	    for (name in source) {
-	      s = source[name];
-	      if (s !== empty[name] && s !== target[name]) {
-	        target[name] = s;
-	      }
-	    }
-	    return target;
-	  };
-
-	  IDBStore.version = IDBStore.prototype.version;
-
-	  return IDBStore;
-
-	}, this);
-
+	module.exports = IDBStore;
 
 /***/ },
-/* 60 */
+/* 27 */
 /***/ function(module, exports) {
 
 	module.exports = moment;
 
 /***/ },
-/* 61 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var DualModel = __webpack_require__(62);
-	var _ = __webpack_require__(2);
-	var Variations = __webpack_require__(66);
-	var FilteredCollection = __webpack_require__(68);
+	var DualModel = __webpack_require__(29);
+	var _ = __webpack_require__(5);
+	var Variations = __webpack_require__(33);
+	var FilteredCollection = __webpack_require__(35);
 
 	module.exports = DualModel.extend({
 	  name: 'product',
@@ -3709,15 +2553,15 @@
 	});
 
 /***/ },
-/* 62 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var DeepModel = __webpack_require__(63);
-	var POS = __webpack_require__(36);
-	var _ = __webpack_require__(2);
-	var debug = __webpack_require__(37)('dualModel');
+	var DeepModel = __webpack_require__(30);
+	var app = __webpack_require__(2);
+	var _ = __webpack_require__(5);
+	var debug = __webpack_require__(13)('dualModel');
 
-	module.exports = POS.DualModel = DeepModel.extend({
+	module.exports = app.prototype.DualModel = DeepModel.extend({
 	  idAttribute: 'local_id',
 	  remoteIdAttribute: 'id',
 	  fields: ['title'],
@@ -3833,22 +2677,22 @@
 	});
 
 /***/ },
-/* 63 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var POS = __webpack_require__(36);
-	var Model = __webpack_require__(64);
-	var DeepModel = __webpack_require__(65);
+	var app = __webpack_require__(2);
+	var Model = __webpack_require__(31);
+	var DeepModel = __webpack_require__(32);
 
-	module.exports = POS.DeepModel = Model.extend(DeepModel);
+	module.exports = app.prototype.DeepModel = Model.extend(DeepModel);
 
 /***/ },
-/* 64 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var bb = __webpack_require__(45);
-	var POS = __webpack_require__(36);
-	var _ = __webpack_require__(2);
+	var bb = __webpack_require__(16);
+	var app = __webpack_require__(2);
+	var _ = __webpack_require__(5);
 	//var Radio = require('backbone.radio');
 
 	// parsing functions
@@ -3861,11 +2705,7 @@
 	  }
 	};
 
-	module.exports = POS.Model = bb.Model.extend({
-
-	  constructor: function() {
-	    bb.Model.apply(this, arguments);
-	  },
+	module.exports = app.prototype.Model = bb.Model.extend({
 
 	  parse: function (resp){
 	    var data = resp && resp[this.name] ? resp[this.name]  : resp;
@@ -3894,10 +2734,10 @@
 	});
 
 /***/ },
-/* 65 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _ = __webpack_require__(2);
+	var _ = __webpack_require__(5);
 
 	/**
 	 * Takes a nested object and returns a shallow object keyed with the path names
@@ -4219,13 +3059,13 @@
 	module.exports = DeepModel;
 
 /***/ },
-/* 66 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Collection = __webpack_require__(57);
-	var Model = __webpack_require__(67);
-	var Radio = __webpack_require__(41);
-	var _ = __webpack_require__(2);
+	var Collection = __webpack_require__(24);
+	var Model = __webpack_require__(34);
+	var Radio = __webpack_require__(4);
+	var _ = __webpack_require__(5);
 
 	module.exports = Collection.extend({
 	  model: Model,
@@ -4275,11 +3115,11 @@
 	});
 
 /***/ },
-/* 67 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//var Model = require('lib/config/model');
-	var Model = __webpack_require__(63);
+	var Model = __webpack_require__(30);
 
 	module.exports = Model.extend({
 	  name: 'product',
@@ -4314,18 +3154,18 @@
 	});
 
 /***/ },
-/* 68 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint -W071, -W003, -W021 */
-	var _ = __webpack_require__(2);
-	var Backbone = __webpack_require__(45);
-	var FilteredCollection = __webpack_require__(69);
-	var SortedCollection = __webpack_require__(72);
-	var PaginatedCollection = __webpack_require__(74);
-	var proxyCollection = __webpack_require__(70);
-	var proxyEvents = __webpack_require__(75);
-	var query = __webpack_require__(76);
+	var _ = __webpack_require__(5);
+	var Backbone = __webpack_require__(16);
+	var FilteredCollection = __webpack_require__(36);
+	var SortedCollection = __webpack_require__(39);
+	var PaginatedCollection = __webpack_require__(41);
+	var proxyCollection = __webpack_require__(37);
+	var proxyEvents = __webpack_require__(42);
+	var query = __webpack_require__(43);
 
 	// extend FilteredCollection with query methods
 	_.extend(FilteredCollection.prototype, query);
@@ -4467,13 +3307,13 @@
 	/* jshint +W071, +W003, +W021 */
 
 /***/ },
-/* 69 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _ = __webpack_require__(2);
-	var Backbone = __webpack_require__(45);
-	var proxyCollection = __webpack_require__(70);
-	var createFilter = __webpack_require__(71);
+	var _ = __webpack_require__(5);
+	var Backbone = __webpack_require__(16);
+	var proxyCollection = __webpack_require__(37);
+	var createFilter = __webpack_require__(38);
 
 	// Beware of `this`
 	// All of the following functions are meant to be called in the context
@@ -4704,12 +3544,12 @@
 	module.exports = Filtered;
 
 /***/ },
-/* 70 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var _ = __webpack_require__(2);
-	var Backbone = __webpack_require__(45);
+	var _ = __webpack_require__(5);
+	var Backbone = __webpack_require__(16);
 
 	// Methods in the collection prototype that we won't expose
 	var blacklistedMethods = [
@@ -4781,10 +3621,10 @@
 
 
 /***/ },
-/* 71 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _ = __webpack_require__(2);
+	var _ = __webpack_require__(5);
 
 	// Converts a key and value into a function that accepts a model
 	// and returns a boolean.
@@ -4868,14 +3708,14 @@
 
 
 /***/ },
-/* 72 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var _ = __webpack_require__(2);
-	var Backbone =__webpack_require__(45);
-	var proxyCollection = __webpack_require__(70);
-	var sortedIndex = __webpack_require__(73);
+	var _ = __webpack_require__(5);
+	var Backbone =__webpack_require__(16);
+	var proxyCollection = __webpack_require__(37);
+	var sortedIndex = __webpack_require__(40);
 
 	function lookupIterator(value) {
 	  return _.isFunction(value) ? value : function(obj){ return obj.get(value); };
@@ -4992,11 +3832,11 @@
 
 
 /***/ },
-/* 73 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var _ = __webpack_require__(2);
+	var _ = __webpack_require__(5);
 
 	// Underscore provides a .sortedIndex function that works
 	// when sorting ascending based on a function or a key, but there's no
@@ -5039,12 +3879,12 @@
 
 
 /***/ },
-/* 74 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _ = __webpack_require__(2);
-	var Backbone = __webpack_require__(45);
-	var proxyCollection = __webpack_require__(70);
+	var _ = __webpack_require__(5);
+	var Backbone = __webpack_require__(16);
+	var proxyCollection = __webpack_require__(37);
 
 	function getPageLimits() {
 	  if(this._infinite){
@@ -5301,10 +4141,10 @@
 	module.exports =  Paginated;
 
 /***/ },
-/* 75 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _ = __webpack_require__(2);
+	var _ = __webpack_require__(5);
 
 	function proxyEvents(from, eventNames) {
 	  _.each(eventNames, function (eventName) {
@@ -5319,15 +4159,15 @@
 	module.exports = proxyEvents;
 
 /***/ },
-/* 76 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * query methods to extend Filtered Collection
 	 */
 
-	var _ = __webpack_require__(2);
-	var query = __webpack_require__(77);
+	var _ = __webpack_require__(5);
+	var query = __webpack_require__(44);
 
 	module.exports = {
 
@@ -5382,11 +4222,11 @@
 	};
 
 /***/ },
-/* 77 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _ = __webpack_require__(2);
-	var Parser = __webpack_require__(78);
+	var _ = __webpack_require__(5);
+	var Parser = __webpack_require__(45);
 	var parser = new Parser();
 
 	function toType(obj) {
@@ -5506,11 +4346,11 @@
 	};
 
 /***/ },
-/* 78 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint -W071, -W074 */
-	var _ = __webpack_require__(2);
+	var _ = __webpack_require__(5);
 
 	/**
 	 *
@@ -5786,14 +4626,14 @@
 	/* jshint +W071, +W074 */
 
 /***/ },
-/* 79 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var DualCollection = __webpack_require__(55);
-	var Model = __webpack_require__(80);
-	var $ = __webpack_require__(40);
-	var _ = __webpack_require__(2);
-	var bb = __webpack_require__(45);
+	var DualCollection = __webpack_require__(22);
+	var Model = __webpack_require__(47);
+	var $ = __webpack_require__(6);
+	var _ = __webpack_require__(5);
+	var bb = __webpack_require__(16);
 
 	module.exports = DualCollection.extend({
 	  model: Model,
@@ -5878,15 +4718,16 @@
 	});
 
 /***/ },
-/* 80 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var DualModel = __webpack_require__(62);
-	var Radio = __webpack_require__(41);
-	var Utils = __webpack_require__(81);
-	var debug = __webpack_require__(37)('order');
-	var POS = __webpack_require__(36);
-	var $ = __webpack_require__(40);
+	//var DualModel = require('lib/config/dual-model');
+	var DualModel = __webpack_require__(29);
+	var Radio = __webpack_require__(4);
+	var Utils = __webpack_require__(8);
+	var debug = __webpack_require__(13)('order');
+	var App = __webpack_require__(2);
+	var $ = __webpack_require__(6);
 
 	var Model = DualModel.extend({
 	  name: 'order',
@@ -5911,23 +4752,27 @@
 	  /**
 	   *
 	   */
-	  defaults: function(){
-	    var customers = this.getEntities('customers'),
-	        default_customer = customers['default'] || customers.guest || {};
-
-	    return {
-	      note          : '',
-	      order_discount: 0,
-	      customer_id   : default_customer.id,
-	      customer      : default_customer
-	    };
+	  defaults: {
+	    note            : '',
+	    order_discount  : 0
 	  },
 
 	  /**
 	   * - attach tax settings
 	   * - attach cart & gateways if order is open
 	   */
-	  initialize: function(){
+	  /* jshint -W071, -W074 */
+	  initialize: function(attributes){
+	    attributes = attributes || {};
+
+	    if(!attributes.customer){
+	      var customers = this.getEntities('customers');
+	      var customer = customers['default'] || customers.guest || {};
+	      this.set({
+	        customer_id : customer.id,
+	        customer    : customer
+	      });
+	    }
 
 	    this.tax = this.getEntities('tax');
 	    this.tax_rates = this.getEntities('tax_rates');
@@ -5944,6 +4789,7 @@
 	    });
 
 	  },
+	  /* jshint +W071, +W074 */
 
 	  getEntities: function(name){
 	    return Radio.request('entities', 'get', {
@@ -6017,7 +4863,11 @@
 	      name : 'gateways'
 	    });
 
-	    this.gateways.fetch();
+	    var gateways = Radio.request('entities', 'get', {
+	      type: 'option',
+	      name: 'gateways'
+	    });
+	    this.gateways.add(gateways);
 	  },
 
 	  /**
@@ -6150,189 +5000,16 @@
 	});
 
 	module.exports = Model;
-	POS.attach('Entities.Order.Model', Model);
+	App.prototype.set('Entities.Order.Model', Model);
 
 /***/ },
-/* 81 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var accounting = __webpack_require__(48);
-	var POS = __webpack_require__(36);
-	var _ = __webpack_require__(2);
-	var Utils = {};
-
-	/**
-	 * Using the same function as Woo: /assets/js/admin/round.js
-	 * PHP_ROUND_HALF_EVEN should be the default?!
-	 * @param value
-	 * @param precision
-	 * @param mode
-	 * @returns {number}
-	 */
-	/* jshint -W018, -W071, -W074 */
-	Utils.round = function(value, precision, mode) {
-	  // http://kevin.vanzonneveld.net
-	  // +   original by: Philip Peterson
-	  // +    revised by: Onno Marsman
-	  // +      input by: Greenseed
-	  // +    revised by: T.Wild
-	  // +      input by: meo
-	  // +      input by: William
-	  // +   bugfixed by: Brett Zamir (http://brett-zamir.me)
-	  // +      input by: Josep Sanz (http://www.ws3.es/)
-	  // +    revised by: Rafał Kukawski (http://blog.kukawski.pl/)
-	  // %        note 1: Great work. Ideas for improvement:
-	  // %        note 1:  - code more compliant with developer guidelines
-	  // %        note 1:  - for implementing PHP constant arguments look at
-	  // %        note 1:  the pathinfo() function, it offers the greatest
-	  // %        note 1:  flexibility & compatibility possible
-	  // *     example 1: round(1241757, -3);
-	  // *     returns 1: 1242000
-	  // *     example 2: round(3.6);
-	  // *     returns 2: 4
-	  // *     example 3: round(2.835, 2);
-	  // *     returns 3: 2.84
-	  // *     example 4: round(1.1749999999999, 2);
-	  // *     returns 4: 1.17
-	  // *     example 5: round(58551.799999999996, 2);
-	  // *     returns 5: 58551.8
-
-	  //
-	  //mode = mode || 'PHP_ROUND_HALF_EVEN';
-
-	  if( !_.isFinite( parseInt(precision, 10) ) ) {
-	    precision = accounting.settings.currency.precision;
-	  }
-
-	  var m, f, isHalf, sgn; // helper variables
-	  //precision |= 0; // making sure precision is integer
-	  m = Math.pow(10, precision);
-	  value *= m;
-	  sgn = (value > 0) | -(value < 0); // sign of the number
-	  isHalf = value % 1 === 0.5 * sgn;
-	  f = Math.floor(value);
-
-	  if (isHalf) {
-	    switch (mode) {
-	      case '2':
-	      case 'PHP_ROUND_HALF_DOWN':
-	        value = f + (sgn < 0); // rounds .5 toward zero
-	        break;
-	      case '3':
-	      case 'PHP_ROUND_HALF_EVEN':
-	        value = f + (f % 2 * sgn); // rouds .5 towards the next even integer
-	        break;
-	      case '4':
-	      case 'PHP_ROUND_HALF_ODD':
-	        value = f + !(f % 2); // rounds .5 towards the next odd integer
-	        break;
-	      default:
-	        value = f + (sgn > 0); // rounds .5 away from zero
-	    }
-	  }
-
-	  return (isHalf ? value : Math.round(value)) / m;
-	};
-	/* jshint +W018, +W071, +W074 */
-
-	/**
-	 * Number of significant decimal places
-	 */
-	Utils.decimalPlaces = function(num){
-	  return ((+num).toFixed(4)).replace(/^-?\d*\.?|0+$/g, '').length;
-	};
-
-	/**
-	 *
-	 */
-	Utils.unformat = function( num ) {
-	  return accounting.unformat( num, accounting.settings.number.decimal );
-	};
-
-	/**
-	 *
-	 */
-	Utils.formatNumber = function( num, precision ) {
-	  if( precision === 'auto' ) {
-	    precision = Utils.decimalPlaces(num);
-	  }
-	  if( !_.isFinite( parseInt(precision, 10) ) ) {
-	    precision = accounting.settings.currency.precision;
-	  }
-	  return accounting.formatNumber(num, precision);
-	};
-
-	/**
-	 *
-	 */
-	Utils.formatMoney = function( num, precision ) {
-	  if( precision === 'auto' ) {
-	    precision = Utils.decimalPlaces(num);
-	  }
-	  if( !_.isFinite( parseInt(precision, 10) ) ) {
-	    precision = accounting.settings.currency.precision;
-	  }
-	  // round the number to even
-	  num = Utils.round(num, precision);
-	  return accounting.formatMoney(num);
-	};
-
-	/**
-	 *
-	 */
-	Utils.isPositiveInteger = function( num, allowZero ){
-	  var n = ~~Number(num);
-	  if(allowZero) {
-	    return String(n) === num && n >= 0;
-	  } else {
-	    return String(n) === num && n > 0;
-	  }
-	};
-
-	/**
-	 * Parse error messages from the server
-	 */
-	Utils.parseErrorResponse = function( jqXHR ){
-	  var resp = jqXHR.responseJSON;
-	  if( resp.errors ){
-	    return resp.errors[0].message;
-	  }
-
-	  return jqXHR.responseText;
-	};
-
-	/**
-	 * returns the variable type
-	 * http://wp.me/pQpop-JM
-	 *
-	 *
-	toType({a: 4}); //"object"
-	toType([1, 2, 3]); //"array"
-	(function() {console.log(toType(arguments))})(); //arguments
-	toType(new ReferenceError); //"error"
-	toType(new Date); //"date"
-	toType(/a-z/); //"regexp"
-	toType(Math); //"math"
-	toType(JSON); //"json"
-	toType(new Number(4)); //"number"
-	toType(new String("abc")); //"string"
-	toType(new Boolean(true)); //"boolean"
-
-	 */
-	Utils.toType = function(obj) {
-	  return ({}).toString.call(obj).match(/\s([a-z|A-Z]+)/)[1].toLowerCase();
-	};
-
-	module.exports = POS.Utils = Utils;
-
-/***/ },
-/* 82 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var IndexedDBCollection = __webpack_require__(56);
-	var Model = __webpack_require__(83);
-	var _ = __webpack_require__(2);
-	var bb = __webpack_require__(45);
+	var IndexedDBCollection = __webpack_require__(23);
+	var Model = __webpack_require__(49);
+	var _ = __webpack_require__(5);
+	var bb = __webpack_require__(16);
 
 	module.exports = IndexedDBCollection.extend({
 	  model: Model,
@@ -6481,14 +5158,14 @@
 	});
 
 /***/ },
-/* 83 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Model = __webpack_require__(64);
-	var debug = __webpack_require__(37)('cartItem');
-	var Utils = __webpack_require__(81);
-	var _ = __webpack_require__(2);
-	var Radio = __webpack_require__(41);
+	var Model = __webpack_require__(31);
+	var debug = __webpack_require__(13)('cartItem');
+	var Utils = __webpack_require__(8);
+	var _ = __webpack_require__(5);
+	var Radio = __webpack_require__(4);
 
 	module.exports = Model.extend({
 	  idAttribute: 'local_id',
@@ -6754,24 +5431,23 @@
 	});
 
 /***/ },
-/* 84 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Collection = __webpack_require__(57);
-	var Model = __webpack_require__(85);
-	var Radio = __webpack_require__(41);
+	var DualCollection = __webpack_require__(22);
+	var Model = __webpack_require__(51);
+	var Radio = __webpack_require__(4);
 
-	module.exports = Collection.extend({
+	module.exports = DualCollection.extend({
 	  model: Model,
 	  name: 'customers',
-
-	  url: function(){
-	    var wc_api = Radio.request('entities', 'get', {
-	      type: 'option',
-	      name: 'wc_api'
-	    });
-	    return wc_api + 'customers';
-	  },
+	  indexes: [
+	    {name: 'local_id', keyPath: 'local_id', unique: true},
+	    {name: 'id', keyPath: 'id', unique: true},
+	    {name: 'status', keyPath: 'status', unique: false},
+	    {name: 'email', keyPath: 'email', unique: true},
+	    {name: 'username', keyPath: 'username', unique: true}
+	  ],
 
 	  initialize: function(){
 	    var settings = Radio.request('entities', 'get', {
@@ -6782,45 +5458,60 @@
 	      this._guest = settings.guest;
 	      this._default = settings['default'] || settings.guest;
 	    }
+	  },
+
+	  getGuestCustomer: function(){
+	    return this._guest;
+	  },
+
+	  getDefaultCustomer: function(){
+	    return this._default;
 	  }
+
 	});
 
 /***/ },
-/* 85 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Model = __webpack_require__(64);
+	var DualModel = __webpack_require__(29);
+	var App = __webpack_require__(2);
 
-	module.exports = Model.extend({
-	  name: 'customer'
+	var CustomersModel = DualModel.extend({
+	  name: 'customer',
+	  // this is an array of fields used by FilterCollection.matchmaker()
+	  fields: ['email', 'username', 'first_name', 'last_name']
 	});
 
+	module.exports = CustomersModel;
+	App.prototype.set('Entities.Customers.Model', CustomersModel);
+
 /***/ },
-/* 86 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Collection = __webpack_require__(57);
-	var Model = __webpack_require__(87);
+	var Collection = __webpack_require__(24);
+	var Model = __webpack_require__(53);
 
 	module.exports = Collection.extend({
 	  model: Model
 	});
 
 /***/ },
-/* 87 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Model = __webpack_require__(64);
+	var Model = __webpack_require__(31);
 
 	module.exports = Model.extend({});
 
 /***/ },
-/* 88 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var DeepModel = __webpack_require__(63);
-	var Radio = __webpack_require__(41);
-	var polyglot = __webpack_require__(49);
+	var DeepModel = __webpack_require__(30);
+	var Radio = __webpack_require__(4);
+	var polyglot = __webpack_require__(10);
 
 	module.exports = DeepModel.extend({
 
@@ -6905,33 +5596,22 @@
 	});
 
 /***/ },
-/* 89 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Collection = __webpack_require__(57);
-	var Model = __webpack_require__(88);
+	var Collection = __webpack_require__(24);
+	var Model = __webpack_require__(54);
 
 	module.exports = Collection.extend({
 	  model: Model
 	});
 
 /***/ },
-/* 90 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Collection = __webpack_require__(57);
-	var Model = __webpack_require__(91);
-	var $ = __webpack_require__(40);
-
-	var gateways = [];
-	$('.tmpl-checkout-gateways').each(function(){
-	  gateways.push({
-	    method_id    : $(this).data('gateway'),
-	    method_title : $(this).data('title'),
-	    icon         : $(this).data('icon'),
-	    active       : (1 === $(this).data('default'))
-	  });
-	});
+	var Collection = __webpack_require__(24);
+	var Model = __webpack_require__(57);
 
 	module.exports = Collection.extend({
 	  model: Model,
@@ -6939,10 +5619,6 @@
 	  initialize: function() {
 	    this._isNew = false;
 	    this.on( 'change:active', this.onChangeActive );
-	  },
-
-	  fetch: function(){
-	    this.add(gateways);
 	  },
 
 	  onChangeActive: function(model, active) {
@@ -6956,29 +5632,30 @@
 	});
 
 /***/ },
-/* 91 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Model = __webpack_require__(64);
+	var Model = __webpack_require__(31);
 
 	module.exports = Model.extend({
 	  idAttribute: 'method_id',
+
 	  defaults: {
 	    active: false
 	  }
 	});
 
 /***/ },
-/* 92 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Service = __webpack_require__(53);
-	var Backbone = __webpack_require__(45);
-	var LayoutView = __webpack_require__(93);
-	var AlertView = __webpack_require__(101);
-	var $ = __webpack_require__(40);
-	var _ = __webpack_require__(2);
-	var globalChannel = __webpack_require__(41).channel('global');
+	var Service = __webpack_require__(20);
+	var Backbone = __webpack_require__(16);
+	var LayoutView = __webpack_require__(59);
+	var AlertView = __webpack_require__(66);
+	var $ = __webpack_require__(6);
+	var _ = __webpack_require__(5);
+	var globalChannel = __webpack_require__(4).channel('global');
 
 	module.exports = Service.extend({
 	  channelName: 'modal',
@@ -7112,27 +5789,26 @@
 	});
 
 /***/ },
-/* 93 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var LayoutView = __webpack_require__(47);
-	var Header = __webpack_require__(94);
-	var _ = __webpack_require__(2);
-	var $ = __webpack_require__(40);
-	var hbs = __webpack_require__(96);
-	var Tmpl = __webpack_require__(98);
-	var Radio = __webpack_require__(41);
-	var debug = __webpack_require__(37)('modalLayout');
-	__webpack_require__(99);
-	__webpack_require__(100);
+	var LayoutView = __webpack_require__(18);
+	var Header = __webpack_require__(60);
+	var _ = __webpack_require__(5);
+	var $ = __webpack_require__(6);
+	var hbs = __webpack_require__(7);
+	var Tmpl = __webpack_require__(63);
+	var Radio = __webpack_require__(4);
+	var debug = __webpack_require__(13)('modalLayout');
+	var App = __webpack_require__(2);
+	__webpack_require__(64);
 
 	module.exports = LayoutView.extend({
 	  template: hbs.compile(Tmpl),
 
-	  //className: 'modal',
+	  // if wp-admin, add css prefix
 	  className: function(){
-	    // if wp-admin, add css prefix
-	    return window.adminpage ? 'wc_pos-modal' : 'modal';
+	    return App.prototype.namespace('modal');
 	  },
 
 	  attributes: {
@@ -7254,14 +5930,14 @@
 	});
 
 /***/ },
-/* 94 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var hbs = __webpack_require__(96);
-	var Tmpl = __webpack_require__(97);
-	var _ = __webpack_require__(2);
-	var polyglot = __webpack_require__(49);
+	var ItemView = __webpack_require__(61);
+	var hbs = __webpack_require__(7);
+	var Tmpl = __webpack_require__(62);
+	var _ = __webpack_require__(5);
+	var polyglot = __webpack_require__(10);
 
 	module.exports = ItemView.extend({
 	  template: hbs.compile(Tmpl),
@@ -7287,449 +5963,772 @@
 	});
 
 /***/ },
-/* 95 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Mn = __webpack_require__(44);
-	var POS = __webpack_require__(36);
+	var Mn = __webpack_require__(3);
+	var app = __webpack_require__(2);
 
-	module.exports = POS.ItemView = Mn.ItemView;
+	module.exports = app.prototype.ItemView = Mn.ItemView;
 
 /***/ },
-/* 96 */
+/* 62 */
 /***/ function(module, exports) {
 
-	module.exports = Handlebars;
+	module.exports = "<h4 class=\"{{namespace 'modal-title'}} modal-title\">\n  {{{title}}}\n</h4>\n<a class=\"{{namespace 'btn'}} close\" data-action=\"close\">\n  <i class=\"{{namespace 'icon-times'}}\" title=\"{{close}}\"></i>\n</a>"
 
 /***/ },
-/* 97 */
+/* 63 */
 /***/ function(module, exports) {
 
-	module.exports = "<h1>{{{title}}}</h1>\n<i class=\"{{iconPrefix}}-times\" data-action=\"close\" title=\"{{close}}\"></i>"
+	module.exports = "<div class=\"{{namespace 'modal-dialog'}} modal-dialog\">\n  <div class=\"{{namespace 'modal-content'}} modal-content\">\n    <div class=\"{{namespace 'modal-header'}} modal-header\"></div>\n    <div class=\"{{namespace 'modal-body'}} modal-body\"></div>\n    <div class=\"{{namespace 'modal-footer'}} modal-footer\"></div>\n  </div>\n</div>"
 
 /***/ },
-/* 98 */
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"modal-dialog\">\n  <div class=\"modal-content\">\n    <div class=\"modal-header\"></div>\n    <div class=\"modal-body\"></div>\n    <div class=\"modal-footer\"></div>\n  </div>\n</div>"
-
-/***/ },
-/* 99 */
-/***/ function(module, exports) {
-
-	/* ========================================================================
-	 * Bootstrap: modal.js v3.3.4
-	 * http://getbootstrap.com/javascript/#modals
-	 * ========================================================================
-	 * Copyright 2011-2015 Twitter, Inc.
-	 * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-	 * ======================================================================== */
-
-
-	+function ($) {
-	  'use strict';
-
-	  // MODAL CLASS DEFINITION
-	  // ======================
-
-	  var Modal = function (element, options) {
-	    this.options             = options
-	    this.$body               = $(document.body)
-	    this.$element            = $(element)
-	    this.$dialog             = this.$element.find('.modal-dialog')
-	    this.$backdrop           = null
-	    this.isShown             = null
-	    this.originalBodyPad     = null
-	    this.scrollbarWidth      = 0
-	    this.ignoreBackdropClick = false
-
-	    if (this.options.remote) {
-	      this.$element
-	        .find('.modal-content')
-	        .load(this.options.remote, $.proxy(function () {
-	          this.$element.trigger('loaded.bs.modal')
-	        }, this))
-	    }
-	  }
-
-	  Modal.VERSION  = '3.3.4'
-
-	  Modal.TRANSITION_DURATION = 300
-	  Modal.BACKDROP_TRANSITION_DURATION = 150
-
-	  Modal.DEFAULTS = {
-	    backdrop: true,
-	    keyboard: true,
-	    show: true
-	  }
-
-	  Modal.prototype.toggle = function (_relatedTarget) {
-	    return this.isShown ? this.hide() : this.show(_relatedTarget)
-	  }
-
-	  Modal.prototype.show = function (_relatedTarget) {
-	    var that = this
-	    var e    = $.Event('show.bs.modal', { relatedTarget: _relatedTarget })
-
-	    this.$element.trigger(e)
-
-	    if (this.isShown || e.isDefaultPrevented()) return
-
-	    this.isShown = true
-
-	    this.checkScrollbar()
-	    this.setScrollbar()
-	    this.$body.addClass('modal-open')
-
-	    this.escape()
-	    this.resize()
-
-	    this.$element.on('click.dismiss.bs.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this))
-
-	    this.$dialog.on('mousedown.dismiss.bs.modal', function () {
-	      that.$element.one('mouseup.dismiss.bs.modal', function (e) {
-	        if ($(e.target).is(that.$element)) that.ignoreBackdropClick = true
-	      })
-	    })
-
-	    this.backdrop(function () {
-	      var transition = $.support.transition && that.$element.hasClass('fade')
-
-	      if (!that.$element.parent().length) {
-	        that.$element.appendTo(that.$body) // don't move modals dom position
-	      }
-
-	      that.$element
-	        .show()
-	        .scrollTop(0)
-
-	      that.adjustDialog()
-
-	      if (transition) {
-	        that.$element[0].offsetWidth // force reflow
-	      }
-
-	      that.$element
-	        .addClass('in')
-	        .attr('aria-hidden', false)
-
-	      that.enforceFocus()
-
-	      var e = $.Event('shown.bs.modal', { relatedTarget: _relatedTarget })
-
-	      transition ?
-	        that.$dialog // wait for modal to slide in
-	          .one('bsTransitionEnd', function () {
-	            that.$element.trigger('focus').trigger(e)
-	          })
-	          .emulateTransitionEnd(Modal.TRANSITION_DURATION) :
-	        that.$element.trigger('focus').trigger(e)
-	    })
-	  }
-
-	  Modal.prototype.hide = function (e) {
-	    if (e) e.preventDefault()
-
-	    e = $.Event('hide.bs.modal')
-
-	    this.$element.trigger(e)
-
-	    if (!this.isShown || e.isDefaultPrevented()) return
-
-	    this.isShown = false
-
-	    this.escape()
-	    this.resize()
-
-	    $(document).off('focusin.bs.modal')
-
-	    this.$element
-	      .removeClass('in')
-	      .attr('aria-hidden', true)
-	      .off('click.dismiss.bs.modal')
-	      .off('mouseup.dismiss.bs.modal')
-
-	    this.$dialog.off('mousedown.dismiss.bs.modal')
-
-	    $.support.transition && this.$element.hasClass('fade') ?
-	      this.$element
-	        .one('bsTransitionEnd', $.proxy(this.hideModal, this))
-	        .emulateTransitionEnd(Modal.TRANSITION_DURATION) :
-	      this.hideModal()
-	  }
-
-	  Modal.prototype.enforceFocus = function () {
-	    $(document)
-	      .off('focusin.bs.modal') // guard against infinite focus loop
-	      .on('focusin.bs.modal', $.proxy(function (e) {
-	        if (this.$element[0] !== e.target && !this.$element.has(e.target).length) {
-	          this.$element.trigger('focus')
-	        }
-	      }, this))
-	  }
-
-	  Modal.prototype.escape = function () {
-	    if (this.isShown && this.options.keyboard) {
-	      this.$element.on('keydown.dismiss.bs.modal', $.proxy(function (e) {
-	        e.which == 27 && this.hide()
-	      }, this))
-	    } else if (!this.isShown) {
-	      this.$element.off('keydown.dismiss.bs.modal')
-	    }
-	  }
-
-	  Modal.prototype.resize = function () {
-	    if (this.isShown) {
-	      $(window).on('resize.bs.modal', $.proxy(this.handleUpdate, this))
-	    } else {
-	      $(window).off('resize.bs.modal')
-	    }
-	  }
-
-	  Modal.prototype.hideModal = function () {
-	    var that = this
-	    this.$element.hide()
-	    this.backdrop(function () {
-	      that.$body.removeClass('modal-open')
-	      that.resetAdjustments()
-	      that.resetScrollbar()
-	      that.$element.trigger('hidden.bs.modal')
-	    })
-	  }
-
-	  Modal.prototype.removeBackdrop = function () {
-	    this.$backdrop && this.$backdrop.remove()
-	    this.$backdrop = null
-	  }
-
-	  Modal.prototype.backdrop = function (callback) {
-	    var that = this
-	    var animate = this.$element.hasClass('fade') ? 'fade' : ''
-
-	    if (this.isShown && this.options.backdrop) {
-	      var doAnimate = $.support.transition && animate
-
-	      this.$backdrop = $('<div class="modal-backdrop ' + animate + '" />')
-	        .appendTo(this.$body)
-
-	      this.$element.on('click.dismiss.bs.modal', $.proxy(function (e) {
-	        if (this.ignoreBackdropClick) {
-	          this.ignoreBackdropClick = false
-	          return
-	        }
-	        if (e.target !== e.currentTarget) return
-	        this.options.backdrop == 'static'
-	          ? this.$element[0].focus()
-	          : this.hide()
-	      }, this))
-
-	      if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
-
-	      this.$backdrop.addClass('in')
-
-	      if (!callback) return
-
-	      doAnimate ?
-	        this.$backdrop
-	          .one('bsTransitionEnd', callback)
-	          .emulateTransitionEnd(Modal.BACKDROP_TRANSITION_DURATION) :
-	        callback()
-
-	    } else if (!this.isShown && this.$backdrop) {
-	      this.$backdrop.removeClass('in')
-
-	      var callbackRemove = function () {
-	        that.removeBackdrop()
-	        callback && callback()
-	      }
-	      $.support.transition && this.$element.hasClass('fade') ?
-	        this.$backdrop
-	          .one('bsTransitionEnd', callbackRemove)
-	          .emulateTransitionEnd(Modal.BACKDROP_TRANSITION_DURATION) :
-	        callbackRemove()
-
-	    } else if (callback) {
-	      callback()
-	    }
-	  }
-
-	  // these following methods are used to handle overflowing modals
-
-	  Modal.prototype.handleUpdate = function () {
-	    this.adjustDialog()
-	  }
-
-	  Modal.prototype.adjustDialog = function () {
-	    var modalIsOverflowing = this.$element[0].scrollHeight > document.documentElement.clientHeight
-
-	    this.$element.css({
-	      paddingLeft:  !this.bodyIsOverflowing && modalIsOverflowing ? this.scrollbarWidth : '',
-	      paddingRight: this.bodyIsOverflowing && !modalIsOverflowing ? this.scrollbarWidth : ''
-	    })
-	  }
-
-	  Modal.prototype.resetAdjustments = function () {
-	    this.$element.css({
-	      paddingLeft: '',
-	      paddingRight: ''
-	    })
-	  }
-
-	  Modal.prototype.checkScrollbar = function () {
-	    var fullWindowWidth = window.innerWidth
-	    if (!fullWindowWidth) { // workaround for missing window.innerWidth in IE8
-	      var documentElementRect = document.documentElement.getBoundingClientRect()
-	      fullWindowWidth = documentElementRect.right - Math.abs(documentElementRect.left)
-	    }
-	    this.bodyIsOverflowing = document.body.clientWidth < fullWindowWidth
-	    this.scrollbarWidth = this.measureScrollbar()
-	  }
-
-	  Modal.prototype.setScrollbar = function () {
-	    var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10)
-	    this.originalBodyPad = document.body.style.paddingRight || ''
-	    if (this.bodyIsOverflowing) this.$body.css('padding-right', bodyPad + this.scrollbarWidth)
-	  }
-
-	  Modal.prototype.resetScrollbar = function () {
-	    this.$body.css('padding-right', this.originalBodyPad)
-	  }
-
-	  Modal.prototype.measureScrollbar = function () { // thx walsh
-	    var scrollDiv = document.createElement('div')
-	    scrollDiv.className = 'modal-scrollbar-measure'
-	    this.$body.append(scrollDiv)
-	    var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth
-	    this.$body[0].removeChild(scrollDiv)
-	    return scrollbarWidth
-	  }
-
-
-	  // MODAL PLUGIN DEFINITION
-	  // =======================
-
-	  function Plugin(option, _relatedTarget) {
-	    return this.each(function () {
-	      var $this   = $(this)
-	      var data    = $this.data('bs.modal')
-	      var options = $.extend({}, Modal.DEFAULTS, $this.data(), typeof option == 'object' && option)
-
-	      if (!data) $this.data('bs.modal', (data = new Modal(this, options)))
-	      if (typeof option == 'string') data[option](_relatedTarget)
-	      else if (options.show) data.show(_relatedTarget)
-	    })
-	  }
-
-	  var old = $.fn.modal
-
-	  $.fn.modal             = Plugin
-	  $.fn.modal.Constructor = Modal
-
-
-	  // MODAL NO CONFLICT
-	  // =================
-
-	  $.fn.modal.noConflict = function () {
-	    $.fn.modal = old
-	    return this
-	  }
-
-
-	  // MODAL DATA-API
-	  // ==============
-
-	  $(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {
-	    var $this   = $(this)
-	    var href    = $this.attr('href')
-	    var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) // strip for ie7
-	    var option  = $target.data('bs.modal') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data())
-
-	    if ($this.is('a')) e.preventDefault()
-
-	    $target.one('show.bs.modal', function (showEvent) {
-	      if (showEvent.isDefaultPrevented()) return // only register focus restorer if modal will actually get shown
-	      $target.one('hidden.bs.modal', function () {
-	        $this.is(':visible') && $this.trigger('focus')
-	      })
-	    })
-	    Plugin.call($target, option, this)
-	  })
-
-	}(jQuery);
-
-
-/***/ },
-/* 100 */
-/***/ function(module, exports) {
-
-	/* ========================================================================
-	 * Bootstrap: transition.js v3.3.4
-	 * http://getbootstrap.com/javascript/#transitions
-	 * ========================================================================
-	 * Copyright 2011-2015 Twitter, Inc.
-	 * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-	 * ======================================================================== */
-
-
-	+function ($) {
-	  'use strict';
-
-	  // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
-	  // ============================================================
-
-	  function transitionEnd() {
-	    var el = document.createElement('bootstrap')
-
-	    var transEndEventNames = {
-	      WebkitTransition : 'webkitTransitionEnd',
-	      MozTransition    : 'transitionend',
-	      OTransition      : 'oTransitionEnd otransitionend',
-	      transition       : 'transitionend'
-	    }
-
-	    for (var name in transEndEventNames) {
-	      if (el.style[name] !== undefined) {
-	        return { end: transEndEventNames[name] }
-	      }
-	    }
-
-	    return false // explicit for ie8 (  ._.)
-	  }
-
-	  // http://blog.alexmaccaw.com/css-transitions
-	  $.fn.emulateTransitionEnd = function (duration) {
-	    var called = false
-	    var $el = this
-	    $(this).one('bsTransitionEnd', function () { called = true })
-	    var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
-	    setTimeout(callback, duration)
-	    return this
-	  }
-
-	  $(function () {
-	    $.support.transition = transitionEnd()
-
-	    if (!$.support.transition) return
-
-	    $.event.special.bsTransitionEnd = {
-	      bindType: $.support.transition.end,
-	      delegateType: $.support.transition.end,
-	      handle: function (e) {
-	        if ($(e.target).is(this)) return e.handleObj.handler.apply(this, arguments)
-	      }
-	    }
-	  })
-
-	}(jQuery);
-
-
-/***/ },
-/* 101 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var View = __webpack_require__(95);
-	var hbs = __webpack_require__(96);
-	var Tmpl = __webpack_require__(102);
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	  if (true) {
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, module, __webpack_require__(65)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if (typeof exports !== 'undefined' && typeof module !== 'undefined') {
+	    factory(exports, module, require('./util'));
+	  } else {
+	    var mod = {
+	      exports: {}
+	    };
+	    factory(mod.exports, mod, global.Util);
+	    global.modal = mod.exports;
+	  }
+	})(this, function (exports, module, _util) {
+	  'use strict';
+
+	  var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	  var _Util = _interopRequireDefault(_util);
+
+	  /**
+	   * --------------------------------------------------------------------------
+	   * Bootstrap (v4.0.0): modal.js
+	   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+	   * --------------------------------------------------------------------------
+	   */
+
+	  var Modal = (function ($) {
+
+	    /**
+	     * ------------------------------------------------------------------------
+	     * Constants
+	     * ------------------------------------------------------------------------
+	     */
+
+	    var NAME = 'modal';
+	    var VERSION = '4.0.0';
+	    var DATA_KEY = 'bs.modal';
+	    var EVENT_KEY = '.' + DATA_KEY;
+	    var DATA_API_KEY = '.data-api';
+	    var JQUERY_NO_CONFLICT = $.fn[NAME];
+	    var TRANSITION_DURATION = 300;
+	    var BACKDROP_TRANSITION_DURATION = 150;
+
+	    var Default = {
+	      backdrop: true,
+	      keyboard: true,
+	      focus: true,
+	      show: true
+	    };
+
+	    var DefaultType = {
+	      backdrop: '(boolean|string)',
+	      keyboard: 'boolean',
+	      focus: 'boolean',
+	      show: 'boolean'
+	    };
+
+	    var Event = {
+	      HIDE: 'hide' + EVENT_KEY,
+	      HIDDEN: 'hidden' + EVENT_KEY,
+	      SHOW: 'show' + EVENT_KEY,
+	      SHOWN: 'shown' + EVENT_KEY,
+	      FOCUSIN: 'focusin' + EVENT_KEY,
+	      RESIZE: 'resize' + EVENT_KEY,
+	      CLICK_DISMISS: 'click.dismiss' + EVENT_KEY,
+	      KEYDOWN_DISMISS: 'keydown.dismiss' + EVENT_KEY,
+	      MOUSEUP_DISMISS: 'mouseup.dismiss' + EVENT_KEY,
+	      MOUSEDOWN_DISMISS: 'mousedown.dismiss' + EVENT_KEY,
+	      CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY
+	    };
+
+	    var ClassName = {
+	      SCROLLBAR_MEASURER: 'modal-scrollbar-measure',
+	      BACKDROP: 'modal-backdrop',
+	      OPEN: 'modal-open',
+	      FADE: 'fade',
+	      IN: 'in'
+	    };
+
+	    var Selector = {
+	      DIALOG: '.modal-dialog',
+	      DATA_TOGGLE: '[data-toggle="modal"]',
+	      DATA_DISMISS: '[data-dismiss="modal"]',
+	      FIXED_CONTENT: '.navbar-fixed-top, .navbar-fixed-bottom, .is-fixed'
+	    };
+
+	    /**
+	     * ------------------------------------------------------------------------
+	     * Class Definition
+	     * ------------------------------------------------------------------------
+	     */
+
+	    var Modal = (function () {
+	      function Modal(element, config) {
+	        _classCallCheck(this, Modal);
+
+	        this._config = this._getConfig(config);
+	        this._element = element;
+	        this._dialog = $(element).find(Selector.DIALOG)[0];
+	        this._backdrop = null;
+	        this._isShown = false;
+	        this._isBodyOverflowing = false;
+	        this._ignoreBackdropClick = false;
+	        this._originalBodyPadding = 0;
+	        this._scrollbarWidth = 0;
+	      }
+
+	      /**
+	       * ------------------------------------------------------------------------
+	       * Data Api implementation
+	       * ------------------------------------------------------------------------
+	       */
+
+	      // getters
+
+	      _createClass(Modal, [{
+	        key: 'toggle',
+
+	        // public
+
+	        value: function toggle(relatedTarget) {
+	          return this._isShown ? this.hide() : this.show(relatedTarget);
+	        }
+	      }, {
+	        key: 'show',
+	        value: function show(relatedTarget) {
+	          var _this = this;
+
+	          var showEvent = $.Event(Event.SHOW, {
+	            relatedTarget: relatedTarget
+	          });
+
+	          $(this._element).trigger(showEvent);
+
+	          if (this._isShown || showEvent.isDefaultPrevented()) {
+	            return;
+	          }
+
+	          this._isShown = true;
+
+	          this._checkScrollbar();
+	          this._setScrollbar();
+
+	          $(document.body).addClass(ClassName.OPEN);
+
+	          this._setEscapeEvent();
+	          this._setResizeEvent();
+
+	          $(this._element).on(Event.CLICK_DISMISS, Selector.DATA_DISMISS, $.proxy(this.hide, this));
+
+	          $(this._dialog).on(Event.MOUSEDOWN_DISMISS, function () {
+	            $(_this._element).one(Event.MOUSEUP_DISMISS, function (event) {
+	              if ($(event.target).is(_this._element)) {
+	                that._ignoreBackdropClick = true;
+	              }
+	            });
+	          });
+
+	          this._showBackdrop($.proxy(this._showElement, this, relatedTarget));
+	        }
+	      }, {
+	        key: 'hide',
+	        value: function hide(event) {
+	          if (event) {
+	            event.preventDefault();
+	          }
+
+	          var hideEvent = $.Event(Event.HIDE);
+
+	          $(this._element).trigger(hideEvent);
+
+	          if (!this._isShown || hideEvent.isDefaultPrevented()) {
+	            return;
+	          }
+
+	          this._isShown = false;
+
+	          this._setEscapeEvent();
+	          this._setResizeEvent();
+
+	          $(document).off(Event.FOCUSIN);
+
+	          $(this._element).removeClass(ClassName.IN);
+
+	          $(this._element).off(Event.CLICK_DISMISS);
+	          $(this._dialog).off(Event.MOUSEDOWN_DISMISS);
+
+	          if (_Util['default'].supportsTransitionEnd() && $(this._element).hasClass(ClassName.FADE)) {
+
+	            $(this._element).one(_Util['default'].TRANSITION_END, $.proxy(this._hideModal, this)).emulateTransitionEnd(TRANSITION_DURATION);
+	          } else {
+	            this._hideModal();
+	          }
+	        }
+	      }, {
+	        key: 'dispose',
+	        value: function dispose() {
+	          $.removeData(this._element, DATA_KEY);
+
+	          $(window).off(EVENT_KEY);
+	          $(document).off(EVENT_KEY);
+	          $(this._element).off(EVENT_KEY);
+	          $(this._backdrop).off(EVENT_KEY);
+
+	          this._config = null;
+	          this._element = null;
+	          this._dialog = null;
+	          this._backdrop = null;
+	          this._isShown = null;
+	          this._isBodyOverflowing = null;
+	          this._ignoreBackdropClick = null;
+	          this._originalBodyPadding = null;
+	          this._scrollbarWidth = null;
+	        }
+
+	        // private
+
+	      }, {
+	        key: '_getConfig',
+	        value: function _getConfig(config) {
+	          config = $.extend({}, Default, config);
+	          _Util['default'].typeCheckConfig(NAME, config, DefaultType);
+	          return config;
+	        }
+	      }, {
+	        key: '_showElement',
+	        value: function _showElement(relatedTarget) {
+	          var _this2 = this;
+
+	          var transition = _Util['default'].supportsTransitionEnd() && $(this._element).hasClass(ClassName.FADE);
+
+	          if (!this._element.parentNode || this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
+	            // don't move modals dom position
+	            document.body.appendChild(this._element);
+	          }
+
+	          this._element.style.display = 'block';
+	          this._element.scrollTop = 0;
+
+	          if (transition) {
+	            _Util['default'].reflow(this._element);
+	          }
+
+	          $(this._element).addClass(ClassName.IN);
+
+	          if (this._config.focus) {
+	            this._enforceFocus();
+	          }
+
+	          var shownEvent = $.Event(Event.SHOWN, {
+	            relatedTarget: relatedTarget
+	          });
+
+	          var transitionComplete = function transitionComplete() {
+	            if (_this2._config.focus) {
+	              _this2._element.focus();
+	            }
+	            $(_this2._element).trigger(shownEvent);
+	          };
+
+	          if (transition) {
+	            $(this._dialog).one(_Util['default'].TRANSITION_END, transitionComplete).emulateTransitionEnd(TRANSITION_DURATION);
+	          } else {
+	            transitionComplete();
+	          }
+	        }
+	      }, {
+	        key: '_enforceFocus',
+	        value: function _enforceFocus() {
+	          var _this3 = this;
+
+	          $(document).off(Event.FOCUSIN) // guard against infinite focus loop
+	          .on(Event.FOCUSIN, function (event) {
+	            if (_this3._element !== event.target && !$(_this3._element).has(event.target).length) {
+	              _this3._element.focus();
+	            }
+	          });
+	        }
+	      }, {
+	        key: '_setEscapeEvent',
+	        value: function _setEscapeEvent() {
+	          var _this4 = this;
+
+	          if (this._isShown && this._config.keyboard) {
+	            $(this._element).on(Event.KEYDOWN_DISMISS, function (event) {
+	              if (event.which === 27) {
+	                _this4.hide();
+	              }
+	            });
+	          } else if (!this._isShown) {
+	            $(this._element).off(Event.KEYDOWN_DISMISS);
+	          }
+	        }
+	      }, {
+	        key: '_setResizeEvent',
+	        value: function _setResizeEvent() {
+	          if (this._isShown) {
+	            $(window).on(Event.RESIZE, $.proxy(this._handleUpdate, this));
+	          } else {
+	            $(window).off(Event.RESIZE);
+	          }
+	        }
+	      }, {
+	        key: '_hideModal',
+	        value: function _hideModal() {
+	          var _this5 = this;
+
+	          this._element.style.display = 'none';
+	          this._showBackdrop(function () {
+	            $(document.body).removeClass(ClassName.OPEN);
+	            _this5._resetAdjustments();
+	            _this5._resetScrollbar();
+	            $(_this5._element).trigger(Event.HIDDEN);
+	          });
+	        }
+	      }, {
+	        key: '_removeBackdrop',
+	        value: function _removeBackdrop() {
+	          if (this._backdrop) {
+	            $(this._backdrop).remove();
+	            this._backdrop = null;
+	          }
+	        }
+	      }, {
+	        key: '_showBackdrop',
+	        value: function _showBackdrop(callback) {
+	          var _this6 = this;
+
+	          var animate = $(this._element).hasClass(ClassName.FADE) ? ClassName.FADE : '';
+
+	          if (this._isShown && this._config.backdrop) {
+	            var doAnimate = _Util['default'].supportsTransitionEnd() && animate;
+
+	            this._backdrop = document.createElement('div');
+	            this._backdrop.className = ClassName.BACKDROP;
+
+	            if (animate) {
+	              $(this._backdrop).addClass(animate);
+	            }
+
+	            $(this._backdrop).appendTo(document.body);
+
+	            $(this._element).on(Event.CLICK_DISMISS, function (event) {
+	              if (_this6._ignoreBackdropClick) {
+	                _this6._ignoreBackdropClick = false;
+	                return;
+	              }
+	              if (event.target !== event.currentTarget) {
+	                return;
+	              }
+	              if (_this6._config.backdrop === 'static') {
+	                _this6._element.focus();
+	              } else {
+	                _this6.hide();
+	              }
+	            });
+
+	            if (doAnimate) {
+	              _Util['default'].reflow(this._backdrop);
+	            }
+
+	            $(this._backdrop).addClass(ClassName.IN);
+
+	            if (!callback) {
+	              return;
+	            }
+
+	            if (!doAnimate) {
+	              callback();
+	              return;
+	            }
+
+	            $(this._backdrop).one(_Util['default'].TRANSITION_END, callback).emulateTransitionEnd(BACKDROP_TRANSITION_DURATION);
+	          } else if (!this._isShown && this._backdrop) {
+	            $(this._backdrop).removeClass(ClassName.IN);
+
+	            var callbackRemove = function callbackRemove() {
+	              _this6._removeBackdrop();
+	              if (callback) {
+	                callback();
+	              }
+	            };
+
+	            if (_Util['default'].supportsTransitionEnd() && $(this._element).hasClass(ClassName.FADE)) {
+	              $(this._backdrop).one(_Util['default'].TRANSITION_END, callbackRemove).emulateTransitionEnd(BACKDROP_TRANSITION_DURATION);
+	            } else {
+	              callbackRemove();
+	            }
+	          } else if (callback) {
+	            callback();
+	          }
+	        }
+
+	        // ----------------------------------------------------------------------
+	        // the following methods are used to handle overflowing modals
+	        // todo (fat): these should probably be refactored out of modal.js
+	        // ----------------------------------------------------------------------
+
+	      }, {
+	        key: '_handleUpdate',
+	        value: function _handleUpdate() {
+	          this._adjustDialog();
+	        }
+	      }, {
+	        key: '_adjustDialog',
+	        value: function _adjustDialog() {
+	          var isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
+
+	          if (!this._isBodyOverflowing && isModalOverflowing) {
+	            this._element.style.paddingLeft = this._scrollbarWidth + 'px';
+	          }
+
+	          if (this._isBodyOverflowing && !isModalOverflowing) {
+	            this._element.style.paddingRight = this._scrollbarWidth + 'px~';
+	          }
+	        }
+	      }, {
+	        key: '_resetAdjustments',
+	        value: function _resetAdjustments() {
+	          this._element.style.paddingLeft = '';
+	          this._element.style.paddingRight = '';
+	        }
+	      }, {
+	        key: '_checkScrollbar',
+	        value: function _checkScrollbar() {
+	          var fullWindowWidth = window.innerWidth;
+	          if (!fullWindowWidth) {
+	            // workaround for missing window.innerWidth in IE8
+	            var documentElementRect = document.documentElement.getBoundingClientRect();
+	            fullWindowWidth = documentElementRect.right - Math.abs(documentElementRect.left);
+	          }
+	          this._isBodyOverflowing = document.body.clientWidth < fullWindowWidth;
+	          this._scrollbarWidth = this._getScrollbarWidth();
+	        }
+	      }, {
+	        key: '_setScrollbar',
+	        value: function _setScrollbar() {
+	          var bodyPadding = parseInt($(Selector.FIXED_CONTENT).css('padding-right') || 0, 10);
+
+	          this._originalBodyPadding = document.body.style.paddingRight || '';
+
+	          if (this._isBodyOverflowing) {
+	            document.body.style.paddingRight = bodyPadding + this._scrollbarWidth + 'px';
+	          }
+	        }
+	      }, {
+	        key: '_resetScrollbar',
+	        value: function _resetScrollbar() {
+	          document.body.style.paddingRight = this._originalBodyPadding;
+	        }
+	      }, {
+	        key: '_getScrollbarWidth',
+	        value: function _getScrollbarWidth() {
+	          // thx d.walsh
+	          var scrollDiv = document.createElement('div');
+	          scrollDiv.className = ClassName.SCROLLBAR_MEASURER;
+	          document.body.appendChild(scrollDiv);
+	          var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+	          document.body.removeChild(scrollDiv);
+	          return scrollbarWidth;
+	        }
+
+	        // static
+
+	      }], [{
+	        key: '_jQueryInterface',
+	        value: function _jQueryInterface(config, relatedTarget) {
+	          return this.each(function () {
+	            var data = $(this).data(DATA_KEY);
+	            var _config = $.extend({}, Modal.Default, $(this).data(), typeof config === 'object' && config);
+
+	            if (!data) {
+	              data = new Modal(this, _config);
+	              $(this).data(DATA_KEY, data);
+	            }
+
+	            if (typeof config === 'string') {
+	              if (data[config] === undefined) {
+	                throw new Error('No method named "' + config + '"');
+	              }
+	              data[config](relatedTarget);
+	            } else if (_config.show) {
+	              data.show(relatedTarget);
+	            }
+	          });
+	        }
+	      }, {
+	        key: 'VERSION',
+	        get: function get() {
+	          return VERSION;
+	        }
+	      }, {
+	        key: 'Default',
+	        get: function get() {
+	          return Default;
+	        }
+	      }]);
+
+	      return Modal;
+	    })();
+
+	    $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
+	      var _this7 = this;
+
+	      var target = undefined;
+	      var selector = _Util['default'].getSelectorFromElement(this);
+
+	      if (selector) {
+	        target = $(selector)[0];
+	      }
+
+	      var config = $(target).data(DATA_KEY) ? 'toggle' : $.extend({}, $(target).data(), $(this).data());
+
+	      if (this.tagName === 'A') {
+	        event.preventDefault();
+	      }
+
+	      var $target = $(target).one(Event.SHOW, function (showEvent) {
+	        if (showEvent.isDefaultPrevented()) {
+	          // only register focus restorer if modal will actually get shown
+	          return;
+	        }
+
+	        $target.one(Event.HIDDEN, function () {
+	          if ($(_this7).is(':visible')) {
+	            _this7.focus();
+	          }
+	        });
+	      });
+
+	      Modal._jQueryInterface.call($(target), config, this);
+	    });
+
+	    /**
+	     * ------------------------------------------------------------------------
+	     * jQuery
+	     * ------------------------------------------------------------------------
+	     */
+
+	    $.fn[NAME] = Modal._jQueryInterface;
+	    $.fn[NAME].Constructor = Modal;
+	    $.fn[NAME].noConflict = function () {
+	      $.fn[NAME] = JQUERY_NO_CONFLICT;
+	      return Modal._jQueryInterface;
+	    };
+
+	    return Modal;
+	  })(jQuery);
+
+	  module.exports = Modal;
+	});
+
+
+/***/ },
+/* 65 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	  if (true) {
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, module], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if (typeof exports !== 'undefined' && typeof module !== 'undefined') {
+	    factory(exports, module);
+	  } else {
+	    var mod = {
+	      exports: {}
+	    };
+	    factory(mod.exports, mod);
+	    global.util = mod.exports;
+	  }
+	})(this, function (exports, module) {
+	  /**
+	   * --------------------------------------------------------------------------
+	   * Bootstrap (v4.0.0): util.js
+	   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+	   * --------------------------------------------------------------------------
+	   */
+
+	  'use strict';
+
+	  var Util = (function ($) {
+
+	    /**
+	     * ------------------------------------------------------------------------
+	     * Private TransitionEnd Helpers
+	     * ------------------------------------------------------------------------
+	     */
+
+	    var transition = false;
+
+	    var TransitionEndEvent = {
+	      WebkitTransition: 'webkitTransitionEnd',
+	      MozTransition: 'transitionend',
+	      OTransition: 'oTransitionEnd otransitionend',
+	      transition: 'transitionend'
+	    };
+
+	    // shoutout AngusCroll (https://goo.gl/pxwQGp)
+	    function toType(obj) {
+	      return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
+	    }
+
+	    function isElement(obj) {
+	      return (obj[0] || obj).nodeType;
+	    }
+
+	    function getSpecialTransitionEndEvent() {
+	      return {
+	        bindType: transition.end,
+	        delegateType: transition.end,
+	        handle: function handle(event) {
+	          if ($(event.target).is(this)) {
+	            return event.handleObj.handler.apply(this, arguments);
+	          }
+	        }
+	      };
+	    }
+
+	    function transitionEndTest() {
+	      if (window.QUnit) {
+	        return false;
+	      }
+
+	      var el = document.createElement('bootstrap');
+
+	      for (var _name in TransitionEndEvent) {
+	        if (el.style[_name] !== undefined) {
+	          return { end: TransitionEndEvent[_name] };
+	        }
+	      }
+
+	      return false;
+	    }
+
+	    function transitionEndEmulator(duration) {
+	      var _this = this;
+
+	      var called = false;
+
+	      $(this).one(Util.TRANSITION_END, function () {
+	        called = true;
+	      });
+
+	      setTimeout(function () {
+	        if (!called) {
+	          Util.triggerTransitionEnd(_this);
+	        }
+	      }, duration);
+
+	      return this;
+	    }
+
+	    function setTransitionEndSupport() {
+	      transition = transitionEndTest();
+
+	      $.fn.emulateTransitionEnd = transitionEndEmulator;
+
+	      if (Util.supportsTransitionEnd()) {
+	        $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
+	      }
+	    }
+
+	    /**
+	     * --------------------------------------------------------------------------
+	     * Public Util Api
+	     * --------------------------------------------------------------------------
+	     */
+
+	    var Util = {
+
+	      TRANSITION_END: 'bsTransitionEnd',
+
+	      getUID: function getUID(prefix) {
+	        do {
+	          prefix += ~ ~(Math.random() * 1000000);
+	        } while (document.getElementById(prefix));
+	        return prefix;
+	      },
+
+	      getSelectorFromElement: function getSelectorFromElement(element) {
+	        var selector = element.getAttribute('data-target');
+
+	        if (!selector) {
+	          selector = element.getAttribute('href') || '';
+	          selector = /^#[a-z]/i.test(selector) ? selector : null;
+	        }
+
+	        return selector;
+	      },
+
+	      reflow: function reflow(element) {
+	        new Function('bs', 'return bs')(element.offsetHeight);
+	      },
+
+	      triggerTransitionEnd: function triggerTransitionEnd(element) {
+	        $(element).trigger(transition.end);
+	      },
+
+	      supportsTransitionEnd: function supportsTransitionEnd() {
+	        return Boolean(transition);
+	      },
+
+	      typeCheckConfig: function typeCheckConfig(componentName, config, configTypes) {
+	        for (var property in configTypes) {
+	          if (configTypes.hasOwnProperty(property)) {
+	            var expectedTypes = configTypes[property];
+	            var value = config[property];
+	            var valueType = undefined;
+
+	            if (value && isElement(value)) {
+	              valueType = 'element';
+	            } else {
+	              valueType = toType(value);
+	            }
+
+	            if (!new RegExp(expectedTypes).test(valueType)) {
+	              throw new Error(componentName.toUpperCase() + ': ' + ('Option "' + property + '" provided type "' + valueType + '" ') + ('but expected type "' + expectedTypes + '".'));
+	            }
+	          }
+	        }
+	      }
+	    };
+
+	    setTransitionEndSupport();
+
+	    return Util;
+	  })(jQuery);
+
+	  module.exports = Util;
+	});
+
+
+/***/ },
+/* 66 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var View = __webpack_require__(61);
+	var hbs = __webpack_require__(7);
+	var Tmpl = __webpack_require__(67);
 
 	module.exports = View.extend({
 	  template: hbs.compile(Tmpl),
@@ -7776,18 +6775,18 @@
 	});
 
 /***/ },
-/* 102 */
+/* 67 */
 /***/ function(module, exports) {
 
-	module.exports = "<p>\n  {{message}}\n  {{#if raw}}\n    <a href=\"#\" data-action=\"raw\"><i class=\"icon icon-info-circle\"></i></a>\n  {{/if}}\n<p>\n{{#if raw}}\n  <div class=\"raw-output\" style=\"display:none\">{{{raw}}}</div>\n{{/if}}"
+	module.exports = "<p>\n  {{message}}\n  {{#if raw}}\n    <a href=\"#\" data-action=\"raw\"><i class=\"{{namespace 'icon-info-circle'}}\"></i></a>\n  {{/if}}\n<p>\n{{#if raw}}\n  <div class=\"raw-output\" style=\"display:none\">{{{raw}}}</div>\n{{/if}}"
 
 /***/ },
-/* 103 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Service = __webpack_require__(53);
-	var TabsView = __webpack_require__(104);
-	var TabsCollection = __webpack_require__(108);
+	var Service = __webpack_require__(20);
+	var TabsView = __webpack_require__(69);
+	var TabsCollection = __webpack_require__(73);
 	//var _ = require('lodash');
 
 	module.exports = Service.extend({
@@ -7819,17 +6818,18 @@
 	});
 
 /***/ },
-/* 104 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var CollectionView = __webpack_require__(105);
-	var Tab = __webpack_require__(106);
+	var CollectionView = __webpack_require__(70);
+	var Tab = __webpack_require__(71);
 
 	var View = CollectionView.extend({
 	  tagName: 'ul',
 	  childView: Tab,
 	  attributes: {
-	    'role': 'tablist'
+	    'class' : 'tabs',
+	    'role'  : 'tablist'
 	  },
 
 	  setActive: function(id){
@@ -7852,13 +6852,13 @@
 	module.exports = View;
 
 /***/ },
-/* 105 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Mn = __webpack_require__(44);
-	var POS = __webpack_require__(36);
+	var Mn = __webpack_require__(3);
+	var app = __webpack_require__(2);
 
-	module.exports = POS.CollectionView = Mn.CollectionView.extend({
+	module.exports = app.prototype.CollectionView = Mn.CollectionView.extend({
 	  //// Marionette's default implementation ignores the index, always
 	  //// appending the new view to the end. Let's be a little more clever.
 	  //appendHtml: function(collectionView, itemView, index){
@@ -7871,12 +6871,12 @@
 	});
 
 /***/ },
-/* 106 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var hbs = __webpack_require__(96);
-	var ItemView = __webpack_require__(95);
-	var Tmpl = __webpack_require__(107);
+	var hbs = __webpack_require__(7);
+	var ItemView = __webpack_require__(61);
+	var Tmpl = __webpack_require__(72);
 
 	var View = ItemView.extend({
 	  tagName: 'li',
@@ -7915,17 +6915,17 @@
 	module.exports = View;
 
 /***/ },
-/* 107 */
+/* 72 */
 /***/ function(module, exports) {
 
 	module.exports = "{{#unless fixed}}\n<a href=\"#\" data-action=\"remove\">\n  <i class=\"icon icon-times-circle\"></i>\n</a>\n{{/unless}}\n{{{ label }}}"
 
 /***/ },
-/* 108 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Collection = __webpack_require__(57);
-	var Model = __webpack_require__(109);
+	var Collection = __webpack_require__(24);
+	var Model = __webpack_require__(74);
 
 	var TabsCollection = Collection.extend({
 	  model: Model,
@@ -7947,7 +6947,7 @@
 
 	  ensureActiveTab: function() {
 	    var activeTabs = this.where({'active': true});
-	    if( activeTabs.length === 0 ) {
+	    if( this.length > 0 && activeTabs.length === 0 ) {
 	      this.at(0).set({active: true});
 	    }
 	  }
@@ -7957,10 +6957,10 @@
 	module.exports = TabsCollection;
 
 /***/ },
-/* 109 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Model = __webpack_require__(64);
+	var Model = __webpack_require__(31);
 
 	var TabModel = Model.extend({
 	  defaults: {
@@ -7974,11 +6974,11 @@
 	module.exports = TabModel;
 
 /***/ },
-/* 110 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Service = __webpack_require__(53);
-	var View = __webpack_require__(111);
+	var Service = __webpack_require__(20);
+	var View = __webpack_require__(76);
 
 	module.exports = Service.extend({
 
@@ -8000,15 +7000,15 @@
 	});
 
 /***/ },
-/* 111 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var hbs = __webpack_require__(96);
-	var _ = __webpack_require__(2);
-	var tmpl = __webpack_require__(112);
-	var polyglot = __webpack_require__(49);
-	var ButtonsBehavior = __webpack_require__(113);
+	var ItemView = __webpack_require__(61);
+	var hbs = __webpack_require__(7);
+	var _ = __webpack_require__(5);
+	var tmpl = __webpack_require__(77);
+	var polyglot = __webpack_require__(10);
+	var ButtonsBehavior = __webpack_require__(78);
 
 	module.exports = ItemView.extend({
 
@@ -8045,31 +7045,23 @@
 	});
 
 /***/ },
-/* 112 */
+/* 77 */
 /***/ function(module, exports) {
 
 	module.exports = "{{#each buttons}}\n\n  {{#if this.button}}\n    <button class=\"btn {{this.className}}\"\n            {{#if this.action}}data-action=\"{{this.action}}\"{{/if}}\n      {{#if this.toggle}}data-toggle=\"{{this.toggle}}\"{{/if}}\n      {{#if this.loading}}data-loading=\"{{this.loadingText}}\"{{/if}}\n      {{#if this.icon}}data-icon=\"{{this.icon}}\"{{/if}}\n      {{#if this.disabled}}disabled{{/if}}\n      >\n      {{this.label}}\n    </button>\n  {{/if}}\n\n  {{#if this.link}}\n    <a href=\"#\" class=\"btn {{this.className}}\"\n       {{#if this.action}}data-action=\"{{this.action}}\"{{/if}}\n      {{#if this.toggle}}data-toggle=\"{{this.toggle}}\"{{/if}}\n      {{#if this.loading}}data-loading=\"{{this.loadingText}}\"{{/if}}\n      {{#if this.icon}}data-icon=\"{{this.icon}}\"{{/if}}\n      >\n      {{this.label}}\n    </a>\n  {{/if}}\n\n  {{#if this.input}}\n    <input type=\"button\" class=\"btn {{this.className}}\" value=\"{{this.label}}\"\n           {{#if this.action}}data-action=\"{{this.action}}\"{{/if}}\n      {{#if this.toggle}}data-toggle=\"{{this.toggle}}\"{{/if}}\n      {{#if this.loading}}data-loading=\"{{this.loadingText}}\"{{/if}}\n      >\n  {{/if}}\n\n  {{#if this.message}}\n    <p class=\"message {{this.className}}\"></p>\n  {{/if}}\n\n{{/each}}"
 
 /***/ },
-/* 113 */
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Behavior = __webpack_require__(114);
-	var POS = __webpack_require__(36);
-	var $ = __webpack_require__(40);
-	var polyglot = __webpack_require__(49);
+	var Behavior = __webpack_require__(79);
+	var App = __webpack_require__(2);
+	var $ = __webpack_require__(6);
+	var polyglot = __webpack_require__(10);
 	var d = 'disabled';
 
 	var Buttons = Behavior.extend({
 	  loadingText: polyglot.t('messages.loading'),
-	  iconPrefix: 'icon-',
-
-	  initialize: function(){
-	    // test for wp-admin
-	    if(window.adminpage){
-	      this.iconPrefix = 'wc_pos-icon-';
-	    }
-	  },
 
 	  ui: {
 	    btns    : '.btn',
@@ -8082,6 +7074,14 @@
 	    'click @ui.action': 'action',
 	    'click @ui.toggle': 'toggle',
 	    'state @ui.btns'  : 'setState'
+	  },
+
+	  namespace: function( str ){
+	    // test for wp-admin
+	    if(window.adminpage){
+	      str = 'wc_pos-' + str;
+	    }
+	    return str;
 	  },
 
 	  action: function(e){
@@ -8152,7 +7152,7 @@
 	  },
 
 	  icon: function(state){
-	    return '<i class="' + this.iconPrefix + state + '"></i>';
+	    return '<i class="' + this.namespace( 'icon-' + state ) + '"></i>';
 	  },
 
 	  updateInput: function(btn, state){
@@ -8175,7 +7175,7 @@
 	    }
 	    this.ui.message
 	      .removeClass('loading success error')
-	      .addClass(state)
+	      .addClass( this.namespace( 'text-' + state ) )
 	      .html(message);
 	  },
 
@@ -8194,30 +7194,30 @@
 	});
 
 	module.exports = Buttons;
-	POS.attach('Behaviors.Buttons', Buttons);
+	App.prototype.set('Behaviors.Buttons', Buttons);
 
 /***/ },
-/* 114 */
+/* 79 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Mn = __webpack_require__(44);
-	var POS = __webpack_require__(36);
+	var Mn = __webpack_require__(3);
+	var app = __webpack_require__(2);
 
-	module.exports = POS.Behavior = Mn.Behavior;
+	module.exports = app.prototype.Behavior = Mn.Behavior;
 
 /***/ },
-/* 115 */,
-/* 116 */
+/* 80 */,
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var bb = __webpack_require__(45);
-	var Mn = __webpack_require__(44);
-	var $ = __webpack_require__(40);
-	var _ = __webpack_require__(2);
-	var Route = __webpack_require__(117);
-	var POS = __webpack_require__(36);
+	var bb = __webpack_require__(16);
+	var Mn = __webpack_require__(3);
+	var $ = __webpack_require__(6);
+	var _ = __webpack_require__(5);
+	var Route = __webpack_require__(82);
+	var app = __webpack_require__(2);
 
-	module.exports = POS.Router = Mn.AppRouter.extend({
+	module.exports = app.prototype.Router = Mn.AppRouter.extend({
 	  constructor: function() {
 	    this.channel = bb.Radio.channel('router');
 	    this.on('all', this._onRouterEvent);
@@ -8271,19 +7271,19 @@
 	});
 
 /***/ },
-/* 117 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var bb = __webpack_require__(45);
-	var Mn = __webpack_require__(44);
-	var $ = __webpack_require__(40);
-	var _ = __webpack_require__(2);
-	var POS = __webpack_require__(36);
-	var LoadingService = __webpack_require__(118);
-	var Radio = __webpack_require__(41);
+	var bb = __webpack_require__(16);
+	var Mn = __webpack_require__(3);
+	var $ = __webpack_require__(6);
+	var _ = __webpack_require__(5);
+	var app = __webpack_require__(2);
+	var LoadingService = __webpack_require__(83);
+	var Radio = __webpack_require__(4);
 	var globalChannel = Radio.channel('global');
 
-	module.exports = POS.Route = Mn.Object.extend({
+	module.exports = app.prototype.Route = Mn.Object.extend({
 	  constructor: function() {
 	    this.initialize.apply(this, arguments);
 	  },
@@ -8340,13 +7340,13 @@
 	});
 
 /***/ },
-/* 118 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Service = __webpack_require__(53);
-	var View = __webpack_require__(119);
-	var _ = __webpack_require__(2);
-	var debug = __webpack_require__(37)('loading');
+	var Service = __webpack_require__(20);
+	var View = __webpack_require__(84);
+	var _ = __webpack_require__(5);
+	var debug = __webpack_require__(13)('loading');
 
 	module.exports = Service.extend({
 	  channelName: 'loading',
@@ -8380,12 +7380,12 @@
 	});
 
 /***/ },
-/* 119 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var _ = __webpack_require__(2);
-	var POS = __webpack_require__(36);
+	var ItemView = __webpack_require__(61);
+	var _ = __webpack_require__(5);
+	var App = __webpack_require__(2);
 
 	var View = ItemView.extend({
 	  className: 'loading',
@@ -8436,23 +7436,23 @@
 	});
 
 	module.exports = View;
-	POS.attach('Components.Loading.View', View);
+	App.prototype.set('Components.Loading.View', View);
 
 /***/ },
-/* 120 */,
-/* 121 */,
-/* 122 */,
-/* 123 */
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var bb = __webpack_require__(45);
-	var POS = __webpack_require__(36);
-	__webpack_require__(124);
-	__webpack_require__(125);
-	__webpack_require__(126);
+	var ItemView = __webpack_require__(61);
+	var bb = __webpack_require__(16);
+	var app = __webpack_require__(2);
+	__webpack_require__(89);
+	__webpack_require__(90);
+	__webpack_require__(91);
 
-	module.exports = POS.FormView = ItemView.extend({
+	module.exports = app.prototype.FormView = ItemView.extend({
 
 	  constructor: function() {
 	    return ItemView.prototype.constructor.apply(this, arguments);
@@ -8471,14 +7471,16 @@
 	      valid: function(view, attr) {
 	        view
 	          .$('input[name="' + attr + '"]')
+	          .removeClass('form-control-error')
 	          .parent()
-	          .removeClass('error');
+	          .removeClass('has-error');
 	      },
 	      invalid: function(view, attr) {
 	        view
 	          .$('input[name="' + attr + '"]')
+	          .addClass('form-control-error')
 	          .parent()
-	          .addClass('error');
+	          .addClass('has-error');
 	      }
 	    });
 
@@ -8498,7 +7500,7 @@
 	});
 
 /***/ },
-/* 124 */
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Backbone.Stickit v0.9.2, MIT Licensed
@@ -8508,7 +7510,7 @@
 
 	  // Set up Stickit appropriately for the environment. Start with AMD.
 	  if (true)
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(2), __webpack_require__(45), exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(5), __webpack_require__(16), exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 	  // Next for Node.js or CommonJS.
 	  else if (typeof exports === 'object')
@@ -9196,7 +8198,7 @@
 
 
 /***/ },
-/* 125 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Backbone.Validation v0.11.5
@@ -9208,7 +8210,7 @@
 	// http://thedersen.com/projects/backbone-validation
 	(function (factory) {
 	  if (true) {
-	    module.exports = factory(__webpack_require__(45), __webpack_require__(2));
+	    module.exports = factory(__webpack_require__(16), __webpack_require__(5));
 	  } else if (typeof define === 'function' && define.amd) {
 	    define(['backbone', 'underscore'], factory);
 	  }
@@ -9919,11 +8921,11 @@
 	}));
 
 /***/ },
-/* 126 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var bb = __webpack_require__(45);
-	var _ = __webpack_require__(2);
+	var bb = __webpack_require__(16);
+	var _ = __webpack_require__(5);
 
 	/**
 	 * AutoGrow
@@ -9936,8 +8938,39 @@
 	});
 
 	/**
+	 * Select2
+	 */
+	bb.Stickit.addHandler({
+	  selector: 'select.select2',
+	  initialize: function($el, model, opt){
+	    $el.trigger('stickit:init', opt.observe); // on-the-fly select options
+	    var options = _.get( opt, ['view', 'select2', opt.observe ], {} );
+	    $el.select2( options );
+	  },
+	  getVal: function($el){
+	    /**
+	     * below is the default select getVal method
+	     * it relies on data-stickit-bind-val attr
+	     */
+
+	    //var selected = $el.find('option:selected');
+	    //
+	    //if ($el.prop('multiple')) {
+	    //  return _.map(selected, function(el) {
+	    //    return Backbone.$(el).data('stickit-bind-val');
+	    //  });
+	    //} else {
+	    //  return selected.data('stickit-bind-val');
+	    //}
+
+	    return $el.val();
+	  }
+	});
+
+	/**
 	 * Multiple selects with Select2
-	 * ... bit of a hack here due to strange model.set behavior with arrays
+	 * ... bit of a hack here, setting an array only registers a change
+	 * ie: if last element removed no change is registered
 	 */
 	bb.Stickit.addHandler({
 	  selector: 'select[multiple].select2',
@@ -9950,736 +8983,2368 @@
 	});
 
 /***/ },
-/* 127 */
+/* 92 */,
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Behavior = __webpack_require__(114);
-	var _ = __webpack_require__(2);
-	var POS = __webpack_require__(36);
+	var Behavior = __webpack_require__(79);
+	var App = __webpack_require__(2);
+	var _ = __webpack_require__(5);
+	var $ = __webpack_require__(6);
+	var Drop = __webpack_require__(94);
+	var App = __webpack_require__(2);
+	var namespace = App.prototype.namespace('tooltip');
 
-	var Select2 = Behavior.extend({
-
-	  initialize: function(options){
-	    options = options || {};
-	    var defaults = {};
-	    var methods = [
-	      'query',
-	      'initSelection',
-	      'formatResult',
-	      'formatSelection'
-	    ];
-
-	    _.each(methods, function(method){
-	      if( this.view[method] ){
-	        options[method] = _.bind(this.view[method], this.view);
-	      }
-	      defaults[method] = this[method];
-	    }, this);
-
-	    this.options = _.defaults(options, defaults);
-	  },
-
-	  ui: {
-	    select: '.select2'
-	  },
-
-	  onRender: function() {
-	    if(this.ui.select.hasClass('no-search')) {
-	      this.options.dropdownCssClass = 'no-search';
-	    }
-	    this.ui.select.select2( this.options );
-	  },
-
-	  onBeforeDestroy: function() {
-	    this.ui.select.select2( 'destroy' );
-	  },
-
-	  //query: function(){},
-	  //initSelection: function(){},
-	  //formatResult: function(){},
-	  //formatSelection: function(){}
-
-	  onSelectDisable: function(toggle){
-	    this.ui.select.attr('disabled', toggle);
-	  }
-
+	var _Drop = Drop.createContext({
+	  classPrefix: namespace
 	});
 
-	module.exports = Select2;
-	POS.attach('Behaviors.Select2', Select2);
+	var defaults = {
+	  position: 'top center',
+	  openOn: 'hover',
+	  classes: namespace + '-theme-arrows',
+	  constrainToWindow: true,
+	  constrainToScrollParent: false,
+	  remove: true
+	};
 
-/***/ },
-/* 128 */
-/***/ function(module, exports, __webpack_require__) {
+	var TooltipBehavior = Behavior.extend({
 
-	var Behavior = __webpack_require__(114);
-	var POS = __webpack_require__(36);
-	__webpack_require__(129);
-
-	var Tooltip = Behavior.extend({
+	  _initialized: [],
 
 	  initialize: function(options){
-	    this.options = options;
-	  },
-
-	  ui: {
-	    tooltip: '*[data-toggle="tooltip"]'
-	  },
-
-	  onRender: function() {
-	    this.ui.tooltip.tooltip( this.options );
-	  }
-
-	});
-
-	module.exports = Tooltip;
-	POS.attach('Behaviors.Tooltip', Tooltip);
-
-/***/ },
-/* 129 */
-/***/ function(module, exports) {
-
-	/* ========================================================================
-	 * Bootstrap: tooltip.js v3.3.4
-	 * http://getbootstrap.com/javascript/#tooltip
-	 * Inspired by the original jQuery.tipsy by Jason Frame
-	 * ========================================================================
-	 * Copyright 2011-2015 Twitter, Inc.
-	 * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-	 * ======================================================================== */
-
-
-	+function ($) {
-	  'use strict';
-
-	  // TOOLTIP PUBLIC CLASS DEFINITION
-	  // ===============================
-
-	  var Tooltip = function (element, options) {
-	    this.type       = null
-	    this.options    = null
-	    this.enabled    = null
-	    this.timeout    = null
-	    this.hoverState = null
-	    this.$element   = null
-
-	    this.init('tooltip', element, options)
-	  }
-
-	  Tooltip.VERSION  = '3.3.4'
-
-	  Tooltip.TRANSITION_DURATION = 150
-
-	  Tooltip.DEFAULTS = {
-	    animation: true,
-	    placement: 'top',
-	    selector: false,
-	    template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
-	    trigger: 'hover focus',
-	    title: '',
-	    delay: 0,
-	    html: false,
-	    container: false,
-	    viewport: {
-	      selector: 'body',
-	      padding: 0
-	    }
-	  }
-
-	  Tooltip.prototype.init = function (type, element, options) {
-	    this.enabled   = true
-	    this.type      = type
-	    this.$element  = $(element)
-	    this.options   = this.getOptions(options)
-	    this.$viewport = this.options.viewport && $(this.options.viewport.selector || this.options.viewport)
-
-	    if (this.$element[0] instanceof document.constructor && !this.options.selector) {
-	      throw new Error('`selector` option must be specified when initializing ' + this.type + ' on the window.document object!')
-	    }
-
-	    var triggers = this.options.trigger.split(' ')
-
-	    for (var i = triggers.length; i--;) {
-	      var trigger = triggers[i]
-
-	      if (trigger == 'click') {
-	        this.$element.on('click.' + this.type, this.options.selector, $.proxy(this.toggle, this))
-	      } else if (trigger != 'manual') {
-	        var eventIn  = trigger == 'hover' ? 'mouseenter' : 'focusin'
-	        var eventOut = trigger == 'hover' ? 'mouseleave' : 'focusout'
-
-	        this.$element.on(eventIn  + '.' + this.type, this.options.selector, $.proxy(this.enter, this))
-	        this.$element.on(eventOut + '.' + this.type, this.options.selector, $.proxy(this.leave, this))
-	      }
-	    }
-
-	    this.options.selector ?
-	      (this._options = $.extend({}, this.options, { trigger: 'manual', selector: '' })) :
-	      this.fixTitle()
-	  }
-
-	  Tooltip.prototype.getDefaults = function () {
-	    return Tooltip.DEFAULTS
-	  }
-
-	  Tooltip.prototype.getOptions = function (options) {
-	    options = $.extend({}, this.getDefaults(), this.$element.data(), options)
-
-	    if (options.delay && typeof options.delay == 'number') {
-	      options.delay = {
-	        show: options.delay,
-	        hide: options.delay
-	      }
-	    }
-
-	    return options
-	  }
-
-	  Tooltip.prototype.getDelegateOptions = function () {
-	    var options  = {}
-	    var defaults = this.getDefaults()
-
-	    this._options && $.each(this._options, function (key, value) {
-	      if (defaults[key] != value) options[key] = value
-	    })
-
-	    return options
-	  }
-
-	  Tooltip.prototype.enter = function (obj) {
-	    var self = obj instanceof this.constructor ?
-	      obj : $(obj.currentTarget).data('bs.' + this.type)
-
-	    if (self && self.$tip && self.$tip.is(':visible')) {
-	      self.hoverState = 'in'
-	      return
-	    }
-
-	    if (!self) {
-	      self = new this.constructor(obj.currentTarget, this.getDelegateOptions())
-	      $(obj.currentTarget).data('bs.' + this.type, self)
-	    }
-
-	    clearTimeout(self.timeout)
-
-	    self.hoverState = 'in'
-
-	    if (!self.options.delay || !self.options.delay.show) return self.show()
-
-	    self.timeout = setTimeout(function () {
-	      if (self.hoverState == 'in') self.show()
-	    }, self.options.delay.show)
-	  }
-
-	  Tooltip.prototype.leave = function (obj) {
-	    var self = obj instanceof this.constructor ?
-	      obj : $(obj.currentTarget).data('bs.' + this.type)
-
-	    if (!self) {
-	      self = new this.constructor(obj.currentTarget, this.getDelegateOptions())
-	      $(obj.currentTarget).data('bs.' + this.type, self)
-	    }
-
-	    clearTimeout(self.timeout)
-
-	    self.hoverState = 'out'
-
-	    if (!self.options.delay || !self.options.delay.hide) return self.hide()
-
-	    self.timeout = setTimeout(function () {
-	      if (self.hoverState == 'out') self.hide()
-	    }, self.options.delay.hide)
-	  }
-
-	  Tooltip.prototype.show = function () {
-	    var e = $.Event('show.bs.' + this.type)
-
-	    if (this.hasContent() && this.enabled) {
-	      this.$element.trigger(e)
-
-	      var inDom = $.contains(this.$element[0].ownerDocument.documentElement, this.$element[0])
-	      if (e.isDefaultPrevented() || !inDom) return
-	      var that = this
-
-	      var $tip = this.tip()
-
-	      var tipId = this.getUID(this.type)
-
-	      this.setContent()
-	      $tip.attr('id', tipId)
-	      this.$element.attr('aria-describedby', tipId)
-
-	      if (this.options.animation) $tip.addClass('fade')
-
-	      var placement = typeof this.options.placement == 'function' ?
-	        this.options.placement.call(this, $tip[0], this.$element[0]) :
-	        this.options.placement
-
-	      var autoToken = /\s?auto?\s?/i
-	      var autoPlace = autoToken.test(placement)
-	      if (autoPlace) placement = placement.replace(autoToken, '') || 'top'
-
-	      $tip
-	        .detach()
-	        .css({ top: 0, left: 0, display: 'block' })
-	        .addClass(placement)
-	        .data('bs.' + this.type, this)
-
-	      this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element)
-
-	      var pos          = this.getPosition()
-	      var actualWidth  = $tip[0].offsetWidth
-	      var actualHeight = $tip[0].offsetHeight
-
-	      if (autoPlace) {
-	        var orgPlacement = placement
-	        var $container   = this.options.container ? $(this.options.container) : this.$element.parent()
-	        var containerDim = this.getPosition($container)
-
-	        placement = placement == 'bottom' && pos.bottom + actualHeight > containerDim.bottom ? 'top'    :
-	                    placement == 'top'    && pos.top    - actualHeight < containerDim.top    ? 'bottom' :
-	                    placement == 'right'  && pos.right  + actualWidth  > containerDim.width  ? 'left'   :
-	                    placement == 'left'   && pos.left   - actualWidth  < containerDim.left   ? 'right'  :
-	                    placement
-
-	        $tip
-	          .removeClass(orgPlacement)
-	          .addClass(placement)
-	      }
-
-	      var calculatedOffset = this.getCalculatedOffset(placement, pos, actualWidth, actualHeight)
-
-	      this.applyPlacement(calculatedOffset, placement)
-
-	      var complete = function () {
-	        var prevHoverState = that.hoverState
-	        that.$element.trigger('shown.bs.' + that.type)
-	        that.hoverState = null
-
-	        if (prevHoverState == 'out') that.leave(that)
-	      }
-
-	      $.support.transition && this.$tip.hasClass('fade') ?
-	        $tip
-	          .one('bsTransitionEnd', complete)
-	          .emulateTransitionEnd(Tooltip.TRANSITION_DURATION) :
-	        complete()
-	    }
-	  }
-
-	  Tooltip.prototype.applyPlacement = function (offset, placement) {
-	    var $tip   = this.tip()
-	    var width  = $tip[0].offsetWidth
-	    var height = $tip[0].offsetHeight
-
-	    // manually read margins because getBoundingClientRect includes difference
-	    var marginTop = parseInt($tip.css('margin-top'), 10)
-	    var marginLeft = parseInt($tip.css('margin-left'), 10)
-
-	    // we must check for NaN for ie 8/9
-	    if (isNaN(marginTop))  marginTop  = 0
-	    if (isNaN(marginLeft)) marginLeft = 0
-
-	    offset.top  = offset.top  + marginTop
-	    offset.left = offset.left + marginLeft
-
-	    // $.fn.offset doesn't round pixel values
-	    // so we use setOffset directly with our own function B-0
-	    $.offset.setOffset($tip[0], $.extend({
-	      using: function (props) {
-	        $tip.css({
-	          top: Math.round(props.top),
-	          left: Math.round(props.left)
-	        })
-	      }
-	    }, offset), 0)
-
-	    $tip.addClass('in')
-
-	    // check to see if placing tip in new offset caused the tip to resize itself
-	    var actualWidth  = $tip[0].offsetWidth
-	    var actualHeight = $tip[0].offsetHeight
-
-	    if (placement == 'top' && actualHeight != height) {
-	      offset.top = offset.top + height - actualHeight
-	    }
-
-	    var delta = this.getViewportAdjustedDelta(placement, offset, actualWidth, actualHeight)
-
-	    if (delta.left) offset.left += delta.left
-	    else offset.top += delta.top
-
-	    var isVertical          = /top|bottom/.test(placement)
-	    var arrowDelta          = isVertical ? delta.left * 2 - width + actualWidth : delta.top * 2 - height + actualHeight
-	    var arrowOffsetPosition = isVertical ? 'offsetWidth' : 'offsetHeight'
-
-	    $tip.offset(offset)
-	    this.replaceArrow(arrowDelta, $tip[0][arrowOffsetPosition], isVertical)
-	  }
-
-	  Tooltip.prototype.replaceArrow = function (delta, dimension, isVertical) {
-	    this.arrow()
-	      .css(isVertical ? 'left' : 'top', 50 * (1 - delta / dimension) + '%')
-	      .css(isVertical ? 'top' : 'left', '')
-	  }
-
-	  Tooltip.prototype.setContent = function () {
-	    var $tip  = this.tip()
-	    var title = this.getTitle()
-
-	    $tip.find('.tooltip-inner')[this.options.html ? 'html' : 'text'](title)
-	    $tip.removeClass('fade in top bottom left right')
-	  }
-
-	  Tooltip.prototype.hide = function (callback) {
-	    var that = this
-	    var $tip = $(this.$tip)
-	    var e    = $.Event('hide.bs.' + this.type)
-
-	    function complete() {
-	      if (that.hoverState != 'in') $tip.detach()
-	      that.$element
-	        .removeAttr('aria-describedby')
-	        .trigger('hidden.bs.' + that.type)
-	      callback && callback()
-	    }
-
-	    this.$element.trigger(e)
-
-	    if (e.isDefaultPrevented()) return
-
-	    $tip.removeClass('in')
-
-	    $.support.transition && $tip.hasClass('fade') ?
-	      $tip
-	        .one('bsTransitionEnd', complete)
-	        .emulateTransitionEnd(Tooltip.TRANSITION_DURATION) :
-	      complete()
-
-	    this.hoverState = null
-
-	    return this
-	  }
-
-	  Tooltip.prototype.fixTitle = function () {
-	    var $e = this.$element
-	    if ($e.attr('title') || typeof ($e.attr('data-original-title')) != 'string') {
-	      $e.attr('data-original-title', $e.attr('title') || '').attr('title', '')
-	    }
-	  }
-
-	  Tooltip.prototype.hasContent = function () {
-	    return this.getTitle()
-	  }
-
-	  Tooltip.prototype.getPosition = function ($element) {
-	    $element   = $element || this.$element
-
-	    var el     = $element[0]
-	    var isBody = el.tagName == 'BODY'
-
-	    var elRect    = el.getBoundingClientRect()
-	    if (elRect.width == null) {
-	      // width and height are missing in IE8, so compute them manually; see https://github.com/twbs/bootstrap/issues/14093
-	      elRect = $.extend({}, elRect, { width: elRect.right - elRect.left, height: elRect.bottom - elRect.top })
-	    }
-	    var elOffset  = isBody ? { top: 0, left: 0 } : $element.offset()
-	    var scroll    = { scroll: isBody ? document.documentElement.scrollTop || document.body.scrollTop : $element.scrollTop() }
-	    var outerDims = isBody ? { width: $(window).width(), height: $(window).height() } : null
-
-	    return $.extend({}, elRect, scroll, outerDims, elOffset)
-	  }
-
-	  Tooltip.prototype.getCalculatedOffset = function (placement, pos, actualWidth, actualHeight) {
-	    return placement == 'bottom' ? { top: pos.top + pos.height,   left: pos.left + pos.width / 2 - actualWidth / 2 } :
-	           placement == 'top'    ? { top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2 } :
-	           placement == 'left'   ? { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth } :
-	        /* placement == 'right' */ { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width }
-
-	  }
-
-	  Tooltip.prototype.getViewportAdjustedDelta = function (placement, pos, actualWidth, actualHeight) {
-	    var delta = { top: 0, left: 0 }
-	    if (!this.$viewport) return delta
-
-	    var viewportPadding = this.options.viewport && this.options.viewport.padding || 0
-	    var viewportDimensions = this.getPosition(this.$viewport)
-
-	    if (/right|left/.test(placement)) {
-	      var topEdgeOffset    = pos.top - viewportPadding - viewportDimensions.scroll
-	      var bottomEdgeOffset = pos.top + viewportPadding - viewportDimensions.scroll + actualHeight
-	      if (topEdgeOffset < viewportDimensions.top) { // top overflow
-	        delta.top = viewportDimensions.top - topEdgeOffset
-	      } else if (bottomEdgeOffset > viewportDimensions.top + viewportDimensions.height) { // bottom overflow
-	        delta.top = viewportDimensions.top + viewportDimensions.height - bottomEdgeOffset
-	      }
-	    } else {
-	      var leftEdgeOffset  = pos.left - viewportPadding
-	      var rightEdgeOffset = pos.left + viewportPadding + actualWidth
-	      if (leftEdgeOffset < viewportDimensions.left) { // left overflow
-	        delta.left = viewportDimensions.left - leftEdgeOffset
-	      } else if (rightEdgeOffset > viewportDimensions.width) { // right overflow
-	        delta.left = viewportDimensions.left + viewportDimensions.width - rightEdgeOffset
-	      }
-	    }
-
-	    return delta
-	  }
-
-	  Tooltip.prototype.getTitle = function () {
-	    var title
-	    var $e = this.$element
-	    var o  = this.options
-
-	    title = $e.attr('data-original-title')
-	      || (typeof o.title == 'function' ? o.title.call($e[0]) :  o.title)
-
-	    return title
-	  }
-
-	  Tooltip.prototype.getUID = function (prefix) {
-	    do prefix += ~~(Math.random() * 1000000)
-	    while (document.getElementById(prefix))
-	    return prefix
-	  }
-
-	  Tooltip.prototype.tip = function () {
-	    return (this.$tip = this.$tip || $(this.options.template))
-	  }
-
-	  Tooltip.prototype.arrow = function () {
-	    return (this.$arrow = this.$arrow || this.tip().find('.tooltip-arrow'))
-	  }
-
-	  Tooltip.prototype.enable = function () {
-	    this.enabled = true
-	  }
-
-	  Tooltip.prototype.disable = function () {
-	    this.enabled = false
-	  }
-
-	  Tooltip.prototype.toggleEnabled = function () {
-	    this.enabled = !this.enabled
-	  }
-
-	  Tooltip.prototype.toggle = function (e) {
-	    var self = this
-	    if (e) {
-	      self = $(e.currentTarget).data('bs.' + this.type)
-	      if (!self) {
-	        self = new this.constructor(e.currentTarget, this.getDelegateOptions())
-	        $(e.currentTarget).data('bs.' + this.type, self)
-	      }
-	    }
-
-	    self.tip().hasClass('in') ? self.leave(self) : self.enter(self)
-	  }
-
-	  Tooltip.prototype.destroy = function () {
-	    var that = this
-	    clearTimeout(this.timeout)
-	    this.hide(function () {
-	      that.$element.off('.' + that.type).removeData('bs.' + that.type)
-	    })
-	  }
-
-
-	  // TOOLTIP PLUGIN DEFINITION
-	  // =========================
-
-	  function Plugin(option) {
-	    return this.each(function () {
-	      var $this   = $(this)
-	      var data    = $this.data('bs.tooltip')
-	      var options = typeof option == 'object' && option
-
-	      if (!data && /destroy|hide/.test(option)) return
-	      if (!data) $this.data('bs.tooltip', (data = new Tooltip(this, options)))
-	      if (typeof option == 'string') data[option]()
-	    })
-	  }
-
-	  var old = $.fn.tooltip
-
-	  $.fn.tooltip             = Plugin
-	  $.fn.tooltip.Constructor = Tooltip
-
-
-	  // TOOLTIP NO CONFLICT
-	  // ===================
-
-	  $.fn.tooltip.noConflict = function () {
-	    $.fn.tooltip = old
-	    return this
-	  }
-
-	}(jQuery);
-
-
-/***/ },
-/* 130 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var ItemView = __webpack_require__(95);
-	var Select2 = __webpack_require__(127);
-	var _ = __webpack_require__(2);
-	var Radio = __webpack_require__(41);
-	var hbs = __webpack_require__(96);
-	var POS = __webpack_require__(36);
-	//var debug = require('debug')('customerSelect');
-
-	// Select view
-	var View = ItemView.extend({
-
-	  template: function(){
-	    return '<input name="customer" type="hidden" class="select2">';
-	  },
-
-	  initialize: function(options){
-	    options = options || {};
-	    this.model = options.model;
-	    this.customers = Radio.request('entities', 'get', {
-	      type: 'collection',
-	      name: 'customers'
-	    });
-	  },
-
-	  behaviors: {
-	    Select2: {
-	      behaviorClass: Select2,
-	      minimumInputLength: 3
-	    }
-	  },
-
-	  ui: {
-	    select: 'input[name="customer"]'
+	    this.options = _.extend({}, defaults, options);
+
+	    // define ui
+	    this.ui = {
+	      tooltip: '*[data-toggle="' + namespace + '"]'
+	    };
 	  },
 
 	  events: {
-	    'change @ui.select' : 'onSelect',
-	    'select2-opening @ui.select' : 'onSelectOpen'
+	    'mouseenter @ui.tooltip': 'onHover'
 	  },
 
-	  /**
-	   * using collection and Select2 query
-	   * todo: when updating to v4 use Select2 ajax api, eg:
-	   * ajax: {
-	        url: "wc_api_url/customers",
-	        dataType: 'json',
-	        quietMillis: 250,
-	        data: function (term, page) {
-	            return {filter[q]: term};
-	        },
-	        results: function (data, page) {
-	            return { results: data.customers };
-	        },
-	        cache: true
-	    },
-	   */
-	  query: _.debounce(function(query){
-	    var onSuccess = function(customers){
-	      var results = customers.toJSON();
-	      results.unshift(customers._guest);
-	      query.callback({ results: results });
-	    };
-	    this.customers
-	      .fetch({
-	        // wp-admin requires auth
-	        beforeSend: function(xhr){
-	          xhr.setRequestHeader('X-WC-POS', 1);
-	        },
-	        data: 'filter[q]=' + query.term,
-	        success: onSuccess
-	      });
-	  }, 250),
-
-	  /**
-	   *
-	   */
-	  initSelection: function( element, callback ) {
-	    var customer;
-	    if(this.model){ customer = this.model.get('customer'); }
-	    if(!customer){ customer = this.customers._default; }
-	    callback( customer );
-	  },
-
-	  /**
-	   * select2 parse results
-	   */
-	  formatResult: function( customer ) {
-	    var format = '{{first_name}} {{last_name}} ' +
-	      '{{#if email}}({{email}}){{/if}}';
-
-	    if( this.hasNoNames(customer) ){
-	      format = '{{username}} ({{email}})';
+	  onHover: function(e){
+	    if(this._initialized.indexOf(e.target) !== -1) {
+	      return;
 	    }
 
-	    var template = hbs.compile(format);
-	    return template(customer);
-	  },
+	    // drop instance
+	    var options = _.extend({}, this.options, {
+	      target  : e.target,
+	      content : $(e.target).attr('title')
+	    });
+	    var drop = new _Drop(options);
+	    this._initialized.push(e.target);
 
-	  /**
-	   * select2 parse selection
-	   */
-	  formatSelection: function( customer ) {
-	    var format = '{{first_name}} {{last_name}}';
+	    // remove the title attribute to prevent browser hover
+	    $(e.target).removeAttr('title');
 
-	    if( this.hasNoNames(customer) ){
-	      format = '{{username}}';
-	    }
-
-	    var template = hbs.compile(format);
-	    return template(customer);
-	  },
-
-	  /**
-	   *
-	   */
-	  hasNoNames: function(customer){
-	    return _.chain(customer)
-	      .pick('first_name', 'last_name')
-	      .values()
-	      .compact()
-	      .isEmpty()
-	      .value();
-	  },
-
-	  /**
-	   *
-	   */
-	  onSelect: function(e) {
-	    this.trigger( 'customer:select', e.added );
-	  },
-
-	  /**
-	   *
-	   */
-	  onSelectOpen: function() {}
+	    drop.open();
+	  }
 
 	});
 
-	module.exports = View;
-	POS.attach('Components.CustomerSelect.View', View);
+	module.exports = TooltipBehavior;
+	App.prototype.set('Behaviors.Tooltip', TooltipBehavior);
 
 /***/ },
-/* 131 */,
-/* 132 */,
-/* 133 */,
-/* 134 */,
-/* 135 */,
-/* 136 */,
-/* 137 */,
-/* 138 */,
-/* 139 */,
-/* 140 */,
-/* 141 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Behavior = __webpack_require__(114);
-	var POS = __webpack_require__(36);
-	var $ = __webpack_require__(40);
-	var Radio = __webpack_require__(41);
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! tether-drop 1.3.1 */
+
+	(function(root, factory) {
+	  if (true) {
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(95)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if (typeof exports === 'object') {
+	    module.exports = factory(require('tether'));
+	  } else {
+	    root.Drop = factory(root.Tether);
+	  }
+	}(this, function(Tether) {
+
+	/* global Tether */
+
+	'use strict';
+
+	var _bind = Function.prototype.bind;
+
+	var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _Tether$Utils = Tether.Utils;
+	var extend = _Tether$Utils.extend;
+	var addClass = _Tether$Utils.addClass;
+	var removeClass = _Tether$Utils.removeClass;
+	var hasClass = _Tether$Utils.hasClass;
+	var Evented = _Tether$Utils.Evented;
+
+	function sortAttach(str) {
+	  var _str$split = str.split(' ');
+
+	  var _str$split2 = _slicedToArray(_str$split, 2);
+
+	  var first = _str$split2[0];
+	  var second = _str$split2[1];
+
+	  if (['left', 'right'].indexOf(first) >= 0) {
+	    var _ref = [second, first];
+	    first = _ref[0];
+	    second = _ref[1];
+	  }
+	  return [first, second].join(' ');
+	}
+
+	function removeFromArray(arr, item) {
+	  var index = undefined;
+	  var results = [];
+	  while ((index = arr.indexOf(item)) !== -1) {
+	    results.push(arr.splice(index, 1));
+	  }
+	  return results;
+	}
+
+	var clickEvents = ['click'];
+	if ('ontouchstart' in document.documentElement) {
+	  clickEvents.push('touchstart');
+	}
+
+	var transitionEndEvents = {
+	  'WebkitTransition': 'webkitTransitionEnd',
+	  'MozTransition': 'transitionend',
+	  'OTransition': 'otransitionend',
+	  'transition': 'transitionend'
+	};
+
+	var transitionEndEvent = '';
+	for (var _name in transitionEndEvents) {
+	  if (({}).hasOwnProperty.call(transitionEndEvents, _name)) {
+	    var tempEl = document.createElement('p');
+	    if (typeof tempEl.style[_name] !== 'undefined') {
+	      transitionEndEvent = transitionEndEvents[_name];
+	    }
+	  }
+	}
+
+	var MIRROR_ATTACH = {
+	  left: 'right',
+	  right: 'left',
+	  top: 'bottom',
+	  bottom: 'top',
+	  middle: 'middle',
+	  center: 'center'
+	};
+
+	var allDrops = {};
+
+	// Drop can be included in external libraries.  Calling createContext gives you a fresh
+	// copy of drop which won't interact with other copies on the page (beyond calling the document events).
+
+	function createContext() {
+	  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+	  var drop = function drop() {
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+
+	    return new (_bind.apply(DropInstance, [null].concat(args)))();
+	  };
+
+	  extend(drop, {
+	    createContext: createContext,
+	    drops: [],
+	    defaults: {}
+	  });
+
+	  var defaultOptions = {
+	    classPrefix: 'drop',
+	    defaults: {
+	      position: 'bottom left',
+	      openOn: 'click',
+	      beforeClose: null,
+	      constrainToScrollParent: true,
+	      constrainToWindow: true,
+	      classes: '',
+	      remove: false,
+	      tetherOptions: {}
+	    }
+	  };
+
+	  extend(drop, defaultOptions, options);
+	  extend(drop.defaults, defaultOptions.defaults, options.defaults);
+
+	  if (typeof allDrops[drop.classPrefix] === 'undefined') {
+	    allDrops[drop.classPrefix] = [];
+	  }
+
+	  drop.updateBodyClasses = function () {
+	    // There is only one body, so despite the context concept, we still iterate through all
+	    // drops which share our classPrefix.
+
+	    var anyOpen = false;
+	    var drops = allDrops[drop.classPrefix];
+	    var len = drops.length;
+	    for (var i = 0; i < len; ++i) {
+	      if (drops[i].isOpened()) {
+	        anyOpen = true;
+	        break;
+	      }
+	    }
+
+	    if (anyOpen) {
+	      addClass(document.body, drop.classPrefix + '-open');
+	    } else {
+	      removeClass(document.body, drop.classPrefix + '-open');
+	    }
+	  };
+
+	  var DropInstance = (function (_Evented) {
+	    _inherits(DropInstance, _Evented);
+
+	    function DropInstance(opts) {
+	      _classCallCheck(this, DropInstance);
+
+	      _get(Object.getPrototypeOf(DropInstance.prototype), 'constructor', this).call(this);
+	      this.options = extend({}, drop.defaults, opts);
+	      this.target = this.options.target;
+
+	      if (typeof this.target === 'undefined') {
+	        throw new Error('Drop Error: You must provide a target.');
+	      }
+
+	      var dataPrefix = 'data-' + drop.classPrefix;
+
+	      var contentAttr = this.target.getAttribute(dataPrefix);
+	      if (contentAttr) {
+	        this.options.content = contentAttr;
+	      }
+
+	      var attrsOverride = ['position', 'openOn'];
+	      for (var i = 0; i < attrsOverride.length; ++i) {
+
+	        var override = this.target.getAttribute(dataPrefix + '-' + attrsOverride[i]);
+	        if (override) {
+	          this.options[attrsOverride[i]] = override;
+	        }
+	      }
+
+	      if (this.options.classes && this.options.addTargetClasses !== false) {
+	        addClass(this.target, this.options.classes);
+	      }
+
+	      drop.drops.push(this);
+	      allDrops[drop.classPrefix].push(this);
+
+	      this._boundEvents = [];
+	      this.bindMethods();
+	      this.setupElements();
+	      this.setupEvents();
+	      this.setupTether();
+	    }
+
+	    _createClass(DropInstance, [{
+	      key: '_on',
+	      value: function _on(element, event, handler) {
+	        this._boundEvents.push({ element: element, event: event, handler: handler });
+	        element.addEventListener(event, handler);
+	      }
+	    }, {
+	      key: 'bindMethods',
+	      value: function bindMethods() {
+	        this.transitionEndHandler = this._transitionEndHandler.bind(this);
+	      }
+	    }, {
+	      key: 'setupElements',
+	      value: function setupElements() {
+	        var _this = this;
+
+	        this.drop = document.createElement('div');
+	        addClass(this.drop, drop.classPrefix);
+
+	        if (this.options.classes) {
+	          addClass(this.drop, this.options.classes);
+	        }
+
+	        this.content = document.createElement('div');
+	        addClass(this.content, drop.classPrefix + '-content');
+
+	        if (typeof this.options.content === 'function') {
+	          var generateAndSetContent = function generateAndSetContent() {
+	            // content function might return a string or an element
+	            var contentElementOrHTML = _this.options.content.call(_this, _this);
+
+	            if (typeof contentElementOrHTML === 'string') {
+	              _this.content.innerHTML = contentElementOrHTML;
+	            } else if (typeof contentElementOrHTML === 'object') {
+	              _this.content.innerHTML = "";
+	              _this.content.appendChild(contentElementOrHTML);
+	            } else {
+	              throw new Error('Drop Error: Content function should return a string or HTMLElement.');
+	            }
+	          };
+
+	          generateAndSetContent();
+	          this.on('open', generateAndSetContent.bind(this));
+	        } else if (typeof this.options.content === 'object') {
+	          this.content.appendChild(this.options.content);
+	        } else {
+	          this.content.innerHTML = this.options.content;
+	        }
+
+	        this.drop.appendChild(this.content);
+	      }
+	    }, {
+	      key: 'setupTether',
+	      value: function setupTether() {
+	        // Tether expects two attachment points, one in the target element, one in the
+	        // drop.  We use a single one, and use the order as well, to allow us to put
+	        // the drop on either side of any of the four corners.  This magic converts between
+	        // the two:
+	        var dropAttach = this.options.position.split(' ');
+	        dropAttach[0] = MIRROR_ATTACH[dropAttach[0]];
+	        dropAttach = dropAttach.join(' ');
+
+	        var constraints = [];
+	        if (this.options.constrainToScrollParent) {
+	          constraints.push({
+	            to: 'scrollParent',
+	            pin: 'top, bottom',
+	            attachment: 'together none'
+	          });
+	        } else {
+	          // To get 'out of bounds' classes
+	          constraints.push({
+	            to: 'scrollParent'
+	          });
+	        }
+
+	        if (this.options.constrainToWindow !== false) {
+	          constraints.push({
+	            to: 'window',
+	            attachment: 'together'
+	          });
+	        } else {
+	          // To get 'out of bounds' classes
+	          constraints.push({
+	            to: 'window'
+	          });
+	        }
+
+	        var opts = {
+	          element: this.drop,
+	          target: this.target,
+	          attachment: sortAttach(dropAttach),
+	          targetAttachment: sortAttach(this.options.position),
+	          classPrefix: drop.classPrefix,
+	          offset: '0 0',
+	          targetOffset: '0 0',
+	          enabled: false,
+	          constraints: constraints,
+	          addTargetClasses: this.options.addTargetClasses
+	        };
+
+	        if (this.options.tetherOptions !== false) {
+	          this.tether = new Tether(extend({}, opts, this.options.tetherOptions));
+	        }
+	      }
+	    }, {
+	      key: 'setupEvents',
+	      value: function setupEvents() {
+	        var _this2 = this;
+
+	        if (!this.options.openOn) {
+	          return;
+	        }
+
+	        if (this.options.openOn === 'always') {
+	          setTimeout(this.open.bind(this));
+	          return;
+	        }
+
+	        var events = this.options.openOn.split(' ');
+
+	        if (events.indexOf('click') >= 0) {
+	          var openHandler = function openHandler(event) {
+	            _this2.toggle(event);
+	            event.preventDefault();
+	          };
+
+	          var closeHandler = function closeHandler(event) {
+	            if (!_this2.isOpened()) {
+	              return;
+	            }
+
+	            // Clicking inside dropdown
+	            if (event.target === _this2.drop || _this2.drop.contains(event.target)) {
+	              return;
+	            }
+
+	            // Clicking target
+	            if (event.target === _this2.target || _this2.target.contains(event.target)) {
+	              return;
+	            }
+
+	            _this2.close(event);
+	          };
+
+	          for (var i = 0; i < clickEvents.length; ++i) {
+	            var clickEvent = clickEvents[i];
+	            this._on(this.target, clickEvent, openHandler);
+	            this._on(document, clickEvent, closeHandler);
+	          }
+	        }
+
+	        var onUs = false;
+	        var outTimeout = null;
+
+	        var focusInHandler = function focusInHandler(event) {
+	          onUs = true;
+	          _this2.open(event);
+	        };
+
+	        var focusOutHandler = function focusOutHandler(event) {
+	          onUs = false;
+
+	          if (typeof outTimeout !== 'undefined') {
+	            clearTimeout(outTimeout);
+	          }
+
+	          outTimeout = setTimeout(function () {
+	            if (!onUs) {
+	              _this2.close(event);
+	            }
+	            outTimeout = null;
+	          }, 50);
+	        };
+
+	        if (events.indexOf('hover') >= 0) {
+	          this._on(this.target, 'mouseover', focusInHandler);
+	          this._on(this.drop, 'mouseover', focusInHandler);
+	          this._on(this.target, 'mouseout', focusOutHandler);
+	          this._on(this.drop, 'mouseout', focusOutHandler);
+	        }
+
+	        if (events.indexOf('focus') >= 0) {
+	          this._on(this.target, 'focus', focusInHandler);
+	          this._on(this.drop, 'focus', focusInHandler);
+	          this._on(this.target, 'blur', focusOutHandler);
+	          this._on(this.drop, 'blur', focusOutHandler);
+	        }
+	      }
+	    }, {
+	      key: 'isOpened',
+	      value: function isOpened() {
+	        if (this.drop) {
+	          return hasClass(this.drop, drop.classPrefix + '-open');
+	        }
+	      }
+	    }, {
+	      key: 'toggle',
+	      value: function toggle(event) {
+	        if (this.isOpened()) {
+	          this.close(event);
+	        } else {
+	          this.open(event);
+	        }
+	      }
+	    }, {
+	      key: 'open',
+	      value: function open(event) {
+	        var _this3 = this;
+
+	        if (this.isOpened()) {
+	          return;
+	        }
+
+	        if (!this.drop.parentNode) {
+	          document.body.appendChild(this.drop);
+	        }
+
+	        if (typeof this.tether !== 'undefined') {
+	          this.tether.enable();
+	        }
+
+	        addClass(this.drop, drop.classPrefix + '-open');
+	        addClass(this.drop, drop.classPrefix + '-open-transitionend');
+
+	        setTimeout(function () {
+	          if (_this3.drop) {
+	            addClass(_this3.drop, drop.classPrefix + '-after-open');
+	          }
+	        });
+
+	        if (typeof this.tether !== 'undefined') {
+	          this.tether.position();
+	        }
+
+	        this.trigger('open');
+
+	        drop.updateBodyClasses();
+	      }
+	    }, {
+	      key: '_transitionEndHandler',
+	      value: function _transitionEndHandler(e) {
+	        if (e.target !== e.currentTarget) {
+	          return;
+	        }
+
+	        if (!hasClass(this.drop, drop.classPrefix + '-open')) {
+	          removeClass(this.drop, drop.classPrefix + '-open-transitionend');
+	        }
+	        this.drop.removeEventListener(transitionEndEvent, this.transitionEndHandler);
+	      }
+	    }, {
+	      key: 'beforeCloseHandler',
+	      value: function beforeCloseHandler(event) {
+	        var shouldClose = true;
+
+	        if (!this.isClosing && typeof this.options.beforeClose === 'function') {
+	          this.isClosing = true;
+	          shouldClose = this.options.beforeClose(event, this) !== false;
+	        }
+
+	        this.isClosing = false;
+
+	        return shouldClose;
+	      }
+	    }, {
+	      key: 'close',
+	      value: function close(event) {
+	        if (!this.isOpened()) {
+	          return;
+	        }
+
+	        if (!this.beforeCloseHandler(event)) {
+	          return;
+	        }
+
+	        removeClass(this.drop, drop.classPrefix + '-open');
+	        removeClass(this.drop, drop.classPrefix + '-after-open');
+
+	        this.drop.addEventListener(transitionEndEvent, this.transitionEndHandler);
+
+	        this.trigger('close');
+
+	        if (typeof this.tether !== 'undefined') {
+	          this.tether.disable();
+	        }
+
+	        drop.updateBodyClasses();
+
+	        if (this.options.remove) {
+	          this.remove(event);
+	        }
+	      }
+	    }, {
+	      key: 'remove',
+	      value: function remove(event) {
+	        this.close(event);
+	        if (this.drop.parentNode) {
+	          this.drop.parentNode.removeChild(this.drop);
+	        }
+	      }
+	    }, {
+	      key: 'position',
+	      value: function position() {
+	        if (this.isOpened() && typeof this.tether !== 'undefined') {
+	          this.tether.position();
+	        }
+	      }
+	    }, {
+	      key: 'destroy',
+	      value: function destroy() {
+	        this.remove();
+
+	        if (typeof this.tether !== 'undefined') {
+	          this.tether.destroy();
+	        }
+
+	        for (var i = 0; i < this._boundEvents.length; ++i) {
+	          var _boundEvents$i = this._boundEvents[i];
+	          var element = _boundEvents$i.element;
+	          var _event = _boundEvents$i.event;
+	          var handler = _boundEvents$i.handler;
+
+	          element.removeEventListener(_event, handler);
+	        }
+
+	        this._boundEvents = [];
+
+	        this.tether = null;
+	        this.drop = null;
+	        this.content = null;
+	        this.target = null;
+
+	        removeFromArray(allDrops[drop.classPrefix], this);
+	        removeFromArray(drop.drops, this);
+	      }
+	    }]);
+
+	    return DropInstance;
+	  })(Evented);
+
+	  return drop;
+	}
+
+	var Drop = createContext();
+
+	document.addEventListener('DOMContentLoaded', function () {
+	  Drop.updateBodyClasses();
+	});
+	return Drop;
+
+	}));
+
+
+/***/ },
+/* 95 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! tether 1.1.0 */
+
+	(function(root, factory) {
+	  if (true) {
+	    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if (typeof exports === 'object') {
+	    module.exports = factory(require, exports, module);
+	  } else {
+	    root.Tether = factory();
+	  }
+	}(this, function(require, exports, module) {
+
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	var TetherBase = undefined;
+	if (typeof TetherBase === 'undefined') {
+	  TetherBase = { modules: [] };
+	}
+
+	function getScrollParent(el) {
+	  var _getComputedStyle = getComputedStyle(el);
+
+	  var position = _getComputedStyle.position;
+
+	  if (position === 'fixed') {
+	    return el;
+	  }
+
+	  var parent = el;
+	  while (parent = parent.parentNode) {
+	    var style = undefined;
+	    try {
+	      style = getComputedStyle(parent);
+	    } catch (err) {}
+
+	    if (typeof style === 'undefined' || style === null) {
+	      return parent;
+	    }
+
+	    var _style = style;
+	    var overflow = _style.overflow;
+	    var overflowX = _style.overflowX;
+	    var overflowY = _style.overflowY;
+
+	    if (/(auto|scroll)/.test(overflow + overflowY + overflowX)) {
+	      if (position !== 'absolute' || ['relative', 'absolute', 'fixed'].indexOf(style.position) >= 0) {
+	        return parent;
+	      }
+	    }
+	  }
+
+	  return document.body;
+	}
+
+	var uniqueId = (function () {
+	  var id = 0;
+	  return function () {
+	    return ++id;
+	  };
+	})();
+
+	var zeroPosCache = {};
+	var getOrigin = function getOrigin(doc) {
+	  // getBoundingClientRect is unfortunately too accurate.  It introduces a pixel or two of
+	  // jitter as the user scrolls that messes with our ability to detect if two positions
+	  // are equivilant or not.  We place an element at the top left of the page that will
+	  // get the same jitter, so we can cancel the two out.
+	  var node = doc._tetherZeroElement;
+	  if (typeof node === 'undefined') {
+	    node = doc.createElement('div');
+	    node.setAttribute('data-tether-id', uniqueId());
+	    extend(node.style, {
+	      top: 0,
+	      left: 0,
+	      position: 'absolute'
+	    });
+
+	    doc.body.appendChild(node);
+
+	    doc._tetherZeroElement = node;
+	  }
+
+	  var id = node.getAttribute('data-tether-id');
+	  if (typeof zeroPosCache[id] === 'undefined') {
+	    zeroPosCache[id] = {};
+
+	    var rect = node.getBoundingClientRect();
+	    for (var k in rect) {
+	      // Can't use extend, as on IE9, elements don't resolve to be hasOwnProperty
+	      zeroPosCache[id][k] = rect[k];
+	    }
+
+	    // Clear the cache when this position call is done
+	    defer(function () {
+	      delete zeroPosCache[id];
+	    });
+	  }
+
+	  return zeroPosCache[id];
+	};
+
+	function getBounds(el) {
+	  var doc = undefined;
+	  if (el === document) {
+	    doc = document;
+	    el = document.documentElement;
+	  } else {
+	    doc = el.ownerDocument;
+	  }
+
+	  var docEl = doc.documentElement;
+
+	  var box = {};
+	  // The original object returned by getBoundingClientRect is immutable, so we clone it
+	  // We can't use extend because the properties are not considered part of the object by hasOwnProperty in IE9
+	  var rect = el.getBoundingClientRect();
+	  for (var k in rect) {
+	    box[k] = rect[k];
+	  }
+
+	  var origin = getOrigin(doc);
+
+	  box.top -= origin.top;
+	  box.left -= origin.left;
+
+	  if (typeof box.width === 'undefined') {
+	    box.width = document.body.scrollWidth - box.left - box.right;
+	  }
+	  if (typeof box.height === 'undefined') {
+	    box.height = document.body.scrollHeight - box.top - box.bottom;
+	  }
+
+	  box.top = box.top - docEl.clientTop;
+	  box.left = box.left - docEl.clientLeft;
+	  box.right = doc.body.clientWidth - box.width - box.left;
+	  box.bottom = doc.body.clientHeight - box.height - box.top;
+
+	  return box;
+	}
+
+	function getOffsetParent(el) {
+	  return el.offsetParent || document.documentElement;
+	}
+
+	function getScrollBarSize() {
+	  var inner = document.createElement('div');
+	  inner.style.width = '100%';
+	  inner.style.height = '200px';
+
+	  var outer = document.createElement('div');
+	  extend(outer.style, {
+	    position: 'absolute',
+	    top: 0,
+	    left: 0,
+	    pointerEvents: 'none',
+	    visibility: 'hidden',
+	    width: '200px',
+	    height: '150px',
+	    overflow: 'hidden'
+	  });
+
+	  outer.appendChild(inner);
+
+	  document.body.appendChild(outer);
+
+	  var widthContained = inner.offsetWidth;
+	  outer.style.overflow = 'scroll';
+	  var widthScroll = inner.offsetWidth;
+
+	  if (widthContained === widthScroll) {
+	    widthScroll = outer.clientWidth;
+	  }
+
+	  document.body.removeChild(outer);
+
+	  var width = widthContained - widthScroll;
+
+	  return { width: width, height: width };
+	}
+
+	function extend() {
+	  var out = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+	  var args = [];
+
+	  Array.prototype.push.apply(args, arguments);
+
+	  args.slice(1).forEach(function (obj) {
+	    if (obj) {
+	      for (var key in obj) {
+	        if (({}).hasOwnProperty.call(obj, key)) {
+	          out[key] = obj[key];
+	        }
+	      }
+	    }
+	  });
+
+	  return out;
+	}
+
+	function removeClass(el, name) {
+	  if (typeof el.classList !== 'undefined') {
+	    name.split(' ').forEach(function (cls) {
+	      if (cls.trim()) {
+	        el.classList.remove(cls);
+	      }
+	    });
+	  } else {
+	    var regex = new RegExp('(^| )' + name.split(' ').join('|') + '( |$)', 'gi');
+	    var className = getClassName(el).replace(regex, ' ');
+	    setClassName(el, className);
+	  }
+	}
+
+	function addClass(el, name) {
+	  if (typeof el.classList !== 'undefined') {
+	    name.split(' ').forEach(function (cls) {
+	      if (cls.trim()) {
+	        el.classList.add(cls);
+	      }
+	    });
+	  } else {
+	    removeClass(el, name);
+	    var cls = getClassName(el) + (' ' + name);
+	    setClassName(el, cls);
+	  }
+	}
+
+	function hasClass(el, name) {
+	  if (typeof el.classList !== 'undefined') {
+	    return el.classList.contains(name);
+	  }
+	  var className = getClassName(el);
+	  return new RegExp('(^| )' + name + '( |$)', 'gi').test(className);
+	}
+
+	function getClassName(el) {
+	  if (el.className instanceof SVGAnimatedString) {
+	    return el.className.baseVal;
+	  }
+	  return el.className;
+	}
+
+	function setClassName(el, className) {
+	  el.setAttribute('class', className);
+	}
+
+	function updateClasses(el, add, all) {
+	  // Of the set of 'all' classes, we need the 'add' classes, and only the
+	  // 'add' classes to be set.
+	  all.forEach(function (cls) {
+	    if (add.indexOf(cls) === -1 && hasClass(el, cls)) {
+	      removeClass(el, cls);
+	    }
+	  });
+
+	  add.forEach(function (cls) {
+	    if (!hasClass(el, cls)) {
+	      addClass(el, cls);
+	    }
+	  });
+	}
+
+	var deferred = [];
+
+	var defer = function defer(fn) {
+	  deferred.push(fn);
+	};
+
+	var flush = function flush() {
+	  var fn = undefined;
+	  while (fn = deferred.pop()) {
+	    fn();
+	  }
+	};
+
+	var Evented = (function () {
+	  function Evented() {
+	    _classCallCheck(this, Evented);
+	  }
+
+	  _createClass(Evented, [{
+	    key: 'on',
+	    value: function on(event, handler, ctx) {
+	      var once = arguments.length <= 3 || arguments[3] === undefined ? false : arguments[3];
+
+	      if (typeof this.bindings === 'undefined') {
+	        this.bindings = {};
+	      }
+	      if (typeof this.bindings[event] === 'undefined') {
+	        this.bindings[event] = [];
+	      }
+	      this.bindings[event].push({ handler: handler, ctx: ctx, once: once });
+	    }
+	  }, {
+	    key: 'once',
+	    value: function once(event, handler, ctx) {
+	      this.on(event, handler, ctx, true);
+	    }
+	  }, {
+	    key: 'off',
+	    value: function off(event, handler) {
+	      if (typeof this.bindings !== 'undefined' && typeof this.bindings[event] !== 'undefined') {
+	        return;
+	      }
+
+	      if (typeof handler === 'undefined') {
+	        delete this.bindings[event];
+	      } else {
+	        var i = 0;
+	        while (i < this.bindings[event].length) {
+	          if (this.bindings[event][i].handler === handler) {
+	            this.bindings[event].splice(i, 1);
+	          } else {
+	            ++i;
+	          }
+	        }
+	      }
+	    }
+	  }, {
+	    key: 'trigger',
+	    value: function trigger(event) {
+	      if (typeof this.bindings !== 'undefined' && this.bindings[event]) {
+	        var i = 0;
+
+	        for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	          args[_key - 1] = arguments[_key];
+	        }
+
+	        while (i < this.bindings[event].length) {
+	          var _bindings$event$i = this.bindings[event][i];
+	          var handler = _bindings$event$i.handler;
+	          var ctx = _bindings$event$i.ctx;
+	          var once = _bindings$event$i.once;
+
+	          var context = ctx;
+	          if (typeof context === 'undefined') {
+	            context = this;
+	          }
+
+	          handler.apply(context, args);
+
+	          if (once) {
+	            this.bindings[event].splice(i, 1);
+	          } else {
+	            ++i;
+	          }
+	        }
+	      }
+	    }
+	  }]);
+
+	  return Evented;
+	})();
+
+	TetherBase.Utils = {
+	  getScrollParent: getScrollParent,
+	  getBounds: getBounds,
+	  getOffsetParent: getOffsetParent,
+	  extend: extend,
+	  addClass: addClass,
+	  removeClass: removeClass,
+	  hasClass: hasClass,
+	  updateClasses: updateClasses,
+	  defer: defer,
+	  flush: flush,
+	  uniqueId: uniqueId,
+	  Evented: Evented,
+	  getScrollBarSize: getScrollBarSize
+	};
+	/* globals TetherBase, performance */
+
+	'use strict';
+
+	var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	if (typeof TetherBase === 'undefined') {
+	  throw new Error('You must include the utils.js file before tether.js');
+	}
+
+	var _TetherBase$Utils = TetherBase.Utils;
+	var getScrollParent = _TetherBase$Utils.getScrollParent;
+	var getBounds = _TetherBase$Utils.getBounds;
+	var getOffsetParent = _TetherBase$Utils.getOffsetParent;
+	var extend = _TetherBase$Utils.extend;
+	var addClass = _TetherBase$Utils.addClass;
+	var removeClass = _TetherBase$Utils.removeClass;
+	var updateClasses = _TetherBase$Utils.updateClasses;
+	var defer = _TetherBase$Utils.defer;
+	var flush = _TetherBase$Utils.flush;
+	var getScrollBarSize = _TetherBase$Utils.getScrollBarSize;
+
+	function within(a, b) {
+	  var diff = arguments.length <= 2 || arguments[2] === undefined ? 1 : arguments[2];
+
+	  return a + diff >= b && b >= a - diff;
+	}
+
+	var transformKey = (function () {
+	  if (typeof document === 'undefined') {
+	    return '';
+	  }
+	  var el = document.createElement('div');
+
+	  var transforms = ['transform', 'webkitTransform', 'OTransform', 'MozTransform', 'msTransform'];
+	  for (var i = 0; i < transforms.length; ++i) {
+	    var key = transforms[i];
+	    if (el.style[key] !== undefined) {
+	      return key;
+	    }
+	  }
+	})();
+
+	var tethers = [];
+
+	var position = function position() {
+	  tethers.forEach(function (tether) {
+	    tether.position(false);
+	  });
+	  flush();
+	};
+
+	function now() {
+	  if (typeof performance !== 'undefined' && typeof performance.now !== 'undefined') {
+	    return performance.now();
+	  }
+	  return +new Date();
+	}
+
+	(function () {
+	  var lastCall = null;
+	  var lastDuration = null;
+	  var pendingTimeout = null;
+
+	  var tick = function tick() {
+	    if (typeof lastDuration !== 'undefined' && lastDuration > 16) {
+	      // We voluntarily throttle ourselves if we can't manage 60fps
+	      lastDuration = Math.min(lastDuration - 16, 250);
+
+	      // Just in case this is the last event, remember to position just once more
+	      pendingTimeout = setTimeout(tick, 250);
+	      return;
+	    }
+
+	    if (typeof lastCall !== 'undefined' && now() - lastCall < 10) {
+	      // Some browsers call events a little too frequently, refuse to run more than is reasonable
+	      return;
+	    }
+
+	    if (typeof pendingTimeout !== 'undefined') {
+	      clearTimeout(pendingTimeout);
+	      pendingTimeout = null;
+	    }
+
+	    lastCall = now();
+	    position();
+	    lastDuration = now() - lastCall;
+	  };
+
+	  if (typeof window !== 'undefined') {
+	    ['resize', 'scroll', 'touchmove'].forEach(function (event) {
+	      window.addEventListener(event, tick);
+	    });
+	  }
+	})();
+
+	var MIRROR_LR = {
+	  center: 'center',
+	  left: 'right',
+	  right: 'left'
+	};
+
+	var MIRROR_TB = {
+	  middle: 'middle',
+	  top: 'bottom',
+	  bottom: 'top'
+	};
+
+	var OFFSET_MAP = {
+	  top: 0,
+	  left: 0,
+	  middle: '50%',
+	  center: '50%',
+	  bottom: '100%',
+	  right: '100%'
+	};
+
+	var autoToFixedAttachment = function autoToFixedAttachment(attachment, relativeToAttachment) {
+	  var left = attachment.left;
+	  var top = attachment.top;
+
+	  if (left === 'auto') {
+	    left = MIRROR_LR[relativeToAttachment.left];
+	  }
+
+	  if (top === 'auto') {
+	    top = MIRROR_TB[relativeToAttachment.top];
+	  }
+
+	  return { left: left, top: top };
+	};
+
+	var attachmentToOffset = function attachmentToOffset(attachment) {
+	  var left = attachment.left;
+	  var top = attachment.top;
+
+	  if (typeof OFFSET_MAP[attachment.left] !== 'undefined') {
+	    left = OFFSET_MAP[attachment.left];
+	  }
+
+	  if (typeof OFFSET_MAP[attachment.top] !== 'undefined') {
+	    top = OFFSET_MAP[attachment.top];
+	  }
+
+	  return { left: left, top: top };
+	};
+
+	function addOffset() {
+	  var out = { top: 0, left: 0 };
+
+	  for (var _len = arguments.length, offsets = Array(_len), _key = 0; _key < _len; _key++) {
+	    offsets[_key] = arguments[_key];
+	  }
+
+	  offsets.forEach(function (_ref) {
+	    var top = _ref.top;
+	    var left = _ref.left;
+
+	    if (typeof top === 'string') {
+	      top = parseFloat(top, 10);
+	    }
+	    if (typeof left === 'string') {
+	      left = parseFloat(left, 10);
+	    }
+
+	    out.top += top;
+	    out.left += left;
+	  });
+
+	  return out;
+	}
+
+	function offsetToPx(offset, size) {
+	  if (typeof offset.left === 'string' && offset.left.indexOf('%') !== -1) {
+	    offset.left = parseFloat(offset.left, 10) / 100 * size.width;
+	  }
+	  if (typeof offset.top === 'string' && offset.top.indexOf('%') !== -1) {
+	    offset.top = parseFloat(offset.top, 10) / 100 * size.height;
+	  }
+
+	  return offset;
+	}
+
+	var parseOffset = function parseOffset(value) {
+	  var _value$split = value.split(' ');
+
+	  var _value$split2 = _slicedToArray(_value$split, 2);
+
+	  var top = _value$split2[0];
+	  var left = _value$split2[1];
+
+	  return { top: top, left: left };
+	};
+	var parseAttachment = parseOffset;
+
+	var TetherClass = (function () {
+	  function TetherClass(options) {
+	    var _this = this;
+
+	    _classCallCheck(this, TetherClass);
+
+	    this.position = this.position.bind(this);
+
+	    tethers.push(this);
+
+	    this.history = [];
+
+	    this.setOptions(options, false);
+
+	    TetherBase.modules.forEach(function (module) {
+	      if (typeof module.initialize !== 'undefined') {
+	        module.initialize.call(_this);
+	      }
+	    });
+
+	    this.position();
+	  }
+
+	  _createClass(TetherClass, [{
+	    key: 'getClass',
+	    value: function getClass() {
+	      var key = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
+	      var classes = this.options.classes;
+
+	      if (typeof classes !== 'undefined' && classes[key]) {
+	        return this.options.classes[key];
+	      } else if (this.options.classPrefix) {
+	        return this.options.classPrefix + '-' + key;
+	      } else {
+	        return key;
+	      }
+	    }
+	  }, {
+	    key: 'setOptions',
+	    value: function setOptions(options) {
+	      var _this2 = this;
+
+	      var pos = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
+
+	      var defaults = {
+	        offset: '0 0',
+	        targetOffset: '0 0',
+	        targetAttachment: 'auto auto',
+	        classPrefix: 'tether'
+	      };
+
+	      this.options = extend(defaults, options);
+
+	      var _options = this.options;
+	      var element = _options.element;
+	      var target = _options.target;
+	      var targetModifier = _options.targetModifier;
+
+	      this.element = element;
+	      this.target = target;
+	      this.targetModifier = targetModifier;
+
+	      if (this.target === 'viewport') {
+	        this.target = document.body;
+	        this.targetModifier = 'visible';
+	      } else if (this.target === 'scroll-handle') {
+	        this.target = document.body;
+	        this.targetModifier = 'scroll-handle';
+	      }
+
+	      ['element', 'target'].forEach(function (key) {
+	        if (typeof _this2[key] === 'undefined') {
+	          throw new Error('Tether Error: Both element and target must be defined');
+	        }
+
+	        if (typeof _this2[key].jquery !== 'undefined') {
+	          _this2[key] = _this2[key][0];
+	        } else if (typeof _this2[key] === 'string') {
+	          _this2[key] = document.querySelector(_this2[key]);
+	        }
+	      });
+
+	      addClass(this.element, this.getClass('element'));
+	      if (!(this.options.addTargetClasses === false)) {
+	        addClass(this.target, this.getClass('target'));
+	      }
+
+	      if (!this.options.attachment) {
+	        throw new Error('Tether Error: You must provide an attachment');
+	      }
+
+	      this.targetAttachment = parseAttachment(this.options.targetAttachment);
+	      this.attachment = parseAttachment(this.options.attachment);
+	      this.offset = parseOffset(this.options.offset);
+	      this.targetOffset = parseOffset(this.options.targetOffset);
+
+	      if (typeof this.scrollParent !== 'undefined') {
+	        this.disable();
+	      }
+
+	      if (this.targetModifier === 'scroll-handle') {
+	        this.scrollParent = this.target;
+	      } else {
+	        this.scrollParent = getScrollParent(this.target);
+	      }
+
+	      if (!(this.options.enabled === false)) {
+	        this.enable(pos);
+	      }
+	    }
+	  }, {
+	    key: 'getTargetBounds',
+	    value: function getTargetBounds() {
+	      if (typeof this.targetModifier !== 'undefined') {
+	        if (this.targetModifier === 'visible') {
+	          if (this.target === document.body) {
+	            return { top: pageYOffset, left: pageXOffset, height: innerHeight, width: innerWidth };
+	          } else {
+	            var bounds = getBounds(this.target);
+
+	            var out = {
+	              height: bounds.height,
+	              width: bounds.width,
+	              top: bounds.top,
+	              left: bounds.left
+	            };
+
+	            out.height = Math.min(out.height, bounds.height - (pageYOffset - bounds.top));
+	            out.height = Math.min(out.height, bounds.height - (bounds.top + bounds.height - (pageYOffset + innerHeight)));
+	            out.height = Math.min(innerHeight, out.height);
+	            out.height -= 2;
+
+	            out.width = Math.min(out.width, bounds.width - (pageXOffset - bounds.left));
+	            out.width = Math.min(out.width, bounds.width - (bounds.left + bounds.width - (pageXOffset + innerWidth)));
+	            out.width = Math.min(innerWidth, out.width);
+	            out.width -= 2;
+
+	            if (out.top < pageYOffset) {
+	              out.top = pageYOffset;
+	            }
+	            if (out.left < pageXOffset) {
+	              out.left = pageXOffset;
+	            }
+
+	            return out;
+	          }
+	        } else if (this.targetModifier === 'scroll-handle') {
+	          var bounds = undefined;
+	          var target = this.target;
+	          if (target === document.body) {
+	            target = document.documentElement;
+
+	            bounds = {
+	              left: pageXOffset,
+	              top: pageYOffset,
+	              height: innerHeight,
+	              width: innerWidth
+	            };
+	          } else {
+	            bounds = getBounds(target);
+	          }
+
+	          var style = getComputedStyle(target);
+
+	          var hasBottomScroll = target.scrollWidth > target.clientWidth || [style.overflow, style.overflowX].indexOf('scroll') >= 0 || this.target !== document.body;
+
+	          var scrollBottom = 0;
+	          if (hasBottomScroll) {
+	            scrollBottom = 15;
+	          }
+
+	          var height = bounds.height - parseFloat(style.borderTopWidth) - parseFloat(style.borderBottomWidth) - scrollBottom;
+
+	          var out = {
+	            width: 15,
+	            height: height * 0.975 * (height / target.scrollHeight),
+	            left: bounds.left + bounds.width - parseFloat(style.borderLeftWidth) - 15
+	          };
+
+	          var fitAdj = 0;
+	          if (height < 408 && this.target === document.body) {
+	            fitAdj = -0.00011 * Math.pow(height, 2) - 0.00727 * height + 22.58;
+	          }
+
+	          if (this.target !== document.body) {
+	            out.height = Math.max(out.height, 24);
+	          }
+
+	          var scrollPercentage = this.target.scrollTop / (target.scrollHeight - height);
+	          out.top = scrollPercentage * (height - out.height - fitAdj) + bounds.top + parseFloat(style.borderTopWidth);
+
+	          if (this.target === document.body) {
+	            out.height = Math.max(out.height, 24);
+	          }
+
+	          return out;
+	        }
+	      } else {
+	        return getBounds(this.target);
+	      }
+	    }
+	  }, {
+	    key: 'clearCache',
+	    value: function clearCache() {
+	      this._cache = {};
+	    }
+	  }, {
+	    key: 'cache',
+	    value: function cache(k, getter) {
+	      // More than one module will often need the same DOM info, so
+	      // we keep a cache which is cleared on each position call
+	      if (typeof this._cache === 'undefined') {
+	        this._cache = {};
+	      }
+
+	      if (typeof this._cache[k] === 'undefined') {
+	        this._cache[k] = getter.call(this);
+	      }
+
+	      return this._cache[k];
+	    }
+	  }, {
+	    key: 'enable',
+	    value: function enable() {
+	      var pos = arguments.length <= 0 || arguments[0] === undefined ? true : arguments[0];
+
+	      if (!(this.options.addTargetClasses === false)) {
+	        addClass(this.target, this.getClass('enabled'));
+	      }
+	      addClass(this.element, this.getClass('enabled'));
+	      this.enabled = true;
+
+	      if (this.scrollParent !== document) {
+	        this.scrollParent.addEventListener('scroll', this.position);
+	      }
+
+	      if (pos) {
+	        this.position();
+	      }
+	    }
+	  }, {
+	    key: 'disable',
+	    value: function disable() {
+	      removeClass(this.target, this.getClass('enabled'));
+	      removeClass(this.element, this.getClass('enabled'));
+	      this.enabled = false;
+
+	      if (typeof this.scrollParent !== 'undefined') {
+	        this.scrollParent.removeEventListener('scroll', this.position);
+	      }
+	    }
+	  }, {
+	    key: 'destroy',
+	    value: function destroy() {
+	      var _this3 = this;
+
+	      this.disable();
+
+	      tethers.forEach(function (tether, i) {
+	        if (tether === _this3) {
+	          tethers.splice(i, 1);
+	          return;
+	        }
+	      });
+	    }
+	  }, {
+	    key: 'updateAttachClasses',
+	    value: function updateAttachClasses(elementAttach, targetAttach) {
+	      var _this4 = this;
+
+	      elementAttach = elementAttach || this.attachment;
+	      targetAttach = targetAttach || this.targetAttachment;
+	      var sides = ['left', 'top', 'bottom', 'right', 'middle', 'center'];
+
+	      if (typeof this._addAttachClasses !== 'undefined' && this._addAttachClasses.length) {
+	        // updateAttachClasses can be called more than once in a position call, so
+	        // we need to clean up after ourselves such that when the last defer gets
+	        // ran it doesn't add any extra classes from previous calls.
+	        this._addAttachClasses.splice(0, this._addAttachClasses.length);
+	      }
+
+	      if (typeof this._addAttachClasses === 'undefined') {
+	        this._addAttachClasses = [];
+	      }
+	      var add = this._addAttachClasses;
+
+	      if (elementAttach.top) {
+	        add.push(this.getClass('element-attached') + '-' + elementAttach.top);
+	      }
+	      if (elementAttach.left) {
+	        add.push(this.getClass('element-attached') + '-' + elementAttach.left);
+	      }
+	      if (targetAttach.top) {
+	        add.push(this.getClass('target-attached') + '-' + targetAttach.top);
+	      }
+	      if (targetAttach.left) {
+	        add.push(this.getClass('target-attached') + '-' + targetAttach.left);
+	      }
+
+	      var all = [];
+	      sides.forEach(function (side) {
+	        all.push(_this4.getClass('element-attached') + '-' + side);
+	        all.push(_this4.getClass('target-attached') + '-' + side);
+	      });
+
+	      defer(function () {
+	        if (!(typeof _this4._addAttachClasses !== 'undefined')) {
+	          return;
+	        }
+
+	        updateClasses(_this4.element, _this4._addAttachClasses, all);
+	        if (!(_this4.options.addTargetClasses === false)) {
+	          updateClasses(_this4.target, _this4._addAttachClasses, all);
+	        }
+
+	        delete _this4._addAttachClasses;
+	      });
+	    }
+	  }, {
+	    key: 'position',
+	    value: function position() {
+	      var _this5 = this;
+
+	      var flushChanges = arguments.length <= 0 || arguments[0] === undefined ? true : arguments[0];
+
+	      // flushChanges commits the changes immediately, leave true unless you are positioning multiple
+	      // tethers (in which case call Tether.Utils.flush yourself when you're done)
+
+	      if (!this.enabled) {
+	        return;
+	      }
+
+	      this.clearCache();
+
+	      // Turn 'auto' attachments into the appropriate corner or edge
+	      var targetAttachment = autoToFixedAttachment(this.targetAttachment, this.attachment);
+
+	      this.updateAttachClasses(this.attachment, targetAttachment);
+
+	      var elementPos = this.cache('element-bounds', function () {
+	        return getBounds(_this5.element);
+	      });
+
+	      var width = elementPos.width;
+	      var height = elementPos.height;
+
+	      if (width === 0 && height === 0 && typeof this.lastSize !== 'undefined') {
+	        var _lastSize = this.lastSize;
+
+	        // We cache the height and width to make it possible to position elements that are
+	        // getting hidden.
+	        width = _lastSize.width;
+	        height = _lastSize.height;
+	      } else {
+	        this.lastSize = { width: width, height: height };
+	      }
+
+	      var targetPos = this.cache('target-bounds', function () {
+	        return _this5.getTargetBounds();
+	      });
+	      var targetSize = targetPos;
+
+	      // Get an actual px offset from the attachment
+	      var offset = offsetToPx(attachmentToOffset(this.attachment), { width: width, height: height });
+	      var targetOffset = offsetToPx(attachmentToOffset(targetAttachment), targetSize);
+
+	      var manualOffset = offsetToPx(this.offset, { width: width, height: height });
+	      var manualTargetOffset = offsetToPx(this.targetOffset, targetSize);
+
+	      // Add the manually provided offset
+	      offset = addOffset(offset, manualOffset);
+	      targetOffset = addOffset(targetOffset, manualTargetOffset);
+
+	      // It's now our goal to make (element position + offset) == (target position + target offset)
+	      var left = targetPos.left + targetOffset.left - offset.left;
+	      var top = targetPos.top + targetOffset.top - offset.top;
+
+	      for (var i = 0; i < TetherBase.modules.length; ++i) {
+	        var _module2 = TetherBase.modules[i];
+	        var ret = _module2.position.call(this, {
+	          left: left,
+	          top: top,
+	          targetAttachment: targetAttachment,
+	          targetPos: targetPos,
+	          elementPos: elementPos,
+	          offset: offset,
+	          targetOffset: targetOffset,
+	          manualOffset: manualOffset,
+	          manualTargetOffset: manualTargetOffset,
+	          scrollbarSize: scrollbarSize,
+	          attachment: this.attachment
+	        });
+
+	        if (ret === false) {
+	          return false;
+	        } else if (typeof ret === 'undefined' || typeof ret !== 'object') {
+	          continue;
+	        } else {
+	          top = ret.top;
+	          left = ret.left;
+	        }
+	      }
+
+	      // We describe the position three different ways to give the optimizer
+	      // a chance to decide the best possible way to position the element
+	      // with the fewest repaints.
+	      var next = {
+	        // It's position relative to the page (absolute positioning when
+	        // the element is a child of the body)
+	        page: {
+	          top: top,
+	          left: left
+	        },
+
+	        // It's position relative to the viewport (fixed positioning)
+	        viewport: {
+	          top: top - pageYOffset,
+	          bottom: pageYOffset - top - height + innerHeight,
+	          left: left - pageXOffset,
+	          right: pageXOffset - left - width + innerWidth
+	        }
+	      };
+
+	      var scrollbarSize = undefined;
+	      if (document.body.scrollWidth > window.innerWidth) {
+	        scrollbarSize = this.cache('scrollbar-size', getScrollBarSize);
+	        next.viewport.bottom -= scrollbarSize.height;
+	      }
+
+	      if (document.body.scrollHeight > window.innerHeight) {
+	        scrollbarSize = this.cache('scrollbar-size', getScrollBarSize);
+	        next.viewport.right -= scrollbarSize.width;
+	      }
+
+	      if (['', 'static'].indexOf(document.body.style.position) === -1 || ['', 'static'].indexOf(document.body.parentElement.style.position) === -1) {
+	        // Absolute positioning in the body will be relative to the page, not the 'initial containing block'
+	        next.page.bottom = document.body.scrollHeight - top - height;
+	        next.page.right = document.body.scrollWidth - left - width;
+	      }
+
+	      if (typeof this.options.optimizations !== 'undefined' && this.options.optimizations.moveElement !== false && !(typeof this.targetModifier !== 'undefined')) {
+	        (function () {
+	          var offsetParent = _this5.cache('target-offsetparent', function () {
+	            return getOffsetParent(_this5.target);
+	          });
+	          var offsetPosition = _this5.cache('target-offsetparent-bounds', function () {
+	            return getBounds(offsetParent);
+	          });
+	          var offsetParentStyle = getComputedStyle(offsetParent);
+	          var offsetParentSize = offsetPosition;
+
+	          var offsetBorder = {};
+	          ['Top', 'Left', 'Bottom', 'Right'].forEach(function (side) {
+	            offsetBorder[side.toLowerCase()] = parseFloat(offsetParentStyle['border' + side + 'Width']);
+	          });
+
+	          offsetPosition.right = document.body.scrollWidth - offsetPosition.left - offsetParentSize.width + offsetBorder.right;
+	          offsetPosition.bottom = document.body.scrollHeight - offsetPosition.top - offsetParentSize.height + offsetBorder.bottom;
+
+	          if (next.page.top >= offsetPosition.top + offsetBorder.top && next.page.bottom >= offsetPosition.bottom) {
+	            if (next.page.left >= offsetPosition.left + offsetBorder.left && next.page.right >= offsetPosition.right) {
+	              // We're within the visible part of the target's scroll parent
+	              var scrollTop = offsetParent.scrollTop;
+	              var scrollLeft = offsetParent.scrollLeft;
+
+	              // It's position relative to the target's offset parent (absolute positioning when
+	              // the element is moved to be a child of the target's offset parent).
+	              next.offset = {
+	                top: next.page.top - offsetPosition.top + scrollTop - offsetBorder.top,
+	                left: next.page.left - offsetPosition.left + scrollLeft - offsetBorder.left
+	              };
+	            }
+	          }
+	        })();
+	      }
+
+	      // We could also travel up the DOM and try each containing context, rather than only
+	      // looking at the body, but we're gonna get diminishing returns.
+
+	      this.move(next);
+
+	      this.history.unshift(next);
+
+	      if (this.history.length > 3) {
+	        this.history.pop();
+	      }
+
+	      if (flushChanges) {
+	        flush();
+	      }
+
+	      return true;
+	    }
+
+	    // THE ISSUE
+	  }, {
+	    key: 'move',
+	    value: function move(pos) {
+	      var _this6 = this;
+
+	      if (!(typeof this.element.parentNode !== 'undefined')) {
+	        return;
+	      }
+
+	      var same = {};
+
+	      for (var type in pos) {
+	        same[type] = {};
+
+	        for (var key in pos[type]) {
+	          var found = false;
+
+	          for (var i = 0; i < this.history.length; ++i) {
+	            var point = this.history[i];
+	            if (typeof point[type] !== 'undefined' && !within(point[type][key], pos[type][key])) {
+	              found = true;
+	              break;
+	            }
+	          }
+
+	          if (!found) {
+	            same[type][key] = true;
+	          }
+	        }
+	      }
+
+	      var css = { top: '', left: '', right: '', bottom: '' };
+
+	      var transcribe = function transcribe(_same, _pos) {
+	        var hasOptimizations = typeof _this6.options.optimizations !== 'undefined';
+	        var gpu = hasOptimizations ? _this6.options.optimizations.gpu : null;
+	        if (gpu !== false) {
+	          var yPos = undefined,
+	              xPos = undefined;
+	          if (_same.top) {
+	            css.top = 0;
+	            yPos = _pos.top;
+	          } else {
+	            css.bottom = 0;
+	            yPos = -_pos.bottom;
+	          }
+
+	          if (_same.left) {
+	            css.left = 0;
+	            xPos = _pos.left;
+	          } else {
+	            css.right = 0;
+	            xPos = -_pos.right;
+	          }
+
+	          css[transformKey] = 'translateX(' + Math.round(xPos) + 'px) translateY(' + Math.round(yPos) + 'px)';
+
+	          if (transformKey !== 'msTransform') {
+	            // The Z transform will keep this in the GPU (faster, and prevents artifacts),
+	            // but IE9 doesn't support 3d transforms and will choke.
+	            css[transformKey] += " translateZ(0)";
+	          }
+	        } else {
+	          if (_same.top) {
+	            css.top = _pos.top + 'px';
+	          } else {
+	            css.bottom = _pos.bottom + 'px';
+	          }
+
+	          if (_same.left) {
+	            css.left = _pos.left + 'px';
+	          } else {
+	            css.right = _pos.right + 'px';
+	          }
+	        }
+	      };
+
+	      var moved = false;
+	      if ((same.page.top || same.page.bottom) && (same.page.left || same.page.right)) {
+	        css.position = 'absolute';
+	        transcribe(same.page, pos.page);
+	      } else if ((same.viewport.top || same.viewport.bottom) && (same.viewport.left || same.viewport.right)) {
+	        css.position = 'fixed';
+	        transcribe(same.viewport, pos.viewport);
+	      } else if (typeof same.offset !== 'undefined' && same.offset.top && same.offset.left) {
+	        (function () {
+	          css.position = 'absolute';
+	          var offsetParent = _this6.cache('target-offsetparent', function () {
+	            return getOffsetParent(_this6.target);
+	          });
+
+	          if (getOffsetParent(_this6.element) !== offsetParent) {
+	            defer(function () {
+	              _this6.element.parentNode.removeChild(_this6.element);
+	              offsetParent.appendChild(_this6.element);
+	            });
+	          }
+
+	          transcribe(same.offset, pos.offset);
+	          moved = true;
+	        })();
+	      } else {
+	        css.position = 'absolute';
+	        transcribe({ top: true, left: true }, pos.page);
+	      }
+
+	      if (!moved) {
+	        var offsetParentIsBody = true;
+	        var currentNode = this.element.parentNode;
+	        while (currentNode && currentNode.tagName !== 'BODY') {
+	          if (getComputedStyle(currentNode).position !== 'static') {
+	            offsetParentIsBody = false;
+	            break;
+	          }
+
+	          currentNode = currentNode.parentNode;
+	        }
+
+	        if (!offsetParentIsBody) {
+	          this.element.parentNode.removeChild(this.element);
+	          document.body.appendChild(this.element);
+	        }
+	      }
+
+	      // Any css change will trigger a repaint, so let's avoid one if nothing changed
+	      var writeCSS = {};
+	      var write = false;
+	      for (var key in css) {
+	        var val = css[key];
+	        var elVal = this.element.style[key];
+
+	        if (elVal !== '' && val !== '' && ['top', 'left', 'bottom', 'right'].indexOf(key) >= 0) {
+	          elVal = parseFloat(elVal);
+	          val = parseFloat(val);
+	        }
+
+	        if (elVal !== val) {
+	          write = true;
+	          writeCSS[key] = val;
+	        }
+	      }
+
+	      if (write) {
+	        defer(function () {
+	          extend(_this6.element.style, writeCSS);
+	        });
+	      }
+	    }
+	  }]);
+
+	  return TetherClass;
+	})();
+
+	TetherClass.modules = [];
+
+	TetherBase.position = position;
+
+	var Tether = extend(TetherClass, TetherBase);
+	/* globals TetherBase */
+
+	'use strict';
+
+	var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
+
+	var _TetherBase$Utils = TetherBase.Utils;
+	var getBounds = _TetherBase$Utils.getBounds;
+	var extend = _TetherBase$Utils.extend;
+	var updateClasses = _TetherBase$Utils.updateClasses;
+	var defer = _TetherBase$Utils.defer;
+
+	var BOUNDS_FORMAT = ['left', 'top', 'right', 'bottom'];
+
+	function getBoundingRect(tether, to) {
+	  if (to === 'scrollParent') {
+	    to = tether.scrollParent;
+	  } else if (to === 'window') {
+	    to = [pageXOffset, pageYOffset, innerWidth + pageXOffset, innerHeight + pageYOffset];
+	  }
+
+	  if (to === document) {
+	    to = to.documentElement;
+	  }
+
+	  if (typeof to.nodeType !== 'undefined') {
+	    (function () {
+	      var size = getBounds(to);
+	      var pos = size;
+	      var style = getComputedStyle(to);
+
+	      to = [pos.left, pos.top, size.width + pos.left, size.height + pos.top];
+
+	      BOUNDS_FORMAT.forEach(function (side, i) {
+	        side = side[0].toUpperCase() + side.substr(1);
+	        if (side === 'Top' || side === 'Left') {
+	          to[i] += parseFloat(style['border' + side + 'Width']);
+	        } else {
+	          to[i] -= parseFloat(style['border' + side + 'Width']);
+	        }
+	      });
+	    })();
+	  }
+
+	  return to;
+	}
+
+	TetherBase.modules.push({
+	  position: function position(_ref) {
+	    var _this = this;
+
+	    var top = _ref.top;
+	    var left = _ref.left;
+	    var targetAttachment = _ref.targetAttachment;
+
+	    if (!this.options.constraints) {
+	      return true;
+	    }
+
+	    var _cache = this.cache('element-bounds', function () {
+	      return getBounds(_this.element);
+	    });
+
+	    var height = _cache.height;
+	    var width = _cache.width;
+
+	    if (width === 0 && height === 0 && typeof this.lastSize !== 'undefined') {
+	      var _lastSize = this.lastSize;
+
+	      // Handle the item getting hidden as a result of our positioning without glitching
+	      // the classes in and out
+	      width = _lastSize.width;
+	      height = _lastSize.height;
+	    }
+
+	    var targetSize = this.cache('target-bounds', function () {
+	      return _this.getTargetBounds();
+	    });
+
+	    var targetHeight = targetSize.height;
+	    var targetWidth = targetSize.width;
+
+	    var allClasses = [this.getClass('pinned'), this.getClass('out-of-bounds')];
+
+	    this.options.constraints.forEach(function (constraint) {
+	      var outOfBoundsClass = constraint.outOfBoundsClass;
+	      var pinnedClass = constraint.pinnedClass;
+
+	      if (outOfBoundsClass) {
+	        allClasses.push(outOfBoundsClass);
+	      }
+	      if (pinnedClass) {
+	        allClasses.push(pinnedClass);
+	      }
+	    });
+
+	    allClasses.forEach(function (cls) {
+	      ['left', 'top', 'right', 'bottom'].forEach(function (side) {
+	        allClasses.push(cls + '-' + side);
+	      });
+	    });
+
+	    var addClasses = [];
+
+	    var tAttachment = extend({}, targetAttachment);
+	    var eAttachment = extend({}, this.attachment);
+
+	    this.options.constraints.forEach(function (constraint) {
+	      var to = constraint.to;
+	      var attachment = constraint.attachment;
+	      var pin = constraint.pin;
+
+	      if (typeof attachment === 'undefined') {
+	        attachment = '';
+	      }
+
+	      var changeAttachX = undefined,
+	          changeAttachY = undefined;
+	      if (attachment.indexOf(' ') >= 0) {
+	        var _attachment$split = attachment.split(' ');
+
+	        var _attachment$split2 = _slicedToArray(_attachment$split, 2);
+
+	        changeAttachY = _attachment$split2[0];
+	        changeAttachX = _attachment$split2[1];
+	      } else {
+	        changeAttachX = changeAttachY = attachment;
+	      }
+
+	      var bounds = getBoundingRect(_this, to);
+
+	      if (changeAttachY === 'target' || changeAttachY === 'both') {
+	        if (top < bounds[1] && tAttachment.top === 'top') {
+	          top += targetHeight;
+	          tAttachment.top = 'bottom';
+	        }
+
+	        if (top + height > bounds[3] && tAttachment.top === 'bottom') {
+	          top -= targetHeight;
+	          tAttachment.top = 'top';
+	        }
+	      }
+
+	      if (changeAttachY === 'together') {
+	        if (top < bounds[1] && tAttachment.top === 'top') {
+	          if (eAttachment.top === 'bottom') {
+	            top += targetHeight;
+	            tAttachment.top = 'bottom';
+
+	            top += height;
+	            eAttachment.top = 'top';
+	          } else if (eAttachment.top === 'top') {
+	            top += targetHeight;
+	            tAttachment.top = 'bottom';
+
+	            top -= height;
+	            eAttachment.top = 'bottom';
+	          }
+	        }
+
+	        if (top + height > bounds[3] && tAttachment.top === 'bottom') {
+	          if (eAttachment.top === 'top') {
+	            top -= targetHeight;
+	            tAttachment.top = 'top';
+
+	            top -= height;
+	            eAttachment.top = 'bottom';
+	          } else if (eAttachment.top === 'bottom') {
+	            top -= targetHeight;
+	            tAttachment.top = 'top';
+
+	            top += height;
+	            eAttachment.top = 'top';
+	          }
+	        }
+
+	        if (tAttachment.top === 'middle') {
+	          if (top + height > bounds[3] && eAttachment.top === 'top') {
+	            top -= height;
+	            eAttachment.top = 'bottom';
+	          } else if (top < bounds[1] && eAttachment.top === 'bottom') {
+	            top += height;
+	            eAttachment.top = 'top';
+	          }
+	        }
+	      }
+
+	      if (changeAttachX === 'target' || changeAttachX === 'both') {
+	        if (left < bounds[0] && tAttachment.left === 'left') {
+	          left += targetWidth;
+	          tAttachment.left = 'right';
+	        }
+
+	        if (left + width > bounds[2] && tAttachment.left === 'right') {
+	          left -= targetWidth;
+	          tAttachment.left = 'left';
+	        }
+	      }
+
+	      if (changeAttachX === 'together') {
+	        if (left < bounds[0] && tAttachment.left === 'left') {
+	          if (eAttachment.left === 'right') {
+	            left += targetWidth;
+	            tAttachment.left = 'right';
+
+	            left += width;
+	            eAttachment.left = 'left';
+	          } else if (eAttachment.left === 'left') {
+	            left += targetWidth;
+	            tAttachment.left = 'right';
+
+	            left -= width;
+	            eAttachment.left = 'right';
+	          }
+	        } else if (left + width > bounds[2] && tAttachment.left === 'right') {
+	          if (eAttachment.left === 'left') {
+	            left -= targetWidth;
+	            tAttachment.left = 'left';
+
+	            left -= width;
+	            eAttachment.left = 'right';
+	          } else if (eAttachment.left === 'right') {
+	            left -= targetWidth;
+	            tAttachment.left = 'left';
+
+	            left += width;
+	            eAttachment.left = 'left';
+	          }
+	        } else if (tAttachment.left === 'center') {
+	          if (left + width > bounds[2] && eAttachment.left === 'left') {
+	            left -= width;
+	            eAttachment.left = 'right';
+	          } else if (left < bounds[0] && eAttachment.left === 'right') {
+	            left += width;
+	            eAttachment.left = 'left';
+	          }
+	        }
+	      }
+
+	      if (changeAttachY === 'element' || changeAttachY === 'both') {
+	        if (top < bounds[1] && eAttachment.top === 'bottom') {
+	          top += height;
+	          eAttachment.top = 'top';
+	        }
+
+	        if (top + height > bounds[3] && eAttachment.top === 'top') {
+	          top -= height;
+	          eAttachment.top = 'bottom';
+	        }
+	      }
+
+	      if (changeAttachX === 'element' || changeAttachX === 'both') {
+	        if (left < bounds[0] && eAttachment.left === 'right') {
+	          left += width;
+	          eAttachment.left = 'left';
+	        }
+
+	        if (left + width > bounds[2] && eAttachment.left === 'left') {
+	          left -= width;
+	          eAttachment.left = 'right';
+	        }
+	      }
+
+	      if (typeof pin === 'string') {
+	        pin = pin.split(',').map(function (p) {
+	          return p.trim();
+	        });
+	      } else if (pin === true) {
+	        pin = ['top', 'left', 'right', 'bottom'];
+	      }
+
+	      pin = pin || [];
+
+	      var pinned = [];
+	      var oob = [];
+
+	      if (top < bounds[1]) {
+	        if (pin.indexOf('top') >= 0) {
+	          top = bounds[1];
+	          pinned.push('top');
+	        } else {
+	          oob.push('top');
+	        }
+	      }
+
+	      if (top + height > bounds[3]) {
+	        if (pin.indexOf('bottom') >= 0) {
+	          top = bounds[3] - height;
+	          pinned.push('bottom');
+	        } else {
+	          oob.push('bottom');
+	        }
+	      }
+
+	      if (left < bounds[0]) {
+	        if (pin.indexOf('left') >= 0) {
+	          left = bounds[0];
+	          pinned.push('left');
+	        } else {
+	          oob.push('left');
+	        }
+	      }
+
+	      if (left + width > bounds[2]) {
+	        if (pin.indexOf('right') >= 0) {
+	          left = bounds[2] - width;
+	          pinned.push('right');
+	        } else {
+	          oob.push('right');
+	        }
+	      }
+
+	      if (pinned.length) {
+	        (function () {
+	          var pinnedClass = undefined;
+	          if (typeof _this.options.pinnedClass !== 'undefined') {
+	            pinnedClass = _this.options.pinnedClass;
+	          } else {
+	            pinnedClass = _this.getClass('pinned');
+	          }
+
+	          addClasses.push(pinnedClass);
+	          pinned.forEach(function (side) {
+	            addClasses.push(pinnedClass + '-' + side);
+	          });
+	        })();
+	      }
+
+	      if (oob.length) {
+	        (function () {
+	          var oobClass = undefined;
+	          if (typeof _this.options.outOfBoundsClass !== 'undefined') {
+	            oobClass = _this.options.outOfBoundsClass;
+	          } else {
+	            oobClass = _this.getClass('out-of-bounds');
+	          }
+
+	          addClasses.push(oobClass);
+	          oob.forEach(function (side) {
+	            addClasses.push(oobClass + '-' + side);
+	          });
+	        })();
+	      }
+
+	      if (pinned.indexOf('left') >= 0 || pinned.indexOf('right') >= 0) {
+	        eAttachment.left = tAttachment.left = false;
+	      }
+	      if (pinned.indexOf('top') >= 0 || pinned.indexOf('bottom') >= 0) {
+	        eAttachment.top = tAttachment.top = false;
+	      }
+
+	      if (tAttachment.top !== targetAttachment.top || tAttachment.left !== targetAttachment.left || eAttachment.top !== _this.attachment.top || eAttachment.left !== _this.attachment.left) {
+	        _this.updateAttachClasses(eAttachment, tAttachment);
+	      }
+	    });
+
+	    defer(function () {
+	      if (!(_this.options.addTargetClasses === false)) {
+	        updateClasses(_this.target, addClasses, allClasses);
+	      }
+	      updateClasses(_this.element, addClasses, allClasses);
+	    });
+
+	    return { top: top, left: left };
+	  }
+	});
+	/* globals TetherBase */
+
+	'use strict';
+
+	var _TetherBase$Utils = TetherBase.Utils;
+	var getBounds = _TetherBase$Utils.getBounds;
+	var updateClasses = _TetherBase$Utils.updateClasses;
+	var defer = _TetherBase$Utils.defer;
+
+	TetherBase.modules.push({
+	  position: function position(_ref) {
+	    var _this = this;
+
+	    var top = _ref.top;
+	    var left = _ref.left;
+
+	    var _cache = this.cache('element-bounds', function () {
+	      return getBounds(_this.element);
+	    });
+
+	    var height = _cache.height;
+	    var width = _cache.width;
+
+	    var targetPos = this.getTargetBounds();
+
+	    var bottom = top + height;
+	    var right = left + width;
+
+	    var abutted = [];
+	    if (top <= targetPos.bottom && bottom >= targetPos.top) {
+	      ['left', 'right'].forEach(function (side) {
+	        var targetPosSide = targetPos[side];
+	        if (targetPosSide === left || targetPosSide === right) {
+	          abutted.push(side);
+	        }
+	      });
+	    }
+
+	    if (left <= targetPos.right && right >= targetPos.left) {
+	      ['top', 'bottom'].forEach(function (side) {
+	        var targetPosSide = targetPos[side];
+	        if (targetPosSide === top || targetPosSide === bottom) {
+	          abutted.push(side);
+	        }
+	      });
+	    }
+
+	    var allClasses = [];
+	    var addClasses = [];
+
+	    var sides = ['left', 'top', 'right', 'bottom'];
+	    allClasses.push(this.getClass('abutted'));
+	    sides.forEach(function (side) {
+	      allClasses.push(_this.getClass('abutted') + '-' + side);
+	    });
+
+	    if (abutted.length) {
+	      addClasses.push(this.getClass('abutted'));
+	    }
+
+	    abutted.forEach(function (side) {
+	      addClasses.push(_this.getClass('abutted') + '-' + side);
+	    });
+
+	    defer(function () {
+	      if (!(_this.options.addTargetClasses === false)) {
+	        updateClasses(_this.target, addClasses, allClasses);
+	      }
+	      updateClasses(_this.element, addClasses, allClasses);
+	    });
+
+	    return true;
+	  }
+	});
+	/* globals TetherBase */
+
+	'use strict';
+
+	var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
+
+	TetherBase.modules.push({
+	  position: function position(_ref) {
+	    var top = _ref.top;
+	    var left = _ref.left;
+
+	    if (!this.options.shift) {
+	      return;
+	    }
+
+	    var shift = this.options.shift;
+	    if (typeof this.options.shift === 'function') {
+	      shift = this.options.shift.call(this, { top: top, left: left });
+	    }
+
+	    var shiftTop = undefined,
+	        shiftLeft = undefined;
+	    if (typeof shift === 'string') {
+	      shift = shift.split(' ');
+	      shift[1] = shift[1] || shift[0];
+
+	      var _shift = shift;
+
+	      var _shift2 = _slicedToArray(_shift, 2);
+
+	      shiftTop = _shift2[0];
+	      shiftLeft = _shift2[1];
+
+	      shiftTop = parseFloat(shiftTop, 10);
+	      shiftLeft = parseFloat(shiftLeft, 10);
+	    } else {
+	      shiftTop = shift.top;
+	      shiftLeft = shift.left;
+	    }
+
+	    top += shiftTop;
+	    left += shiftLeft;
+
+	    return { top: top, left: left };
+	  }
+	});
+	return Tether;
+
+	}));
+
+
+/***/ },
+/* 96 */,
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */,
+/* 105 */,
+/* 106 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Behavior = __webpack_require__(79);
+	var App = __webpack_require__(2);
+	var $ = __webpack_require__(6);
+	var Radio = __webpack_require__(4);
 
 	/**
 	 * Toggles legacy server support
@@ -10719,26 +11384,234 @@
 	});
 
 	module.exports = EmulateHTTP;
-	POS.attach('Behaviors.EmulateHTTP', EmulateHTTP);
+	App.prototype.set('Behaviors.EmulateHTTP', EmulateHTTP);
 
 /***/ },
-/* 142 */,
-/* 143 */,
-/* 144 */,
-/* 145 */
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Application = __webpack_require__(43);
-	var bb = __webpack_require__(45);
-	var LayoutView = __webpack_require__(146);
-	var debug = __webpack_require__(37)('app');
-	var accounting = __webpack_require__(48);
-	var polyglot = __webpack_require__(49);
+	var _ = __webpack_require__(5);
+	var hbs = __webpack_require__(7);
+	var accounting = __webpack_require__(9);
+	var moment = __webpack_require__(27);
+	var Utils = __webpack_require__(8);
+	var App = __webpack_require__(2);
+
+	/**
+	 * is, compare helpers taken from
+	 * https://github.com/assemble/handlebars-helpers
+	 */
+
+	hbs.registerHelper('is', function (value, test, options) {
+	  if ( value && _.includes(test.split('|'), value) ) {
+	    return options.fn(this);
+	  } else {
+	    return options.inverse(this);
+	  }
+	});
+
+	/*jshint -W071, -W074: suppress warnings  */
+	hbs.registerHelper('compare', function(left, operator, right, options) {
+
+	  if (arguments.length < 3) {
+	    throw new Error('Handlebars Helper "compare" needs 2 parameters');
+	  }
+
+	  if (options === undefined) {
+	    options = right;
+	    right = operator;
+	    operator = '===';
+	  }
+
+	  var operators = {
+	    //'==': function(l, r) {
+	    //  return l == r;
+	    //},
+	    '===': function(l, r) {
+	      return l === r;
+	    },
+	    //'!=': function(l, r) {
+	    //  return l != r;
+	    //},
+	    '!==': function(l, r) {
+	      return l !== r;
+	    },
+	    '<': function(l, r) {
+	      return l < r;
+	    },
+	    '>': function(l, r) {
+	      return l > r;
+	    },
+	    '<=': function(l, r) {
+	      return l <= r;
+	    },
+	    '>=': function(l, r) {
+	      return l >= r;
+	    }
+	    //'typeof': function(l, r) {
+	    //  return typeof l == r;
+	    //}
+	  };
+
+	  if (!operators[operator]) {
+	    throw new Error(
+	      'Handlebars Helper "compare" doesn\'t know the operator ' + operator
+	    );
+	  }
+
+	  var result = operators[operator](left, right);
+
+	  if (result) {
+	    return options.fn(this);
+	  } else {
+	    return options.inverse(this);
+	  }
+	});
+	/*jshint +W071, +W074 */
+
+	hbs.registerHelper('list', function(items, sep, options) {
+	  if( _.isArray(items) || _.isObject(items) ){
+	    var list = _.map(items, options.fn);
+	    return list.join(sep);
+	  }
+	  return options.fn(items);
+	});
+
+	hbs.registerHelper('csv', function(items, options) {
+	  return options.fn(items.join(', '));
+	});
+
+	hbs.registerHelper('money', function(num, options){
+	  var defaultPrecision = accounting.settings.currency.precision,
+	      precision = options.hash.precision || defaultPrecision;
+
+	  if( precision === 'auto' ) {
+	    precision = Utils.decimalPlaces(num);
+	  }
+
+	  // round the number to even
+	  num = Utils.round(num, precision);
+
+	  if(options.hash.negative) {
+	    num = num * -1;
+	  }
+
+	  return accounting.formatMoney(num);
+	});
+
+	hbs.registerHelper('number', function(num, options){
+	  var defaultPrecision = accounting.settings.number.precision,
+	      precision = options.hash.precision || defaultPrecision;
+
+	  if( precision === 'auto' ) {
+	    precision = Utils.decimalPlaces(num);
+	  }
+
+	  if(options.hash.negative) {
+	    num = num * -1;
+	  }
+
+	  return accounting.formatNumber(num, precision);
+	});
+
+	hbs.registerHelper('formatAddress', function(a, options){
+	  a = a || {};
+
+	  var format = [
+	    [a.first_name, a.last_name],
+	    [a.company],
+	    [a.address_1],
+	    [a.address_2],
+	    [a.city, a.state, a.postcode]
+	  ];
+
+	  // format address
+	  var address = _.chain(format)
+	    .map(function(line) { return _.compact(line).join(' '); })
+	    .compact()
+	    .join('<br>\n')
+	    .value();
+
+	  // prepend title
+	  if( address !== '' && options.hash.title ) {
+	    address = '<h3>' + options.hash.title + '</h3>\n' + address;
+	  }
+
+	  return new hbs.SafeString(address);
+	});
+
+	hbs.registerHelper('formatDate', function(date, options){
+	  var f = options.hash.format || '';
+	  return moment(date).format(f);
+	});
+
+	hbs.registerHelper('formatDay', function(day, options){
+	  var f = options.hash.format || '';
+	  var idx = parseInt(day, 10) + 1;
+	  return moment().isoWeekday(idx).format(f);
+	});
+
+	hbs.registerHelper('debug', function(optionalValue) {
+	  console.log('Current Context');
+	  console.log('====================');
+	  console.log(this);
+
+	  if (optionalValue) {
+	    console.log('Value');
+	    console.log('====================');
+	    console.log(optionalValue);
+	  }
+	});
+
+	hbs.registerHelper('formatCustomerName', function(customer) {
+	  var name = _(customer).pick(['first_name','last_name'])
+	    .values()
+	    .map(function( value ){
+	      return value.trim();
+	    })
+	    .compact()
+	    .value()
+	    .join(' ');
+
+	  if( customer && !name ){
+	    name = customer.username;
+	  }
+
+	  return name;
+	});
+
+	hbs.registerHelper('namespace', function(str){
+	  return App.prototype.namespace(str);
+	});
+
+	//hbs.registerHelper('getOption', function(key){
+	//  var lookup = key.split('.');
+	//  var option = Radio.request( 'entities', 'get', {
+	//    type: 'option',
+	//    name: lookup.shift()
+	//  });
+	//  for(var i = 0; i < lookup.length; i++) {
+	//    option = option[lookup[i]];
+	//  }
+	//  return option;
+	//});
+
+/***/ },
+/* 112 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Application = __webpack_require__(2);
+	var bb = __webpack_require__(16);
+	var LayoutView = __webpack_require__(113);
+	var debug = __webpack_require__(13)('app');
 
 	module.exports = Application.extend({
 
 	  initialize: function() {
-
 	    // init Root LayoutView
 	    this.layout = new LayoutView();
 	    this.layout.render();
@@ -10748,16 +11621,8 @@
 	   * Set up application with start params
 	   */
 	  onBeforeStart: function(){
+	    // debugging
 	    debug( 'starting WooCommerce POS app' );
-
-	    // emulateHTTP
-	    bb.emulateHTTP = this.options.emulateHTTP === true;
-
-	    // i18n
-	    polyglot.extend(this.options.i18n);
-
-	    // bootstrap accounting settings
-	    accounting.settings = this.options.accounting;
 
 	    // start header service
 	    this.headerService.start();
@@ -10770,12 +11635,12 @@
 	});
 
 /***/ },
-/* 146 */
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var LayoutView = __webpack_require__(47);
-	var $ = __webpack_require__(40);
-	var Radio = __webpack_require__(41);
+	var LayoutView = __webpack_require__(18);
+	var $ = __webpack_require__(6);
+	var Radio = __webpack_require__(4);
 	var globalChannel = Radio.channel('global');
 
 	module.exports = LayoutView.extend({
@@ -10836,7 +11701,7 @@
 	});
 
 /***/ },
-/* 147 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// some nice features may be:
@@ -10846,9 +11711,9 @@
 	// DO NOT include this file in wp-admin
 	// changes are made to the global $.ajax & bb.sync
 
-	var bb = __webpack_require__(45);
-	var Radio = __webpack_require__(41);
-	bb.idbSync = __webpack_require__(148);
+	var bb = __webpack_require__(16);
+	var Radio = __webpack_require__(4);
+	bb.idbSync = __webpack_require__(115);
 	bb.ajaxSync = bb.sync;
 
 	// set jquery ajax globals
@@ -10891,10 +11756,10 @@
 	};
 
 /***/ },
-/* 148 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(40);
+	var $ = __webpack_require__(6);
 	var noop = function(){};
 
 	var methods = {
@@ -10952,17 +11817,17 @@
 	module.exports = sync;
 
 /***/ },
-/* 149 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var Service = __webpack_require__(53);
-	var TitleBar = __webpack_require__(150);
-	var Menu = __webpack_require__(189);
-	var POS = __webpack_require__(36);
-	var Radio = __webpack_require__(41);
+	/* WEBPACK VAR INJECTION */(function(global) {var Service = __webpack_require__(20);
+	var TitleBar = __webpack_require__(117);
+	var Menu = __webpack_require__(154);
+	var App = __webpack_require__(2);
+	var Radio = __webpack_require__(4);
 	var routerChannel = Radio.channel('router');
-	var BrowserModal = __webpack_require__(190);
-	var _ = __webpack_require__(2);
+	var BrowserModal = __webpack_require__(156);
+	var _ = __webpack_require__(5);
 	var Modernizr = global['Modernizr'];
 
 	var Service = Service.extend({
@@ -11024,25 +11889,35 @@
 	});
 
 	module.exports = Service;
-	POS.attach('HeaderApp.Service', Service);
+	App.prototype.set('HeaderApp.Service', Service);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 150 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var POS = __webpack_require__(36);
-	var HotKeys = __webpack_require__(151);
-	var Dropdown = __webpack_require__(185);
-	var Radio = __webpack_require__(41);
-	var HelpModal = __webpack_require__(187);
+	var ItemView = __webpack_require__(61);
+	var App = __webpack_require__(2);
+	var HotKeys = __webpack_require__(118);
+	var Dropdown = __webpack_require__(152);
+	var Radio = __webpack_require__(4);
+	var HelpModal = __webpack_require__(153);
 
 	var View = ItemView.extend({
-	  template: '#tmpl-header',
+	  template: 'header',
 
-	  onRender: function(){
-	    this.title = this.$('h1').text();
+	  initialize: function(){
+	    var store = Radio.request('entities', 'get', {
+	      type: 'option',
+	      name: 'store'
+	    });
+	    this.storeName = store.name;
+	  },
+
+	  templateHelpers: function(){
+	    return {
+	      name: this.storeName
+	    };
 	  },
 
 	  ui: {
@@ -11062,12 +11937,17 @@
 	      behaviorClass: HotKeys
 	    },
 	    Dropdown: {
-	      behaviorClass: Dropdown
+	      behaviorClass: Dropdown,
+	      position: 'bottom right'
+	      //tetherOptions: {
+	      //  attachment: 'top right',
+	      //  targetAttachment: 'bottom right'
+	      //}
 	    }
 	  },
 
 	  update: function(str){
-	    var title = str ? str : this.title;
+	    var title = str ? str : this.storeName;
 	    this.$('h1').text(title);
 	  },
 
@@ -11084,18 +11964,18 @@
 	});
 
 	module.exports = View;
-	POS.attach('HeaderApp.Views.TitleBar', View);
+	App.prototype.set('HeaderApp.Views.TitleBar', View);
 
 /***/ },
-/* 151 */
+/* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Behavior = __webpack_require__(114);
-	var Radio = __webpack_require__(41);
-	var _ = __webpack_require__(2);
-	var debug = __webpack_require__(37)('hotkey');
-	var POS = __webpack_require__(36);
-	var Combokeys = __webpack_require__(152);
+	var Behavior = __webpack_require__(79);
+	var Radio = __webpack_require__(4);
+	var _ = __webpack_require__(5);
+	var debug = __webpack_require__(13)('hotkey');
+	var App = __webpack_require__(2);
+	var Combokeys = __webpack_require__(119);
 
 	var HotKeys = Behavior.extend({
 	  keys: [],
@@ -11144,10 +12024,10 @@
 	});
 
 	module.exports = HotKeys;
-	POS.attach('Behaviors.HotKeys', HotKeys);
+	App.prototype.set('Behaviors.HotKeys', HotKeys);
 
 /***/ },
-/* 152 */
+/* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* eslint-env node, browser */
@@ -11216,27 +12096,27 @@
 	  return self
 	}
 
-	module.exports.prototype.bind = __webpack_require__(153)
-	module.exports.prototype.bindMultiple = __webpack_require__(154)
-	module.exports.prototype.unbind = __webpack_require__(155)
-	module.exports.prototype.trigger = __webpack_require__(156)
-	module.exports.prototype.reset = __webpack_require__(157)
-	module.exports.prototype.stopCallback = __webpack_require__(158)
-	module.exports.prototype.handleKey = __webpack_require__(159)
-	module.exports.prototype.addEvents = __webpack_require__(161)
-	module.exports.prototype.bindSingle = __webpack_require__(168)
-	module.exports.prototype.getKeyInfo = __webpack_require__(169)
-	module.exports.prototype.pickBestAction = __webpack_require__(173)
-	module.exports.prototype.getReverseMap = __webpack_require__(174)
-	module.exports.prototype.getMatches = __webpack_require__(175)
-	module.exports.prototype.resetSequences = __webpack_require__(177)
-	module.exports.prototype.fireCallback = __webpack_require__(178)
-	module.exports.prototype.bindSequence = __webpack_require__(181)
-	module.exports.prototype.resetSequenceTimer = __webpack_require__(182)
-	module.exports.prototype.detach = __webpack_require__(183)
+	module.exports.prototype.bind = __webpack_require__(120)
+	module.exports.prototype.bindMultiple = __webpack_require__(121)
+	module.exports.prototype.unbind = __webpack_require__(122)
+	module.exports.prototype.trigger = __webpack_require__(123)
+	module.exports.prototype.reset = __webpack_require__(124)
+	module.exports.prototype.stopCallback = __webpack_require__(125)
+	module.exports.prototype.handleKey = __webpack_require__(126)
+	module.exports.prototype.addEvents = __webpack_require__(128)
+	module.exports.prototype.bindSingle = __webpack_require__(135)
+	module.exports.prototype.getKeyInfo = __webpack_require__(136)
+	module.exports.prototype.pickBestAction = __webpack_require__(140)
+	module.exports.prototype.getReverseMap = __webpack_require__(141)
+	module.exports.prototype.getMatches = __webpack_require__(142)
+	module.exports.prototype.resetSequences = __webpack_require__(144)
+	module.exports.prototype.fireCallback = __webpack_require__(145)
+	module.exports.prototype.bindSequence = __webpack_require__(148)
+	module.exports.prototype.resetSequenceTimer = __webpack_require__(149)
+	module.exports.prototype.detach = __webpack_require__(150)
 
 	module.exports.instances = []
-	module.exports.reset = __webpack_require__(184)
+	module.exports.reset = __webpack_require__(151)
 
 	/**
 	 * variable to store the flipped version of MAP from above
@@ -11249,7 +12129,7 @@
 
 
 /***/ },
-/* 153 */
+/* 120 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -11278,7 +12158,7 @@
 
 
 /***/ },
-/* 154 */
+/* 121 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -11302,7 +12182,7 @@
 
 
 /***/ },
-/* 155 */
+/* 122 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -11332,7 +12212,7 @@
 
 
 /***/ },
-/* 156 */
+/* 123 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -11354,7 +12234,7 @@
 
 
 /***/ },
-/* 157 */
+/* 124 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -11376,7 +12256,7 @@
 
 
 /***/ },
-/* 158 */
+/* 125 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -11403,7 +12283,7 @@
 
 
 /***/ },
-/* 159 */
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* eslint-env node, browser */
@@ -11492,7 +12372,7 @@
 	  // we ignore keypresses in a sequence that directly follow a keydown
 	  // for the same character
 	  ignoreThisKeypress = e.type === 'keypress' && self.ignoreNextKeypress
-	  isModifier = __webpack_require__(160)
+	  isModifier = __webpack_require__(127)
 	  if (e.type === self.nextExpectedAction && !isModifier(character) && !ignoreThisKeypress) {
 	    self.resetSequences(doNotReset)
 	  }
@@ -11502,7 +12382,7 @@
 
 
 /***/ },
-/* 160 */
+/* 127 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -11520,17 +12400,17 @@
 
 
 /***/ },
-/* 161 */
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* eslint-env node, browser */
 	'use strict'
 	module.exports = function () {
 	  var self = this
-	  var on = __webpack_require__(162)
+	  var on = __webpack_require__(129)
 	  var element = self.element
 
-	  self.eventHandler = __webpack_require__(163).bind(self)
+	  self.eventHandler = __webpack_require__(130).bind(self)
 
 	  on(element, 'keypress', self.eventHandler)
 	  on(element, 'keydown', self.eventHandler)
@@ -11539,7 +12419,7 @@
 
 
 /***/ },
-/* 162 */
+/* 129 */
 /***/ function(module, exports) {
 
 	module.exports = on;
@@ -11560,7 +12440,7 @@
 
 
 /***/ },
-/* 163 */
+/* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* eslint-env node, browser */
@@ -11582,7 +12462,7 @@
 	  if (typeof e.which !== 'number') {
 	    e.which = e.keyCode
 	  }
-	  characterFromEvent = __webpack_require__(164)
+	  characterFromEvent = __webpack_require__(131)
 	  var character = characterFromEvent(e)
 
 	  // no character found then stop
@@ -11596,13 +12476,13 @@
 	    return
 	  }
 
-	  eventModifiers = __webpack_require__(167)
+	  eventModifiers = __webpack_require__(134)
 	  self.handleKey(character, eventModifiers(e), e)
 	}
 
 
 /***/ },
-/* 164 */
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* eslint-env node, browser */
@@ -11617,8 +12497,8 @@
 	module.exports = function (e) {
 	  var SPECIAL_KEYS_MAP,
 	  SPECIAL_CHARACTERS_MAP
-	  SPECIAL_KEYS_MAP = __webpack_require__(165)
-	  SPECIAL_CHARACTERS_MAP = __webpack_require__(166)
+	  SPECIAL_KEYS_MAP = __webpack_require__(132)
+	  SPECIAL_CHARACTERS_MAP = __webpack_require__(133)
 
 	  // for keypress events we should return the character as is
 	  if (e.type === 'keypress') {
@@ -11659,7 +12539,7 @@
 
 
 /***/ },
-/* 165 */
+/* 132 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -11717,7 +12597,7 @@
 
 
 /***/ },
-/* 166 */
+/* 133 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -11751,7 +12631,7 @@
 
 
 /***/ },
-/* 167 */
+/* 134 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -11787,7 +12667,7 @@
 
 
 /***/ },
-/* 168 */
+/* 135 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -11849,7 +12729,7 @@
 
 
 /***/ },
-/* 169 */
+/* 136 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* eslint-env node, browser */
@@ -11873,14 +12753,14 @@
 	  var SHIFT_MAP
 	  var isModifier
 
-	  keysFromString = __webpack_require__(170)
+	  keysFromString = __webpack_require__(137)
 	  // take the keys from this pattern and figure out what the actual
 	  // pattern is all about
 	  keys = keysFromString(combination)
 
-	  SPECIAL_ALIASES = __webpack_require__(171)
-	  SHIFT_MAP = __webpack_require__(172)
-	  isModifier = __webpack_require__(160)
+	  SPECIAL_ALIASES = __webpack_require__(138)
+	  SHIFT_MAP = __webpack_require__(139)
+	  isModifier = __webpack_require__(127)
 	  for (j = 0; j < keys.length; ++j) {
 	    key = keys[j]
 
@@ -11916,7 +12796,7 @@
 
 
 /***/ },
-/* 170 */
+/* 137 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -11938,7 +12818,7 @@
 
 
 /***/ },
-/* 171 */
+/* 138 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -11959,7 +12839,7 @@
 
 
 /***/ },
-/* 172 */
+/* 139 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -11998,7 +12878,7 @@
 
 
 /***/ },
-/* 173 */
+/* 140 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -12031,7 +12911,7 @@
 
 
 /***/ },
-/* 174 */
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* eslint-env node, browser */
@@ -12050,7 +12930,7 @@
 
 	  if (!constructor.REVERSE_MAP) {
 	    constructor.REVERSE_MAP = {}
-	    SPECIAL_KEYS_MAP = __webpack_require__(165)
+	    SPECIAL_KEYS_MAP = __webpack_require__(132)
 	    for (var key in SPECIAL_KEYS_MAP) {
 	      // pull out the numeric keypad from here cause keypress should
 	      // be able to detect the keys from the character
@@ -12068,7 +12948,7 @@
 
 
 /***/ },
-/* 175 */
+/* 142 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* eslint-env node, browser */
@@ -12105,7 +12985,7 @@
 
 	  if (!self.callbacks[character]) {return matches}
 
-	  isModifier = __webpack_require__(160)
+	  isModifier = __webpack_require__(127)
 	  // if a modifier key is coming up on its own we should allow it
 	  if (action === 'keyup' && isModifier(character)) {
 	    modifiers = [character]
@@ -12135,7 +13015,7 @@
 	    // chrome will not fire a keypress if meta or control is down
 	    // safari will fire a keypress if meta or meta+shift is down
 	    // firefox will fire a keypress if meta or control is down
-	    modifiersMatch = __webpack_require__(176)
+	    modifiersMatch = __webpack_require__(143)
 	    if ((action === 'keypress' && !e.metaKey && !e.ctrlKey) || modifiersMatch(modifiers, callback.modifiers)) {
 	      // when you bind a combination or sequence a second time it
 	      // should overwrite the first one.  if a sequenceName or
@@ -12157,7 +13037,7 @@
 
 
 /***/ },
-/* 176 */
+/* 143 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -12176,7 +13056,7 @@
 
 
 /***/ },
-/* 177 */
+/* 144 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -12211,7 +13091,7 @@
 
 
 /***/ },
-/* 178 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* eslint-env node, browser */
@@ -12238,16 +13118,16 @@
 	  }
 
 	  if (callback(e, combo) === false) {
-	    preventDefault = __webpack_require__(179)
+	    preventDefault = __webpack_require__(146)
 	    preventDefault(e)
-	    stopPropagation = __webpack_require__(180)
+	    stopPropagation = __webpack_require__(147)
 	    stopPropagation(e)
 	  }
 	}
 
 
 /***/ },
-/* 179 */
+/* 146 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -12270,7 +13150,7 @@
 
 
 /***/ },
-/* 180 */
+/* 147 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -12293,7 +13173,7 @@
 
 
 /***/ },
-/* 181 */
+/* 148 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* eslint-env node, browser */
@@ -12345,7 +13225,7 @@
 	    // or keypress.  this is so if you finish a sequence and
 	    // release the key the final key will not trigger a keyup
 	    if (action !== 'keyup') {
-	      characterFromEvent = __webpack_require__(164)
+	      characterFromEvent = __webpack_require__(131)
 	      self.ignoreNextKeyup = characterFromEvent(e)
 	    }
 
@@ -12377,7 +13257,7 @@
 
 
 /***/ },
-/* 182 */
+/* 149 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -12404,10 +13284,10 @@
 
 
 /***/ },
-/* 183 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var off = __webpack_require__(162).off
+	var off = __webpack_require__(129).off
 	module.exports = function () {
 	  var self = this
 	  var element = self.element
@@ -12419,7 +13299,7 @@
 
 
 /***/ },
-/* 184 */
+/* 151 */
 /***/ function(module, exports) {
 
 	/* eslint-env node, browser */
@@ -12435,205 +13315,146 @@
 
 
 /***/ },
-/* 185 */
+/* 152 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Behavior = __webpack_require__(114);
-	var POS = __webpack_require__(36);
-	__webpack_require__(186);
+	var Behavior = __webpack_require__(79);
+	var App = __webpack_require__(2);
+	var $ = __webpack_require__(6);
+	var _ = __webpack_require__(5);
+	var Drop = __webpack_require__(94);
+	var App = __webpack_require__(2);
+	var namespace = App.prototype.namespace('dropdown');
+
+	var _Drop = Drop.createContext({
+	  classPrefix: namespace
+	});
+
+	var defaults = {
+	  position: 'bottom left',
+	  openOn: 'click',
+	  classes: namespace + '-theme-basic',
+	  remove: true
+	};
 
 	var Dropdown = Behavior.extend({
 
-	  ui: {
-	    dropdown: '*[data-toggle="dropdown"]'
+	  _initialized: [],
+
+	  initialize: function(options){
+	    this.options = _.extend({}, defaults, options);
+
+	    _.bindAll(this, 'onOpen', 'onClose', 'onSelect', 'onKeydown');
+
+	    // define ui
+	    this.ui = {
+	      target: '*[data-toggle="' + namespace + '"]'
+	    };
+	  },
+
+	  events: {
+	    'click @ui.target': 'onClick'
+	  },
+
+	  onBeforeRender: function(){
+	    // close open dropdowns on re-render
+	    this.close();
+	  },
+
+	  onClick: function(e){
+	    var target = e.currentTarget;
+
+	    if(this._initialized.indexOf(target) !== -1) {
+	      return;
+	    }
+
+	    var drop = this.initDrop(target);
+	    this._initialized.push(target);
+
+	    // first open
+	    drop.open();
+	  },
+
+	  initDrop: function(target){
+
+	    // default is .dropdown-list
+	    var content = this.view.dropdownContent || this.view.$('.dropdown-list')[0];
+
+	    // drop instance
+	    var options = _.extend({}, this.options, {
+	      target  : target,
+	      content : content
+	    });
+	    this.drop = new _Drop(options);
+
+	    // drop events
+	    this.drop.on('open', this.onOpen);
+	    this.drop.on('close', this.onClose);
+	    $('li', this.drop.content).on('click', this.onSelect);
+	    $(target).on('keydown', this.onKeydown);
+
+	    return this.drop;
+
+	  },
+
+	  open: function(){
+	    if(this.drop){
+	      this.drop.open();
+	    }
+	  },
+
+	  close: function(){
+	    if(this.drop){
+	      this.drop.close();
+	    }
+	  },
+
+	  onOpen: function(){
+	    this.view.triggerMethod('dropdown:open');
+	  },
+
+	  onClose: function(){
+	    this.view.triggerMethod('dropdown:close');
+	  },
+
+	  onSelect: function(e){
+	    this.view.triggerMethod('dropdown:select', e);
+	    this.close();
+	  },
+
+	  onKeydown: function(e){
+
+	    // esc
+	    if(e.which === 27){
+	      return this.close();
+	    }
+
+	    // pass keypress if open
+	    if( this.drop.isOpened() ){
+	      return this.view.triggerMethod('target:keydown', e);
+	    }
+
+	    this.open();
+
 	  }
 
 	});
 
 	module.exports = Dropdown;
-	POS.attach('Behaviors.Dropdown', Dropdown);
+	App.prototype.set('Behaviors.Dropdown', Dropdown);
 
 /***/ },
-/* 186 */
-/***/ function(module, exports) {
-
-	/* ========================================================================
-	 * Bootstrap: dropdown.js v3.3.4
-	 * http://getbootstrap.com/javascript/#dropdowns
-	 * ========================================================================
-	 * Copyright 2011-2015 Twitter, Inc.
-	 * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-	 * ======================================================================== */
-
-
-	+function ($) {
-	  'use strict';
-
-	  // DROPDOWN CLASS DEFINITION
-	  // =========================
-
-	  var backdrop = '.dropdown-backdrop'
-	  var toggle   = '[data-toggle="dropdown"]'
-	  var Dropdown = function (element) {
-	    $(element).on('click.bs.dropdown', this.toggle)
-	  }
-
-	  Dropdown.VERSION = '3.3.4'
-
-	  Dropdown.prototype.toggle = function (e) {
-	    var $this = $(this)
-
-	    if ($this.is('.disabled, :disabled')) return
-
-	    var $parent  = getParent($this)
-	    var isActive = $parent.hasClass('open')
-
-	    clearMenus()
-
-	    if (!isActive) {
-	      if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
-	        // if mobile we use a backdrop because click events don't delegate
-	        $('<div class="dropdown-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
-	      }
-
-	      var relatedTarget = { relatedTarget: this }
-	      $parent.trigger(e = $.Event('show.bs.dropdown', relatedTarget))
-
-	      if (e.isDefaultPrevented()) return
-
-	      $this
-	        .trigger('focus')
-	        .attr('aria-expanded', 'true')
-
-	      $parent
-	        .toggleClass('open')
-	        .trigger('shown.bs.dropdown', relatedTarget)
-	    }
-
-	    return false
-	  }
-
-	  Dropdown.prototype.keydown = function (e) {
-	    if (!/(38|40|27|32)/.test(e.which) || /input|textarea/i.test(e.target.tagName)) return
-
-	    var $this = $(this)
-
-	    e.preventDefault()
-	    e.stopPropagation()
-
-	    if ($this.is('.disabled, :disabled')) return
-
-	    var $parent  = getParent($this)
-	    var isActive = $parent.hasClass('open')
-
-	    if ((!isActive && e.which != 27) || (isActive && e.which == 27)) {
-	      if (e.which == 27) $parent.find(toggle).trigger('focus')
-	      return $this.trigger('click')
-	    }
-
-	    var desc = ' li:not(.disabled):visible a'
-	    var $items = $parent.find('[role="menu"]' + desc + ', [role="listbox"]' + desc)
-
-	    if (!$items.length) return
-
-	    var index = $items.index(e.target)
-
-	    if (e.which == 38 && index > 0)                 index--                        // up
-	    if (e.which == 40 && index < $items.length - 1) index++                        // down
-	    if (!~index)                                      index = 0
-
-	    $items.eq(index).trigger('focus')
-	  }
-
-	  function clearMenus(e) {
-	    if (e && e.which === 3) return
-	    $(backdrop).remove()
-	    $(toggle).each(function () {
-	      var $this         = $(this)
-	      var $parent       = getParent($this)
-	      var relatedTarget = { relatedTarget: this }
-
-	      if (!$parent.hasClass('open')) return
-
-	      $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))
-
-	      if (e.isDefaultPrevented()) return
-
-	      $this.attr('aria-expanded', 'false')
-	      $parent.removeClass('open').trigger('hidden.bs.dropdown', relatedTarget)
-	    })
-	  }
-
-	  function getParent($this) {
-	    var selector = $this.attr('data-target')
-
-	    if (!selector) {
-	      selector = $this.attr('href')
-	      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
-	    }
-
-	    var $parent = selector && $(selector)
-
-	    return $parent && $parent.length ? $parent : $this.parent()
-	  }
-
-
-	  // DROPDOWN PLUGIN DEFINITION
-	  // ==========================
-
-	  function Plugin(option) {
-	    return this.each(function () {
-	      var $this = $(this)
-	      var data  = $this.data('bs.dropdown')
-
-	      if (!data) $this.data('bs.dropdown', (data = new Dropdown(this)))
-	      if (typeof option == 'string') data[option].call($this)
-	    })
-	  }
-
-	  var old = $.fn.dropdown
-
-	  $.fn.dropdown             = Plugin
-	  $.fn.dropdown.Constructor = Dropdown
-
-
-	  // DROPDOWN NO CONFLICT
-	  // ====================
-
-	  $.fn.dropdown.noConflict = function () {
-	    $.fn.dropdown = old
-	    return this
-	  }
-
-
-	  // APPLY TO STANDARD DROPDOWN ELEMENTS
-	  // ===================================
-
-	  $(document)
-	    .on('click.bs.dropdown.data-api', clearMenus)
-	    .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
-	    .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
-	    .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)
-	    .on('keydown.bs.dropdown.data-api', '[role="menu"]', Dropdown.prototype.keydown)
-	    .on('keydown.bs.dropdown.data-api', '[role="listbox"]', Dropdown.prototype.keydown)
-
-	}(jQuery);
-
-
-/***/ },
-/* 187 */
+/* 153 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var Tooltip = __webpack_require__(128);
-	var Tmpl = __webpack_require__(188);
-	var hbs = __webpack_require__(96);
-	var Radio = __webpack_require__(41);
-	var POS = __webpack_require__(36);
-	var polyglot = __webpack_require__(49);
+	var ItemView = __webpack_require__(61);
+	var Tooltip = __webpack_require__(93);
+	var Radio = __webpack_require__(4);
+	var App = __webpack_require__(2);
+	var polyglot = __webpack_require__(10);
 
 	var View = ItemView.extend({
-	  template: hbs.compile(Tmpl),
+	  template: 'modals.hotkeys',
 
 	  initialize: function () {
 	    this.hotkeys = Radio.request('entities', 'get', {
@@ -12664,29 +13485,33 @@
 	});
 
 	module.exports = View;
-	POS.attach('HeaderApp.Views.HelpModal', View);
+	App.prototype.set('HeaderApp.Views.HelpModal', View);
 
 /***/ },
-/* 188 */
-/***/ function(module, exports) {
-
-	module.exports = "<ul class=\"hotkeys\">\n  {{#each []}}\n    <li>\n      <input type=\"text\" value=\"{{key}}\" disabled>\n      {{label}}\n    </li>\n  {{/each}}\n</ul>"
-
-/***/ },
-/* 189 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var $ = __webpack_require__(40);
-	var _ = __webpack_require__(2);
-	var POS = __webpack_require__(36);
+	var ItemView = __webpack_require__(61);
+	var $ = __webpack_require__(6);
+	var _ = __webpack_require__(5);
+	var App = __webpack_require__(2);
+	var Radio = __webpack_require__(4);
+	var hbs = __webpack_require__(7);
+	var Tmpl = __webpack_require__(155);
 
 	var View = ItemView.extend({
-	  template: '#tmpl-menu',
 	  tagName: 'ul',
+	  template: hbs.compile( Tmpl ),
 
 	  initialize: function(){
 	    _.bindAll(this, 'open', 'close');
+	  },
+
+	  templateHelpers: function(){
+	    return Radio.request('entities', 'get', {
+	      type: 'option',
+	      name: 'menu'
+	    });
 	  },
 
 	  ui: {
@@ -12694,11 +13519,7 @@
 	  },
 
 	  events: {
-	    'click @ui.menuItem': 'goTo'
-	  },
-
-	  goTo: function(){
-	    this.close();
+	    'click @ui.menuItem': 'close'
 	  },
 
 	  open: function(){
@@ -12726,17 +13547,23 @@
 	});
 
 	module.exports = View;
-	POS.attach('HeaderApp.Views.Menu', View);
+	App.prototype.set('HeaderApp.Views.Menu', View);
 
 /***/ },
-/* 190 */
+/* 155 */
+/***/ function(module, exports) {
+
+	module.exports = "{{#each []}}\n<li class=\"{{id}}\">\n  <a href=\"{{href}}\">\n    <i class=\"icon-{{id}} icon-lg\"></i>\n    {{label}}\n  </a>\n</li>\n{{/each}}"
+
+/***/ },
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var Radio = __webpack_require__(41);
-	var POS = __webpack_require__(36);
-	var $ = __webpack_require__(40);
-	var polyglot = __webpack_require__(49);
+	var ItemView = __webpack_require__(61);
+	var Radio = __webpack_require__(4);
+	var App = __webpack_require__(2);
+	var $ = __webpack_require__(6);
+	var polyglot = __webpack_require__(10);
 
 	var View = ItemView.extend({
 	  template: function(){
@@ -12776,265 +13603,102 @@
 	});
 
 	module.exports = View;
-	POS.attach('HeaderApp.Views.BrowserModal', View);
+	App.prototype.set('HeaderApp.Views.BrowserModal', View);
 
 /***/ },
-/* 191 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Service = __webpack_require__(53);
-	var Layout = __webpack_require__(192);
-	//var $ = require('jquery');
+	var Service = __webpack_require__(20);
+	var Drop = __webpack_require__(94);
+	var $ = __webpack_require__(6);
+	var _ = __webpack_require__(5);
+	var Mn = __webpack_require__(3);
+	var App = __webpack_require__(2);
+	var namespace = App.prototype.namespace('popover');
+
+	var _Drop = Drop.createContext({
+	  classPrefix: namespace
+	});
+
+	var defaults = {
+	  position: 'bottom center',
+	  openOn: undefined, // manual trigger
+	  classes: namespace + '-theme-arrows',
+	  constrainToWindow: true,
+	  constrainToScrollParent: false
+	};
 
 	module.exports = Service.extend({
 	  channelName: 'popover',
 
 	  initialize: function(){
+
 	    this.channel.reply({
 	      'open' : this.open,
-	      'close': this.close
+	      'close' : this.close
 	    }, this);
+
+	    _.bindAll(this, 'onClick');
+
 	  },
 
-	  open: function(options){
-	    if( options.target.data('popoverOpen') ){
-	      return;
-	    }
-	    this.layout = new Layout(options);
-	    this.layout.open();
-	    return this.layout;
+	  open: function(options) {
+	    options = _.extend({}, defaults, options);
+
+	    // close any open popovers
+	    this.close();
+
+	    // new Drop instance
+	    this.drop = new _Drop(options);
+
+	    // attach region
+	    this.drop.region = new Mn.Region({
+	      el: this.drop.content
+	    });
+
+	    // listeners
+	    $(document).on('click', this.onClick);
+	    options.view.on('show', this.drop.open, this.drop);
+
+	    // show
+	    this.drop.region.show(options.view);
+
+	    // return the drop instance
+	    return this.drop;
 	  },
 
 	  close: function(){
-	    this.layout.close();
+	    if( this.drop ){
+	      this.drop.region.empty();
+	      this.drop.destroy();
+	      this.drop = undefined;
+	      $(document).off('click', this.onClick);
+	    }
+	  },
+
+	  onClick: function(e){
+	    if( e.target === this.drop.target ||
+	      $(e.target).closest('.popover').length ){
+	      return;
+	    }
+
+	    this.close();
 	  }
 
 	});
 
 /***/ },
-/* 192 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var LayoutView = __webpack_require__(47);
-	var _ = __webpack_require__(2);
-	var $ = __webpack_require__(40);
-	__webpack_require__(129);
-	__webpack_require__(193);
-
-	module.exports = LayoutView.extend({
-
-	  template: _.template('' +
-	    '<div class="arrow"></div>' +
-	    '<h1 class="popover-title"></h1>' +
-	    '<div class="popover-region"></div>'
-	  ),
-	  _className: 'popover',
-	  className: function() {
-	    console.log('called now');
-	    return this._className;
-	  },
-	  attributes: {
-	    'role' : 'tooltip'
-	  },
-
-	  regions: {
-	    content : '.popover-region'
-	  },
-
-	  initialize: function(options){
-	    options = options || {};
-	    this.target = options.target;
-	    this.view = options.view;
-	    this.parent = options.parent;
-	    this.render().setup(options);
-
-	    _.bindAll(this, 'open', 'close', 'show', 'shown', 'hide', 'hidden');
-
-	    this.target.on({
-	      'show.bs.popover'   : this.show,
-	      'shown.bs.popover'  : this.shown,
-	      'hide.bs.popover'   : this.hide,
-	      'hidden.bs.popover' : this.hidden
-	    });
-
-	    // if parent view is destroyed, then close
-	    this.listenTo(this.parent, 'before:destroy', this.close);
-	  },
-
-	  setup: function(options){
-	    _.defaults(options, {
-	      container : 'body',
-	      content   : ' ',
-	      delay     : 0,
-	      placement : 'right',
-	      template  : this.el,
-	      title     : '',
-	      trigger   : 'manual'
-	    });
-	    this.target.popover(options);
-	  },
-
-	  open: function(){
-	    this.target.popover('show');
-	  },
-
-	  close: function(e){
-	    if(e && $(e.target).is('.popover *, .popover')){ return; }
-	    this.target.popover('hide');
-	  },
-
-	  show: function(){
-	    this.content.show(this.view);
-	  },
-
-	  shown: function(){
-	    this.target.data('popoverOpen', true);
-	    $('body').on('click', this.close);
-	  },
-
-	  hide: function(){
-	    $('body').off('click');
-	  },
-
-	  hidden: function(){
-	    this.target.off({
-	      'show.bs.popover'   : this.show,
-	      'shown.bs.popover'  : this.shown,
-	      'hide.bs.popover'   : this.hide,
-	      'hidden.bs.popover' : this.hidden
-	    });
-	    this.destroy();
-	    this.target.popover('destroy');
-	    this.target.data('popoverOpen', false);
-	  }
-
-	});
-
-/***/ },
-/* 193 */
-/***/ function(module, exports) {
-
-	/* ========================================================================
-	 * Bootstrap: popover.js v3.3.4
-	 * http://getbootstrap.com/javascript/#popovers
-	 * ========================================================================
-	 * Copyright 2011-2015 Twitter, Inc.
-	 * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-	 * ======================================================================== */
-
-
-	+function ($) {
-	  'use strict';
-
-	  // POPOVER PUBLIC CLASS DEFINITION
-	  // ===============================
-
-	  var Popover = function (element, options) {
-	    this.init('popover', element, options)
-	  }
-
-	  if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js')
-
-	  Popover.VERSION  = '3.3.4'
-
-	  Popover.DEFAULTS = $.extend({}, $.fn.tooltip.Constructor.DEFAULTS, {
-	    placement: 'right',
-	    trigger: 'click',
-	    content: '',
-	    template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
-	  })
-
-
-	  // NOTE: POPOVER EXTENDS tooltip.js
-	  // ================================
-
-	  Popover.prototype = $.extend({}, $.fn.tooltip.Constructor.prototype)
-
-	  Popover.prototype.constructor = Popover
-
-	  Popover.prototype.getDefaults = function () {
-	    return Popover.DEFAULTS
-	  }
-
-	  Popover.prototype.setContent = function () {
-	    var $tip    = this.tip()
-	    var title   = this.getTitle()
-	    var content = this.getContent()
-
-	    $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)
-	    $tip.find('.popover-content').children().detach().end()[ // we use append for html objects to maintain js events
-	      this.options.html ? (typeof content == 'string' ? 'html' : 'append') : 'text'
-	    ](content)
-
-	    $tip.removeClass('fade top bottom left right in')
-
-	    // IE8 doesn't accept hiding via the `:empty` pseudo selector, we have to do
-	    // this manually by checking the contents.
-	    if (!$tip.find('.popover-title').html()) $tip.find('.popover-title').hide()
-	  }
-
-	  Popover.prototype.hasContent = function () {
-	    return this.getTitle() || this.getContent()
-	  }
-
-	  Popover.prototype.getContent = function () {
-	    var $e = this.$element
-	    var o  = this.options
-
-	    return $e.attr('data-content')
-	      || (typeof o.content == 'function' ?
-	            o.content.call($e[0]) :
-	            o.content)
-	  }
-
-	  Popover.prototype.arrow = function () {
-	    return (this.$arrow = this.$arrow || this.tip().find('.arrow'))
-	  }
-
-
-	  // POPOVER PLUGIN DEFINITION
-	  // =========================
-
-	  function Plugin(option) {
-	    return this.each(function () {
-	      var $this   = $(this)
-	      var data    = $this.data('bs.popover')
-	      var options = typeof option == 'object' && option
-
-	      if (!data && /destroy|hide/.test(option)) return
-	      if (!data) $this.data('bs.popover', (data = new Popover(this, options)))
-	      if (typeof option == 'string') data[option]()
-	    })
-	  }
-
-	  var old = $.fn.popover
-
-	  $.fn.popover             = Plugin
-	  $.fn.popover.Constructor = Popover
-
-
-	  // POPOVER NO CONFLICT
-	  // ===================
-
-	  $.fn.popover.noConflict = function () {
-	    $.fn.popover = old
-	    return this
-	  }
-
-	}(jQuery);
-
-
-/***/ },
-/* 194 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Service = __webpack_require__(53);
-	var hbs = __webpack_require__(96);
-	var $ = __webpack_require__(40);
-	var _ = __webpack_require__(2);
-	var debug = __webpack_require__(37)('print');
-	var Radio = __webpack_require__(41);
-	var POS = __webpack_require__(36);
+	var Service = __webpack_require__(20);
+	var hbs = __webpack_require__(7);
+	var $ = __webpack_require__(6);
+	var _ = __webpack_require__(5);
+	var debug = __webpack_require__(13)('print');
+	var Radio = __webpack_require__(4);
+	var App = __webpack_require__(2);
 
 	module.exports = Service.extend({
 	  channelName: 'print',
@@ -13063,10 +13727,6 @@
 
 	    // insert template
 	    iframe.document.write(template);
-
-	    // print events for IE 5+ & Firefox 6+
-	    iframe.onbeforeprint = this.beforePrint;
-	    iframe.onafterprint = this.afterPrint;
 
 	    // print once loaded
 	    var loaded = function(){
@@ -13140,24 +13800,25 @@
 	      return;
 	    }
 
-	    var template = hbs.compile( $('#tmpl-print-receipt').html() );
 	    var tax = Radio.request('entities', 'get', {
 	        type: 'option',
 	        name: 'tax'
 	      }) || {};
-	    var data = POS.ReceiptView.prototype.prepare(options.model.toJSON(), tax);
-	    return template( data );
+	    var ReceiptView = App.prototype.ReceiptView.prototype;
+	    var data = ReceiptView.prepare( options.model.toJSON(), tax );
+	    var template = _.get(hbs.Templates, ['print', 'receipt'], '');
+	    return hbs.compile( template )( data );
 	  }
 	  /* jshint +W074 */
 
 	});
 
 /***/ },
-/* 195 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Service = __webpack_require__(53);
-	var View = __webpack_require__(196);
+	var Service = __webpack_require__(20);
+	var View = __webpack_require__(160);
 
 	module.exports = Service.extend({
 
@@ -13170,28 +13831,27 @@
 	  },
 
 	  view: function(options){
-	    var view = new View(options);
-	    return view;
+	    return new View(options);
 	  }
 
 	});
 
 /***/ },
-/* 196 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var FormView = __webpack_require__(123);
-	var POS = __webpack_require__(36);
-	var hbs = __webpack_require__(96);
-	var Tmpl = __webpack_require__(197);
-	var Model = __webpack_require__(198);
-	var _ = __webpack_require__(2);
-	var $ = __webpack_require__(40);
-	var accounting = __webpack_require__(48);
-	var Radio = __webpack_require__(41);
-	var AutoGrow = __webpack_require__(199);
-	var cashKeys = __webpack_require__(200);
-	var Utils = __webpack_require__(81);
+	var FormView = __webpack_require__(88);
+	var App = __webpack_require__(2);
+	var hbs = __webpack_require__(7);
+	var Tmpl = __webpack_require__(161);
+	var Model = __webpack_require__(162);
+	var _ = __webpack_require__(5);
+	var $ = __webpack_require__(6);
+	var accounting = __webpack_require__(9);
+	var Radio = __webpack_require__(4);
+	var AutoGrow = __webpack_require__(163);
+	var cashKeys = __webpack_require__(164);
+	var Utils = __webpack_require__(8);
 
 	// numpad header input btns
 	// - could be improved if _.result allowed custom bind?
@@ -13280,11 +13940,15 @@
 	      observe: ['value', 'percentage', 'active'],
 	      onGet: function(arr){
 	        var val = arr[2] === 'percentage' ? arr[1] : arr[0];
-	        var precision;
-	        if(arr[2] === 'percentage' || this.numpad === 'quantity'){
-	          precision = 'auto';
-	        }
-	        return Utils.formatNumber(val, precision);
+	        //var precision;
+	        //if(arr[2] === 'percentage' || this.numpad === 'quantity'){
+	        //  precision = 'auto';
+	        //}
+	        //return Utils.formatNumber(val, precision);
+	        return val;
+	      },
+	      onSet: function(val, opts){
+	        opts.view.model.setActive(val);
 	      }
 	    },
 	    '.numpad-discount [data-btn="left"]': {
@@ -13327,10 +13991,10 @@
 	  ui: {
 	    input   : '.numpad-header input[name="value"]',
 	    toggle  : '.numpad-header .input-group',
-	    common  : '.numpad-keys .common .btn',
-	    discount: '.numpad-keys .discount .btn',
-	    cash    : '.numpad-keys .cash .btn',
-	    keys    : '.numpad-keys .btn'
+	    common  : '.numpad-body .common .btn',
+	    discount: '.numpad-body .discount .btn',
+	    cash    : '.numpad-body .cash .btn',
+	    keys    : '.numpad-body .btn'
 	  },
 
 	  events: {
@@ -13338,7 +14002,14 @@
 	    'click @ui.common'  : 'commonKeys',
 	    'click @ui.discount': 'discountKeys',
 	    'click @ui.cash'    : 'cashKeys',
-	    'mousedown @ui.keys': 'keyPress'
+	    'mousedown @ui.keys': 'keyPress',
+	    'keyup @ui.input'   : 'enter'
+	  },
+
+	  onRender: function(){
+	    if(window.Modernizr.touch) {
+	      this.ui.input.attr('readonly', true);
+	    }
 	  },
 
 	  toggle: function(e){
@@ -13405,25 +14076,31 @@
 	  keyPress: function(){
 	    var sel = window.getSelection();
 	    this._hasSelection = sel.toString() === this.ui.input.val();
+	  },
+
+	  enter: function(e){
+	    if(e.which === 13){
+	      this.trigger('input', this.model.getFloatValue(), this.model);
+	    }
 	  }
 
 	});
 
 	module.exports = View;
-	POS.attach('Components.Numpad.View', View);
+	App.prototype.set('Components.Numpad.View', View);
 
 /***/ },
-/* 197 */
+/* 161 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"numpad numpad-{{numpad}}\">\n  <div class=\"numpad-header\">\n    <strong class=\"title\">{{label}}</strong>\n\n    {{#if input}}\n      <div class=\"input-group {{#if input.toggle}}input-toggle{{/if}}\">\n        {{#if input.left}}\n          {{#if input.left.addOn}}<span class=\"input-group-addon\">{{{input.left.addOn}}}</span>{{/if}}\n          {{#if input.left.btn}}<span class=\"input-group-btn\"><a href=\"#\" data-btn=\"left\">{{{input.left.btn}}}</a></span>{{/if}}\n        {{/if}}\n        <input type=\"text\" name=\"value\" class=\"form-control autogrow\" readonly=\"readonly\">\n        {{#if input.right}}\n          {{#if input.right.btn}}<span class=\"input-group-btn\"><a href=\"#\" data-btn=\"right\">{{{input.right.btn}}}</a></span>{{/if}}\n          {{#if input.right.addOn}}<span class=\"input-group-addon\">{{{input.right.addOn}}}</span>{{/if}}\n        {{/if}}\n      </div>\n    {{/if}}\n\n  </div>\n\n  <div class=\"numpad-keys\">\n    <div class=\"keys common\">\n      <div class=\"row\">\n        <a href=\"#\" data-key=\"1\" class=\"btn\">1</a>\n        <a href=\"#\" data-key=\"2\" class=\"btn\">2</a>\n        <a href=\"#\" data-key=\"3\" class=\"btn\">3</a>\n      </div>\n      <div class=\"row\">\n        <a href=\"#\" data-key=\"4\" class=\"btn\">4</a>\n        <a href=\"#\" data-key=\"5\" class=\"btn\">5</a>\n        <a href=\"#\" data-key=\"6\" class=\"btn\">6</a>\n      </div>\n      <div class=\"row\">\n        <a href=\"#\" data-key=\"7\" class=\"btn\">7</a>\n        <a href=\"#\" data-key=\"8\" class=\"btn\">8</a>\n        <a href=\"#\" data-key=\"9\" class=\"btn\">9</a>\n      </div>\n      <div class=\"row\">\n        <a href=\"#\" data-key=\"0\" class=\"btn\">0</a>\n        <a href=\"#\" data-key=\"00\" class=\"btn\">00</a>\n        <a href=\"#\" data-key=\".\" class=\"btn decimal\">{{{decimal}}}</a>\n      </div>\n    </div>\n    <div class=\"keys common extra-keys\">\n      <a href=\"#\" data-key=\"del\" class=\"btn\"><i class=\"icon icon-delete\"><span>del</span></i></a>\n      <a href=\"#\" data-key=\"+/-\" class=\"btn\">+/-</a>\n      <a href=\"#\" data-key=\"ret\" class=\"btn return\">{{return}}</a>\n    </div>\n\n    {{#if keys}}\n      <div class=\"keys extra-keys {{numpad}}\">\n        {{#each keys}}\n          <a href=\"#\" data-key=\"{{this}}\" class=\"btn\">{{this}}</a>\n        {{/each}}\n      </div>\n    {{/if}}\n\n  </div>\n</div>"
+	module.exports = "<div class=\"numpad numpad-{{numpad}}\">\n  <div class=\"popover-header numpad-header\">\n    <strong class=\"title\">{{label}}</strong>\n\n    {{#if input}}\n      <div class=\"input-group {{#if input.toggle}}btn-group-toggle{{/if}}\">\n        {{#if input.left}}\n          {{#if input.left.addOn}}<span class=\"input-group-addon\">{{{input.left.addOn}}}</span>{{/if}}\n          {{#if input.left.btn}}<span class=\"input-group-btn\"><a href=\"#\" data-btn=\"left\" class=\"btn btn-secondary\">{{{input.left.btn}}}</a></span>{{/if}}\n        {{/if}}\n        <input type=\"text\" name=\"value\" class=\"form-control autogrow\">\n        {{#if input.right}}\n          {{#if input.right.btn}}<span class=\"input-group-btn\"><a href=\"#\" data-btn=\"right\" class=\"btn btn-secondary\">{{{input.right.btn}}}</a></span>{{/if}}\n          {{#if input.right.addOn}}<span class=\"input-group-addon\">{{{input.right.addOn}}}</span>{{/if}}\n        {{/if}}\n      </div>\n    {{/if}}\n\n  </div>\n\n  <div class=\"popover-body numpad-body\">\n    <div class=\"keys common three-cols\">\n      <div class=\"row\">\n        <button data-key=\"1\" class=\"btn\">1</button>\n        <button data-key=\"2\" class=\"btn\">2</button>\n        <button data-key=\"3\" class=\"btn\">3</button>\n      </div>\n      <div class=\"row\">\n        <button data-key=\"4\" class=\"btn\">4</button>\n        <button data-key=\"5\" class=\"btn\">5</button>\n        <button data-key=\"6\" class=\"btn\">6</button>\n      </div>\n      <div class=\"row\">\n        <button data-key=\"7\" class=\"btn\">7</button>\n        <button data-key=\"8\" class=\"btn\">8</button>\n        <button data-key=\"9\" class=\"btn\">9</button>\n      </div>\n      <div class=\"row\">\n        <button data-key=\"0\" class=\"btn\">0</button>\n        <button data-key=\"00\" class=\"btn\">00</button>\n        <button data-key=\".\" class=\"btn decimal\">{{{decimal}}}</button>\n      </div>\n    </div>\n    <div class=\"keys common extra-keys\">\n      <button data-key=\"del\" class=\"btn\"><i class=\"icon-delete\"><span>del</span></i></button>\n      <button data-key=\"+/-\" class=\"btn\">+/-</button>\n      <button data-key=\"ret\" class=\"btn two-rows return\"><small>{{return}}</small></button>\n    </div>\n\n    {{#if keys}}\n      <div class=\"keys extra-keys {{numpad}}\">\n        {{#each keys}}\n          <button data-key=\"{{this}}\" class=\"btn\">{{this}}</button>\n        {{/each}}\n      </div>\n    {{/if}}\n\n  </div>\n</div>"
 
 /***/ },
-/* 198 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var bb = __webpack_require__(45);
-	var _ = __webpack_require__(2);
+	var bb = __webpack_require__(16);
+	var _ = __webpack_require__(5);
 
 	module.exports = bb.Model.extend({
 
@@ -13571,13 +14248,13 @@
 	});
 
 /***/ },
-/* 199 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Behavior = __webpack_require__(114);
-	var $ = __webpack_require__(40);
-	var _ = __webpack_require__(2);
-	var POS = __webpack_require__(36);
+	var Behavior = __webpack_require__(79);
+	var $ = __webpack_require__(6);
+	var _ = __webpack_require__(5);
+	var App = __webpack_require__(2);
 
 	var AutoGrow = Behavior.extend({
 
@@ -13633,14 +14310,14 @@
 	});
 
 	module.exports = AutoGrow;
-	POS.attach('Behaviors.AutoGrow', AutoGrow);
+	App.prototype.set('Behaviors.AutoGrow', AutoGrow);
 
 /***/ },
-/* 200 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _ = __webpack_require__(2);
-	var accounting = __webpack_require__(48);
+	var _ = __webpack_require__(5);
+	var accounting = __webpack_require__(9);
 
 	/* jshint -W071 */
 
@@ -13687,18 +14364,18 @@
 	/* jshint +W071 */
 
 /***/ },
-/* 201 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var POS = __webpack_require__(36);
-	var Router = __webpack_require__(116);
-	var LayoutView = __webpack_require__(202);
-	var Products = __webpack_require__(203);
-	var CartRoute = __webpack_require__(216);
-	var CheckoutRoute = __webpack_require__(225);
-	var ReceiptRoute = __webpack_require__(233);
-	var Radio = __webpack_require__(41);
-	var bb = __webpack_require__(45);
+	var App = __webpack_require__(2);
+	var Router = __webpack_require__(81);
+	var LayoutView = __webpack_require__(166);
+	var Products = __webpack_require__(167);
+	var CartRoute = __webpack_require__(180);
+	var CheckoutRoute = __webpack_require__(192);
+	var ReceiptRoute = __webpack_require__(200);
+	var Radio = __webpack_require__(4);
+	var bb = __webpack_require__(16);
 
 	var POSRouter = Router.extend({
 	  routes: {
@@ -13815,21 +14492,21 @@
 	});
 
 	module.exports = POSRouter;
-	POS.attach('POSApp.Router', POSRouter);
+	App.prototype.set('POSApp.Router', POSRouter);
 
 /***/ },
-/* 202 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var LayoutView = __webpack_require__(47);
+	var LayoutView = __webpack_require__(18);
 
 	module.exports = LayoutView.extend({
 	  columns: 2,
 
 	  template: function(){
 	    return '' +
-	      '<div id="left"></div>' +
-	      '<div id="right"></div>';
+	      '<section id="left"></section>' +
+	      '<section id="right"></section>';
 	  },
 
 	  regions: {
@@ -13839,17 +14516,17 @@
 	});
 
 /***/ },
-/* 203 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Route = __webpack_require__(117);
-	var Layout = __webpack_require__(204);
-	var Actions = __webpack_require__(205);
-	var List = __webpack_require__(207);
-	var Pagination = __webpack_require__(215);
-	var Radio = __webpack_require__(41);
-	var _ = __webpack_require__(2);
-	var polyglot = __webpack_require__(49);
+	var Route = __webpack_require__(82);
+	var Layout = __webpack_require__(168);
+	var Actions = __webpack_require__(169);
+	var List = __webpack_require__(171);
+	var Pagination = __webpack_require__(179);
+	var Radio = __webpack_require__(4);
+	var _ = __webpack_require__(5);
+	var polyglot = __webpack_require__(10);
 
 	module.exports = Route.extend({
 
@@ -13941,52 +14618,52 @@
 	});
 
 /***/ },
-/* 204 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var hbs = __webpack_require__(96);
-	var LayoutView = __webpack_require__(47);
-	var POS = __webpack_require__(36);
+	var hbs = __webpack_require__(7);
+	var LayoutView = __webpack_require__(18);
+	var App = __webpack_require__(2);
 
 	var Layout = LayoutView.extend({
 
 	  template: hbs.compile('' +
-	    '<div class="list-actions"></div>' +
-	    '<div class="list-tabs tabs infinite-tabs"></div>' +
-	    '<div class="list"></div>' +
-	    '<div class="list-footer"></div>'
+	    '<div class="panel-header list-actions products-header"></div>' +
+	    '<div class="products-tabs"></div>' +
+	    '<div class="panel-body list products-list list-striped"></div>' +
+	    '<div class="panel-footer products-footer"></div>'
 	  ),
 
-	  tagName: 'section',
-
 	  regions: {
-	    actions   : '.list-actions',
-	    tabs      : '.list-tabs',
-	    list      : '.list',
-	    footer    : '.list-footer'
+	    actions   : '.products-header',
+	    tabs      : '.products-tabs',
+	    list      : '.products-list',
+	    footer    : '.products-footer'
 	  },
 
 	  attributes: {
-	    'class'         : 'module products-module'
+	    'class'   : 'panel products'
 	  }
 
 	});
 
 	module.exports = Layout;
-	POS.attach('POSApp.Products.Layout', Layout);
+	App.prototype.set('POSApp.Products.Layout', Layout);
 
 /***/ },
-/* 205 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var View = __webpack_require__(95);
-	var POS = __webpack_require__(36);
-	var Filter = __webpack_require__(206);
-	var HotKeys = __webpack_require__(151);
-	var Radio = __webpack_require__(41);
+	var View = __webpack_require__(61);
+	var App = __webpack_require__(2);
+	var Filter = __webpack_require__(170);
+	var HotKeys = __webpack_require__(118);
+	var Radio = __webpack_require__(4);
+	var Dropdown = __webpack_require__(152);
+	var $ = __webpack_require__(6);
 
 	var Actions = View.extend({
-	  template: '#tmpl-products-filter',
+	  template: 'pos.products.filter',
 
 	  initialize: function(){
 	    var products = this.collection;
@@ -14000,6 +14677,7 @@
 	    this.listenTo(products.superset(), 'match:barcode', function(model){
 	      products.once('paginated:change:page', function(){
 	        self.triggerMethod('clear');
+	        self.ui.searchField.blur();
 	      });
 	      Radio.request('router', 'add:to:cart', model);
 	    });
@@ -14011,6 +14689,9 @@
 	    },
 	    HotKeys: {
 	      behaviorClass: HotKeys
+	    },
+	    Dropdown: {
+	      behaviorClass: Dropdown
 	    }
 	  },
 
@@ -14026,12 +14707,14 @@
 	    searchField : 'input[type=search]'
 	  },
 
-	  events: {
-	    'click @ui.searchBtn' : 'barcodeModeOff',
-	    'click @ui.barcodeBtn': 'barcodeModeOn'
+	  onRender: function(){
+	    this.barcodeModeOff();
 	  },
 
-	  onRender: function(){
+	  onDropdownSelect: function(e){
+	    if( $(e.currentTarget).data('action') === 'barcode' ){
+	      return this.barcodeModeOn();
+	    }
 	    this.barcodeModeOff();
 	  },
 
@@ -14068,17 +14751,17 @@
 	});
 
 	module.exports = Actions;
-	POS.attach('POSApp.Products.Actions', Actions);
+	App.prototype.set('POSApp.Products.Actions', Actions);
 
 /***/ },
-/* 206 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Behavior = __webpack_require__(114);
-	var _ = __webpack_require__(2);
-	var POS = __webpack_require__(36);
-	var Combokeys = __webpack_require__(152);
-	var Radio = __webpack_require__(41);
+	var Behavior = __webpack_require__(79);
+	var _ = __webpack_require__(5);
+	var App = __webpack_require__(2);
+	var Combokeys = __webpack_require__(119);
+	var Radio = __webpack_require__(4);
 
 	var Filter = Behavior.extend({
 
@@ -14101,13 +14784,14 @@
 
 	  ui: {
 	    searchField : 'input[type=search]',
-	    clearBtn    : 'a.clear',
+	    clearBtn    : '.clear',
+	    clear       : '*[data-action="clear"]',
 	    sync        : '*[data-action="sync"]'
 	  },
 
 	  events: {
 	    'keyup @ui.searchField' : 'query',
-	    'click @ui.clearBtn'    : 'clear',
+	    'click @ui.clear'       : 'clear',
 	    'click @ui.sync'        : 'sync'
 	  },
 
@@ -14188,21 +14872,24 @@
 	});
 
 	module.exports = Filter;
-	POS.attach('Behaviors.Filter', Filter);
+	App.prototype.set('Behaviors.Filter', Filter);
 
 /***/ },
-/* 207 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var InfiniteListView = __webpack_require__(208);
-	var Item = __webpack_require__(209);
-	var POS = __webpack_require__(36);
+	var ItemView = __webpack_require__(61);
+	var InfiniteListView = __webpack_require__(172);
+	var Item = __webpack_require__(173);
+	var App = __webpack_require__(2);
+	var polyglot = __webpack_require__(10);
 
 	var Empty = ItemView.extend({
 	  tagName: 'li',
 	  className: 'empty',
-	  template: '#tmpl-products-empty'
+	  template: function(){
+	    return polyglot.t('messages.no-products');
+	  }
 	});
 
 	var List = InfiniteListView.extend({
@@ -14212,34 +14899,38 @@
 	});
 
 	module.exports = List;
-	POS.attach('POSApp.Products.List', List);
+	App.prototype.set('POSApp.Products.List', List);
 
 /***/ },
-/* 208 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Mn = __webpack_require__(44);
-	var POS = __webpack_require__(36);
-	var _ = __webpack_require__(2);
+	var Mn = __webpack_require__(3);
+	var app = __webpack_require__(2);
+	var _ = __webpack_require__(5);
 	//var $ = require('jquery');
 
-	module.exports = POS.InfiniteListView = Mn.CompositeView.extend({
-	  className: 'infinite-list',
+	module.exports = app.prototype.InfiniteListView = Mn.CompositeView.extend({
+	  className: 'list-infinite',
 	  template: function(){
 	    return '<div></div>' +
-	      '<ul class="striped"></ul>' +
+	      '<ul></ul>' +
 	      '<div><i class="icon icon-spinner"></i>';
 	  },
 
-	  initialize: function(){
+	  constructor: function() {
+	    Mn.CompositeView.apply(this, arguments);
+
 	    this.listenTo(this.collection.superset(), {
 	      'start:processQueue': this.startLoading,
 	      'end:processQueue': this.endLoading,
 	      'end:fullSync': this.checkOverflow
 	    });
+
 	    this.on({
-	      'all': this.checkOverflow
+	      'all': _.debounce( this.checkOverflow, 250 )
 	    });
+
 	    _.bindAll(this, 'onScroll', 'loadMore', 'getOverflow');
 	  },
 
@@ -14254,20 +14945,21 @@
 	  //},
 
 	  onShow: function(){
-	    this._parent.$el.scroll(this.onScroll);
+	    this.container = this.$el.parent()[0];
+	    this.$el.parent().scroll( _.throttle( this.onScroll, 250 ) );
 	  },
 
-	  onScroll: _.throttle(function(){
+	  onScroll: function(){
 	    if(this.getOverflow() < 100){
 	      this.loadMore();
 	    }
-	  }, 200),
+	  },
 
-	  checkOverflow: _.debounce(function(){
+	  checkOverflow: function(){
 	    if(this.getOverflow() < 100){
 	      this.loadMore();
 	    }
-	  }, 200),
+	  },
 
 	  /**
 	   * returns overflow at bottom in px
@@ -14275,12 +14967,10 @@
 	   * @returns {number}
 	   */
 	  getOverflow: function(){
-	    if(this._parent && this._parent.el.clientHeight) {
-	      var sH = this._parent.el.scrollHeight,
-	          cH = this._parent.el.clientHeight,
-	          sT = this._parent.el.scrollTop;
-	      return sH - cH - sT;
-	    }
+	    var sH = this.container.scrollHeight,
+	        cH = this.container.clientHeight,
+	        sT = this.container.scrollTop;
+	    return sH - cH - sT;
 	  },
 
 	  loadMore: function() {
@@ -14316,13 +15006,17 @@
 	});
 
 /***/ },
-/* 209 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var POS = __webpack_require__(36);
-	var LayoutView = __webpack_require__(47);
-	var Product = __webpack_require__(210);
-	var Variations = __webpack_require__(213);
+	var App = __webpack_require__(2);
+	var LayoutView = __webpack_require__(18);
+	var Product = __webpack_require__(174);
+	var Variations = __webpack_require__(177);
+
+	/**
+	 * @todo Abstract ListItemView
+	 */
 
 	var Layout = LayoutView.extend({
 
@@ -14334,13 +15028,13 @@
 
 	  template: function () {
 	    return '' +
-	      '<div class="item"></div>' +
-	      '<div class="drawer"></div>';
+	      '<div class="list-item"></div>' +
+	      '<div class="list-drawer"></div>';
 	  },
 
 	  regions: {
-	    item  : '.item',
-	    drawer: '.drawer'
+	    item    : '.list-item',
+	    drawer  : '.list-drawer'
 	  },
 
 	  onRender: function(){
@@ -14395,23 +15089,24 @@
 	});
 
 	module.exports = Layout;
-	POS.attach('POSApp.Products.Item.Layout', Layout);
+	App.prototype.set('POSApp.Products.Item.Layout', Layout);
 
 /***/ },
-/* 210 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var POS = __webpack_require__(36);
-	var hbs = __webpack_require__(96);
-	var $ = __webpack_require__(40);
-	var _ = __webpack_require__(2);
-	var Tooltip = __webpack_require__(128);
-	var Radio = __webpack_require__(41);
-	var Variations = __webpack_require__(211);
+	var ItemView = __webpack_require__(61);
+	var App = __webpack_require__(2);
+	var $ = __webpack_require__(6);
+	var _ = __webpack_require__(5);
+	var Tooltip = __webpack_require__(93);
+	var Radio = __webpack_require__(4);
+	var Variations = __webpack_require__(175);
 
 	var Item = ItemView.extend({
-	  template: hbs.compile( $('#tmpl-product').html() ),
+	  template: 'pos.products.product',
+
+	  className: 'list-row',
 
 	  ui: {
 	    add      : 'a[data-action="add"]',
@@ -14455,10 +15150,9 @@
 	    });
 
 	    var options = _.extend({
-	      view   : view,
-	      parent : this,
-	      model  : this.model,
-	      target : $(e.currentTarget)
+	      view      : view,
+	      target    : e.target,
+	      position  : 'right middle'
 	    }, view.popover);
 
 	    Radio.request('popover', 'open', options);
@@ -14494,19 +15188,19 @@
 	});
 
 	module.exports = Item;
-	POS.attach('POSApp.Products.Item', Item);
+	App.prototype.set('POSApp.Products.Item', Item);
 
 /***/ },
-/* 211 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var Tmpl = __webpack_require__(212);
-	var POS = __webpack_require__(36);
-	var hbs = __webpack_require__(96);
-	var _ = __webpack_require__(2);
-	var $ = __webpack_require__(40);
-	var polyglot = __webpack_require__(49);
+	var ItemView = __webpack_require__(61);
+	var Tmpl = __webpack_require__(176);
+	var App = __webpack_require__(2);
+	var hbs = __webpack_require__(7);
+	var _ = __webpack_require__(5);
+	var $ = __webpack_require__(6);
+	var polyglot = __webpack_require__(10);
 
 	// rough calculation of variation option size
 	var hasManyOptions = function(variation){
@@ -14521,7 +15215,7 @@
 	  template: hbs.compile(Tmpl),
 
 	  popover: {
-	    className: 'popover popover-variations popover-dark-bg'
+	    classes: 'popover-theme-arrows popover-variations'
 	  },
 
 	  initialize: function(){
@@ -14531,14 +15225,12 @@
 
 	  templateHelpers: function(){
 	    var data = {};
-	    data.variations = _.chain(this.model.get('attributes'))
-	      .where({variation:true})
-	      .sortBy(function(variation){
+	    data.variations = _.chain( this.model.getVariationOptions() )
+	      .each(function(variation){
 	        if(hasManyOptions(variation)){
 	          variation.select = true;
 	          variation.emptyOption = polyglot.t('messages.choose');
 	        }
-	        return variation.position;
 	      })
 	      .value();
 	    return data;
@@ -14584,27 +15276,27 @@
 	});
 
 	module.exports = Variations;
-	POS.attach('POSApp.Products.Variations', Variations);
+	App.prototype.set('POSApp.Products.Variations', Variations);
 
 /***/ },
-/* 212 */
+/* 176 */
 /***/ function(module, exports) {
 
-	module.exports = "{{#variations}}\n  <strong>{{name}}</strong>\n  {{#unless this.select}}\n    <div class=\"btn-group\" data-toggle=\"buttons\">\n    {{#each options}}\n      <button class=\"btn btn-default\" value=\"{{this}}\" data-name=\"{{../name}}\">{{this}}</button>\n    {{/each}}\n    </div>\n  {{/unless}}\n  {{#if this.select}}\n    <select data-name=\"{{name}}\">\n      <option value=\"\">{{this.emptyOption}}</option>\n    {{#each options}}\n      <option value=\"{{this}}\">{{this}}</option>\n    {{/each}}\n    </select>\n  {{/if}}\n{{/variations}}\n<button class=\"btn btn-success\" data-action=\"add\" disabled>Add to Cart</button>"
+	module.exports = "<div class=\"popover-body\">\n{{#variations}}\n  <strong>{{name}}</strong>\n  {{#unless this.select}}\n    <div class=\"btn-group\" data-toggle=\"buttons\">\n    {{#each options}}\n      <button class=\"btn btn-default\" value=\"{{this}}\" data-name=\"{{../name}}\">{{this}}</button>\n    {{/each}}\n    </div>\n  {{/unless}}\n  {{#if this.select}}\n    <select data-name=\"{{name}}\">\n      <option value=\"\">{{this.emptyOption}}</option>\n    {{#each options}}\n      <option value=\"{{this}}\">{{this}}</option>\n    {{/each}}\n    </select>\n  {{/if}}\n{{/variations}}\n</div>\n<div class=\"popover-footer\">\n  <button class=\"btn btn-success\" data-action=\"add\" disabled>Add to Cart</button>\n</div>\n"
 
 /***/ },
-/* 213 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var CollectionView = __webpack_require__(105);
-	var Variation = __webpack_require__(214);
-	var _ = __webpack_require__(2);
+	var ItemView = __webpack_require__(61);
+	var CollectionView = __webpack_require__(70);
+	var Variation = __webpack_require__(178);
+	var _ = __webpack_require__(5);
 
 	var Empty = ItemView.extend({
 	  tagName: 'li',
 	  className: 'empty',
-	  template: '#tmpl-products-empty'
+	  template: 'pos.products.empty'
 	});
 
 	module.exports = CollectionView.extend({
@@ -14642,18 +15334,17 @@
 	});
 
 /***/ },
-/* 214 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var POS = __webpack_require__(36);
-	var hbs = __webpack_require__(96);
-	var $ = __webpack_require__(40);
-	var Radio = __webpack_require__(41);
+	var ItemView = __webpack_require__(61);
+	var App = __webpack_require__(2);
+	var Radio = __webpack_require__(4);
 
 	var Item = ItemView.extend({
-	  template: hbs.compile( $('#tmpl-product').html() ),
-	  className: 'variation',
+	  template: 'pos.products.product',
+
+	  className: 'list-row',
 
 	  ui: {
 	    add : 'a[data-action="add"]'
@@ -14683,20 +15374,18 @@
 	});
 
 	module.exports = Item;
-	POS.attach('POSApp.Products.Item.Drawer.Variation', Item);
+	App.prototype.set('POSApp.Products.Item.Drawer.Variation', Item);
 
 /***/ },
-/* 215 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var POS = __webpack_require__(36);
-	var $ = __webpack_require__(40);
-	var _ = __webpack_require__(2);
-	var hbs = __webpack_require__(96);
+	var ItemView = __webpack_require__(61);
+	var App = __webpack_require__(2);
+	var _ = __webpack_require__(5);
 
 	var View = ItemView.extend({
-	  template: hbs.compile($('#tmpl-pagination').html()),
+	  template: 'pagination',
 
 	  //ui: {
 	  //  prev    : '.prev',
@@ -14755,24 +15444,24 @@
 	});
 
 	module.exports = View;
-	POS.attach('Components.Pagination.View', View);
+	App.prototype.set('Components.Pagination.View', View);
 
 /***/ },
-/* 216 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Route = __webpack_require__(117);
-	var LayoutView = __webpack_require__(217);
-	var ItemsView = __webpack_require__(218);
-	var TotalsView = __webpack_require__(223);
-	var NotesView = __webpack_require__(224);
-	var Buttons = __webpack_require__(111);
-	var CustomerSelect = __webpack_require__(130);
+	var Route = __webpack_require__(82);
+	var LayoutView = __webpack_require__(181);
+	var ItemsView = __webpack_require__(182);
+	var TotalsView = __webpack_require__(187);
+	var NotesView = __webpack_require__(188);
+	var CustomerView = __webpack_require__(189);
+	var Buttons = __webpack_require__(76);
 	//var debug = require('debug')('cart');
-	var _ = __webpack_require__(2);
-	var POS = __webpack_require__(36);
-	var Utils = __webpack_require__(81);
-	var polyglot = __webpack_require__(49);
+	var _ = __webpack_require__(5);
+	var App = __webpack_require__(2);
+	var Utils = __webpack_require__(8);
+	var polyglot = __webpack_require__(10);
 
 	var CartRoute = Route.extend({
 
@@ -14873,29 +15562,10 @@
 	    this.layout.getRegion('totals').show(view);
 	  },
 
-	  /**
-	   * Customer Select
-	   */
 	  showCustomer: function(){
-	    var view = new CustomerSelect({
+	    var view = new CustomerView({
 	      model: this.order
 	    });
-
-	    this.listenTo(view, 'customer:select', function(customer) {
-	      this.order.unset('customer');
-	      this.order.save({
-	        customer_id: customer.id,
-	        customer: customer
-	      });
-	    });
-
-	    // bit of a hack
-	    // get the "Customer:" translation and add it to the view
-	    this.listenTo(this.layout.getRegion('customer'), 'before:show', function(){
-	      var label = this.layout.getRegion('customer').$el.html();
-	      view.$el.prepend( label );
-	    });
-
 	    this.layout.getRegion('customer').show( view );
 	  },
 
@@ -14969,35 +15639,33 @@
 	});
 
 	module.exports = CartRoute;
-	POS.attach('POSApp.Cart.Route', CartRoute);
+	App.prototype.set('POSApp.Cart.Route', CartRoute);
 
 /***/ },
-/* 217 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var LayoutView = __webpack_require__(47);
+	var LayoutView = __webpack_require__(18);
 
 	module.exports = LayoutView.extend({
-	  template: '#tmpl-cart',
+	  template: 'pos.cart.panel',
 
 	  initialize: function(options){
 	    options = options || {};
 	    this.order = options.order;
 	  },
 
-	  tagName: 'section',
-
 	  regions: {
-	    list      : '.list',
-	    totals    : '.list-totals',
+	    list      : '.cart-list',
+	    totals    : '.cart-totals',
 	    customer  : '.cart-customer',
-	    actions   : '.list-actions',
+	    actions   : '.cart-actions',
 	    note      : '.cart-notes',
-	    footer    : '.list-footer'
+	    footer    : '.cart-footer'
 	  },
 
 	  attributes: {
-	    'class'         : 'module cart-module'
+	    'class'   : 'panel cart'
 	  },
 
 	  /**
@@ -15010,18 +15678,21 @@
 	});
 
 /***/ },
-/* 218 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var CollectionView = __webpack_require__(105);
-	var LineItem = __webpack_require__(219);
-	var POS = __webpack_require__(36);
+	var ItemView = __webpack_require__(61);
+	var CollectionView = __webpack_require__(70);
+	var LineItem = __webpack_require__(183);
+	var App = __webpack_require__(2);
+	var polyglot = __webpack_require__(10);
 
 	var Empty = ItemView.extend({
 	  tagName: 'li',
 	  className: 'empty',
-	  template: '#tmpl-cart-empty'
+	  template: function(){
+	    return polyglot.t('messages.cart-empty');
+	  }
 	});
 
 	var View = CollectionView.extend({
@@ -15040,26 +15711,52 @@
 	});
 
 	module.exports = View;
-	POS.attach('POSApp.Cart.Views.Items', View);
+	App.prototype.set('POSApp.Cart.Views.Items', View);
 
 /***/ },
-/* 219 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var LayoutView = __webpack_require__(47);
-	var ItemView = __webpack_require__(220);
-	var DrawerView = __webpack_require__(222);
-	//var bb = require('backbone');
+	var LayoutView = __webpack_require__(18);
+	var ItemView = __webpack_require__(184);
+	var DrawerView = __webpack_require__(186);
+	var $ = __webpack_require__(6);
+
+	/**
+	 * @todo Abstract ListItemView
+	 */
+
+	/* jshint -W071 */
+	$.fn.selectText = function(){
+	  var range, element = this[0];
+	  if (document.body.createTextRange) {
+	    range = document.body.createTextRange();
+	    range.moveToElementText(element);
+	    range.select();
+	  } else if (window.getSelection) {
+	    var selection = window.getSelection();
+	    range = document.createRange();
+	    range.selectNodeContents(element);
+	    selection.removeAllRanges();
+	    selection.addRange(range);
+	  }
+	};
+	/* jshint +W071 */
 
 	module.exports = LayoutView.extend({
+
 	  tagName: 'li',
+
 	  className: function() { return this.model.get('type'); },
+
 	  template: function() {
-	    return '<div class="item"></div><div class="drawer"></div>';
+	    return '<div class="list-item cart-item"></div>' +
+	      '<div class="list-drawer cart-drawer"></div>';
 	  },
+
 	  regions: {
-	    item: '.item',
-	    drawer: '.drawer'
+	    item    : '.list-item',
+	    drawer  : '.list-drawer'
 	  },
 
 	  modelEvents: {
@@ -15097,57 +15794,39 @@
 
 	  pulse: function(opt) {
 	    if(opt === 'remove'){ return; }
-	    var self = this,
-	        list        = this.$el.closest('.list'),
-	        scrollTop   = list.scrollTop(),
-	        listTop     = list.position().top,
-	        listBottom  = list.height() + listTop,
-	        itemTop     = this.$el.position().top,
-	        itemBottom  = this.$el.height() + itemTop,
-	        type        = self.model.get( 'type' );
-
-	    if( itemTop < listTop ) {
-	      scrollTop -= ( listTop - itemTop );
-	    }
-
-	    if( itemBottom > listBottom ) {
-	      scrollTop += ( itemTop - list.height() + 4 );
-	    }
+	    var el = this.$el, type = this.model.get( 'type' );
 
 	    // scroll to row
-	    this.$el.addClass('bg-success')
-	      .closest('.list')
-	      .animate({scrollTop: scrollTop}, 'fast', function() {
-	        // focus title if shipping or fee
-	        if( type === 'fee' || type === 'shipping' ) {
-	          self.$('.title strong.action-edit-title').focus();
-	        }
-
-	        // pulse
-	        self.$el.animate({backgroundColor: 'transparent'}, 500, function() {
-	          self.$el.removeClass('bg-success').removeAttr('style');
+	    el.addClass('pulse-in')
+	      .scrollIntoView({ complete: function(){
+	        el.animate({backgroundColor: 'transparent'}, 500, function() {
+	          $(this).removeClass('pulse-in').removeAttr('style');
+	          if( type === 'fee' || type === 'shipping' ) {
+	            $('.title strong', this).focus().selectText();
+	          }
 	        });
-	      }
-	    );
+	      }});
+
 	  }
+
 	});
 
 /***/ },
-/* 220 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var FormView = __webpack_require__(123);
-	var Utils = __webpack_require__(81);
-	var bb = __webpack_require__(45);
+	var FormView = __webpack_require__(88);
+	var Utils = __webpack_require__(8);
+	var bb = __webpack_require__(16);
 	var Radio = bb.Radio;
-	var AutoGrow = __webpack_require__(199);
-	var Numpad = __webpack_require__(221);
-	var hbs = __webpack_require__(96);
-	var $ = __webpack_require__(40);
-	var _ = __webpack_require__(2);
+	var AutoGrow = __webpack_require__(163);
+	var Numpad = __webpack_require__(185);
+	var _ = __webpack_require__(5);
 
 	module.exports = FormView.extend({
-	  template: hbs.compile( $('#tmpl-cart-item').html() ),
+	  template: 'pos.cart.item',
+
+	  className: 'list-row',
 
 	  initialize: function() {
 	    this.tax = Radio.request('entities', 'get', {
@@ -15251,7 +15930,7 @@
 	    if(e) { e.preventDefault(); }
 	    var self = this;
 	    this.ui.remove.attr('disabled', 'true');
-	    this.$el.addClass('bg-danger')
+	    this.$el.addClass('pulse-out')
 	      .fadeOut(500, function(){
 	      self.model.destroy();
 	    });
@@ -15264,15 +15943,15 @@
 	});
 
 /***/ },
-/* 221 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var Behavior = __webpack_require__(114);
-	var POS = __webpack_require__(36);
-	var Modernizr = global['Modernizr'];
-	var Radio = __webpack_require__(41);
-	var $ = __webpack_require__(40);
-	var _ = __webpack_require__(2);
+	var Behavior = __webpack_require__(79);
+	var App = __webpack_require__(2);
+	var Radio = __webpack_require__(4);
+	var View = __webpack_require__(160);
+	var $ = __webpack_require__(6);
+	var _ = __webpack_require__(5);
 
 	var NumpadBehavior = Behavior.extend({
 
@@ -15282,12 +15961,11 @@
 
 	  events: {
 	    'click @ui.target'      : 'numpadPopover',
-	    'open:numpad @ui.input' : 'numpadPopover',
-	    'keypress @ui.target'      : 'keyboardEntry'
+	    'open:numpad @ui.input' : 'numpadPopover'
 	  },
 
 	  onRender: function() {
-	    if(Modernizr.touch) {
+	    if(window.Modernizr.touch) {
 	      this.ui.target.each(function(){
 	        if( $(this).is('input') ){
 	          $(this).attr('readonly', true);
@@ -15296,11 +15974,9 @@
 	    }
 	  },
 
-	  /* jshint -W071 */
 	  numpadPopover: function(e){
-	    var target  = $(e.target),
-	        name    = target.attr('name'),
-	        options = _.clone( target.data() );
+	    var name    = $(e.target).attr('name'),
+	        options = _.clone( $(e.target).data() );
 
 	    // numpad
 	    _.defaults( options, {
@@ -15311,66 +15987,51 @@
 	      options.original = this.view.model.get(options.original);
 	    }
 
-	    var numpad = Radio.request('numpad', 'view', options);
+	    var numpad = new View(options);
 
 	    this.listenTo(numpad, 'input', function(value){
-	      target.popover('hide');
+	      Radio.request('popover', 'close');
 	      this.view.model.set( name, value, { numpadChange: true } );
 	    });
 
 	    // popover
-	    target.one('shown.bs.popover', function(){
-	      if(!Modernizr.touch) {
-	        numpad.ui.input.select();
-	      }
-	    });
+	    this._numpadPopover(numpad, options, e.target);
+	  },
 
+	  _numpadPopover: function(numpad, options, target){
 	    _.defaults( options, {
-	      target    : target,
-	      view      : numpad,
-	      parent    : this.view,
-	      className : 'popover popover-numpad popover-dark-bg',
-	      placement : 'bottom'
+	      target : target,
+	      view   : numpad,
+	      classes: 'popover-theme-arrows popover-numpad'
 	    });
 
 	    Radio.request('popover', 'open', options);
-	  },
-	  /* jshint +W071 */
 
-	  keyboardEntry: function(e){
-	    var target = $(e.target);
-	    if( target.data('popoverOpen') ){
-	      target.one('hidden.bs.popover', function(){
-	        target.val( String.fromCharCode(e.keyCode) ).trigger('input');
-	      });
-	      target.popover('hide');
-	    }
+	    // @todo: remove this hack, popover & numpad should be uncoupled
+	    numpad.$('input').focus().select();
 	  }
 
 	});
 
 	module.exports = NumpadBehavior;
-	POS.attach('Behaviors.Numpad', NumpadBehavior);
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+	App.prototype.set('Behaviors.Numpad', NumpadBehavior);
 
 /***/ },
-/* 222 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var FormView = __webpack_require__(123);
-	var Utils = __webpack_require__(81);
-	var AutoGrow = __webpack_require__(199);
-	var Numpad = __webpack_require__(221);
-	var hbs = __webpack_require__(96);
-	var $ = __webpack_require__(40);
-	var _ = __webpack_require__(2);
-	var bb = __webpack_require__(45);
+	var FormView = __webpack_require__(88);
+	var Utils = __webpack_require__(8);
+	var AutoGrow = __webpack_require__(163);
+	var Numpad = __webpack_require__(185);
+	var $ = __webpack_require__(6);
+	var _ = __webpack_require__(5);
+	var bb = __webpack_require__(16);
 	var Radio = bb.Radio;
 
 	module.exports = FormView.extend({
-	  initialize: function() {
-	    this.template = hbs.compile( $('#tmpl-cart-item-drawer').html() );
-	  },
+
+	  template: 'pos.cart.item-drawer',
 
 	  behaviors: {
 	    AutoGrow: {
@@ -15382,8 +16043,8 @@
 	  },
 
 	  ui: {
-	    addMeta     : '.action-add-meta',
-	    removeMeta  : '.action-remove-meta',
+	    addMeta     : '*[data-action="add-meta"]',
+	    removeMeta  : '*[data-action="remove-meta"]',
 	    metaLabel   : 'input[name="meta.label"]',
 	    metaValue   : 'textarea[name="meta.value"]'
 	  },
@@ -15493,11 +16154,12 @@
 
 	    $('<span data-key="'+ i +'" />')
 	      .append('' +
-	        '<input type="text" name="meta.label">' +
-	        '<textarea name="meta.value"></textarea>' +
-	        '<a href="#" class="action-remove-meta">' +
-	        '<i class="icon icon-times"></i>' +
-	        '</a>')
+	        '<input class="form-control" type="text" name="meta.label">' +
+	        '<textarea class="form-control" name="meta.value"></textarea>' +
+	        '<a href="#" data-action="remove-meta">' +
+	        '<i class="icon-remove icon-lg"></i>' +
+	        '</a>'
+	      )
 	      .insertBefore( $(e.currentTarget) );
 	  },
 
@@ -15520,17 +16182,15 @@
 	});
 
 /***/ },
-/* 223 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(123);
-	var $ = __webpack_require__(40);
-	var hbs = __webpack_require__(96);
-	var Radio = __webpack_require__(41);
+	var ItemView = __webpack_require__(88);
+	var Radio = __webpack_require__(4);
 
 	module.exports = ItemView.extend({
 	  tagName: 'ul',
-	  template: hbs.compile( $('#tmpl-cart-totals').html() ),
+	  template: 'pos.cart.totals',
 
 	  initialize: function() {
 	    this.tax = Radio.request('entities', 'get', {
@@ -15568,11 +16228,11 @@
 	});
 
 /***/ },
-/* 224 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var _ = __webpack_require__(2);
+	var ItemView = __webpack_require__(61);
+	var _ = __webpack_require__(5);
 
 	module.exports = ItemView.extend({
 	  template: _.template( '<%= note %>' ),
@@ -15625,17 +16285,276 @@
 	});
 
 /***/ },
-/* 225 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Route = __webpack_require__(117);
+	var View = __webpack_require__(61);
+	var App = __webpack_require__(2);
+	var _ = __webpack_require__(5);
+	var Radio = __webpack_require__(4);
+	var Customers = __webpack_require__(190);
+	var Dropdown = __webpack_require__(152);
+	var Mn = __webpack_require__(3);
+
+	var View = View.extend({
+	  template: 'pos.cart.customer',
+
+	  className: 'list-row',
+
+	  initialize: function(){
+	    this.customers = Radio.request('entities', 'get', {
+	      type: 'filtered',
+	      name: 'customers',
+	      perPage : 10
+	    });
+
+	    this.mergeOptions({
+	      guest: this.customers.superset().getGuestCustomer()
+	    }, ['guest']);
+
+	    /**
+	     * @todo customer attr relation direct to customer model
+	     */
+	    this.listenTo(this.customers.superset(), 'modal:save', this.onModalSave);
+
+	    _.bindAll( this, 'dropdownContent' );
+	  },
+
+	  behaviors: {
+	    Dropdown: {
+	      behaviorClass: Dropdown
+	    }
+	  },
+
+	  ui: {
+	    searchField     : 'input',
+	    removeCustomer  : '*[data-action="remove"]'
+	  },
+
+	  events: {
+	    'input @ui.searchField'   : 'query',
+	    'click @ui.removeCustomer': 'removeCustomer'
+	  },
+
+	  query: function(){
+	    var value = this.ui.searchField.val();
+	    this._query(value);
+	  },
+
+	  _query: _.debounce( function(value){
+	    this.customers
+	      .query(value)
+	      .firstPage();
+	  }, 149),
+
+	  modelEvents: {
+	    'change:customer': 'render'
+	  },
+
+	  dropdownContent: function( drop ){
+	    this.customersRegion = new Mn.Region({
+	      el: drop.content
+	    });
+
+	    // reposition on filter
+	    this.listenTo( this.customers, 'reset', function(){
+	      drop.position.call(drop);
+	    });
+
+	    // reposition on show
+	    this.listenTo( this.customersRegion, 'show', function(){
+	      drop.position.call(drop);
+	    });
+
+	    return ''; // return empty content
+	  },
+
+	  onDropdownOpen: function(){
+	    var view = new Customers({
+	      collection: this.customers,
+	      filter: this.$('input').val()
+	    });
+
+	    this.listenTo(view, 'childview:customer:selected', function(view){
+	      this.saveCustomer( view.model.toJSON() );
+	    });
+
+	    this.customersRegion.show(view);
+	  },
+
+	  onDropdownClose: function(){
+	    this.customersRegion.empty();
+	  },
+
+	  onTargetKeydown: function(e){
+	    this.customersRegion.currentView.moveFocus(e.which);
+	  },
+
+	  removeCustomer: function(){
+	    this.saveCustomer( this.getOption('guest') );
+	  },
+
+	  saveCustomer: function(customer){
+	    this.model.unset('customer', { silent: true });
+	    this.model.save({
+	      customer_id: customer.id,
+	      customer: customer
+	    });
+	  }
+
+	});
+
+	module.exports = View;
+	App.prototype.set('POSApp.Cart.Views.Customer', View);
+
+/***/ },
+/* 190 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var ItemView = __webpack_require__(61);
+	var InfiniteListView = __webpack_require__(172);
+	var polyglot = __webpack_require__(10);
+	var Tmpl = __webpack_require__(191);
+	var hbs = __webpack_require__(7);
+	var _ = __webpack_require__(5);
+
+	var Customer = ItemView.extend({
+	  template: hbs.compile(Tmpl),
+	  tagName: 'li',
+	  triggers: {
+	    'click': 'customer:selected'
+	  },
+	  addFocus: function(){
+	    this.$el.addClass('focus').scrollIntoView();
+	  },
+	  removeFocus: function(){
+	    this.$el.removeClass('focus');
+	  },
+	  hasFocus: function(){
+	    return this.$el.hasClass('focus');
+	  }
+	});
+
+	var NoCustomer = ItemView.extend({
+	  tagName: 'li',
+	  className: 'empty',
+	  template: function(){
+	    return polyglot.t('messages.no-customer');
+	  }
+	});
+
+	var Customers = InfiniteListView.extend({
+	  childView: Customer,
+	  emptyView: NoCustomer,
+	  childViewContainer: 'ul',
+	  className: 'list-infinite dropdown-list',
+
+	  initialize: function(options){
+	    options = options || {};
+	    var filtered = this.collection;
+	    var customers = this.collection.superset();
+
+	    if( customers.isNew() ){
+	      return customers.fetch()
+	        .then(function(){
+	          customers.fullSync();
+	        });
+	    } else {
+	      filtered.query(options.filter);
+	    }
+	  },
+
+	  childEvents: {
+	    focus: 'onChildFocus'
+	  },
+
+	  onChildFocus: function(){
+	    this.children.each(function(view){
+	      view.removeFocus();
+	    });
+	  },
+
+	  moveFocus: function(keyCode) {
+	    if(keyCode === 40){
+	      this.moveFocusDown();
+	    }
+	    if(keyCode === 38){
+	      this.moveFocusUp();
+	    }
+	    if(keyCode === 13){
+	      this.getFocusedChild().trigger('customer:selected');
+	    }
+	  },
+
+	  moveFocusDown: function(){
+	    var next, nextChild, focused = this.getFocusedChild();
+	    if(!focused){
+	      return this.children.first().addFocus();
+	    }
+
+	    _.each(this.children._views, function(child){
+	      if(next){
+	        nextChild = child;
+	        next = false;
+	      }
+	      next = child === focused;
+	    });
+
+	    if(nextChild){
+	      focused.removeFocus();
+	      nextChild.addFocus();
+	    }
+	  },
+
+	  moveFocusUp: function(){
+	    var next, nextChild, focused = this.getFocusedChild();
+	    if(!focused){
+	      return this.children.last().addFocus();
+	    }
+
+	    _.eachRight(this.children._views, function(child){
+	      if(next){
+	        nextChild = child;
+	        next = false;
+	      }
+	      next = child === focused;
+	    });
+
+	    if(nextChild){
+	      focused.removeFocus();
+	      nextChild.addFocus();
+	    }
+	  },
+
+	  getFocusedChild: function(){
+	    return this.children.find(function(view){
+	      return view.hasFocus();
+	    });
+	  }
+
+	});
+
+
+	module.exports = Customers;
+
+/***/ },
+/* 191 */
+/***/ function(module, exports) {
+
+	module.exports = "<strong>{{formatCustomerName this}}</strong>\n<small>#{{id}}{{#if email}} - {{email}}{{/if}}</small>"
+
+/***/ },
+/* 192 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Route = __webpack_require__(82);
 	//var debug = require('debug')('checkout');
-	var POS = __webpack_require__(36);
-	var LayoutView = __webpack_require__(226);
-	var StatusView = __webpack_require__(227);
-	var GatewaysView = __webpack_require__(229);
-	var polyglot = __webpack_require__(49);
-	var Radio = __webpack_require__(41);
+	var App = __webpack_require__(2);
+	var LayoutView = __webpack_require__(193);
+	var StatusView = __webpack_require__(194);
+	var GatewaysView = __webpack_require__(196);
+	var polyglot = __webpack_require__(10);
+	var Radio = __webpack_require__(4);
 
 	var CheckoutRoute = Route.extend({
 
@@ -15689,7 +16608,7 @@
 	    var view = new StatusView({
 	      model: this.order
 	    });
-	    this.layout.getRegion('header').show(view);
+	    this.layout.getRegion('status').show(view);
 	  },
 
 	  showGateways: function(){
@@ -15731,56 +16650,52 @@
 	});
 
 	module.exports = CheckoutRoute;
-	POS.attach('POSApp.Checkout.Route', CheckoutRoute);
+	App.prototype.set('POSApp.Checkout.Route', CheckoutRoute);
 
 /***/ },
-/* 226 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var LayoutView = __webpack_require__(47);
-	var POS = __webpack_require__(36);
-	var hbs = __webpack_require__(96);
+	var LayoutView = __webpack_require__(18);
+	var App = __webpack_require__(2);
+	var hbs = __webpack_require__(7);
 
 	var Layout = LayoutView.extend({
 
 	  initialize: function(){
 	    this.template = hbs.compile('' +
-	      '<div class="list-header"></div>' +
-	      '<div class="list"></div>' +
-	      '<div class="list-actions"></div>' +
-	      '<div class="list-footer"></div>'
+	      '<div class="panel-header checkout-status"></div>' +
+	      '<div class="panel-body list checkout-list"></div>' +
+	      '<div class="list-actions checkout-actions"></div>'
 	    );
 	  },
 
-	  tagName: 'section',
-
 	  regions: {
-	    header  : '.list-header',
-	    list    : '.list',
-	    actions : '.list-actions',
-	    footer  : '.list-footer'
+	    status  : '.checkout-status',
+	    list    : '.checkout-list',
+	    actions : '.checkout-actions'
 	  },
 
 	  attributes: {
-	    'class'         : 'module checkout-module'
+	    'class' : 'panel checkout'
 	  }
 
 	});
 
 	module.exports = Layout;
-	POS.attach('POSApp.Checkout.Views.Layout', Layout);
+	App.prototype.set('POSApp.Checkout.Views.Layout', Layout);
 
 /***/ },
-/* 227 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var POS = __webpack_require__(36);
-	var hbs = __webpack_require__(96);
+	var ItemView = __webpack_require__(61);
+	var App = __webpack_require__(2);
+	var hbs = __webpack_require__(7);
 	//var $ = require('jquery');
-	var polyglot = __webpack_require__(49);
-	var Tmpl = __webpack_require__(228);
-	var _ = __webpack_require__(2);
+	var polyglot = __webpack_require__(10);
+	var Tmpl = __webpack_require__(195);
+	var _ = __webpack_require__(5);
 
 	var View = ItemView.extend({
 	  template: hbs.compile(Tmpl),
@@ -15819,27 +16734,30 @@
 	});
 
 	module.exports = View;
-	POS.attach('POSApp.Checkout.Views.Status', View);
+	App.prototype.set('POSApp.Checkout.Views.Status', View);
 
 /***/ },
-/* 228 */
+/* 195 */
 /***/ function(module, exports) {
 
 	module.exports = "<h4>{{status}}: {{{money total}}}</h4>\n{{#if message}}\n  <p>{{{message}}}</p>\n{{/if}}"
 
 /***/ },
-/* 229 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var CollectionView = __webpack_require__(105);
-	var Gateway = __webpack_require__(230);
-	var POS = __webpack_require__(36);
+	var ItemView = __webpack_require__(61);
+	var CollectionView = __webpack_require__(70);
+	var Gateway = __webpack_require__(197);
+	var App = __webpack_require__(2);
+	var polyglot = __webpack_require__(10);
 
 	var EmptyView = ItemView.extend({
 	  tagName: 'li',
 	  className: 'empty',
-	  template: '#tmpl-checkout-gateways-empty'
+	  template: function(){
+	    return polyglot.t('messages.no-gateway');
+	  }
 	});
 
 	var View = CollectionView.extend({
@@ -15849,15 +16767,15 @@
 	});
 
 	module.exports = View;
-	POS.attach('POSApp.Checkout.Views.Gateways', View);
+	App.prototype.set('POSApp.Checkout.Views.Gateways', View);
 
 /***/ },
-/* 230 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var LayoutView = __webpack_require__(47);
-	var GatewayView = __webpack_require__(231);
-	var DrawerView = __webpack_require__(232);
+	var LayoutView = __webpack_require__(18);
+	var GatewayView = __webpack_require__(198);
+	var DrawerView = __webpack_require__(199);
 
 	module.exports = LayoutView.extend({
 	  tagName: 'li',
@@ -15911,11 +16829,11 @@
 	});
 
 /***/ },
-/* 231 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var hbs = __webpack_require__(96);
+	var ItemView = __webpack_require__(61);
+	var hbs = __webpack_require__(7);
 	//var $ = require('jquery');
 
 	module.exports = ItemView.extend({
@@ -15937,22 +16855,20 @@
 	});
 
 /***/ },
-/* 232 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var FormView = __webpack_require__(123);
-	var hbs = __webpack_require__(96);
-	var $ = __webpack_require__(40);
-	var Numpad = __webpack_require__(221);
-	var Utils = __webpack_require__(81);
-	var polyglot = __webpack_require__(49);
+	var FormView = __webpack_require__(88);
+	var $ = __webpack_require__(6);
+	var _ = __webpack_require__(5);
+	var Numpad = __webpack_require__(185);
+	var Utils = __webpack_require__(8);
+	var polyglot = __webpack_require__(10);
 
 	module.exports = FormView.extend({
 
 	  initialize: function() {
-	    this.template = hbs.compile(
-	      $('script[data-gateway="' + this.model.id + '"]').html()
-	    );
+	    this.template = 'pos.checkout.gateways.' + this.model.id;
 	    this.order_total = this.model.collection.order.get('total');
 	    this.updateStatusMessage();
 	  },
@@ -15984,15 +16900,29 @@
 	      return this.posCardRender();
 	    }
 
+	    /**
+	     * bind form elements
+	     */
 	    this.$('input, select, textarea').each(function(){
-	      var name = $(this).attr('name');
-	      var id = $(this).attr('id');
+	      var name = $(this).attr('name'),
+	        id = $(this).attr('id'),
+	        data = $(this).data();
+
 	      if(name){
-	        self.addBinding(null, '*[name="' + name + '"]', name);
+	        return self.addBinding(null, '*[name="' + name + '"]', name);
 	      }
-	      if(!name && id){
-	        self.addBinding(null, '#' + id, id);
+	      if(id){
+	        return self.addBinding(null, '#' + id, id);
 	      }
+	      if(_.size(data) === 1){
+	        var prop = Object.keys(data)[0];
+	        return self.addBinding(
+	          null,
+	          '*[data-' + prop + '="' + data[prop] + '"]',
+	          data[prop]
+	        );
+	      }
+
 	    });
 	  },
 
@@ -16030,6 +16960,11 @@
 
 	  onShow: function() {
 	    this.$el.hide().slideDown(250);
+
+	    if(window.Modernizr.touch){
+	      this.$('#pos-cash-tendered').attr('readonly', true);
+	      this.$('#pos-cashback').attr('readonly', true);
+	    }
 	  },
 
 	  remove: function() {
@@ -16053,21 +16988,21 @@
 	});
 
 /***/ },
-/* 233 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Route = __webpack_require__(117);
-	var Radio = __webpack_require__(41);
+	var Route = __webpack_require__(82);
+	var Radio = __webpack_require__(4);
 	//var debug = require('debug')('receipt');
-	var POS = __webpack_require__(36);
-	var LayoutView = __webpack_require__(234);
-	var StatusView = __webpack_require__(235);
-	var ItemsView = __webpack_require__(237);
-	var TotalsView = __webpack_require__(239);
-	var EmailView = __webpack_require__(240);
-	var polyglot = __webpack_require__(49);
-	var Buttons = __webpack_require__(111);
-	var $ = __webpack_require__(40);
+	var App = __webpack_require__(2);
+	var LayoutView = __webpack_require__(201);
+	var StatusView = __webpack_require__(202);
+	var ItemsView = __webpack_require__(204);
+	var TotalsView = __webpack_require__(206);
+	var EmailView = __webpack_require__(207);
+	var polyglot = __webpack_require__(10);
+	var Buttons = __webpack_require__(76);
+	var $ = __webpack_require__(6);
 
 	var ReceiptRoute = Route.extend({
 
@@ -16240,43 +17175,41 @@
 	});
 
 	module.exports = ReceiptRoute;
-	POS.attach('POSApp.Receipt.Route', ReceiptRoute);
+	App.prototype.set('POSApp.Receipt.Route', ReceiptRoute);
 
 /***/ },
-/* 234 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var LayoutView = __webpack_require__(47);
+	var LayoutView = __webpack_require__(18);
 
 	module.exports = LayoutView.extend({
-	  template: '#tmpl-receipt',
-
-	  tagName: 'section',
+	  template: 'pos.receipt.panel',
 
 	  regions: {
-	    status  : '.status',
-	    list    : '.list',
-	    totals  : '.list-totals',
-	    actions : '.list-actions'
+	    status  : '.receipt-status',
+	    list    : '.receipt-list',
+	    totals  : '.receipt-totals',
+	    actions : '.receipt-actions'
 	  },
 
 	  className: function(){
-	    return 'module receipt-module ' + this.model.get('status');
+	    return 'panel receipt ' + this.model.get('status');
 	  }
 
 	});
 
 /***/ },
-/* 235 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var POS = __webpack_require__(36);
-	var hbs = __webpack_require__(96);
+	var ItemView = __webpack_require__(61);
+	var App = __webpack_require__(2);
+	var hbs = __webpack_require__(7);
 	//var $ = require('jquery');
-	var polyglot = __webpack_require__(49);
-	var Tmpl = __webpack_require__(236);
-	var _ = __webpack_require__(2);
+	var polyglot = __webpack_require__(10);
+	var Tmpl = __webpack_require__(203);
+	var _ = __webpack_require__(5);
 
 	var View = ItemView.extend({
 
@@ -16308,45 +17241,43 @@
 	});
 
 	module.exports = View;
-	POS.attach('POSApp.Receipt.Views.Status', View);
+	App.prototype.set('POSApp.Receipt.Views.Status', View);
 
 /***/ },
-/* 236 */
+/* 203 */
 /***/ function(module, exports) {
 
 	module.exports = "<h4>{{status}}: {{{money total}}}</h4>\n{{#if message}}\n  <p>{{{message}}}</p>\n{{/if}}"
 
 /***/ },
-/* 237 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ReceiptView = __webpack_require__(238);
-	var POS = __webpack_require__(36);
-	var hbs = __webpack_require__(96);
-	var $ = __webpack_require__(40);
+	var ReceiptView = __webpack_require__(205);
+	var App = __webpack_require__(2);
 
 	var View = ReceiptView.extend({
 	  tagName: 'ul',
-	  template: hbs.compile( $('#tmpl-receipt-items').html() )
+	  template: 'pos.receipt.items'
 	});
 
 	module.exports = View;
-	POS.attach('POSApp.Receipt.Views.Items', View);
+	App.prototype.set('POSApp.Receipt.Views.Items', View);
 
 /***/ },
-/* 238 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Prepare order JSON for display on receipts
 	 */
-	var ItemView = __webpack_require__(95);
-	var POS = __webpack_require__(36);
-	var Radio = __webpack_require__(41);
-	var _ = __webpack_require__(2);
+	var ItemView = __webpack_require__(61);
+	var App = __webpack_require__(2);
+	var Radio = __webpack_require__(4);
+	var _ = __webpack_require__(5);
 
 	/* jshint  -W101, -W071, -W074 */
-	module.exports = POS.ReceiptView = ItemView.extend({
+	module.exports = App.prototype.ReceiptView = ItemView.extend({
 
 	  viewOptions: ['data'],
 
@@ -16426,31 +17357,29 @@
 	/* jshint  +W101, +W071, +W074 */
 
 /***/ },
-/* 239 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ReceiptView = __webpack_require__(238);
-	var POS = __webpack_require__(36);
-	var hbs = __webpack_require__(96);
-	var $ = __webpack_require__(40);
+	var ReceiptView = __webpack_require__(205);
+	var App = __webpack_require__(2);
 
 	var View = ReceiptView.extend({
 	  tagName: 'ul',
-	  template: hbs.compile( $('#tmpl-receipt-totals').html() )
+	  template: 'pos.receipt.totals'
 	});
 
 	module.exports = View;
-	POS.attach('POSApp.Receipt.Views.Totals', View);
+	App.prototype.set('POSApp.Receipt.Views.Totals', View);
 
 /***/ },
-/* 240 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var POS = __webpack_require__(36);
-	var hbs = __webpack_require__(96);
-	var polyglot = __webpack_require__(49);
-	var Tmpl = __webpack_require__(241);
+	var ItemView = __webpack_require__(61);
+	var App = __webpack_require__(2);
+	var hbs = __webpack_require__(7);
+	var polyglot = __webpack_require__(10);
+	var Tmpl = __webpack_require__(208);
 
 	var View = ItemView.extend({
 
@@ -16496,25 +17425,25 @@
 	});
 
 	module.exports = View;
-	POS.attach('POSApp.Receipt.Views.Email', View);
+	App.prototype.set('POSApp.Receipt.Views.Email', View);
 
 /***/ },
-/* 241 */
+/* 208 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"input-group\">\n  <span class=\"input-group-addon\">@</span>\n  <input type=\"text\" class=\"form-control\" placeholder=\"{{email}}\">\n</div>"
 
 /***/ },
-/* 242 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Router = __webpack_require__(116);
-	var LayoutView = __webpack_require__(243);
-	var FormRoute = __webpack_require__(244);
-	var StatusRoute = __webpack_require__(247);
-	var Radio = __webpack_require__(41);
-	var Collection = __webpack_require__(57);
-	var $ = __webpack_require__(40);
+	var Router = __webpack_require__(81);
+	var LayoutView = __webpack_require__(210);
+	var FormRoute = __webpack_require__(211);
+	var StatusRoute = __webpack_require__(214);
+	var Radio = __webpack_require__(4);
+	var Collection = __webpack_require__(24);
+	var $ = __webpack_require__(6);
 
 	module.exports = Router.extend({
 
@@ -16557,10 +17486,10 @@
 	});
 
 /***/ },
-/* 243 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var LayoutView = __webpack_require__(47);
+	var LayoutView = __webpack_require__(18);
 
 	module.exports = LayoutView.extend({
 
@@ -16568,8 +17497,8 @@
 
 	  template: function(){
 	    return '' +
-	      '<div id="left"></div>' +
-	      '<div id="right"></div>';
+	      '<section id="left"></section>' +
+	      '<section id="right"></section>';
 	  },
 
 	  regions: {
@@ -16580,17 +17509,18 @@
 	});
 
 /***/ },
-/* 244 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Route = __webpack_require__(117);
-	var POS = __webpack_require__(36);
-	var Layout = __webpack_require__(245);
-	var Form = __webpack_require__(246);
-	var $ = __webpack_require__(40);
-	var Radio = __webpack_require__(41);
-	var Buttons = __webpack_require__(111);
-	var _ = __webpack_require__(2);
+	var Route = __webpack_require__(82);
+	var App = __webpack_require__(2);
+	var Layout = __webpack_require__(212);
+	var Form = __webpack_require__(213);
+	var $ = __webpack_require__(6);
+	var Radio = __webpack_require__(4);
+	var Buttons = __webpack_require__(76);
+	var _ = __webpack_require__(5);
+	var polyglot = __webpack_require__(10);
 
 	var FormRoute = Route.extend({
 
@@ -16598,7 +17528,7 @@
 	    this.container = options.container;
 	    this.setTabLabel({
 	      tab   : 'left',
-	      label : $('#tmpl-support-form').data('title')
+	      label : polyglot.t('titles.support-form')
 	    });
 	  },
 
@@ -16676,59 +17606,52 @@
 	});
 
 	module.exports = FormRoute;
-	POS.attach('SupportApp.Form.Route', FormRoute);
+	App.prototype.set('SupportApp.Form.Route', FormRoute);
 
 
 /***/ },
-/* 245 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var LayoutView = __webpack_require__(47);
-	var POS = __webpack_require__(36);
-	var $ = __webpack_require__(40);
+	var LayoutView = __webpack_require__(18);
+	var App = __webpack_require__(2);
+	var polyglot = __webpack_require__(10);
 
 	var Layout = LayoutView.extend({
 	  template: function(){
+	    var title = polyglot.t('titles.support-form');
 	    return '' +
-	      '<div class="list-header"><div><h4></h4></div></div>' +
-	      '<div class="list"></div>' +
-	      '<div class="list-actions"></div>' +
-	      '<div class="list-footer"></div>';
+	      '<div class="panel-header support-header">' +
+	      '<div><h4>' + title + '</h4></div></div>' +
+	      '<div class="panel-body list support-list"></div>' +
+	      '<div class="list-actions support-actions"></div>';
 	  },
 
-	  tagName: 'section',
-
 	  regions: {
-	    header   : '.list-header',
-	    form     : '.list',
-	    actions  : '.list-actions',
-	    footer   : '.list-footer'
+	    header   : '.support-header',
+	    form     : '.support-list',
+	    actions  : '.support-actions'
 	  },
 
 	  attributes: {
-	    'class'  : 'module support-module'
-	  },
-
-	  onRender: function(){
-	    var title = $('#tmpl-support-form').data('title');
-	    this.$('.list-header h4').text(title);
+	    'class'  : 'panel support'
 	  }
 
 	});
 
 	module.exports = Layout;
-	POS.attach('SupportApp.Views.Layout', Layout);
+	App.prototype.set('SupportApp.Views.Layout', Layout);
 
 /***/ },
-/* 246 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var $ = __webpack_require__(40);
+	var ItemView = __webpack_require__(61);
+	var $ = __webpack_require__(6);
 
 	module.exports = ItemView.extend({
 	  tagName: 'ul',
-	  template: '#tmpl-support-form',
+	  template: 'support.form',
 
 	  ui: {
 	    toggle : '.toggle',
@@ -16761,23 +17684,23 @@
 	});
 
 /***/ },
-/* 247 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Route = __webpack_require__(117);
-	var POS = __webpack_require__(36);
-	var Layout = __webpack_require__(248);
-	var Status = __webpack_require__(249);
-	var $ = __webpack_require__(40);
-	var _ = __webpack_require__(2);
+	var Route = __webpack_require__(82);
+	var App = __webpack_require__(2);
+	var Layout = __webpack_require__(215);
+	var Status = __webpack_require__(216);
+	var $ = __webpack_require__(6);
+	var _ = __webpack_require__(5);
 	//var Modernizr = global['Modernizr'];
-	var Radio = __webpack_require__(41);
-	var polyglot = __webpack_require__(49);
+	var Radio = __webpack_require__(4);
+	var polyglot = __webpack_require__(10);
 	//var debug = require('debug')('systemStatus');
 
 	var StatusRoute = Route.extend({
 
-	  databases: ['products', 'orders', 'cart'],
+	  databases: ['products', 'orders', 'cart', 'customers'],
 
 	  initialize: function(options){
 	    this.container = options.container;
@@ -16787,33 +17710,33 @@
 	      label : polyglot.t('titles.system-status')
 	    });
 
-	    this.ajaxurl = Radio.request('entities', 'get', {
-	      type: 'option',
-	      name: 'ajaxurl'
-	    });
-
-	    this.nonce = Radio.request('entities', 'get', {
-	      type: 'option',
-	      name: 'nonce'
-	    });
+	    //this.ajaxurl = Radio.request('entities', 'get', {
+	    //  type: 'option',
+	    //  name: 'ajaxurl'
+	    //});
+	    //
+	    //this.nonce = Radio.request('entities', 'get', {
+	    //  type: 'option',
+	    //  name: 'nonce'
+	    //});
 	  },
 
 	  fetch: function(){
 	    // if not fetched, need to fetch all local records
 	    var fetched = _.map(this.databases, this.fetchDB, this);
 	    // add the server tests
-	    fetched.push( this._fetch() );
+	    //fetched.push( this._fetch() );
 	    return $.when.apply($, fetched);
 	  },
 
 	  _fetch: function(){
-	    var self = this;
-	    return $.getJSON( this.ajaxurl, {
-	      action: 'wc_pos_system_status',
-	      security: this.nonce
-	    }, function( resp ){
-	      self.tests = resp;
-	    });
+	    //var self = this;
+	    //return $.getJSON( this.ajaxurl, {
+	    //  action: 'wc_pos_system_status',
+	    //  security: this.nonce
+	    //}, function( resp ){
+	    //  self.tests = resp;
+	    //});
 	  },
 
 	  render: function(){
@@ -16828,7 +17751,6 @@
 
 	  showStatus: function(){
 	    var view = new Status({
-	      tests: this.tests,
 	      storage: this.storageStatus()
 	    });
 
@@ -16879,60 +17801,57 @@
 	});
 
 	module.exports = StatusRoute;
-	POS.attach('SupportApp.Status.Route', StatusRoute);
+	App.prototype.set('SupportApp.Status.Route', StatusRoute);
 
 /***/ },
-/* 248 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var LayoutView = __webpack_require__(47);
-	var POS = __webpack_require__(36);
-	var polyglot = __webpack_require__(49);
+	var LayoutView = __webpack_require__(18);
+	var App = __webpack_require__(2);
+	var polyglot = __webpack_require__(10);
 
 	var Layout = LayoutView.extend({
 	  template: function(){
 	    var title = polyglot.t('titles.system-status');
 	    return '' +
-	      '<div class="list-header"><div><h4>' + title + '</h4></div></div>' +
-	      '<div class="list"></div>' +
-	      '<div class="list-footer"></div>';
+	      '<div class="panel-header status-header">' +
+	      '<div><h4>' + title + '</h4></div></div>' +
+	      '<div class="panel-body list status-list"></div>';
 	  },
 
-	  tagName: 'section',
-
 	  regions: {
-	    header   : '.list-header',
-	    status   : '.list',
-	    footer   : '.list-footer'
+	    header   : '.status-header',
+	    status   : '.status-list'
 	  },
 
 	  attributes: {
-	    'class'  : 'module status-module'
+	    'class'  : 'panel status'
 	  }
 
 	});
 
 	module.exports = Layout;
-	POS.attach('SupportApp.Views.Layout', Layout);
+	App.prototype.set('SupportApp.Views.Layout', Layout);
 
 /***/ },
-/* 249 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ItemView = __webpack_require__(95);
-	var $ = __webpack_require__(40);
-	var Tmpl = __webpack_require__(250);
-	var hbs = __webpack_require__(96);
-	var polyglot = __webpack_require__(49);
-	var EmulateHTTP = __webpack_require__(141);
+	var ItemView = __webpack_require__(61);
+	var $ = __webpack_require__(6);
+	var EmulateHTTP = __webpack_require__(106);
+	var Tmpl = __webpack_require__(217);
+	var hbs = __webpack_require__(7);
 
 	module.exports = ItemView.extend({
 	  tagName: 'ul',
-	  template: hbs.compile(Tmpl),
+	  template: 'support.status',
 
 	  ui: {
-	    toggle: '.toggle',
-	    btn   : '.btn'
+	    toggle      : '.toggle',
+	    btn         : '.btn',
+	    subHeading  : '.sub-heading'
 	  },
 
 	  events: {
@@ -16946,12 +17865,9 @@
 	    }
 	  },
 
-	  templateHelpers: function(){
-	    return {
-	      'sub-heading': polyglot.t('titles.local-storage'),
-	      tests: this.options.tests,
-	      storage: this.options.storage
-	    };
+	  onRender: function(){
+	    var storage = hbs.compile(Tmpl)({ storage: this.options.storage });
+	    this.ui.subHeading.after(storage);
 	  },
 
 	  toggleReport: function(e){
@@ -16972,21 +17888,20 @@
 	});
 
 /***/ },
-/* 250 */
+/* 217 */
 /***/ function(module, exports) {
 
-	module.exports = "{{#each tests}}\n  <li>\n    <div class=\"shrink\">\n      {{#if pass}}\n        <i class=\"icon-success icon-lg\"></i>\n      {{else}}\n        <i class=\"icon-error icon-lg\"></i>\n      {{/if}}\n    </div>\n    <div class=\"title\">{{title}}</div>\n    <div class=\"message\">\n      {{{message}}}\n      {{#each buttons}}\n        <a href=\"{{#if href}}{{href}}{{else}}#{{/if}}\" {{#if action}}data-action=\"{{action}}\"{{/if}} class=\"btn btn-default\">{{prompt}}</a>\n      {{/each}}\n    </div>\n  </li>\n{{/each}}\n\n<li class=\"sub-heading\"><div>{{sub-heading}}</div></li>\n\n{{#each storage}}\n<li>\n  {{#if icon}}\n  <div class=\"shrink\">\n    <i class=\"icon-{{icon}} icon-lg\"></i>\n  </div>\n  {{/if}}\n  {{#if title}}\n  <div class=\"title\">{{title}}</div>\n  {{/if}}\n  <div class=\"message\">\n    {{{message}}}\n    {{#if button}}\n      <button class=\"btn btn-default\" data-action=\"{{button.action}}\">{{button.label}}</button>\n    {{/if}}\n  </div>\n</li>\n{{/each}}"
+	module.exports = "{{#each storage}}\n<li class=\"list-row\">\n  {{#if icon}}\n  <div class=\"shrink\">\n    <i class=\"icon-{{icon}} icon-lg\"></i>\n  </div>\n  {{/if}}\n  {{#if title}}\n  <div class=\"title\">{{title}}</div>\n  {{/if}}\n  <div class=\"message\">\n    {{{message}}}\n    {{#if button}}\n      <button class=\"btn btn-default\" data-action=\"{{button.action}}\">{{button.label}}</button>\n    {{/if}}\n  </div>\n</li>\n{{/each}}"
 
 /***/ },
-/* 251 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var POS = __webpack_require__(36);
-	var Router = __webpack_require__(116);
-	var LayoutView = __webpack_require__(252);
-	var ReceiptRoute = __webpack_require__(253);
-	var Radio = __webpack_require__(41);
-	//var bb = require('backbone');
+	var App = __webpack_require__(2);
+	var Router = __webpack_require__(81);
+	var LayoutView = __webpack_require__(219);
+	var ReceiptRoute = __webpack_require__(220);
+	var Radio = __webpack_require__(4);
 
 	var PrintRouter = Router.extend({
 	  routes: {
@@ -17030,38 +17945,40 @@
 	});
 
 	module.exports = PrintRouter;
-	POS.attach('Print.Router', PrintRouter);
+	App.prototype.set('Print.Router', PrintRouter);
 
 /***/ },
-/* 252 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var LayoutView = __webpack_require__(47);
+	var LayoutView = __webpack_require__(18);
 
 	module.exports = LayoutView.extend({
 
-	  className: 'print-preview',
+	  tagName: 'section',
+
+	  className: 'panel print-preview',
 
 	  template: function(){
 	    return '' +
-	      '<div id="iframe"></div>' +
-	      '<div id="actions"></div>';
+	      '<div class="panel-body print-preview-iframe"></div>' +
+	      '<div class="print-preview-actions"></div>';
 	  },
 
 	  regions: {
-	    iframe: '#iframe',
-	    actions: '#actions'
+	    iframe  : '.print-preview-iframe',
+	    actions : '.print-preview-actions'
 	  }
 
 	});
 
 /***/ },
-/* 253 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Route = __webpack_require__(117);
-	var Radio = __webpack_require__(41);
-	var View = __webpack_require__(254);
+	var Route = __webpack_require__(82);
+	var Radio = __webpack_require__(4);
+	var View = __webpack_require__(221);
 
 	var ReceiptRoute = Route.extend({
 
@@ -17092,12 +18009,11 @@
 	module.exports = ReceiptRoute;
 
 /***/ },
-/* 254 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ReceiptView = __webpack_require__(238);
-	var hbs = __webpack_require__(96);
-	var $ = __webpack_require__(40);
+	var ReceiptView = __webpack_require__(205);
+	var hbs = __webpack_require__(7);
 
 	module.exports = ReceiptView.extend({
 
@@ -17106,7 +18022,7 @@
 	  template: function(){},
 
 	  onShow: function(){
-	    var template = hbs.compile( $('#tmpl-print-receipt').html() );
+	    var template = hbs.compile( hbs.Templates.print.receipt ) ;
 	    this.window = this.el.contentWindow;
 	    this.window.document.write(template( this.data ));
 	  },
@@ -17117,195 +18033,6 @@
 	  }
 
 	});
-
-/***/ },
-/* 255 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var _ = __webpack_require__(2);
-	var hbs = __webpack_require__(96);
-	var accounting = __webpack_require__(48);
-	var moment = __webpack_require__(60);
-	var Utils = __webpack_require__(81);
-	//var Radio = require('backbone.radio');
-
-	/**
-	 * is, compare helpers taken from
-	 * https://github.com/assemble/handlebars-helpers
-	 */
-
-	hbs.registerHelper('is', function (value, test, options) {
-	  if ( value && _.includes(test.split('|'), value) ) {
-	    return options.fn(this);
-	  } else {
-	    return options.inverse(this);
-	  }
-	});
-
-	/*jshint -W071, -W074: suppress warnings  */
-	hbs.registerHelper('compare', function(left, operator, right, options) {
-
-	  if (arguments.length < 3) {
-	    throw new Error('Handlebars Helper "compare" needs 2 parameters');
-	  }
-
-	  if (options === undefined) {
-	    options = right;
-	    right = operator;
-	    operator = '===';
-	  }
-
-	  var operators = {
-	    //'==': function(l, r) {
-	    //  return l == r;
-	    //},
-	    '===': function(l, r) {
-	      return l === r;
-	    },
-	    //'!=': function(l, r) {
-	    //  return l != r;
-	    //},
-	    '!==': function(l, r) {
-	      return l !== r;
-	    },
-	    '<': function(l, r) {
-	      return l < r;
-	    },
-	    '>': function(l, r) {
-	      return l > r;
-	    },
-	    '<=': function(l, r) {
-	      return l <= r;
-	    },
-	    '>=': function(l, r) {
-	      return l >= r;
-	    }
-	    //'typeof': function(l, r) {
-	    //  return typeof l == r;
-	    //}
-	  };
-
-	  if (!operators[operator]) {
-	    throw new Error(
-	      'Handlebars Helper "compare" doesn\'t know the operator ' + operator
-	    );
-	  }
-
-	  var result = operators[operator](left, right);
-
-	  if (result) {
-	    return options.fn(this);
-	  } else {
-	    return options.inverse(this);
-	  }
-	});
-	/*jshint +W071, +W074 */
-
-	hbs.registerHelper('list', function(items, sep, options) {
-	  if( _.isArray(items) || _.isObject(items) ){
-	    var list = _.map(items, options.fn);
-	    return list.join(sep);
-	  }
-	  return options.fn(items);
-	});
-
-	hbs.registerHelper('csv', function(items, options) {
-	  return options.fn(items.join(', '));
-	});
-
-	hbs.registerHelper('money', function(num, options){
-	  var defaultPrecision = accounting.settings.currency.precision,
-	      precision = options.hash.precision || defaultPrecision;
-
-	  if( precision === 'auto' ) {
-	    precision = Utils.decimalPlaces(num);
-	  }
-
-	  // round the number to even
-	  num = Utils.round(num, precision);
-
-	  if(options.hash.negative) {
-	    num = num * -1;
-	  }
-
-	  return accounting.formatMoney(num);
-	});
-
-	hbs.registerHelper('number', function(num, options){
-	  var defaultPrecision = accounting.settings.number.precision,
-	      precision = options.hash.precision || defaultPrecision;
-
-	  if( precision === 'auto' ) {
-	    precision = Utils.decimalPlaces(num);
-	  }
-
-	  if(options.hash.negative) {
-	    num = num * -1;
-	  }
-
-	  return accounting.formatNumber(num, precision);
-	});
-
-	hbs.registerHelper('formatAddress', function(a, options){
-	  a = a || {};
-
-	  var format = [
-	    [a.first_name, a.last_name],
-	    [a.company],
-	    [a.address_1],
-	    [a.address_2],
-	    [a.city, a.state, a.postcode]
-	  ];
-
-	  // format address
-	  var address = _.chain(format)
-	    .map(function(line) { return _.compact(line).join(' '); })
-	    .compact()
-	    .join('<br>\n')
-	    .value();
-
-	  // prepend title
-	  if( address !== '' && options.hash.title ) {
-	    address = '<h3>' + options.hash.title + '</h3>\n' + address;
-	  }
-
-	  return new hbs.SafeString(address);
-	});
-
-	hbs.registerHelper('formatDate', function(date, options){
-	  var f = options.hash.format || '';
-	  return moment(date).format(f);
-	});
-
-	hbs.registerHelper('formatDay', function(day, options){
-	  var f = options.hash.format || '';
-	  var idx = parseInt(day, 10) + 1;
-	  return moment().isoWeekday(idx).format(f);
-	});
-
-	hbs.registerHelper('debug', function(optionalValue) {
-	  console.log('Current Context');
-	  console.log('====================');
-	  console.log(this);
-
-	  if (optionalValue) {
-	    console.log('Value');
-	    console.log('====================');
-	    console.log(optionalValue);
-	  }
-	});
-
-	//hbs.registerHelper('getOption', function(key){
-	//  var lookup = key.split('.');
-	//  var option = Radio.request( 'entities', 'get', {
-	//    type: 'option',
-	//    name: lookup.shift()
-	//  });
-	//  for(var i = 0; i < lookup.length; i++) {
-	//    option = option[lookup[i]];
-	//  }
-	//  return option;
-	//});
 
 /***/ }
 /******/ ]);

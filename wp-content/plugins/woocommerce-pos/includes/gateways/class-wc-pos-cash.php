@@ -3,11 +3,11 @@
 /**
  * Provides a Cash Payment Gateway.
  *
- * @class 	    WC_POS_Gateways_Cash
+ * @class       WC_POS_Gateways_Cash
  * @package     WooCommerce POS
  * @author      Paul Kilmurray <paul@kilbot.com.au>
  * @link        http://www.woopos.com.au
- * @extends		WC_Payment_Gateway
+ * @extends     WC_Payment_Gateway
  */
 
 class WC_POS_Gateways_Cash extends WC_Payment_Gateway {
@@ -17,7 +17,7 @@ class WC_POS_Gateways_Cash extends WC_Payment_Gateway {
    */
   public function __construct() {
     $this->id          = 'pos_cash';
-    $this->title       = __( 'Cash', 'woocommerce-pos' );
+    $this->title       = __( '现金', 'woocommerce-pos' );
     $this->description = '';
     $this->icon        = apply_filters( 'woocommerce_pos_cash_icon', '' );
     $this->has_fields  = true;
@@ -52,7 +52,7 @@ class WC_POS_Gateways_Cash extends WC_Payment_Gateway {
         <label for="pos-cash-tendered" class="">'. __('Amount Tendered', 'woocommerce-pos') .'</label>
         <div class="input-group">
         '. $left_addon .'
-          <input type="text" class="input-text" name="pos-cash-tendered" id="pos-cash-tendered" maxlength="20" data-numpad="cash" data-label="'. __('Amount Tendered', 'woocommerce-pos') .'" data-placement="bottom" data-value="{{total}}">
+          <input type="text" class="form-control" name="pos-cash-tendered" id="pos-cash-tendered" maxlength="20" data-numpad="cash" data-label="'. __('Amount Tendered', 'woocommerce-pos') .'" data-placement="bottom" data-value="{{total}}">
         '. $right_addon .'
         </div>
       </div>
@@ -66,8 +66,9 @@ class WC_POS_Gateways_Cash extends WC_Payment_Gateway {
     $order = new WC_Order( $order_id );
 
     // update pos_cash data
-    $tendered = isset( $_POST['pos-cash-tendered'] ) ? wc_format_decimal( $_POST['pos-cash-tendered'] ) : 0 ;
-    $change = isset( $_POST['pos-cash-change'] ) ? wc_format_decimal( $_POST['pos-cash-change'] ) : 0 ;
+    $data = WC_POS_Server::get_raw_data();
+    $tendered = isset( $data['payment_details']['pos-cash-tendered'] ) ? wc_format_decimal( $data['payment_details']['pos-cash-tendered'] ) : 0 ;
+    $change = isset( $data['payment_details']['pos-cash-change'] ) ? wc_format_decimal( $data['payment_details']['pos-cash-change'] ) : 0 ;
     update_post_meta( $order_id, '_pos_cash_amount_tendered', $tendered );
     update_post_meta( $order_id, '_pos_cash_change', $change );
 
