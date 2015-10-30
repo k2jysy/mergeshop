@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2015-10-27 08:15:43+0000\n"
+"PO-Revision-Date: 2015-10-29 12:48:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -71,18 +71,9 @@ msgstr "您没有设置过此类型的地址."
 msgid "Available Downloads"
 msgstr "可用的下载"
 
-#: templates/myaccount/my-downloads.php:29
-msgid "%s download remaining"
-msgid_plural "%s downloads remaining"
-msgstr[0] "%s 下载剩余"
-
 #: templates/myaccount/my-orders.php:26
 msgid "Recent Orders"
 msgstr "最近的订单"
-
-#: templates/myaccount/my-orders.php:47
-msgid "Order Number"
-msgstr "订单号码"
 
 #: templates/myaccount/my-orders.php:59
 msgid "%s for %s item"
@@ -116,10 +107,6 @@ msgstr "帐单电子邮件"
 #: templates/order/form-tracking.php:23
 msgid "Email you used during checkout."
 msgstr "您结帐时使用的电子邮件 "
-
-#: templates/order/form-tracking.php:26
-msgid "Track"
-msgstr "Track"
 
 #: templates/order/order-again.php:16
 msgid "Order Again"
@@ -169,14 +156,6 @@ msgstr "搜索："
 msgid "This product is currently out of stock and unavailable."
 msgstr "此产品缺货不能购买"
 
-#: templates/single-product/add-to-cart/variable.php:34
-msgid "Clear selection"
-msgstr "清除临时状态"
-
-#: templates/single-product/meta.php:26
-msgid "SKU:"
-msgstr "编码："
-
 #: templates/single-product/meta.php:30
 msgid "Category:"
 msgid_plural "Categories:"
@@ -200,10 +179,6 @@ msgstr[0] "%s 条用户评论"
 #: templates/single-product/related.php:42
 msgid "Related Products"
 msgstr "相关产品"
-
-#: templates/single-product/review.php:29
-msgid "Rated %d out of 5"
-msgstr "评分 %d 不足 5 "
 
 #: templates/single-product/review.php:37
 msgid "Your comment is awaiting approval"
@@ -270,10 +245,6 @@ msgstr "极差"
 msgid "Your Review"
 msgstr "你的评论"
 
-#: templates/single-product-reviews.php:99
-msgid "Only logged in customers who have purchased this product may leave a review."
-msgstr "只有买过此商品的客户登陆后才能发表评论"
-
 #: templates/product-searchform.php:3
 msgctxt "placeholder"
 msgid "Search Products&hellip;"
@@ -304,6 +275,35 @@ msgstr "订单 #<mark class=\"order-number\">%s</mark> 被放入 <mark class=\"o
 #: templates/single-product/rating.php:29
 msgid "out of %s5%s"
 msgstr "/ %s5%s"
+
+#: templates/single-product-reviews.php:99
+msgid "Only logged in customers who have purchased this product may leave a review."
+msgstr "只有购买过此产品的已登录客户才可发表评论"
+
+#: templates/order/form-tracking.php:26
+msgid "Track"
+msgstr "跟踪"
+
+#: templates/single-product/add-to-cart/variable.php:34
+msgid "Clear selection"
+msgstr "清除选中"
+
+#: templates/single-product/meta.php:26
+msgid "SKU:"
+msgstr "SKU:"
+
+#: templates/single-product/review.php:29
+msgid "Rated %d out of 5"
+msgstr "评分 %d / 5 "
+
+#: templates/myaccount/my-orders.php:47
+msgid "Order Number"
+msgstr "订单号"
+
+#: templates/myaccount/my-downloads.php:29
+msgid "%s download remaining"
+msgid_plural "%s downloads remaining"
+msgstr[0] "还可下载 %s 次 "
 
 #: includes/shortcodes/class-wc-shortcode-checkout.php:89
 #: includes/shortcodes/class-wc-shortcode-my-account.php:108
@@ -880,10 +880,6 @@ msgstr "类别排序"
 msgid "Show as dropdown"
 msgstr "显示为下拉菜单"
 
-#: includes/widgets/class-wc-widget-product-categories.php:63
-msgid "Show product counts"
-msgstr "显示商品数量"
-
 #: includes/widgets/class-wc-widget-product-categories.php:68
 msgid "Show hierarchy"
 msgstr "体现层级关系"
@@ -920,23 +916,9 @@ msgstr "您的网站显示您的产品清单。"
 msgid "WooCommerce Products"
 msgstr "WooCommerce 产品"
 
-#: includes/widgets/class-wc-widget-products.php:38
-#: includes/widgets/class-wc-widget-recently-viewed.php:38
-#: includes/widgets/class-wc-widget-top-rated-products.php:40
-msgid "Number of products to show"
-msgstr "要显示的商品数"
-
-#: includes/widgets/class-wc-widget-products.php:45
-msgid "All Products"
-msgstr "所有商品"
-
 #: includes/widgets/class-wc-widget-products.php:46
 msgid "Featured Products"
 msgstr "特色产品"
-
-#: includes/widgets/class-wc-widget-products.php:47
-msgid "On-sale Products"
-msgstr "在售商品"
 
 #: includes/widgets/class-wc-widget-products.php:57
 msgid "Random"
@@ -958,10 +940,6 @@ msgstr "降序"
 msgid "Hide free products"
 msgstr "当正显示子类别，隐藏产品"
 
-#: includes/widgets/class-wc-widget-products.php:78
-msgid "Show hidden products"
-msgstr "显示隐藏的商品"
-
 #: includes/widgets/class-wc-widget-recent-reviews.php:23
 msgid "Display a list of your most recent reviews on your site."
 msgstr "显示最新评论列表在你网站"
@@ -981,10 +959,6 @@ msgstr "显示最近浏览过的产品列表。"
 #: includes/widgets/class-wc-widget-recently-viewed.php:25
 msgid "WooCommerce Recently Viewed"
 msgstr "WooCommerce 最近浏览"
-
-#: includes/widgets/class-wc-widget-recently-viewed.php:29
-msgid "Recently Viewed Products"
-msgstr "最近看过的商品"
 
 #: includes/widgets/class-wc-widget-top-rated-products.php:25
 msgid "Display a list of your top rated products on your site."
@@ -1360,10 +1334,6 @@ msgstr "记住我"
 msgid "Lost your password?"
 msgstr "忘记密码？"
 
-#: templates/loop/no-products-found.php:17
-msgid "No products were found matching your selection."
-msgstr "没有符合你要求的商品"
-
 #: templates/loop/result-count.php:30
 msgid "Showing the single result"
 msgstr "搜索结果: "
@@ -1572,6 +1542,36 @@ msgstr "您必须登录才能进行结算。"
 #: templates/auth/form-grant-access.php:20
 msgid "This will give \"%s\" <strong>%s</strong> access which will allow it to:"
 msgstr "这将给 \"%s\" <strong>%s</strong> 访问权限："
+
+#: includes/widgets/class-wc-widget-product-categories.php:63
+msgid "Show product counts"
+msgstr "显示产品数量"
+
+#: includes/widgets/class-wc-widget-products.php:38
+#: includes/widgets/class-wc-widget-recently-viewed.php:38
+#: includes/widgets/class-wc-widget-top-rated-products.php:40
+msgid "Number of products to show"
+msgstr "要显示的产品数"
+
+#: includes/widgets/class-wc-widget-products.php:45
+msgid "All Products"
+msgstr "所有产品"
+
+#: includes/widgets/class-wc-widget-products.php:47
+msgid "On-sale Products"
+msgstr "在售产品"
+
+#: includes/widgets/class-wc-widget-products.php:78
+msgid "Show hidden products"
+msgstr "显示隐藏的产品"
+
+#: includes/widgets/class-wc-widget-recently-viewed.php:29
+msgid "Recently Viewed Products"
+msgstr "最近浏览的产品"
+
+#: templates/loop/no-products-found.php:17
+msgid "No products were found matching your selection."
+msgstr "没有符合你要求的产品"
 
 #: includes/class-wc-post-types.php:474
 msgid "Failed <span class=\"count\">(%s)</span>"
@@ -2578,10 +2578,6 @@ msgstr "税率"
 msgid "One per line: Option Name | Additional Cost [+- Percents] | Per Cost Type (order, class, or item) Example: <code>Priority Mail | 6.95 [+ 0.2%] | order</code>."
 msgstr "每行一个: 可选名称|附加收费 [+- 百分比]| 每个成本类型(order、class，或者item) 例如： <code>优先送货 | 6.95 [+ 0.2%] | order</code>."
 
-#: includes/shipping/flat-rate/includes/settings-flat-rate.php:120
-msgid "Option Name | Additional Cost [+- Percents%] | Per Cost Type (order, class, or item)"
-msgstr "选项名称 | 附加费用 [+- 百分比] | 收费  (按订单，分类，商品数量)"
-
 #: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:63
 msgid "Enable Free Shipping"
 msgstr "启用免运费"
@@ -2890,6 +2886,10 @@ msgstr "这些比率是额外的物流费用选项（基于统一费率）。"
 msgid "Separate codes with a comma. Accepts wildcards, e.g. <code>P*</code> will match a postcode of PE30. Also accepts a pattern, e.g. <code>NG1___</code> would match NG1 1AA but not NG10 1AA"
 msgstr "使用英文半角逗号隔开，可用的通配符，示例<code>P*</code> 将匹配 PE30 邮编， 还可接受一个模型，示例 <code>NG1___</code> 将会匹配 NG1 1AA 但不匹配 NG10 1AA"
 
+#: includes/shipping/flat-rate/includes/settings-flat-rate.php:120
+msgid "Option Name | Additional Cost [+- Percents%] | Per Cost Type (order, class, or item)"
+msgstr "选项名称 | 附加费用 [+- 百分比] | 收费  (按订单，分类，产品数量)"
+
 #: includes/api/class-wc-api-webhooks.php:437
 #: includes/api/v2/class-wc-api-webhooks.php:437
 msgid "Invalid webhook delivery ID"
@@ -3046,10 +3046,6 @@ msgstr "已从购物车中删除%s，因为它已经下架了。如果你需要�
 msgid "An item which is no longer available was removed from your cart."
 msgstr "这个项目不再可用并从购物车中移除。"
 
-#: includes/class-wc-cart.php:466
-msgid "Sorry, \"%s\" is not in stock. Please edit your cart and try again. We apologise for any inconvenience caused."
-msgstr "对不起,\"%s\"缺货了,请修改购物车内所购商品,然后再试一次。造成的任何不便，我们深表歉意。"
-
 #: includes/class-wc-cart.php:480
 msgid "Sorry, we do not have enough \"%s\" in stock to fulfill your order (%s in stock). Please edit your cart and try again. We apologise for any inconvenience caused."
 msgstr "对不起，我们没有足够的 \"%s\"现货来满足你的订单(%s 有货).请编辑你的订单并重试。给你造成的不便我们深表歉意。"
@@ -3072,10 +3068,6 @@ msgstr "查看购物车"
 msgid "You cannot add another &quot;%s&quot; to your cart."
 msgstr "无法添加另一个&quot;%s&quot;到购物车"
 
-#: includes/class-wc-cart.php:894
-msgid "Sorry, this product cannot be purchased."
-msgstr "对不起，该商品暂时无法购买。"
-
 #: includes/class-wc-cart.php:899
 msgid "You cannot add &quot;%s&quot; to the cart because the product is out of stock."
 msgstr "你不能添加 &quot;%s&quot; 到购物车，因为产品已售完。"
@@ -3083,10 +3075,6 @@ msgstr "你不能添加 &quot;%s&quot; 到购物车，因为产品已售完。"
 #: includes/class-wc-cart.php:903
 msgid "You cannot add that amount of &quot;%s&quot; to the cart because there is not enough stock (%s remaining)."
 msgstr "你能购买的数量不能超过&quot;%s&quot; 因为我们的库存不足, (库存为%s)."
-
-#: includes/class-wc-cart.php:924
-msgid "You cannot add that amount to the cart &mdash; we have %s in stock and you already have %s in your cart."
-msgstr "不能添加那个数量的商品到购物车。我们库存有 %s 而且你购物车中已包含此商品"
 
 #: includes/class-wc-checkout.php:101
 msgid "Account username"
@@ -3294,21 +3282,9 @@ msgstr "此券的最低消费是 %s."
 msgid "The maximum spend for this coupon is %s."
 msgstr "使用此优惠券的最大支出为%s."
 
-#: includes/class-wc-coupon.php:738
-msgid "Sorry, this coupon is not applicable to your cart contents."
-msgstr "很抱歉，您所购商品不能使用此优惠券。"
-
-#: includes/class-wc-coupon.php:751
-msgid "Sorry, this coupon is not applicable to the products: %s."
-msgstr "抱歉，这个商品：%s不能用这个优惠码。"
-
 #: includes/class-wc-coupon.php:771
 msgid "Sorry, this coupon is not applicable to the categories: %s."
 msgstr "抱歉，此目录：%s不能使用这个优惠码。"
-
-#: includes/class-wc-coupon.php:774
-msgid "Sorry, this coupon is not valid for sale items."
-msgstr "对不起,此优惠券对所售商品无效."
 
 #: includes/class-wc-coupon.php:794
 msgid "Coupon does not exist!"
@@ -3472,10 +3448,6 @@ msgstr "无法取消订单。如果你需要帮助，请联系我们。"
 msgid "Please choose the quantity of items you wish to add to your cart&hellip;"
 msgstr "请选择您要购买的数量&hellip;"
 
-#: includes/class-wc-form-handler.php:686
-msgid "Please choose a product to add to your cart&hellip;"
-msgstr "请选择商品添加到购物车&hellip;"
-
 #: includes/class-wc-form-handler.php:739
 msgid "%s is a required field"
 msgid_plural "%s are required fields"
@@ -3529,14 +3501,6 @@ msgstr "请选择评分"
 #: includes/wc-template-functions.php:1626
 msgid "required"
 msgstr "(必填)"
-
-#: includes/class-wc-frontend-scripts.php:271
-msgid "Sorry, no products matched your selection. Please choose a different combination."
-msgstr "很抱歉,没有商品符合您的选择条件,请尝试其它搜选条件."
-
-#: includes/class-wc-frontend-scripts.php:272
-msgid "Sorry, this product is unavailable. Please choose a different combination."
-msgstr "抱歉,该商品已下架,请选择其它"
 
 #: includes/class-wc-install.php:482
 msgid "Shop Manager"
@@ -3592,18 +3556,6 @@ msgstr "翻译安装/更新成功！"
 msgid "(Includes %s)"
 msgstr "(包含 %s)"
 
-#: includes/class-wc-post-types.php:66
-msgid "Product Category"
-msgstr "商品分类"
-
-#: includes/class-wc-post-types.php:68
-msgid "Search Product Categories"
-msgstr "查找商品分类"
-
-#: includes/class-wc-post-types.php:69
-msgid "All Product Categories"
-msgstr "所有商品分类"
-
 #: includes/class-wc-post-types.php:70
 msgid "Parent Product Category"
 msgstr "Parent Product Category"
@@ -3612,65 +3564,9 @@ msgstr "Parent Product Category"
 msgid "Parent Product Category:"
 msgstr "Parent Product Category:"
 
-#: includes/class-wc-post-types.php:72
-msgid "Edit Product Category"
-msgstr "编辑商品分类"
-
-#: includes/class-wc-post-types.php:73
-msgid "Update Product Category"
-msgstr "更新商品分类"
-
-#: includes/class-wc-post-types.php:74
-msgid "Add New Product Category"
-msgstr "添加新商品分类"
-
-#: includes/class-wc-post-types.php:75
-msgid "New Product Category Name"
-msgstr "新商品分类名称"
-
-#: includes/class-wc-post-types.php:101
-msgid "Product Tag"
-msgstr "商品标签"
-
-#: includes/class-wc-post-types.php:103
-msgid "Search Product Tags"
-msgstr "查找商品标签"
-
-#: includes/class-wc-post-types.php:104
-msgid "All Product Tags"
-msgstr "所有商品标签"
-
-#: includes/class-wc-post-types.php:105
-msgid "Edit Product Tag"
-msgstr "编辑商品标签"
-
-#: includes/class-wc-post-types.php:106
-msgid "Update Product Tag"
-msgstr "更新商品标签"
-
-#: includes/class-wc-post-types.php:107
-msgid "Add New Product Tag"
-msgstr "添加新的商品标签"
-
-#: includes/class-wc-post-types.php:108
-msgid "New Product Tag Name"
-msgstr "新商品标签"
-
 #: includes/class-wc-post-types.php:109
 msgid "Popular Product Tags"
 msgstr "热门产品标签"
-
-#: includes/class-wc-post-types.php:110
-msgid "Separate Product Tags with commas"
-msgstr "用逗号隔开商品标签"
-
-#: includes/class-wc-post-types.php:111
-msgid "Add or remove Product Tags"
-msgstr "添加或删除商品标签"
-
-#: includes/class-wc-post-types.php:112
-msgid "Choose from the most used Product tags"
-msgstr "选择常用商品标签"
 
 #: includes/class-wc-post-types.php:113
 msgid "No Product Tags found"
@@ -3744,38 +3640,6 @@ msgstr "添加新的 %s"
 msgid "New %s"
 msgstr "新的 %s"
 
-#: includes/class-wc-post-types.php:237
-msgid "Add Product"
-msgstr "添加商品"
-
-#: includes/class-wc-post-types.php:238
-msgid "Add New Product"
-msgstr "添加新商品"
-
-#: includes/class-wc-post-types.php:240
-msgid "Edit Product"
-msgstr "编辑商品"
-
-#: includes/class-wc-post-types.php:241
-msgid "New Product"
-msgstr "新建商品"
-
-#: includes/class-wc-post-types.php:242 includes/class-wc-post-types.php:243
-msgid "View Product"
-msgstr "查看商品"
-
-#: includes/class-wc-post-types.php:244
-msgid "Search Products"
-msgstr "查找商品"
-
-#: includes/class-wc-post-types.php:245
-msgid "No Products found"
-msgstr "没找到商品"
-
-#: includes/class-wc-post-types.php:246
-msgid "No Products found in trash"
-msgstr "垃圾箱里没有商品"
-
 #: includes/class-wc-post-types.php:247
 msgid "Parent Product"
 msgstr "Parent Product"
@@ -3784,18 +3648,6 @@ msgstr "Parent Product"
 #: templates/emails/email-order-items.php:25
 msgid "Product Image"
 msgstr "产品图片"
-
-#: includes/class-wc-post-types.php:249
-msgid "Set product image"
-msgstr "设置商品图片"
-
-#: includes/class-wc-post-types.php:250
-msgid "Remove product image"
-msgstr "删除商品图片"
-
-#: includes/class-wc-post-types.php:253
-msgid "This is where you can add new products to your store."
-msgstr "在这里为你的商店添加新商品"
 
 #: includes/class-wc-post-types.php:289
 msgid "Add Order"
@@ -3966,11 +3818,6 @@ msgctxt "placeholder"
 msgid "Apartment, suite, unit etc. (optional)"
 msgstr "Apartment, suite, unit etc. (optional)"
 
-#: includes/class-wc-install.php:231
-msgctxt "Page slug"
-msgid "shop"
-msgstr "商店"
-
 #: includes/class-wc-install.php:236
 msgctxt "Page slug"
 msgid "cart"
@@ -4000,11 +3847,6 @@ msgstr "标签"
 msgctxt "Admin menu name"
 msgid "Shipping Classes"
 msgstr "配送类型"
-
-#: includes/class-wc-post-types.php:236
-msgctxt "Admin menu name"
-msgid "Products"
-msgstr "商品"
 
 #: includes/class-wc-post-types.php:347
 msgctxt "Admin menu name"
@@ -4140,6 +3982,164 @@ msgstr "在请求时发生错误，此时无法发送的用户数据"
 #: includes/class-wc-emails.php:442
 msgid "%s units of %s have been backordered in order #%s."
 msgstr "%s 件%s 已被预订，订单#%s."
+
+#: includes/class-wc-install.php:231
+msgctxt "Page slug"
+msgid "shop"
+msgstr "shop"
+
+#: includes/class-wc-cart.php:466
+msgid "Sorry, \"%s\" is not in stock. Please edit your cart and try again. We apologise for any inconvenience caused."
+msgstr "对不起,\"%s\"缺货了,请修改购物车内所购产品，再试一下。我们对造成的任何不便深表歉意。"
+
+#: includes/class-wc-cart.php:894
+msgid "Sorry, this product cannot be purchased."
+msgstr "对不起，暂时无法购买该产品。"
+
+#: includes/class-wc-cart.php:924
+msgid "You cannot add that amount to the cart &mdash; we have %s in stock and you already have %s in your cart."
+msgstr "不能添加那个数量的产品到购物车。我们库存有 %s 并且你购物车中已包含 %s "
+
+#: includes/class-wc-coupon.php:738
+msgid "Sorry, this coupon is not applicable to your cart contents."
+msgstr "很抱歉，此优惠券不适用于您所购的产品。"
+
+#: includes/class-wc-coupon.php:774
+msgid "Sorry, this coupon is not valid for sale items."
+msgstr "对不起,此优惠券对所售产品无效。"
+
+#: includes/class-wc-coupon.php:751
+msgid "Sorry, this coupon is not applicable to the products: %s."
+msgstr "抱歉，此优惠券不适用于这个产品：%s。"
+
+#: includes/class-wc-form-handler.php:686
+msgid "Please choose a product to add to your cart&hellip;"
+msgstr "请选择一件产品添加到您的购物车&hellip;"
+
+#: includes/class-wc-post-types.php:108
+msgid "New Product Tag Name"
+msgstr "新的产品标签"
+
+#: includes/class-wc-post-types.php:110
+msgid "Separate Product Tags with commas"
+msgstr "用逗号隔开产品标签"
+
+#: includes/class-wc-post-types.php:111
+msgid "Add or remove Product Tags"
+msgstr "添加或删除产品标签"
+
+#: includes/class-wc-post-types.php:112
+msgid "Choose from the most used Product tags"
+msgstr "选择常用的产品标签"
+
+#: includes/class-wc-post-types.php:236
+msgctxt "Admin menu name"
+msgid "Products"
+msgstr "产品"
+
+#: includes/class-wc-post-types.php:237
+msgid "Add Product"
+msgstr "添加产品"
+
+#: includes/class-wc-post-types.php:238
+msgid "Add New Product"
+msgstr "添加新产品"
+
+#: includes/class-wc-post-types.php:240
+msgid "Edit Product"
+msgstr "编辑产品"
+
+#: includes/class-wc-post-types.php:241
+msgid "New Product"
+msgstr "新建产品"
+
+#: includes/class-wc-post-types.php:242 includes/class-wc-post-types.php:243
+msgid "View Product"
+msgstr "查看产品"
+
+#: includes/class-wc-post-types.php:244
+msgid "Search Products"
+msgstr "搜索产品"
+
+#: includes/class-wc-post-types.php:245
+msgid "No Products found"
+msgstr "没找到产品"
+
+#: includes/class-wc-post-types.php:246
+msgid "No Products found in trash"
+msgstr "回收站里没有产品"
+
+#: includes/class-wc-post-types.php:249
+msgid "Set product image"
+msgstr "设置产品图片"
+
+#: includes/class-wc-post-types.php:250
+msgid "Remove product image"
+msgstr "删除产品图片"
+
+#: includes/class-wc-frontend-scripts.php:271
+msgid "Sorry, no products matched your selection. Please choose a different combination."
+msgstr "很抱歉,没有符合您查找条件的产品，请尝试其它搜选条件。"
+
+#: includes/class-wc-frontend-scripts.php:272
+msgid "Sorry, this product is unavailable. Please choose a different combination."
+msgstr "抱歉,该产品已下架，请选择其它产品。"
+
+#: includes/class-wc-post-types.php:66
+msgid "Product Category"
+msgstr "产品分类"
+
+#: includes/class-wc-post-types.php:68
+msgid "Search Product Categories"
+msgstr "搜索产品分类"
+
+#: includes/class-wc-post-types.php:69
+msgid "All Product Categories"
+msgstr "所有产品分类"
+
+#: includes/class-wc-post-types.php:72
+msgid "Edit Product Category"
+msgstr "编辑产品分类"
+
+#: includes/class-wc-post-types.php:73
+msgid "Update Product Category"
+msgstr "更新产品分类"
+
+#: includes/class-wc-post-types.php:74
+msgid "Add New Product Category"
+msgstr "添加新的产品分类"
+
+#: includes/class-wc-post-types.php:75
+msgid "New Product Category Name"
+msgstr "新产品分类名称"
+
+#: includes/class-wc-post-types.php:101
+msgid "Product Tag"
+msgstr "产品标签"
+
+#: includes/class-wc-post-types.php:103
+msgid "Search Product Tags"
+msgstr "查找产品标签"
+
+#: includes/class-wc-post-types.php:104
+msgid "All Product Tags"
+msgstr "所有产品标签"
+
+#: includes/class-wc-post-types.php:105
+msgid "Edit Product Tag"
+msgstr "编辑产品标签"
+
+#: includes/class-wc-post-types.php:106
+msgid "Update Product Tag"
+msgstr "更新产品标签"
+
+#: includes/class-wc-post-types.php:107
+msgid "Add New Product Tag"
+msgstr "添加新的产品标签"
+
+#: includes/class-wc-post-types.php:253
+msgid "This is where you can add new products to your store."
+msgstr "在这里为你的商店添加新产品"
 
 #: includes/admin/views/html-admin-page-status-report.php:14
 msgid "Understanding the Status Report"
@@ -5067,30 +5067,10 @@ msgstr "提供的订单货币无效"
 msgid "Order ID is invalid"
 msgstr "订单号是无效的"
 
-#: includes/api/class-wc-api-orders.php:592
-#: includes/api/v2/class-wc-api-orders.php:592
-msgid "Order item ID is required"
-msgstr "所购商品ID必填"
-
-#: includes/api/class-wc-api-orders.php:863
-#: includes/api/v2/class-wc-api-orders.php:863
-msgid "Order item ID provided is not associated with order"
-msgstr "提供的所购商品ID和订单没有进行关联"
-
 #: includes/api/class-wc-api-orders.php:886
 #: includes/api/v2/class-wc-api-orders.php:886
 msgid "Product ID or SKU is required"
 msgstr "产品ID或SKU必须填写"
-
-#: includes/api/class-wc-api-orders.php:896
-#: includes/api/v2/class-wc-api-orders.php:896
-msgid "Product ID provided does not match this line item"
-msgstr "所提供的产品ID和具体商品不符"
-
-#: includes/api/class-wc-api-orders.php:911
-#: includes/api/v2/class-wc-api-orders.php:911
-msgid "The product variation is invalid"
-msgstr "商品的差异是无效的"
 
 #: includes/api/class-wc-api-orders.php:922
 #: includes/api/v2/class-wc-api-orders.php:922
@@ -5277,12 +5257,6 @@ msgstr "尝试使用支付网关API退款失败"
 msgid "The order refund ID provided is not associated with the order"
 msgstr "您提供的订单退款号码与订单不匹配"
 
-#: includes/api/class-wc-api-products.php:178
-#: includes/api/v1/class-wc-api-products.php:143
-#: includes/api/v2/class-wc-api-products.php:183
-msgid "You do not have permission to read the products count"
-msgstr "你无权读取商品数量"
-
 #: includes/api/class-wc-api-products.php:212
 #: includes/api/v2/class-wc-api-products.php:217
 msgid "You do not have permission to create products"
@@ -5311,13 +5285,6 @@ msgstr "无效的产品产品分类号码"
 #: includes/api/v2/class-wc-api-products.php:540
 msgid "A product category with the provided ID could not be found"
 msgstr "找不到与您提供的号码匹配的产品分类"
-
-#: includes/api/class-wc-api-products.php:828
-#: includes/api/class-wc-api-products.php:1286
-#: includes/api/v2/class-wc-api-products.php:833
-#: includes/api/v2/class-wc-api-products.php:1291
-msgid "The SKU already exists on another product"
-msgstr "该SKU已经存在于另一件商品上"
 
 #: includes/api/class-wc-api-products.php:1731
 #: includes/api/class-wc-api-products.php:1732
@@ -5597,6 +5564,39 @@ msgstr "WooCommerce API，使用一个onsumer key在用户名输入栏并使用�
 #: includes/api/v2/class-wc-api-products.php:2087
 msgid "Invalid product attribute order_by type - the product attribute order_by type must be any of these: %s"
 msgstr "无效的产品属性order_by 类型 - 此产品属性order_by 类型必须是以下中的: %s"
+
+#: includes/api/class-wc-api-orders.php:592
+#: includes/api/v2/class-wc-api-orders.php:592
+msgid "Order item ID is required"
+msgstr "所购产品ID必填"
+
+#: includes/api/class-wc-api-orders.php:863
+#: includes/api/v2/class-wc-api-orders.php:863
+msgid "Order item ID provided is not associated with order"
+msgstr "提供的所购产品ID和订单没有进行关联"
+
+#: includes/api/class-wc-api-orders.php:896
+#: includes/api/v2/class-wc-api-orders.php:896
+msgid "Product ID provided does not match this line item"
+msgstr "所提供的产品ID和具体产品不符"
+
+#: includes/api/class-wc-api-orders.php:911
+#: includes/api/v2/class-wc-api-orders.php:911
+msgid "The product variation is invalid"
+msgstr "无效的产品变量"
+
+#: includes/api/class-wc-api-products.php:178
+#: includes/api/v1/class-wc-api-products.php:143
+#: includes/api/v2/class-wc-api-products.php:183
+msgid "You do not have permission to read the products count"
+msgstr "您没有读取产品数量的权限"
+
+#: includes/api/class-wc-api-products.php:828
+#: includes/api/class-wc-api-products.php:1286
+#: includes/api/v2/class-wc-api-products.php:833
+#: includes/api/v2/class-wc-api-products.php:1291
+msgid "The SKU already exists on another product"
+msgstr "该SKU已经存在于另一件产品上了"
 
 #: includes/admin/settings/class-wc-settings-checkout.php:72
 msgid "Enable the use of coupons"
@@ -5919,10 +5919,6 @@ msgstr "集成"
 msgid "Display"
 msgstr "显示"
 
-#: includes/admin/settings/class-wc-settings-products.php:85
-msgid "Shop & Product Pages"
-msgstr "商店 & 商品 页面"
-
 #: includes/admin/settings/class-wc-settings-products.php:92
 msgid "Shop Page"
 msgstr "商店页面"
@@ -6041,14 +6037,6 @@ msgstr "产品缩略图"
 msgid "This size is usually used for the gallery of images on the product page."
 msgstr "这个尺寸通常用于产品页上的图像画廊。"
 
-#: includes/admin/settings/class-wc-settings-products.php:225
-msgid "Product Image Gallery"
-msgstr "商品图片集"
-
-#: includes/admin/settings/class-wc-settings-products.php:226
-msgid "Enable Lightbox for product images"
-msgstr "为商品图片启用Lightbox特效功能"
-
 #: includes/admin/settings/class-wc-settings-products.php:229
 msgid "Include WooCommerce's lightbox. Product gallery images will open in a lightbox."
 msgstr "包含WooCommerce 暗箱功能.产品相册中的图片将会在暗箱中打开."
@@ -6149,10 +6137,6 @@ msgstr "下载必须登陆"
 msgid "This setting does not apply to guest purchases."
 msgstr "这个设置不允许匿名下单"
 
-#: includes/admin/settings/class-wc-settings-products.php:398
-msgid "Grant access to downloadable products after payment"
-msgstr "完成支付后授权访问可下载商品"
-
 #: includes/admin/settings/class-wc-settings-products.php:402
 msgid "Enable this option to grant access to downloads when orders are \"processing\", rather than \"completed\"."
 msgstr "启用此选项时当下载订单状态为 \"处理中\", 而非 \"已完成\"，授权访问下载资源"
@@ -6176,10 +6160,6 @@ msgstr "尺寸单位"
 #: includes/admin/settings/class-wc-settings-products.php:441
 msgid "This controls what unit you will define lengths in."
 msgstr "这个控制你定义的长度单位"
-
-#: includes/admin/settings/class-wc-settings-products.php:470
-msgid "Product Ratings"
-msgstr "商品评分"
 
 #: includes/admin/settings/class-wc-settings-products.php:471
 msgid "Enable ratings on reviews"
@@ -6628,18 +6608,6 @@ msgstr "启用“税收以及所得税计算”功能"
 msgid "Prices Entered With Tax"
 msgstr "输入的价格含税"
 
-#: includes/admin/settings/views/settings-tax.php:24
-msgid "This option is important as it will affect how you input prices. Changing it will not update existing products."
-msgstr "这个选项很重要，因为它会影响到你如何输入价格，但是改变这个不会影响到现有商品的价格。"
-
-#: includes/admin/settings/views/settings-tax.php:26
-msgid "Yes, I will enter prices inclusive of tax"
-msgstr "是的，我要输入含税商品价格"
-
-#: includes/admin/settings/views/settings-tax.php:27
-msgid "No, I will enter prices exclusive of tax"
-msgstr "不，我要输入不含税的商品价格"
-
 #: includes/admin/settings/views/settings-tax.php:32
 msgid "Calculate Tax Based On:"
 msgstr "根据主题特性寻找主题。"
@@ -6820,6 +6788,38 @@ msgstr "顺序计算优惠券折扣"
 msgid "When applying multiple coupons, apply the first coupon to the full price and the second coupon to the discounted price and so on."
 msgstr "当应用多个优惠券，应用第一个优惠券的全价和第二优待券的折扣价格等。"
 
+#: includes/admin/settings/class-wc-settings-products.php:85
+msgid "Shop & Product Pages"
+msgstr "商店 & 产品页面"
+
+#: includes/admin/settings/class-wc-settings-products.php:225
+msgid "Product Image Gallery"
+msgstr "产品图片相册"
+
+#: includes/admin/settings/class-wc-settings-products.php:226
+msgid "Enable Lightbox for product images"
+msgstr "为产品图片启用暗箱特效"
+
+#: includes/admin/settings/class-wc-settings-products.php:398
+msgid "Grant access to downloadable products after payment"
+msgstr "在支付后授权访问可下载产品"
+
+#: includes/admin/settings/class-wc-settings-products.php:470
+msgid "Product Ratings"
+msgstr "产品评价"
+
+#: includes/admin/settings/views/settings-tax.php:24
+msgid "This option is important as it will affect how you input prices. Changing it will not update existing products."
+msgstr "这个选项很重要，因为它会影响到你如何输入价格，但是改变这个不会影响到现有产品的价格。"
+
+#: includes/admin/settings/views/settings-tax.php:26
+msgid "Yes, I will enter prices inclusive of tax"
+msgstr "是的，我要输入含税产品价格"
+
+#: includes/admin/settings/views/settings-tax.php:27
+msgid "No, I will enter prices exclusive of tax"
+msgstr "不，我要输入不含税的产品价格"
+
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:328
 msgid "If managing stock, this controls whether or not backorders are allowed. If enabled, stock quantity can go below 0."
 msgstr "如果管理库存，这种控制是否缺货是允许的。如果启用，库存量可以低于0。"
@@ -6838,10 +6838,6 @@ msgstr "控制在前端是否产品被列为\"有货\"或\"缺货\" 。"
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:349
 msgid "Sold Individually"
 msgstr "单独售出"
-
-#: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:349
-msgid "Enable this to only allow one of this item to be bought in a single order"
-msgstr "启用此选项则一个订单只能买一个该商品"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:368
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:703
@@ -6933,17 +6929,9 @@ msgstr "向上销售产品由你推荐到用户当前查看的产品页面，例
 msgid "Cross-Sells"
 msgstr "交叉销售"
 
-#: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:519
-msgid "Cross-sells are products which you promote in the cart, based on the current product."
-msgstr "交叉销售是基于目前产品推广更多的产品和商品。"
-
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:526
 msgid "Grouping"
 msgstr "组合"
-
-#: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:538
-msgid "Set this option to make this product part of a grouped product."
-msgstr "启用此选项表示该商品是某组合商品的一部分"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:556
 msgid "Purchase Note"
@@ -7117,16 +7105,8 @@ msgid "Delete image"
 msgstr "删除图像"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-images.php:58
-msgid "Add Images to Product Gallery"
-msgstr "添加图像至商品相册"
-
-#: includes/admin/meta-boxes/class-wc-meta-box-product-images.php:58
 msgid "Add to gallery"
 msgstr "添加至相册"
-
-#: includes/admin/meta-boxes/class-wc-meta-box-product-images.php:58
-msgid "Add product gallery images"
-msgstr "添加商品相册图像"
 
 #: includes/admin/meta-boxes/views/html-order-download-permission.php:10
 msgid "Revoke Access"
@@ -7277,10 +7257,6 @@ msgstr "计算税费"
 msgid "Calculate Total"
 msgstr "计算总计"
 
-#: includes/admin/meta-boxes/views/html-order-items.php:248
-msgid "Add product(s)"
-msgstr "添加商品"
-
 #: includes/admin/meta-boxes/views/html-order-items.php:249
 msgid "Add fee"
 msgstr "手续费"
@@ -7326,10 +7302,6 @@ msgstr "该订单所用的支付网关用于不支持自动退款。"
 #: includes/admin/meta-boxes/views/html-order-items.php:296
 msgid "You will need to manually issue a refund through your payment gateway after using this."
 msgstr "在你启用此项之后，你需要通过你的支付网关手动退款。"
-
-#: includes/admin/meta-boxes/views/html-order-items.php:308
-msgid "Add products"
-msgstr "添加商品"
 
 #: includes/admin/meta-boxes/views/html-order-items.php:334
 msgid "Add tax"
@@ -7477,10 +7449,6 @@ msgstr "促销结束日: "
 msgid "Stock Qty:"
 msgstr "库存数量："
 
-#: includes/admin/meta-boxes/views/html-variation-admin.php:116
-msgid "Enter a quantity to enable stock management at variation level, or leave blank to use the parent product's options."
-msgstr "输入数量启用商品变型级库存管理，放空则表示使用父级商品的选项"
-
 #: includes/admin/meta-boxes/views/html-variation-admin.php:149
 msgid "Enter a weight for this variation or leave blank to use the parent product weight."
 msgstr "输入此变更的重量或留空使用父级产品的重量。"
@@ -7517,11 +7485,6 @@ msgstr "下载截止"
 #: includes/admin/reports/class-wc-admin-report.php:447
 msgid "Sold %s worth in the last %d days"
 msgstr "在过去 %d 天共销售 %s 金额"
-
-#: includes/admin/reports/class-wc-admin-report.php:449
-msgid "Sold 1 item in the last %d days"
-msgid_plural "Sold %d items in the last %d days"
-msgstr[0] "在过去 %d 天共销售 %s 个商品"
 
 #: includes/admin/reports/class-wc-report-coupon-usage.php:99
 msgid "%s discounts in total"
@@ -7717,14 +7680,6 @@ msgstr "注册"
 msgid "new users"
 msgstr "新用户"
 
-#: includes/admin/reports/class-wc-report-low-in-stock.php:25
-msgid "No low in stock products found."
-msgstr "没有低库存的商品"
-
-#: includes/admin/reports/class-wc-report-out-of-stock.php:25
-msgid "No out of stock products found."
-msgstr "没有库存售罄的商品"
-
 #: includes/admin/reports/class-wc-report-sales-by-category.php:68
 msgid "%s sales in %s"
 msgstr "%s在%s中销售"
@@ -7773,10 +7728,6 @@ msgstr "这是排除退款之后的订单总金额，其中不包括运费和税
 msgid "%s orders placed"
 msgstr "订单数量"
 
-#: includes/admin/reports/class-wc-report-sales-by-date.php:375
-msgid "%s items purchased"
-msgstr "销售商品数量 "
-
 #: includes/admin/reports/class-wc-report-sales-by-date.php:385
 msgid "%s charged for shipping"
 msgstr "配送收入金额 %s "
@@ -7784,11 +7735,6 @@ msgstr "配送收入金额 %s "
 #: includes/admin/reports/class-wc-report-sales-by-date.php:390
 msgid "%s worth of coupons used"
 msgstr "优惠券折扣金额 %s "
-
-#: includes/admin/reports/class-wc-report-sales-by-date.php:512
-#: includes/admin/reports/class-wc-report-sales-by-product.php:482
-msgid "Number of items sold"
-msgstr "已销售商品数量"
 
 #: includes/admin/reports/class-wc-report-sales-by-date.php:520
 msgid "Number of orders"
@@ -7810,14 +7756,6 @@ msgstr "销售总额"
 msgid "Net Sales amount"
 msgstr "净销售额"
 
-#: includes/admin/reports/class-wc-report-sales-by-product.php:85
-msgid "%s sales for the selected items"
-msgstr "所选商品的销售额是 %s "
-
-#: includes/admin/reports/class-wc-report-sales-by-product.php:91
-msgid "%s purchases for the selected items"
-msgstr "选中商品共被购买过 %s  次"
-
 #: includes/admin/reports/class-wc-report-sales-by-product.php:137
 msgid "Showing reports for:"
 msgstr "显示报表："
@@ -7834,12 +7772,6 @@ msgstr "搜索产品"
 msgid "Top Sellers"
 msgstr "最畅销的卖家"
 
-#: includes/admin/reports/class-wc-report-sales-by-product.php:236
-#: includes/admin/reports/class-wc-report-sales-by-product.php:286
-#: includes/admin/reports/class-wc-report-sales-by-product.php:326
-msgid "No products found in range"
-msgstr "此范围内没有商品"
-
 #: includes/admin/reports/class-wc-report-sales-by-product.php:241
 msgid "Top Freebies"
 msgstr "免费赠品TOP榜"
@@ -7855,14 +7787,6 @@ msgstr "&larr; 请选择产品以查看统计"
 #: includes/admin/reports/class-wc-report-sales-by-product.php:490
 msgid "Sales amount"
 msgstr "销售金额"
-
-#: includes/admin/reports/class-wc-report-stock.php:39
-msgid "No products found."
-msgstr "没有找到任何商品"
-
-#: includes/admin/reports/class-wc-report-stock.php:141
-msgid "product"
-msgstr "商品"
 
 #: includes/admin/reports/class-wc-report-stock.php:156
 msgid "Parent"
@@ -8135,6 +8059,82 @@ msgstr "#%s &ndash; 可下载文件%s不可用因为它不存在于这个服务�
 msgid "%d coupons used in total"
 msgstr "共使用了%d个优惠券"
 
+#: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:349
+msgid "Enable this to only allow one of this item to be bought in a single order"
+msgstr "启用此选项则一个订单只能买一件该产品"
+
+#: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:519
+msgid "Cross-sells are products which you promote in the cart, based on the current product."
+msgstr "交叉销售是基于当前产品在购物车中推广更多的产品。"
+
+#: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:538
+msgid "Set this option to make this product part of a grouped product."
+msgstr "启用此选项表示该产品是某组合产品的一部分"
+
+#: includes/admin/meta-boxes/class-wc-meta-box-product-images.php:58
+msgid "Add Images to Product Gallery"
+msgstr "添加图片至产品相册"
+
+#: includes/admin/meta-boxes/class-wc-meta-box-product-images.php:58
+msgid "Add product gallery images"
+msgstr "添加产品相册图片"
+
+#: includes/admin/meta-boxes/views/html-order-items.php:248
+msgid "Add product(s)"
+msgstr "添加产品"
+
+#: includes/admin/meta-boxes/views/html-order-items.php:308
+msgid "Add products"
+msgstr "添加产品"
+
+#: includes/admin/meta-boxes/views/html-variation-admin.php:116
+msgid "Enter a quantity to enable stock management at variation level, or leave blank to use the parent product's options."
+msgstr "输入数量以在可变级别启用库存管理，留空则表示使用父级产品的选项"
+
+#: includes/admin/reports/class-wc-admin-report.php:449
+msgid "Sold 1 item in the last %d days"
+msgid_plural "Sold %d items in the last %d days"
+msgstr[0] "在过去 %d 天共销售  %d 个产品"
+
+#: includes/admin/reports/class-wc-report-low-in-stock.php:25
+msgid "No low in stock products found."
+msgstr "没有低库存的产品"
+
+#: includes/admin/reports/class-wc-report-out-of-stock.php:25
+msgid "No out of stock products found."
+msgstr "没有售罄的产品"
+
+#: includes/admin/reports/class-wc-report-sales-by-date.php:512
+#: includes/admin/reports/class-wc-report-sales-by-product.php:482
+msgid "Number of items sold"
+msgstr "已售产品数量"
+
+#: includes/admin/reports/class-wc-report-sales-by-date.php:375
+msgid "%s items purchased"
+msgstr " %s 种产品已被购买"
+
+#: includes/admin/reports/class-wc-report-sales-by-product.php:85
+msgid "%s sales for the selected items"
+msgstr "所选产品的销售额是 %s "
+
+#: includes/admin/reports/class-wc-report-sales-by-product.php:91
+msgid "%s purchases for the selected items"
+msgstr "选中产品共被购买过 %s  次"
+
+#: includes/admin/reports/class-wc-report-sales-by-product.php:236
+#: includes/admin/reports/class-wc-report-sales-by-product.php:286
+#: includes/admin/reports/class-wc-report-sales-by-product.php:326
+msgid "No products found in range"
+msgstr "此范围内没有产品"
+
+#: includes/admin/reports/class-wc-report-stock.php:39
+msgid "No products found."
+msgstr "没有找到产品。"
+
+#: includes/admin/reports/class-wc-report-stock.php:141
+msgid "product"
+msgstr "product"
+
 #: includes/admin/class-wc-admin-setup-wizard.php:666
 msgid "Offline Payments"
 msgstr "线下支付"
@@ -8190,10 +8190,6 @@ msgstr "不，谢谢"
 #: includes/admin/class-wc-admin-setup-wizard.php:766
 msgid "Next Steps"
 msgstr "下一步"
-
-#: includes/admin/class-wc-admin-setup-wizard.php:768
-msgid "Create your first product!"
-msgstr "创建您的第一件商品!"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:772
 msgid "Learn More"
@@ -8291,10 +8287,6 @@ msgstr "术语"
 msgid "Recount terms"
 msgstr "选择条款"
 
-#: includes/admin/class-wc-admin-status.php:176
-msgid "This tool will recount product terms - useful when changing your settings in a way which hides products from the catalog."
-msgstr "此工具会重新计算商品条目 - 当你修改设置将商品从分类中隐藏时有用"
-
 #: includes/admin/class-wc-admin-status.php:179
 msgid "Capabilities"
 msgstr "功能"
@@ -8372,16 +8364,6 @@ msgstr "<strong class=\"red\">注意:</strong> 在可用的情况下，这个选
 #: includes/widgets/class-wc-widget-layered-nav.php:89
 msgid "Display type"
 msgstr "显示类型："
-
-#: includes/admin/class-wc-admin-taxonomies.php:96
-#: includes/admin/class-wc-admin-taxonomies.php:185
-#: includes/admin/meta-boxes/class-wc-meta-box-coupon-data.php:99
-#: includes/admin/settings/class-wc-settings-products.php:28
-#: includes/admin/views/html-admin-page-addons.php:32
-#: includes/class-wc-post-types.php:234
-#: includes/widgets/class-wc-widget-products.php:29
-msgid "Products"
-msgstr "商品"
 
 #: includes/admin/class-wc-admin-taxonomies.php:97
 #: includes/admin/class-wc-admin-taxonomies.php:186
@@ -8789,10 +8771,6 @@ msgstr "如果优惠券不能与其他优惠券一起使用请勾选此框"
 msgid "Exclude sale items"
 msgstr "所有多媒体项目"
 
-#: includes/admin/meta-boxes/class-wc-meta-box-coupon-data.php:93
-msgid "Check this box if the coupon should not apply to items on sale. Per-item coupons will only work if the item is not on sale. Per-cart coupons will only work if there are no sale items in the cart."
-msgstr "如果优惠券不能应用到降价销售商品，请选中该复选框。选中复选框后，只有在没有降价商品时才能应用按单个商品优惠的优惠券；只有在购物车中没有降价商品时才能使用按购物车优惠的优惠券。"
-
 #: includes/admin/meta-boxes/class-wc-meta-box-coupon-data.php:100
 #: includes/admin/meta-boxes/class-wc-meta-box-coupon-data.php:118
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:490
@@ -8863,10 +8841,6 @@ msgstr "什么时间之前此优惠券可以使用"
 msgid "Limit usage to X items"
 msgstr "限制X个商使用"
 
-#: includes/admin/meta-boxes/class-wc-meta-box-coupon-data.php:188
-msgid "The maximum number of individual items this coupon can apply to when using product discounts. Leave blank to apply to all qualifying items in cart."
-msgstr "该优惠券可应用到单个商品的最大次数。放空表示对购物车内所有符合条件商品使用优惠券折扣。"
-
 #: includes/admin/meta-boxes/class-wc-meta-box-coupon-data.php:194
 msgid "Usage limit per user"
 msgstr "单个用户使用限制"
@@ -8899,12 +8873,6 @@ msgstr "保存 %s"
 #: includes/admin/meta-boxes/class-wc-meta-box-order-actions.php:82
 msgid "Save/update the %s"
 msgstr "保存/更新 %s"
-
-#: includes/admin/meta-boxes/class-wc-meta-box-order-data.php:43
-#: includes/admin/meta-boxes/class-wc-meta-box-order-data.php:92
-#: includes/class-wc-countries.php:488 includes/class-wc-form-handler.php:177
-msgid "First Name"
-msgstr "姓氏"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-order-data.php:47
 #: includes/admin/meta-boxes/class-wc-meta-box-order-data.php:96
@@ -9028,10 +8996,6 @@ msgstr "客户对订单的注释"
 msgid "File %d"
 msgstr "文件已取消。"
 
-#: includes/admin/meta-boxes/class-wc-meta-box-order-downloads.php:68
-msgid "Search for a downloadable product&hellip;"
-msgstr "搜索可下载商品&hellip;"
-
 #: includes/admin/meta-boxes/class-wc-meta-box-order-downloads.php:69
 msgid "Grant Access"
 msgstr "授权访问"
@@ -9107,10 +9071,6 @@ msgstr "库存"
 #: templates/cart/cart-totals.php:46
 msgid "Shipping"
 msgstr "配送"
-
-#: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:104
-msgid "Linked Products"
-msgstr "联锁的商品"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:114
 #: includes/class-wc-post-types.php:273
@@ -9231,10 +9191,6 @@ msgstr "下载类型"
 msgid "Choose a download type - this controls the <a href=\"%s\">schema</a>."
 msgstr "选择一个下载类型 - 它将控制 <a href=\"%s\">架构</a>。"
 
-#: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:241
-msgid "Standard Product"
-msgstr "标准商品"
-
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:242
 msgid "Application/Software"
 msgstr "应用/软件"
@@ -9287,10 +9243,6 @@ msgstr "税类"
 #: includes/admin/views/html-quick-edit-product.php:182
 msgid "Manage stock?"
 msgstr "管理库存？"
-
-#: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:304
-msgid "Enable stock management at product level"
-msgstr "在商品级别开启库存管理"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:313
 #: includes/admin/views/html-bulk-edit-product.php:255
@@ -9347,11 +9299,6 @@ msgstr "YYYY-MM-DD"
 msgctxt "placeholder"
 msgid "Unlimited usage"
 msgstr "无限使用"
-
-#: includes/admin/meta-boxes/class-wc-meta-box-coupon-data.php:188
-msgctxt "placeholder"
-msgid "Apply to all qualifying items in cart"
-msgstr "应用到购物车中所有商品"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:155
 msgctxt "placeholder"
@@ -9418,9 +9365,62 @@ msgstr "改进了的Email模板可支持更广泛的电邮客户端，并可进�
 msgid "To give more control over which shipping method is selected by default for customers, each method can now be given a numeric priority."
 msgstr "对到底哪种物流方法对顾客来说是默认的赋予了更多控制权限，每一种方法现在都可以设置一个代表优先级的数字。"
 
+#: includes/admin/class-wc-admin-setup-wizard.php:768
+msgid "Create your first product!"
+msgstr "发布您的第一件产品!"
+
+#: includes/admin/class-wc-admin-status.php:176
+msgid "This tool will recount product terms - useful when changing your settings in a way which hides products from the catalog."
+msgstr "此工具会重新计算产品条目 - 当你修改设置将产品从分类中隐藏时有用"
+
+#: includes/admin/class-wc-admin-taxonomies.php:96
+#: includes/admin/class-wc-admin-taxonomies.php:185
+#: includes/admin/meta-boxes/class-wc-meta-box-coupon-data.php:99
+#: includes/admin/settings/class-wc-settings-products.php:28
+#: includes/admin/views/html-admin-page-addons.php:32
+#: includes/class-wc-post-types.php:234
+#: includes/widgets/class-wc-widget-products.php:29
+msgid "Products"
+msgstr "产品"
+
+#: includes/admin/meta-boxes/class-wc-meta-box-coupon-data.php:93
+msgid "Check this box if the coupon should not apply to items on sale. Per-item coupons will only work if the item is not on sale. Per-cart coupons will only work if there are no sale items in the cart."
+msgstr "如果优惠券不能应用到降价销售产品，请选中该复选框。选中复选框后，只有在没有降价产品时才能应用按单个产品优惠的优惠券；只有在购物车中没有降价产品时才能使用按购物车优惠的优惠券。"
+
+#: includes/admin/meta-boxes/class-wc-meta-box-coupon-data.php:188
+msgctxt "placeholder"
+msgid "Apply to all qualifying items in cart"
+msgstr "应用到购物车中所有产品"
+
+#: includes/admin/meta-boxes/class-wc-meta-box-coupon-data.php:188
+msgid "The maximum number of individual items this coupon can apply to when using product discounts. Leave blank to apply to all qualifying items in cart."
+msgstr "该优惠券可应用到单个产品的最大次数。放空表示对购物车内所有符合条件产品使用优惠券折扣。"
+
+#: includes/admin/meta-boxes/class-wc-meta-box-order-downloads.php:68
+msgid "Search for a downloadable product&hellip;"
+msgstr "搜索可下载产品&hellip;"
+
+#: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:104
+msgid "Linked Products"
+msgstr "联锁产品"
+
+#: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:241
+msgid "Standard Product"
+msgstr "标准产品"
+
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:282
 msgid "Choose a tax class for this product. Tax classes are used to apply different tax rates specific to certain types of product."
-msgstr "为此产品选择一个税的算法。税的算法可用让不同的商品适用不同的税。"
+msgstr "为此产品选择一个税的算法。税的算法可用让不同的产品适用不同的税。"
+
+#: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:304
+msgid "Enable stock management at product level"
+msgstr "在产品级别开启库存管理"
+
+#: includes/admin/meta-boxes/class-wc-meta-box-order-data.php:43
+#: includes/admin/meta-boxes/class-wc-meta-box-order-data.php:92
+#: includes/class-wc-countries.php:488 includes/class-wc-form-handler.php:177
+msgid "First Name"
+msgstr "名字"
 
 #: includes/admin/class-wc-admin-pointers.php:74
 #: templates/single-product/tabs/description.php:16
@@ -9435,60 +9435,13 @@ msgstr "这里是您的产品的内容描述，您可在此写下您的产品详
 msgid "Choose Product Type"
 msgstr "产品类型"
 
-#: includes/admin/class-wc-admin-pointers.php:91
-msgid "Choose a type for this product. Simple is suitable for most physical goods and services (we recommend setting up a simple product for now)."
-msgstr "选择一种产品类型。简单商品适用于大多数实物和服务销售(我们推荐您现在设置为简单商品)。"
-
-#: includes/admin/class-wc-admin-pointers.php:92
-msgid "Variable is for more complex products such as t-shirts with multiple sizes."
-msgstr "可变商品适用于比较复杂的商品例如有多种尺寸的T恤衫。"
-
-#: includes/admin/class-wc-admin-pointers.php:93
-msgid "Grouped products are for grouping several simple products into one."
-msgstr "成组产品适用于将多个简单商品打包成一个。"
-
-#: includes/admin/class-wc-admin-pointers.php:94
-msgid "Finally, external products are for linking off-site."
-msgstr "最后,外连/关联产品适用于链接到您网站外的商品。"
-
 #: includes/admin/class-wc-admin-pointers.php:109
 msgid "Virtual Products"
 msgstr "虚拟产品"
 
-#: includes/admin/class-wc-admin-pointers.php:110
-msgid "Check the \"Virtual\" box if this is a non-physical item, for example a service, which does not need shipping."
-msgstr "如果是不需要物流的非实物商品，例如服务，可选中\"虚拟\"。"
-
-#: includes/admin/class-wc-admin-pointers.php:125
-#: includes/admin/settings/class-wc-settings-products.php:47
-#: includes/admin/settings/class-wc-settings-products.php:364
-msgid "Downloadable Products"
-msgstr "可下载商品"
-
-#: includes/admin/class-wc-admin-pointers.php:126
-msgid "If purchasing this product gives a customer access to a downloadable file, e.g. software, check this box."
-msgstr "如果购买此商品后要给顾客一个可下载的文件，例如软件，可选中此项。"
-
 #: includes/admin/class-wc-admin-pointers.php:141
 msgid "Prices"
 msgstr "价格"
-
-#: includes/admin/class-wc-admin-pointers.php:142
-msgid "Next you'll need to give your product a price."
-msgstr "下一步您需要给您的商品一个价格。"
-
-#: includes/admin/class-wc-admin-pointers.php:158
-msgid "Add a quick summary for your product here. This will appear on the product page under the product name."
-msgstr "在此添加一个商品简述，它将会出现在商品页面的商品名称下面。"
-
-#: includes/admin/class-wc-admin-pointers.php:169
-#: includes/admin/settings/class-wc-settings-products.php:176
-msgid "Product Images"
-msgstr "商品图片"
-
-#: includes/admin/class-wc-admin-pointers.php:170
-msgid "Upload or assign an image to your product here. This image will be shown in your store's catalog."
-msgstr "在此为您的商品上传或指定一张图像，此图像将会显示在店铺的商品目录中。"
 
 #: includes/admin/class-wc-admin-pointers.php:181
 #: includes/class-wc-post-types.php:98 includes/class-wc-post-types.php:100
@@ -9505,10 +9458,6 @@ msgstr "产品类别"
 #: includes/admin/class-wc-admin-pointers.php:205
 msgid "Publish Your Product!"
 msgstr "发布您的产品！"
-
-#: includes/admin/class-wc-admin-pointers.php:206
-msgid "When you are finished editing your product, hit the \"Publish\" button to publish your product to your store."
-msgstr "当您完成了商品的编辑时，点击\"发布\"按钮就可以将您的商品发布到您的店铺了。"
 
 #: includes/admin/class-wc-admin-post-types.php:114
 msgid "Product updated. <a href=\"%s\">View Product</a>"
@@ -10050,23 +9999,11 @@ msgstr[0] "%s 订单状态改变."
 msgid "Show all product types"
 msgstr "显示全部产品类型"
 
-#: includes/admin/class-wc-admin-post-types.php:1636
-#: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:40
-#: includes/wc-product-functions.php:510
-msgid "Grouped product"
-msgstr "成组商品"
-
 #: includes/admin/class-wc-admin-post-types.php:1639
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:41
 #: includes/wc-product-functions.php:511
 msgid "External/Affiliate product"
 msgstr "外接/关联产品"
-
-#: includes/admin/class-wc-admin-post-types.php:1642
-#: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:42
-#: includes/wc-product-functions.php:512
-msgid "Variable product"
-msgstr "可变商品"
 
 #: includes/admin/class-wc-admin-post-types.php:1645
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:39
@@ -10134,10 +10071,6 @@ msgstr "目录可见:"
 msgid "Enable this option to feature this product."
 msgstr "启用该选项以推荐此产品。"
 
-#: includes/admin/class-wc-admin-post-types.php:2128
-msgid "Featured Product"
-msgstr "添加商品"
-
 #: includes/admin/class-wc-admin-post-types.php:2131
 msgid "OK"
 msgstr "确定"
@@ -10154,18 +10087,6 @@ msgstr "取消"
 #: includes/admin/class-wc-admin-profile.php:41
 msgid "Customer Billing Address"
 msgstr "顾客账单地址"
-
-#: includes/admin/class-wc-admin-profile.php:44
-#: includes/admin/class-wc-admin-profile.php:97
-#: templates/myaccount/form-edit-account.php:23
-msgid "First name"
-msgstr "姓氏"
-
-#: includes/admin/class-wc-admin-profile.php:48
-#: includes/admin/class-wc-admin-profile.php:101
-#: templates/myaccount/form-edit-account.php:27
-msgid "Last name"
-msgstr "姓氏"
 
 #: includes/admin/class-wc-admin-profile.php:52
 #: includes/admin/class-wc-admin-profile.php:105
@@ -10263,10 +10184,6 @@ msgstr "订单"
 #: includes/admin/class-wc-admin-reports.php:48
 msgid "Sales by date"
 msgstr "按日期销售"
-
-#: includes/admin/class-wc-admin-reports.php:54
-msgid "Sales by product"
-msgstr "按商品销售"
 
 #: includes/admin/class-wc-admin-reports.php:60
 msgid "Sales by category"
@@ -10418,17 +10335,9 @@ msgstr "您的店铺需要几个核心的%s页面%s，下面的页面将会自�
 msgid "Page Name"
 msgstr "页面名称"
 
-#: includes/admin/class-wc-admin-setup-wizard.php:247
-msgid "The shop page will display your products."
-msgstr "商店页面将会显示您的商品。"
-
 #: includes/admin/class-wc-admin-setup-wizard.php:251
 msgid "The cart page will be where the customers go to view their cart and begin checkout."
 msgstr "购物车页面将会让顾客查看他们的购物车并进行结算。"
-
-#: includes/admin/class-wc-admin-setup-wizard.php:256
-msgid "The checkout page will be where the customers go to pay for their items."
-msgstr "结算页面将会让顾客结算TA们购买的商品。"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:262
 msgid "Registered customers will be able to manage their account details and view past orders on this page."
@@ -10699,6 +10608,97 @@ msgstr "请注意:你可能仍需添加您的店铺位置和税。如有疑问�
 #: includes/admin/class-wc-admin-setup-wizard.php:529
 msgid "You can edit tax rates later from the %1$stax settings%3$s screen and read more about taxes in %2$sour documentation%3$s."
 msgstr "您可在稍后在 %1$s税%3$s 屏幕修改税的设置并可在%2$s我们的文档%3$s了解更多关于税的内容。"
+
+#: includes/admin/class-wc-admin-pointers.php:91
+msgid "Choose a type for this product. Simple is suitable for most physical goods and services (we recommend setting up a simple product for now)."
+msgstr "选择一种产品类型。简单产品适用于大多数实物和服务销售(我们推荐您现在设置为简单产品)。"
+
+#: includes/admin/class-wc-admin-pointers.php:92
+msgid "Variable is for more complex products such as t-shirts with multiple sizes."
+msgstr "可变产品适用于比较复杂的产品例如有多种尺寸的T恤衫。"
+
+#: includes/admin/class-wc-admin-pointers.php:93
+msgid "Grouped products are for grouping several simple products into one."
+msgstr "成组产品适用于将多个简单产品打包成一个。"
+
+#: includes/admin/class-wc-admin-pointers.php:94
+msgid "Finally, external products are for linking off-site."
+msgstr "最后,联锁产品适用于链接到您网站外的商品。"
+
+#: includes/admin/class-wc-admin-pointers.php:110
+msgid "Check the \"Virtual\" box if this is a non-physical item, for example a service, which does not need shipping."
+msgstr "如果是不需要物流的虚拟物品，例如服务，可选中\"虚拟\"。"
+
+#: includes/admin/class-wc-admin-pointers.php:125
+#: includes/admin/settings/class-wc-settings-products.php:47
+#: includes/admin/settings/class-wc-settings-products.php:364
+msgid "Downloadable Products"
+msgstr "可下载产品"
+
+#: includes/admin/class-wc-admin-pointers.php:126
+msgid "If purchasing this product gives a customer access to a downloadable file, e.g. software, check this box."
+msgstr "如果购买此产品后要给顾客一个可下载的文件，例如软件，可选中此项。"
+
+#: includes/admin/class-wc-admin-pointers.php:142
+msgid "Next you'll need to give your product a price."
+msgstr "下一步您需要给您的产品一个价格。"
+
+#: includes/admin/class-wc-admin-pointers.php:158
+msgid "Add a quick summary for your product here. This will appear on the product page under the product name."
+msgstr "在此添加一个产品简述，它将会出现在产品页面的产品名称下面。"
+
+#: includes/admin/class-wc-admin-pointers.php:169
+#: includes/admin/settings/class-wc-settings-products.php:176
+msgid "Product Images"
+msgstr "产品图片"
+
+#: includes/admin/class-wc-admin-pointers.php:170
+msgid "Upload or assign an image to your product here. This image will be shown in your store's catalog."
+msgstr "在此为您的产品上传或指定一张图片，此图片将会显示在店铺的产品目录中。"
+
+#: includes/admin/class-wc-admin-pointers.php:206
+msgid "When you are finished editing your product, hit the \"Publish\" button to publish your product to your store."
+msgstr "当您完成了产品的编辑时，点击\"发布\"按钮就可以将您的产品发布到您的店铺了。"
+
+#: includes/admin/class-wc-admin-post-types.php:1636
+#: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:40
+#: includes/wc-product-functions.php:510
+msgid "Grouped product"
+msgstr "成组产品"
+
+#: includes/admin/class-wc-admin-post-types.php:1642
+#: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:42
+#: includes/wc-product-functions.php:512
+msgid "Variable product"
+msgstr "可变产品"
+
+#: includes/admin/class-wc-admin-post-types.php:2128
+msgid "Featured Product"
+msgstr "推荐产品"
+
+#: includes/admin/class-wc-admin-reports.php:54
+msgid "Sales by product"
+msgstr "按产品售出"
+
+#: includes/admin/class-wc-admin-setup-wizard.php:247
+msgid "The shop page will display your products."
+msgstr "商店页面将会显示您的产品。"
+
+#: includes/admin/class-wc-admin-setup-wizard.php:256
+msgid "The checkout page will be where the customers go to pay for their items."
+msgstr "结算页面将会让顾客结算TA们购买的产品。"
+
+#: includes/admin/class-wc-admin-profile.php:48
+#: includes/admin/class-wc-admin-profile.php:101
+#: templates/myaccount/form-edit-account.php:27
+msgid "Last name"
+msgstr "姓氏"
+
+#: includes/admin/class-wc-admin-profile.php:44
+#: includes/admin/class-wc-admin-profile.php:97
+#: templates/myaccount/form-edit-account.php:23
+msgid "First name"
+msgstr "名字"
 
 #: includes/admin/class-wc-admin-api-keys-table-list.php:26
 msgid "key"
@@ -11002,10 +11002,6 @@ msgstr "用于变更"
 msgid "Enter a name for the new attribute term:"
 msgstr "输入一个新的属性项的名称："
 
-#: includes/admin/class-wc-admin-assets.php:229
-msgid "Calculate totals based on order items, discounts, and shipping?"
-msgstr "基于订购的商品，折扣和运费计算总计？"
-
 #: includes/admin/class-wc-admin-assets.php:230
 msgid "Calculate line taxes? This will calculate taxes based on the customers country. If no billing/shipping is set it will use the store base country."
 msgstr "计算税费？税费是基于顾客所在国家来计算的。如果没有设置账单/运费选项，那么程序将会默认使用商店所在国家的税率来计算。"
@@ -11252,29 +11248,9 @@ msgid "<strong>%s order</strong> on-hold"
 msgid_plural "<strong>%s orders</strong> on-hold"
 msgstr[0] "<strong>%s 订单</strong> 保留"
 
-#: includes/admin/class-wc-admin-dashboard.php:158
-msgid "<strong>%s product</strong> low in stock"
-msgid_plural "<strong>%s products</strong> low in stock"
-msgstr[0] "<strong>%s 商品</strong> 库存不足"
-
-#: includes/admin/class-wc-admin-dashboard.php:163
-msgid "<strong>%s product</strong> out of stock"
-msgid_plural "<strong>%s products</strong> out of stock"
-msgstr[0] "<strong>%s 商品</strong> 已卖完"
-
-#: includes/abstracts/abstract-wc-product.php:1117
-#: includes/admin/class-wc-admin-dashboard.php:198
-#: templates/single-product/review.php:30
-msgid "out of 5"
-msgstr "超出5"
-
 #: includes/admin/class-wc-admin-dashboard.php:200
 msgid "reviewed by"
 msgstr "品凭者"
-
-#: includes/admin/class-wc-admin-dashboard.php:206
-msgid "There are no product reviews yet."
-msgstr "还没有商品评论。"
 
 #: includes/admin/class-wc-admin-duplicate-product.php:47
 msgid "Make a duplicate from this product"
@@ -11368,10 +11344,6 @@ msgstr "自提"
 #: includes/admin/class-wc-admin-help.php:113
 msgid "Product Categories, Tags, Shipping Classes, &amp; Attributes"
 msgstr "产品分类、标签、配送类型以及属性"
-
-#: includes/admin/class-wc-admin-help.php:117
-msgid "Simple Products"
-msgstr "简单商品"
 
 #: includes/admin/class-wc-admin-help.php:121
 #: includes/admin/class-wc-admin-help.php:188
@@ -11615,30 +11587,11 @@ msgstr "产品相应页面"
 msgid "Product attribute base"
 msgstr "产品相应页面"
 
-#: includes/admin/class-wc-admin-permalink-settings.php:96
-msgid "These settings control the permalinks used for products. These settings only apply when <strong>not using \"default\" permalinks above</strong>."
-msgstr "这些设置控制商品的永久链接。只有在<strong>不使用上面的\"default\"永久链接</strong>时这些设置才有效"
-
 #: includes/admin/class-wc-admin-permalink-settings.php:116
 #: includes/admin/class-wc-admin-taxonomies.php:95
 #: includes/admin/class-wc-admin-taxonomies.php:184
 msgid "Default"
 msgstr "默认"
-
-#: includes/admin/class-wc-admin-permalink-settings.php:120
-#: includes/admin/reports/class-wc-report-stock.php:155
-#: includes/class-wc-post-types.php:235 templates/cart/cart.php:27
-#: templates/checkout/form-pay.php:20 templates/checkout/review-order.php:17
-#: templates/emails/admin-cancelled-order.php:22
-#: templates/emails/admin-new-order.php:27
-#: templates/emails/customer-completed-order.php:27
-#: templates/emails/customer-invoice.php:31
-#: templates/emails/customer-note.php:31
-#: templates/emails/customer-processing-order.php:27
-#: templates/emails/customer-refunded-order.php:34
-#: templates/order/order-details.php:20
-msgid "Product"
-msgstr "商品"
 
 #: includes/admin/class-wc-admin-permalink-settings.php:125
 msgid "Shop base"
@@ -12009,11 +11962,6 @@ msgstr "库存 %s 件"
 msgid "Available on backorder"
 msgstr "可用的延迟发货"
 
-#: includes/abstracts/abstract-wc-product.php:1115
-#: templates/single-product/rating.php:27
-msgid "Rated %s out of 5"
-msgstr "评分 %s 超出5"
-
 #: includes/abstracts/abstract-wc-product.php:1472
 msgid "%s &ndash; %s"
 msgstr "%s &ndash; %s"
@@ -12044,6 +11992,58 @@ msgstr "如果您发现了WooCommerce核心的一个BUG，您可以通过<a href
 #: includes/admin/class-wc-admin-help.php:186
 msgid "After %sreading the documentation%s, for further assistance you can use the %scommunity forums%s on WordPress.org to talk with other users. If however you are a WooThemes customer, or need help with premium add-ons sold by WooThemes, please %suse our helpdesk%s."
 msgstr "在 %s阅读文档%s之后，欲寻求进一步的帮助，您可使用WordPress.org上的%s社区论坛%s 与其它用户进行交流。如果你是一个WooThemes的客户，或者需要关于WooThemes 扩展组件的帮助，请%s使用我们的帮助平台%s。"
+
+#: includes/admin/class-wc-admin-assets.php:229
+msgid "Calculate totals based on order items, discounts, and shipping?"
+msgstr "基于订购的产品，折扣和运费计算总计？"
+
+#: includes/admin/class-wc-admin-dashboard.php:158
+msgid "<strong>%s product</strong> low in stock"
+msgid_plural "<strong>%s products</strong> low in stock"
+msgstr[0] "<strong>%s 产品</strong> 库存不足"
+
+#: includes/admin/class-wc-admin-dashboard.php:163
+msgid "<strong>%s product</strong> out of stock"
+msgid_plural "<strong>%s products</strong> out of stock"
+msgstr[0] "<strong>%s 产品</strong> 已售罄"
+
+#: includes/admin/class-wc-admin-dashboard.php:206
+msgid "There are no product reviews yet."
+msgstr "暂无产品评论。"
+
+#: includes/admin/class-wc-admin-help.php:117
+msgid "Simple Products"
+msgstr "简单产品"
+
+#: includes/admin/class-wc-admin-permalink-settings.php:96
+msgid "These settings control the permalinks used for products. These settings only apply when <strong>not using \"default\" permalinks above</strong>."
+msgstr "这些设置控制产品的永久链接。只有在<strong>不使用上面的\"默认\"链接类型</strong>时这些设置才有效"
+
+#: includes/admin/class-wc-admin-permalink-settings.php:120
+#: includes/admin/reports/class-wc-report-stock.php:155
+#: includes/class-wc-post-types.php:235 templates/cart/cart.php:27
+#: templates/checkout/form-pay.php:20 templates/checkout/review-order.php:17
+#: templates/emails/admin-cancelled-order.php:22
+#: templates/emails/admin-new-order.php:27
+#: templates/emails/customer-completed-order.php:27
+#: templates/emails/customer-invoice.php:31
+#: templates/emails/customer-note.php:31
+#: templates/emails/customer-processing-order.php:27
+#: templates/emails/customer-refunded-order.php:34
+#: templates/order/order-details.php:20
+msgid "Product"
+msgstr "产品"
+
+#: includes/abstracts/abstract-wc-product.php:1115
+#: templates/single-product/rating.php:27
+msgid "Rated %s out of 5"
+msgstr "评分 %s /5"
+
+#: includes/abstracts/abstract-wc-product.php:1117
+#: includes/admin/class-wc-admin-dashboard.php:198
+#: templates/single-product/review.php:30
+msgid "out of 5"
+msgstr "/5"
 
 #: i18n/states/TH.php:13
 msgid "Amnat Charoen (&#3629;&#3635;&#3609;&#3634;&#3592;&#3648;&#3592;&#3619;&#3636;&#3597;)"
@@ -12685,25 +12685,13 @@ msgstr "阿拉巴马州"
 msgid "Alaska"
 msgstr "阿拉斯加州"
 
-#: i18n/states/US.php:15
-msgid "Arizona"
-msgstr "亚利桑那"
-
 #: i18n/states/US.php:16
 msgid "Arkansas"
 msgstr "阿肯色州"
 
-#: i18n/states/US.php:17
-msgid "California"
-msgstr "加州"
-
 #: i18n/states/US.php:18
 msgid "Colorado"
 msgstr "科罗拉多州"
-
-#: i18n/states/US.php:19
-msgid "Connecticut"
-msgstr "康涅狄格"
 
 #: i18n/states/US.php:20
 msgid "Delaware"
@@ -12713,14 +12701,6 @@ msgstr "特拉华州"
 msgid "District Of Columbia"
 msgstr "哥伦比亚特区"
 
-#: i18n/states/US.php:22
-msgid "Florida"
-msgstr "佛罗里达"
-
-#: i18n/states/US.php:24
-msgid "Hawaii"
-msgstr "夏威夷"
-
 #: i18n/states/US.php:25
 msgid "Idaho"
 msgstr "爱达荷州"
@@ -12728,10 +12708,6 @@ msgstr "爱达荷州"
 #: i18n/states/US.php:26
 msgid "Illinois"
 msgstr "伊利诺伊州"
-
-#: i18n/states/US.php:27
-msgid "Indiana"
-msgstr "印地安那"
 
 #: i18n/states/US.php:28
 msgid "Iowa"
@@ -12876,11 +12852,6 @@ msgstr "怀俄明州"
 #: i18n/states/US.php:64
 msgid "Armed Forces (AA)"
 msgstr "美国武装部队"
-
-#: i18n/states/US.php:23
-msgctxt "US state of Georgia"
-msgid "Georgia"
-msgstr "格鲁吉亚"
 
 #: i18n/states/PH.php:17
 msgid "Antique"
@@ -13193,6 +13164,35 @@ msgstr "南拉瑙"
 #: i18n/states/PH.php:71
 msgid "Pampanga"
 msgstr "邦板牙"
+
+#: i18n/states/US.php:24
+msgid "Hawaii"
+msgstr "夏威夷州"
+
+#: i18n/states/US.php:22
+msgid "Florida"
+msgstr "佛罗里达州"
+
+#: i18n/states/US.php:19
+msgid "Connecticut"
+msgstr "康涅狄格州"
+
+#: i18n/states/US.php:15
+msgid "Arizona"
+msgstr "亚利桑那州"
+
+#: i18n/states/US.php:17
+msgid "California"
+msgstr "加利福尼亚州"
+
+#: i18n/states/US.php:27
+msgid "Indiana"
+msgstr "印地安那州"
+
+#: i18n/states/US.php:23
+msgctxt "US state of Georgia"
+msgid "Georgia"
+msgstr "佐治亚州"
 
 #: i18n/states/IT.php:26
 msgid "Biella"
@@ -13582,181 +13582,9 @@ msgstr "Vicenza"
 msgid "Viterbo"
 msgstr "Viterbo"
 
-#: i18n/states/JP.php:13
-msgid "Hokkaido"
-msgstr "Hokkaido"
-
-#: i18n/states/JP.php:14
-msgid "Aomori"
-msgstr "Aomori"
-
-#: i18n/states/JP.php:15
-msgid "Iwate"
-msgstr "Iwate"
-
-#: i18n/states/JP.php:16
-msgid "Miyagi"
-msgstr "Miyagi"
-
-#: i18n/states/JP.php:17
-msgid "Akita"
-msgstr "Akita"
-
-#: i18n/states/JP.php:18
-msgid "Yamagata"
-msgstr "Yamagata"
-
-#: i18n/states/JP.php:19
-msgid "Fukushima"
-msgstr "Fukushima"
-
-#: i18n/states/JP.php:20
-msgid "Ibaraki"
-msgstr "Ibaraki"
-
-#: i18n/states/JP.php:21
-msgid "Tochigi"
-msgstr "Tochigi"
-
-#: i18n/states/JP.php:22
-msgid "Gunma"
-msgstr "Gunma"
-
-#: i18n/states/JP.php:23
-msgid "Saitama"
-msgstr "Saitama"
-
-#: i18n/states/JP.php:24
-msgid "Chiba"
-msgstr "Chiba"
-
 #: i18n/states/JP.php:25
 msgid "Tokyo"
 msgstr "东京"
-
-#: i18n/states/JP.php:26
-msgid "Kanagawa"
-msgstr "Kanagawa"
-
-#: i18n/states/JP.php:27
-msgid "Niigata"
-msgstr "Niigata"
-
-#: i18n/states/JP.php:28
-msgid "Toyama"
-msgstr "Toyama"
-
-#: i18n/states/JP.php:29
-msgid "Ishikawa"
-msgstr "Ishikawa"
-
-#: i18n/states/JP.php:30
-msgid "Fukui"
-msgstr "Fukui"
-
-#: i18n/states/JP.php:31
-msgid "Yamanashi"
-msgstr "Yamanashi"
-
-#: i18n/states/JP.php:32
-msgid "Nagano"
-msgstr "Nagano"
-
-#: i18n/states/JP.php:33
-msgid "Gifu"
-msgstr "Gifu"
-
-#: i18n/states/JP.php:34
-msgid "Shizuoka"
-msgstr "Shizuoka"
-
-#: i18n/states/JP.php:35
-msgid "Aichi"
-msgstr "Aichi"
-
-#: i18n/states/JP.php:36
-msgid "Mie"
-msgstr "Mie"
-
-#: i18n/states/JP.php:37
-msgid "Shiga"
-msgstr "Shiga"
-
-#: i18n/states/JP.php:39
-msgid "Osaka"
-msgstr "Osaka"
-
-#: i18n/states/JP.php:41
-msgid "Nara"
-msgstr "Nara"
-
-#: i18n/states/JP.php:42
-msgid "Wakayama"
-msgstr "Wakayama"
-
-#: i18n/states/JP.php:43
-msgid "Tottori"
-msgstr "Tottori"
-
-#: i18n/states/JP.php:44
-msgid "Shimane"
-msgstr "Shimane"
-
-#: i18n/states/JP.php:45
-msgid "Okayama"
-msgstr "Okayama"
-
-#: i18n/states/JP.php:46
-msgid "Hiroshima"
-msgstr "Hiroshima"
-
-#: i18n/states/JP.php:47
-msgid "Yamaguchi"
-msgstr "Yamaguchi"
-
-#: i18n/states/JP.php:48
-msgid "Tokushima"
-msgstr "Tokushima"
-
-#: i18n/states/JP.php:49
-msgid "Kagawa"
-msgstr "Kagawa"
-
-#: i18n/states/JP.php:50
-msgid "Ehime"
-msgstr "Ehime"
-
-#: i18n/states/JP.php:51
-msgid "Kochi"
-msgstr "Kochi"
-
-#: i18n/states/JP.php:52
-msgid "Fukuoka"
-msgstr "Fukuoka"
-
-#: i18n/states/JP.php:53
-msgid "Saga"
-msgstr "Saga"
-
-#: i18n/states/JP.php:54
-msgid "Nagasaki"
-msgstr "Nagasaki"
-
-#: i18n/states/JP.php:55
-msgid "Kumamoto"
-msgstr "Kumamoto"
-
-#: i18n/states/JP.php:56
-msgid "Oita"
-msgstr "Oita"
-
-#: i18n/states/JP.php:57
-msgid "Miyazaki"
-msgstr "Miyazaki"
-
-#: i18n/states/JP.php:58
-msgid "Kagoshima"
-msgstr "Kagoshima"
 
 #: i18n/states/JP.php:59
 msgid "Okinawa"
@@ -13949,10 +13777,6 @@ msgstr "W.P. Labuan"
 #: i18n/states/MY.php:28
 msgid "W.P. Putrajaya"
 msgstr "W.P. Putrajaya"
-
-#: i18n/states/NP.php:15
-msgid "Illam"
-msgstr "该"
 
 #: i18n/states/NP.php:16
 msgid "Jhapa"
@@ -14418,10 +14242,6 @@ msgstr "Ucayali"
 msgid "Kyoto"
 msgstr "京都"
 
-#: i18n/states/JP.php:40
-msgid "Hyogo"
-msgstr "兵库"
-
 #: i18n/states/PH.php:12
 msgid "Abra"
 msgstr "阿布拉"
@@ -14437,6 +14257,186 @@ msgstr "南阿古桑"
 #: i18n/states/PH.php:15
 msgid "Aklan"
 msgstr "阿克兰"
+
+#: i18n/states/NP.php:15
+msgid "Illam"
+msgstr "Illam"
+
+#: i18n/states/JP.php:56
+msgid "Oita"
+msgstr "大分县"
+
+#: i18n/states/JP.php:13
+msgid "Hokkaido"
+msgstr "北海道"
+
+#: i18n/states/JP.php:14
+msgid "Aomori"
+msgstr "青森市"
+
+#: i18n/states/JP.php:15
+msgid "Iwate"
+msgstr "岩手县"
+
+#: i18n/states/JP.php:16
+msgid "Miyagi"
+msgstr "宫城县"
+
+#: i18n/states/JP.php:17
+msgid "Akita"
+msgstr "秋田县"
+
+#: i18n/states/JP.php:18
+msgid "Yamagata"
+msgstr "山形县"
+
+#: i18n/states/JP.php:19
+msgid "Fukushima"
+msgstr "福岛"
+
+#: i18n/states/JP.php:20
+msgid "Ibaraki"
+msgstr "茨城县"
+
+#: i18n/states/JP.php:22
+msgid "Gunma"
+msgstr "群马县"
+
+#: i18n/states/JP.php:23
+msgid "Saitama"
+msgstr "埼玉县"
+
+#: i18n/states/JP.php:24
+msgid "Chiba"
+msgstr "千叶县"
+
+#: i18n/states/JP.php:26
+msgid "Kanagawa"
+msgstr "神奈川县"
+
+#: i18n/states/JP.php:27
+msgid "Niigata"
+msgstr "新潟市"
+
+#: i18n/states/JP.php:28
+msgid "Toyama"
+msgstr "富山市"
+
+#: i18n/states/JP.php:29
+msgid "Ishikawa"
+msgstr "石川县"
+
+#: i18n/states/JP.php:30
+msgid "Fukui"
+msgstr "福井县"
+
+#: i18n/states/JP.php:31
+msgid "Yamanashi"
+msgstr "山梨县"
+
+#: i18n/states/JP.php:32
+msgid "Nagano"
+msgstr "长野县"
+
+#: i18n/states/JP.php:33
+msgid "Gifu"
+msgstr "岐阜县"
+
+#: i18n/states/JP.php:34
+msgid "Shizuoka"
+msgstr "静冈县"
+
+#: i18n/states/JP.php:35
+msgid "Aichi"
+msgstr "爱知县"
+
+#: i18n/states/JP.php:36
+msgid "Mie"
+msgstr "三重县"
+
+#: i18n/states/JP.php:37
+msgid "Shiga"
+msgstr "滋贺县"
+
+#: i18n/states/JP.php:39
+msgid "Osaka"
+msgstr "大阪市"
+
+#: i18n/states/JP.php:40
+msgid "Hyogo"
+msgstr "兵库县"
+
+#: i18n/states/JP.php:41
+msgid "Nara"
+msgstr "奈良市"
+
+#: i18n/states/JP.php:42
+msgid "Wakayama"
+msgstr "和歌山县"
+
+#: i18n/states/JP.php:43
+msgid "Tottori"
+msgstr "鸟取县"
+
+#: i18n/states/JP.php:44
+msgid "Shimane"
+msgstr "岛根县"
+
+#: i18n/states/JP.php:45
+msgid "Okayama"
+msgstr "冈山市"
+
+#: i18n/states/JP.php:46
+msgid "Hiroshima"
+msgstr "广岛市"
+
+#: i18n/states/JP.php:47
+msgid "Yamaguchi"
+msgstr "山口县"
+
+#: i18n/states/JP.php:48
+msgid "Tokushima"
+msgstr "德岛市"
+
+#: i18n/states/JP.php:49
+msgid "Kagawa"
+msgstr "香川县"
+
+#: i18n/states/JP.php:50
+msgid "Ehime"
+msgstr "爱媛县"
+
+#: i18n/states/JP.php:51
+msgid "Kochi"
+msgstr "高知县"
+
+#: i18n/states/JP.php:53
+msgid "Saga"
+msgstr "佐贺市"
+
+#: i18n/states/JP.php:55
+msgid "Kumamoto"
+msgstr "熊本市"
+
+#: i18n/states/JP.php:54
+msgid "Nagasaki"
+msgstr "长崎市"
+
+#: i18n/states/JP.php:52
+msgid "Fukuoka"
+msgstr "福冈市"
+
+#: i18n/states/JP.php:57
+msgid "Miyazaki"
+msgstr "宫崎县"
+
+#: i18n/states/JP.php:58
+msgid "Kagoshima"
+msgstr "鹿儿岛"
+
+#: i18n/states/JP.php:21
+msgid "Tochigi"
+msgstr "枥木县"
 
 #: i18n/states/BD.php:71
 msgid "Sherpur"
@@ -14574,10 +14574,6 @@ msgstr "Vratsa"
 msgid "Yambol"
 msgstr "Yambol"
 
-#: i18n/states/BR.php:13
-msgid "Acre"
-msgstr "英亩"
-
 #: i18n/states/BR.php:14
 msgid "Alagoas"
 msgstr "阿拉戈斯州"
@@ -14645,10 +14641,6 @@ msgstr "伯南布哥"
 #: i18n/states/BR.php:30
 msgid "Piau&iacute;"
 msgstr "皮奥伊"
-
-#: i18n/states/BR.php:31
-msgid "Rio de Janeiro"
-msgstr "不是垃圾评论 &raquo;"
 
 #: i18n/states/BR.php:32
 msgid "Rio Grande do Norte"
@@ -15114,10 +15106,6 @@ msgstr "Κρήτη"
 msgid "Hong Kong Island"
 msgstr "香港岛"
 
-#: i18n/states/HK.php:14
-msgid "Kowloon"
-msgstr "Kowloon"
-
 #: i18n/states/HK.php:15
 msgid "New Territories"
 msgstr "新界"
@@ -15266,70 +15254,6 @@ msgstr "Jawa Timur"
 msgid "Daerah Istimewa Yogyakarta"
 msgstr "Daerah Istimewa Yogyakarta"
 
-#: i18n/states/ID.php:29
-msgid "Bali"
-msgstr "Bali"
-
-#: i18n/states/ID.php:30
-msgid "Nusa Tenggara Barat"
-msgstr "Nusa Tenggara Barat"
-
-#: i18n/states/ID.php:31
-msgid "Nusa Tenggara Timur"
-msgstr "Nusa Tenggara Timur"
-
-#: i18n/states/ID.php:32
-msgid "Kalimantan Barat"
-msgstr "Kalimantan Barat"
-
-#: i18n/states/ID.php:33
-msgid "Kalimantan Tengah"
-msgstr "Kalimantan Tengah"
-
-#: i18n/states/ID.php:34
-msgid "Kalimantan Timur"
-msgstr "Kalimantan Timur"
-
-#: i18n/states/ID.php:35
-msgid "Kalimantan Selatan"
-msgstr "Kalimantan Selatan"
-
-#: i18n/states/ID.php:36
-msgid "Kalimantan Utara"
-msgstr "Kalimantan Utara"
-
-#: i18n/states/ID.php:37
-msgid "Sulawesi Utara"
-msgstr "Sulawesi Utara"
-
-#: i18n/states/ID.php:38
-msgid "Sulawesi Tengah"
-msgstr "Sulawesi Tengah"
-
-#: i18n/states/ID.php:39
-msgid "Sulawesi Tenggara"
-msgstr "Sulawesi Tenggara"
-
-#: i18n/states/ID.php:40
-msgid "Sulawesi Barat"
-msgstr "Sulawesi Barat"
-
-#: i18n/states/ID.php:41
-msgid "Sulawesi Selatan"
-msgstr "Sulawesi Selatan"
-
-#: i18n/states/ID.php:42
-msgid "Gorontalo"
-msgstr "Gorontalo"
-
-#: i18n/states/ID.php:43
-msgid "Maluku"
-msgstr "Maluku"
-
-#: i18n/states/ID.php:44
-msgid "Maluku Utara"
-msgstr "Maluku Utara"
-
 #: i18n/states/ID.php:45
 msgid "Papua"
 msgstr "巴布亚新几内亚"
@@ -15338,113 +15262,13 @@ msgstr "巴布亚新几内亚"
 msgid "Papua Barat"
 msgstr "巴布亚新几内亚"
 
-#: i18n/states/IN.php:14
-msgid "Arunachal Pradesh"
-msgstr "Arunachal Pradesh"
-
-#: i18n/states/IN.php:15
-msgid "Assam"
-msgstr "Assam"
-
-#: i18n/states/IN.php:16
-msgid "Bihar"
-msgstr "Bihar"
-
-#: i18n/states/IN.php:17
-msgid "Chhattisgarh"
-msgstr "Chhattisgarh"
-
-#: i18n/states/IN.php:18
-msgid "Goa"
-msgstr "Goa"
-
-#: i18n/states/IN.php:19
-msgid "Gujarat"
-msgstr "Gujarat"
-
-#: i18n/states/IN.php:20
-msgid "Haryana"
-msgstr "Haryana"
-
-#: i18n/states/IN.php:21
-msgid "Himachal Pradesh"
-msgstr "Himachal Pradesh"
-
-#: i18n/states/IN.php:22
-msgid "Jammu and Kashmir"
-msgstr "批准并回复"
-
-#: i18n/states/IN.php:23
-msgid "Jharkhand"
-msgstr "Jharkhand"
-
-#: i18n/states/IN.php:24
-msgid "Karnataka"
-msgstr "Karnataka"
-
-#: i18n/states/IN.php:25
-msgid "Kerala"
-msgstr "Kerala"
-
-#: i18n/states/IN.php:26
-msgid "Madhya Pradesh"
-msgstr "Madhya Pradesh"
-
-#: i18n/states/IN.php:27
-msgid "Maharashtra"
-msgstr "Maharashtra"
-
-#: i18n/states/IN.php:28
-msgid "Manipur"
-msgstr "Manipur"
-
-#: i18n/states/IN.php:29
-msgid "Meghalaya"
-msgstr "Meghalaya"
-
-#: i18n/states/IN.php:30
-msgid "Mizoram"
-msgstr "Mizoram"
-
-#: i18n/states/IN.php:31
-msgid "Nagaland"
-msgstr "Nagaland"
-
-#: i18n/states/IN.php:32
-msgid "Orissa"
-msgstr "Orissa"
-
-#: i18n/states/IN.php:33
-msgid "Punjab"
-msgstr "Punjab"
-
-#: i18n/states/IN.php:34
-msgid "Rajasthan"
-msgstr "Rajasthan"
-
-#: i18n/states/IN.php:35
-msgid "Sikkim"
-msgstr "Sikkim"
-
-#: i18n/states/IN.php:36
-msgid "Tamil Nadu"
-msgstr "Tamil Nadu"
-
 #: i18n/states/IN.php:37
 msgid "Telangana"
 msgstr "泰伦加纳"
 
-#: i18n/states/IN.php:38
-msgid "Tripura"
-msgstr "Tripura"
-
 #: i18n/states/IN.php:39
 msgid "Uttarakhand"
 msgstr "北阿坎德"
-
-#: i18n/states/IN.php:40
-msgid "Uttar Pradesh"
-msgstr "Uttar Pradesh"
 
 #: i18n/states/IN.php:41
 msgid "West Bengal"
@@ -15453,30 +15277,6 @@ msgstr "西弗吉尼亚州"
 #: i18n/states/IN.php:42
 msgid "Andaman and Nicobar Islands"
 msgstr "特克斯和凯科斯群岛"
-
-#: i18n/states/IN.php:43
-msgid "Chandigarh"
-msgstr "Chandigarh"
-
-#: i18n/states/IN.php:44
-msgid "Dadar and Nagar Haveli"
-msgstr "Dadar and Nagar Haveli"
-
-#: i18n/states/IN.php:45
-msgid "Daman and Diu"
-msgstr "批准并回复"
-
-#: i18n/states/IN.php:46
-msgid "Delhi"
-msgstr "Delhi"
-
-#: i18n/states/IN.php:47
-msgid "Lakshadeep"
-msgstr "Lakshadeep"
-
-#: i18n/states/IN.php:48
-msgid "Pondicherry (Puducherry)"
-msgstr "Pondicherry (Puducherry)"
 
 #: i18n/states/IR.php:13
 msgid "Khuzestan  (خوزستان)"
@@ -15594,65 +15394,9 @@ msgstr "Mazandaran (مازندران)"
 msgid "Markazi (مرکزی)"
 msgstr "Markazi (مرکزی)"
 
-#: i18n/states/IR.php:42
-msgid "Hormozgan (هرمزگان)"
-msgstr "Hormozgan (هرمزگان)"
-
-#: i18n/states/IR.php:43
-msgid "Sistan and Baluchestan (سیستان و بلوچستان)"
-msgstr "Sistan and Baluchestan (سیستان و بلوچستان)"
-
-#: i18n/states/IT.php:13
-msgid "Agrigento"
-msgstr "Agrigento"
-
-#: i18n/states/IT.php:14
-msgid "Alessandria"
-msgstr "Alessandria"
-
-#: i18n/states/IT.php:15
-msgid "Ancona"
-msgstr "Ancona"
-
-#: i18n/states/IT.php:16
-msgid "Aosta"
-msgstr "Aosta"
-
-#: i18n/states/IT.php:17
-msgid "Arezzo"
-msgstr "Arezzo"
-
-#: i18n/states/IT.php:18
-msgid "Ascoli Piceno"
-msgstr "Ascoli Piceno"
-
-#: i18n/states/IT.php:19
-msgid "Asti"
-msgstr "Asti"
-
-#: i18n/states/IT.php:20
-msgid "Avellino"
-msgstr "Avellino"
-
 #: i18n/states/IT.php:21
 msgid "Bari"
 msgstr "巴里"
-
-#: i18n/states/IT.php:22
-msgid "Barletta-Andria-Trani"
-msgstr "Barletta-Andria-Trani"
-
-#: i18n/states/IT.php:23
-msgid "Belluno"
-msgstr "Belluno"
-
-#: i18n/states/IT.php:24
-msgid "Benevento"
-msgstr "Benevento"
-
-#: i18n/states/IT.php:25
-msgid "Bergamo"
-msgstr "Bergamo"
 
 #: i18n/states/CA.php:17
 msgid "Newfoundland and Labrador"
@@ -15661,6 +15405,262 @@ msgstr "纽芬兰与拉布拉多"
 #: i18n/states/IN.php:13
 msgid "Andhra Pradesh"
 msgstr "安得拉邦"
+
+#: i18n/states/IT.php:18
+msgid "Ascoli Piceno"
+msgstr "阿斯科利皮切诺"
+
+#: i18n/states/IT.php:19
+msgid "Asti"
+msgstr "阿斯蒂"
+
+#: i18n/states/IT.php:20
+msgid "Avellino"
+msgstr "阿维利诺"
+
+#: i18n/states/IT.php:22
+msgid "Barletta-Andria-Trani"
+msgstr "巴列塔-安德里亚-特拉尼"
+
+#: i18n/states/IT.php:23
+msgid "Belluno"
+msgstr "贝卢诺"
+
+#: i18n/states/IT.php:24
+msgid "Benevento"
+msgstr "贝内文托"
+
+#: i18n/states/IT.php:25
+msgid "Bergamo"
+msgstr "贝加莫"
+
+#: i18n/states/IT.php:13
+msgid "Agrigento"
+msgstr "阿格里真托"
+
+#: i18n/states/IT.php:14
+msgid "Alessandria"
+msgstr "亚历山德里亚"
+
+#: i18n/states/IT.php:15
+msgid "Ancona"
+msgstr "安科纳"
+
+#: i18n/states/IT.php:16
+msgid "Aosta"
+msgstr "奥斯塔"
+
+#: i18n/states/IT.php:17
+msgid "Arezzo"
+msgstr "阿雷佐"
+
+#: i18n/states/IR.php:43
+msgid "Sistan and Baluchestan (سیستان و بلوچستان)"
+msgstr "锡斯坦-俾路支斯坦 (سیستان و بلوچستان)"
+
+#: i18n/states/IR.php:42
+msgid "Hormozgan (هرمزگان)"
+msgstr "霍尔木兹甘 (هرمزگان)"
+
+#: i18n/states/IN.php:40
+msgid "Uttar Pradesh"
+msgstr "北方邦"
+
+#: i18n/states/IN.php:43
+msgid "Chandigarh"
+msgstr "昌迪加尔"
+
+#: i18n/states/IN.php:44
+msgid "Dadar and Nagar Haveli"
+msgstr "达德拉-纳加尔哈维利"
+
+#: i18n/states/IN.php:45
+msgid "Daman and Diu"
+msgstr "达曼-第乌"
+
+#: i18n/states/IN.php:46
+msgid "Delhi"
+msgstr "德里"
+
+#: i18n/states/IN.php:47
+msgid "Lakshadeep"
+msgstr "拉克沙群岛"
+
+#: i18n/states/IN.php:48
+msgid "Pondicherry (Puducherry)"
+msgstr "本地治里"
+
+#: i18n/states/IN.php:38
+msgid "Tripura"
+msgstr "特里普拉"
+
+#: i18n/states/IN.php:25
+msgid "Kerala"
+msgstr "喀拉拉"
+
+#: i18n/states/IN.php:26
+msgid "Madhya Pradesh"
+msgstr "中央邦"
+
+#: i18n/states/IN.php:27
+msgid "Maharashtra"
+msgstr "马哈拉施特拉"
+
+#: i18n/states/IN.php:28
+msgid "Manipur"
+msgstr "曼尼普尔"
+
+#: i18n/states/IN.php:29
+msgid "Meghalaya"
+msgstr "梅加拉亚"
+
+#: i18n/states/IN.php:30
+msgid "Mizoram"
+msgstr "米佐拉姆"
+
+#: i18n/states/IN.php:31
+msgid "Nagaland"
+msgstr "那加兰"
+
+#: i18n/states/IN.php:32
+msgid "Orissa"
+msgstr "奥里萨"
+
+#: i18n/states/IN.php:33
+msgid "Punjab"
+msgstr "旁遮普"
+
+#: i18n/states/IN.php:34
+msgid "Rajasthan"
+msgstr "拉贾斯坦"
+
+#: i18n/states/IN.php:35
+msgid "Sikkim"
+msgstr "锡金"
+
+#: i18n/states/IN.php:36
+msgid "Tamil Nadu"
+msgstr "泰米尔纳德"
+
+#: i18n/states/ID.php:44
+msgid "Maluku Utara"
+msgstr "北马鲁古"
+
+#: i18n/states/IN.php:14
+msgid "Arunachal Pradesh"
+msgstr "阿鲁纳恰尔"
+
+#: i18n/states/IN.php:15
+msgid "Assam"
+msgstr "阿萨姆"
+
+#: i18n/states/IN.php:16
+msgid "Bihar"
+msgstr "比哈尔"
+
+#: i18n/states/IN.php:17
+msgid "Chhattisgarh"
+msgstr "恰蒂斯加尔"
+
+#: i18n/states/IN.php:18
+msgid "Goa"
+msgstr "果阿"
+
+#: i18n/states/IN.php:19
+msgid "Gujarat"
+msgstr "古吉拉特"
+
+#: i18n/states/IN.php:20
+msgid "Haryana"
+msgstr "哈里亚纳"
+
+#: i18n/states/IN.php:21
+msgid "Himachal Pradesh"
+msgstr "喜马偕尔"
+
+#: i18n/states/IN.php:22
+msgid "Jammu and Kashmir"
+msgstr "查谟-克什米尔"
+
+#: i18n/states/IN.php:23
+msgid "Jharkhand"
+msgstr "贾坎德"
+
+#: i18n/states/IN.php:24
+msgid "Karnataka"
+msgstr "卡纳塔克"
+
+#: i18n/states/ID.php:29
+msgid "Bali"
+msgstr "巴厘岛"
+
+#: i18n/states/ID.php:30
+msgid "Nusa Tenggara Barat"
+msgstr "西努沙登加拉"
+
+#: i18n/states/ID.php:31
+msgid "Nusa Tenggara Timur"
+msgstr "东努沙登加拉省"
+
+#: i18n/states/ID.php:32
+msgid "Kalimantan Barat"
+msgstr "西加里曼丹省"
+
+#: i18n/states/ID.php:33
+msgid "Kalimantan Tengah"
+msgstr "中加里曼丹省"
+
+#: i18n/states/ID.php:34
+msgid "Kalimantan Timur"
+msgstr "东加里曼丹省"
+
+#: i18n/states/ID.php:35
+msgid "Kalimantan Selatan"
+msgstr "南加里曼丹省"
+
+#: i18n/states/ID.php:36
+msgid "Kalimantan Utara"
+msgstr "北加里曼丹省"
+
+#: i18n/states/ID.php:37
+msgid "Sulawesi Utara"
+msgstr "北苏拉威西省"
+
+#: i18n/states/ID.php:38
+msgid "Sulawesi Tengah"
+msgstr "中苏拉威西省"
+
+#: i18n/states/ID.php:39
+msgid "Sulawesi Tenggara"
+msgstr "东南苏拉威西省"
+
+#: i18n/states/ID.php:40
+msgid "Sulawesi Barat"
+msgstr "西苏拉威西省"
+
+#: i18n/states/ID.php:41
+msgid "Sulawesi Selatan"
+msgstr "南苏拉威西省"
+
+#: i18n/states/ID.php:42
+msgid "Gorontalo"
+msgstr "哥伦打洛省"
+
+#: i18n/states/ID.php:43
+msgid "Maluku"
+msgstr "摩鹿加群岛"
+
+#: i18n/states/HK.php:14
+msgid "Kowloon"
+msgstr "九龙"
+
+#: i18n/states/BR.php:31
+msgid "Rio de Janeiro"
+msgstr "里约热内卢"
+
+#: i18n/states/BR.php:13
+msgid "Acre"
+msgstr "阿克雷州"
 
 #: i18n/countries.php:18
 msgid "Afghanistan"
@@ -15746,10 +15746,6 @@ msgstr "白俄罗斯"
 msgid "Belgium"
 msgstr "比利时"
 
-#: i18n/countries.php:39
-msgid "Belau"
-msgstr "Belau"
-
 #: i18n/countries.php:40
 msgid "Belize"
 msgstr "伯利兹"
@@ -15769,10 +15765,6 @@ msgstr "不丹"
 #: i18n/countries.php:44
 msgid "Bolivia"
 msgstr "玻利维亚"
-
-#: i18n/countries.php:45
-msgid "Bonaire, Saint Eustatius and Saba"
-msgstr "Bonaire, Saint Eustatius and Saba"
 
 #: i18n/countries.php:46
 msgid "Bosnia and Herzegovina"
@@ -15889,10 +15881,6 @@ msgstr "克罗地亚"
 #: i18n/countries.php:74
 msgid "Cuba"
 msgstr "古巴"
-
-#: i18n/countries.php:75
-msgid "Cura&Ccedil;ao"
-msgstr "Cura&Ccedil;ao"
 
 #: i18n/countries.php:76
 msgid "Cyprus"
@@ -16049,10 +16037,6 @@ msgstr "赫德岛和麦克唐纳群岛"
 #: i18n/countries.php:114
 msgid "Honduras"
 msgstr "洪都拉斯"
-
-#: i18n/countries.php:115
-msgid "Hong Kong"
-msgstr "香港特别行政区，中国"
 
 #: i18n/countries.php:116
 msgid "Hungary"
@@ -16382,10 +16366,6 @@ msgstr "俄罗斯"
 msgid "Rwanda"
 msgstr "卢旺达"
 
-#: i18n/countries.php:198
-msgid "Saint Barth&eacute;lemy"
-msgstr "Saint Barth&eacute;lemy"
-
 #: i18n/countries.php:199
 msgid "Saint Helena"
 msgstr "圣赫勒拿"
@@ -16417,10 +16397,6 @@ msgstr "圣文森特和格林纳丁斯"
 #: i18n/countries.php:206
 msgid "San Marino"
 msgstr "圣马力诺"
-
-#: i18n/countries.php:207
-msgid "S&atilde;o Tom&eacute; and Pr&iacute;ncipe"
-msgstr "S&atilde;o Tom&eacute; and Pr&iacute;ncipe"
 
 #: i18n/countries.php:208
 msgid "Saudi Arabia"
@@ -16581,14 +16557,6 @@ msgstr "乌克兰"
 #: i18n/countries.php:247
 msgid "United Arab Emirates"
 msgstr "阿拉伯联合酋长国"
-
-#: i18n/countries.php:248
-msgid "United Kingdom (UK)"
-msgstr "United Kingdom (UK)"
-
-#: i18n/countries.php:249
-msgid "United States (US)"
-msgstr "United States (US)"
 
 #: i18n/countries.php:250
 msgid "Uruguay"
@@ -17001,3 +16969,35 @@ msgstr "查科"
 #: i18n/states/AR.php:13
 msgid "Ciudad Aut&oacute;noma de Buenos Aires"
 msgstr "布宜诺斯艾利斯自治市"
+
+#: i18n/countries.php:248
+msgid "United Kingdom (UK)"
+msgstr "英国"
+
+#: i18n/countries.php:249
+msgid "United States (US)"
+msgstr "美国"
+
+#: i18n/countries.php:207
+msgid "S&atilde;o Tom&eacute; and Pr&iacute;ncipe"
+msgstr "圣多美和普林西比"
+
+#: i18n/countries.php:198
+msgid "Saint Barth&eacute;lemy"
+msgstr "圣巴泰勒米"
+
+#: i18n/countries.php:115
+msgid "Hong Kong"
+msgstr "中国香港"
+
+#: i18n/countries.php:75
+msgid "Cura&Ccedil;ao"
+msgstr "库拉索"
+
+#: i18n/countries.php:45
+msgid "Bonaire, Saint Eustatius and Saba"
+msgstr "博内尔，圣尤斯特歇斯和沙巴"
+
+#: i18n/countries.php:39
+msgid "Belau"
+msgstr "帕劳"
