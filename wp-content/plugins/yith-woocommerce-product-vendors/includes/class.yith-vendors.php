@@ -76,7 +76,7 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 		/**
 		 * Main Admin Instance
 		 *
-		 * @var YITH_Vendors_Admin
+		 * @var YITH_Vendors_Admin | YITH_Vendors_Admin_Premium
 		 * @since 1.0
 		 */
 		public $admin = null;
@@ -84,7 +84,7 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
         /**
 		 * Main Frontpage Instance
 		 *
-		 * @var YITH_Vendors_Frontend
+		 * @var YITH_Vendors_Frontend | YITH_Vendors_Frontend_Premium
 		 * @since 1.0
 		 */
 		public $frontend = null;
@@ -92,10 +92,18 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
          /**
 		 * Main Orders Instance
 		 *
-		 * @var YITH_Vendors_Frontend
+		 * @var YITH_Orders | YITH_Orders_Premium
 		 * @since 1.0
 		 */
 		public $orders = null;
+
+		/**
+		 * Main Orders Instance
+		 *
+		 * @var YITH_Vendors_Frontend
+		 * @since 1.7
+		 */
+		protected static $_role_name = 'yith_vendor';
 
 		/**
 		 * Constructor
@@ -132,8 +140,8 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 
 			/* === START Hooks === */
 
-			/* after_setup_theme */
-			add_action( 'after_setup_theme', array( $this, 'plugin_fw_loader' ), 1 );
+			/* plugins loaded */
+			add_action( 'plugins_loaded', array( $this, 'plugin_fw_loader' ) );
 
 			/* init */
 			add_action( 'init', array( $this, 'init' ) );
@@ -215,9 +223,13 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 		 * @return void
 		 */
 		public function plugin_fw_loader() {
-			if ( ! defined( 'YIT' ) || ! defined( 'YIT_CORE_PLUGIN' ) ) {
-                require_once( YITH_WPV_PATH . 'plugin-fw/yit-plugin.php' );
-            }
+			if ( ! defined( 'YIT_CORE_PLUGIN' ) ) {
+				global $plugin_fw_data;
+				if ( ! empty( $plugin_fw_data ) ) {
+					$plugin_fw_file = array_shift( $plugin_fw_data );
+					require_once( $plugin_fw_file );
+				}
+			}
 		}
 
 		/**
@@ -248,6 +260,11 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 			);
 
 			register_taxonomy( $this->_taxonomy_name, apply_filters( 'yith_wcmv_register_taxonomy_object_type', array( 'product' ) ), $args );
+
+			if( ! get_option( 'yith_wcmv_setup' ) ){
+				self::setup( 'add_role' );
+				add_option( 'yith_wcmv_setup', 1 );
+			}
 		}
 
 		/**
@@ -297,19 +314,31 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 		 */
 		public function vendor_enabled_capabilities() {
 			$caps = array(
-				"edit_product",
-				"read_product",
-				"delete_product",
-				"edit_products",
-				"edit_others_products",
-				"delete_products",
-				"delete_published_products",
-				"delete_others_products",
-				"edit_published_products",
-				"assign_product_terms",
-				"upload_files",
-				"manage_bookings",
+				"read"                      => true,
+				"edit_product"              => true,
+				"read_product"              => true,
+				"delete_product"            => true,
+				"edit_products"             => true,
+				"edit_others_products"      => true,
+				"delete_products"           => true,
+				"delete_published_products" => true,
+				"delete_others_products"    => true,
+				"edit_published_products"   => true,
+				"assign_product_terms"      => true,
+				"upload_files"              => true,
+				"manage_bookings"           => true,
+				"manage_vendor_store"       => true,
 			);
+
+			 /* === Orders === */
+            if( 'yes' == get_option( 'yith_wpv_vendors_option_order_management', 'no' ) ){
+                $caps['edit_shop_orders']             = true;
+                $caps['read_shop_orders']             = true;
+                $caps['delete_shop_orders']           = true;
+                $caps['publish_shop_orders']          = true;
+                $caps['edit_published_shop_orders']   = true;
+                $caps['delete_published_shop_orders'] = true;
+            }
 
 			return $caps;
 		}
@@ -442,13 +471,13 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 			}
 		}
 
-        /**
-         * Remove new post and comments wp bar admin menu for vendor
-         *
-         * @author Andrea Grillo <andrea.grillo@yithemes.com>
-         * @since 1.5.1
-         * @return void
-         */
+		/**
+		 * Remove new post and comments wp bar admin menu for vendor
+		 *
+		 * @author Andrea Grillo <andrea.grillo@yithemes.com>
+		 * @since  1.5.1
+		 * @return void
+		 */
         public function remove_wp_bar_admin_menu() {
             $vendor = yith_get_vendor( 'current', 'user' );
 
@@ -458,5 +487,82 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
             }
         }
 
+		 /**
+         * Add Vendor Role.
+         *
+	  	 * @fire register_activation_hook
+         * @author Andrea Grillo <andrea.grillo@yithemes.com>
+         * @since 1.6.5
+         * @return void
+         */
+		public static function add_vendor_role(){
+			add_role( self::$_role_name, YITH_Vendors()->get_vendors_taxonomy_label( 'singular_name' ), YITH_Vendors()->vendor_enabled_capabilities() );
+		}
+
+		/**
+         * Remove Vendor Role.
+         *
+	  	 * @fire register_deactivation_hook
+         * @author Andrea Grillo <andrea.grillo@yithemes.com>
+         * @since 1.6.5
+         * @return void
+         */
+		public static function remove_vendor_role(){
+			remove_role( self::$_role_name );
+		}
+
+		/**
+         * Plugin Setup
+         *
+	  	 * @fire register_activation_hook
+         * @author Andrea Grillo <andrea.grillo@yithemes.com>
+         * @since 1.6.5
+         * @return void
+         */
+		public static function setup( $method ){
+			$method	 = empty( $method ) ? 'remove_role' : $method;
+			$vendors = YITH_Vendors()->get_vendors();
+			$caps 	 = YITH_Vendors()->vendor_enabled_capabilities();
+			foreach( $vendors as $vendor ){
+				/** @var $vendor YITH_Vendor */
+				if( $vendor->is_valid() ) {
+					$admins = $vendor->get_admins();
+					foreach( $admins as $admin ){
+						$user = get_user_by( 'id', $admin );
+						if ( $user instanceof WP_User ) {
+							if ( 'remove_role' == $method ) {
+								foreach ( $caps as $cap ) {
+									$user->remove_cap( $cap );
+								}
+							}
+							$user->$method( self::$_role_name );
+						}
+					}
+				}
+			}
+			'remove_role' == $method && delete_option( 'yith_wcmv_setup');
+		}
+
+		/**
+         * Get protected attribute _role_name
+         *
+         * @author Andrea Grillo <andrea.grillo@yithemes.com>
+         * @since 1.6.5
+         * @return string
+         */
+		public function get_role_name(){
+			return self::$_role_name;
+		}
+
+		/**
+         * Return if VAT/SSN is required or not
+         *
+         * @author Andrea Grillo <andrea.grillo@yithemes.com>
+         * @since 1.7
+         * @return string
+         */
+		public function is_vat_require(){
+            return 'yes' == get_option( 'yith_wpv_vendors_my_account_required_vat', 'no' ) ? true : false;
+        }
 	}
 }

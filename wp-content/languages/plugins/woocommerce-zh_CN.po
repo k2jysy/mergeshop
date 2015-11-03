@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2015-10-29 12:48:43+0000\n"
+"PO-Revision-Date: 2015-10-31 19:49:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -205,10 +205,6 @@ msgstr "目前还末有评论"
 msgid "Add a review"
 msgstr "添加评论"
 
-#: templates/single-product-reviews.php:60
-msgid "Be the first to review"
-msgstr "我要第一个评论!"
-
 #: templates/single-product-reviews.php:61
 msgid "Leave a Reply to %s"
 msgstr "回复给"
@@ -236,19 +232,6 @@ msgstr "很好"
 #: templates/single-product-reviews.php:85
 msgid "Not that bad"
 msgstr "还行"
-
-#: templates/single-product-reviews.php:86
-msgid "Very Poor"
-msgstr "极差"
-
-#: templates/single-product-reviews.php:90
-msgid "Your Review"
-msgstr "你的评论"
-
-#: templates/product-searchform.php:3
-msgctxt "placeholder"
-msgid "Search Products&hellip;"
-msgstr "搜索产品......"
 
 #: templates/product-searchform.php:3
 msgctxt "label"
@@ -284,10 +267,6 @@ msgstr "只有购买过此产品的已登录客户才可发表评论"
 msgid "Track"
 msgstr "跟踪"
 
-#: templates/single-product/add-to-cart/variable.php:34
-msgid "Clear selection"
-msgstr "清除选中"
-
 #: templates/single-product/meta.php:26
 msgid "SKU:"
 msgstr "SKU:"
@@ -304,6 +283,27 @@ msgstr "订单号"
 msgid "%s download remaining"
 msgid_plural "%s downloads remaining"
 msgstr[0] "还可下载 %s 次 "
+
+#: templates/product-searchform.php:3
+msgctxt "placeholder"
+msgid "Search Products&hellip;"
+msgstr "搜索商品&hellip;"
+
+#: templates/single-product/add-to-cart/variable.php:34
+msgid "Clear selection"
+msgstr "清除选定内容"
+
+#: templates/single-product-reviews.php:60
+msgid "Be the first to review"
+msgstr "我要第一个评论"
+
+#: templates/single-product-reviews.php:90
+msgid "Your Review"
+msgstr "您的评论"
+
+#: templates/single-product-reviews.php:86
+msgid "Very Poor"
+msgstr "很差"
 
 #: includes/shortcodes/class-wc-shortcode-checkout.php:89
 #: includes/shortcodes/class-wc-shortcode-my-account.php:108
@@ -352,19 +352,9 @@ msgstr "<strong>错误</strong>：请输入用户名或电子邮件地址。"
 msgid "Invalid username or e-mail."
 msgstr "<strong>错误</strong>：用户名或电子邮件地址无效。"
 
-#: includes/shortcodes/class-wc-shortcode-my-account.php:256
-msgid "Password reset is not allowed for this user"
-msgstr "不能重设该用户的密码"
-
 #: includes/shortcodes/class-wc-shortcode-my-account.php:283
 msgid "Check your e-mail for the confirmation link."
 msgstr "请检查您的邮件，内有确认激活链接。"
-
-#: includes/shortcodes/class-wc-shortcode-my-account.php:302
-#: includes/shortcodes/class-wc-shortcode-my-account.php:307
-#: includes/shortcodes/class-wc-shortcode-my-account.php:323
-msgid "Invalid key"
-msgstr "无效 key"
 
 #: includes/shortcodes/class-wc-shortcode-my-account.php:358
 msgid "Add a new payment method."
@@ -436,10 +426,6 @@ msgstr "无效的订单状态"
 msgid "Invalid order ID"
 msgstr "无效的订单ID"
 
-#: includes/wc-core-functions.php:257
-msgid "United Arab Emirates Dirham"
-msgstr "United Arab Emirates Dirham"
-
 #: includes/wc-core-functions.php:258
 msgid "Argentine Peso"
 msgstr "阿根廷比索"
@@ -456,25 +442,13 @@ msgstr "孟加拉塔卡"
 msgid "Brazilian Real"
 msgstr "巴西雷亚尔 (&#36;)"
 
-#: includes/wc-core-functions.php:262
-msgid "Bulgarian Lev"
-msgstr "Bulgarian Lev"
-
 #: includes/wc-core-functions.php:263
 msgid "Canadian Dollars"
 msgstr "加元(&#36;)"
 
-#: includes/wc-core-functions.php:264
-msgid "Chilean Peso"
-msgstr "Chilean Peso"
-
 #: includes/wc-core-functions.php:265
 msgid "Chinese Yuan"
 msgstr "中国人民币(&yen;)"
-
-#: includes/wc-core-functions.php:266
-msgid "Colombian Peso"
-msgstr "Colombian Peso"
 
 #: includes/wc-core-functions.php:267
 msgid "Czech Koruna"
@@ -492,10 +466,6 @@ msgstr "多米尼加比索"
 msgid "Euros"
 msgstr "欧元 (&euro;)"
 
-#: includes/wc-core-functions.php:271
-msgid "Hong Kong Dollar"
-msgstr "港元(&#36;)"
-
 #: includes/wc-core-functions.php:273
 msgid "Hungarian Forint"
 msgstr "匈牙利福林"
@@ -503,10 +473,6 @@ msgstr "匈牙利福林"
 #: includes/wc-core-functions.php:275
 msgid "Indonesia Rupiah"
 msgstr "印尼盾"
-
-#: includes/wc-core-functions.php:276
-msgid "Indian Rupee"
-msgstr "英属印度洋领地"
 
 #: includes/wc-core-functions.php:277
 msgid "Nepali Rupee"
@@ -634,10 +600,6 @@ msgstr "订单状态“发布”已从WooCommerce 2.2中移除！你须使用新
 msgid "This function should not be called before woocommerce_init."
 msgstr "在woocommerce_init被完全加载之前不应该调用该函数"
 
-#: includes/wc-order-functions.php:508
-msgid "Unpaid order cancelled - time limit reached."
-msgstr "未付款订单已逾期自动取消."
-
 #: includes/wc-order-functions.php:629
 msgid "Refund &ndash; %s"
 msgstr "退款 &ndash; %s"
@@ -649,10 +611,6 @@ msgstr "新产品"
 #: includes/wc-template-functions.php:139
 msgid "New products added to %s"
 msgstr "新产品已添加到 %s"
-
-#: includes/wc-template-functions.php:147
-msgid "New products tagged %s"
-msgstr "新产品标签 %s"
 
 #: includes/wc-template-functions.php:449
 msgid "Search Results: &ldquo;%s&rdquo;"
@@ -695,10 +653,6 @@ msgstr "其他信息"
 #: includes/wc-template-functions.php:1023
 msgid "Reviews (%d)"
 msgstr "用户评论  (%d)"
-
-#: includes/wc-template-functions.php:1107
-msgid "Use $args argument as an array instead. Deprecated argument will be removed in WC 2.2."
-msgstr "请使用$args参数做数组。废弃的参数将在WC 2.2版本删除掉。"
 
 #: includes/wc-template-functions.php:1318
 msgid "Place order"
@@ -782,16 +736,6 @@ msgstr "WooCommerce Layered Nav 过滤器"
 msgid "Active Filters"
 msgstr "活动过滤器"
 
-#: includes/widgets/class-wc-widget-layered-nav-filters.php:84
-#: includes/widgets/class-wc-widget-layered-nav-filters.php:91
-#: includes/widgets/class-wc-widget-layered-nav-filters.php:96
-msgid "Remove filter"
-msgstr "删除图像"
-
-#: includes/widgets/class-wc-widget-layered-nav-filters.php:91
-msgid "Min"
-msgstr "%s 分钟"
-
 #: includes/widgets/class-wc-widget-layered-nav-filters.php:96
 msgid "Max"
 msgstr "最高价格"
@@ -824,10 +768,6 @@ msgstr "下拉"
 msgid "Query type"
 msgstr "查询类型"
 
-#: includes/widgets/class-wc-widget-layered-nav.php:100
-msgid "AND"
-msgstr "和"
-
 #: includes/widgets/class-wc-widget-layered-nav.php:101
 msgid "OR"
 msgstr "或"
@@ -856,21 +796,9 @@ msgstr "最低价格"
 msgid "Max price"
 msgstr "最高价格"
 
-#: includes/widgets/class-wc-widget-price-filter.php:178
-msgid "Filter"
-msgstr "筛选"
-
 #: includes/widgets/class-wc-widget-price-filter.php:180
 msgid "Price:"
 msgstr "价格："
-
-#: includes/widgets/class-wc-widget-product-categories.php:37
-msgid "A list or dropdown of product categories."
-msgstr "产品类别列表或下拉。"
-
-#: includes/widgets/class-wc-widget-product-categories.php:39
-msgid "WooCommerce Product Categories"
-msgstr "WooCommerce 产品类别"
 
 #: includes/widgets/class-wc-widget-product-categories.php:51
 msgid "Category Order"
@@ -888,29 +816,13 @@ msgstr "体现层级关系"
 msgid "Only show children of the current category"
 msgstr "只显示当前分类的子分类"
 
-#: includes/widgets/class-wc-widget-product-categories.php:230
-msgid "No product categories exist."
-msgstr "没有产品类别存在。"
-
-#: includes/widgets/class-wc-widget-product-search.php:23
-msgid "A Search box for products only."
-msgstr "仅用于产品的搜索框"
-
 #: includes/widgets/class-wc-widget-product-search.php:25
 msgid "WooCommerce Product Search"
 msgstr "WooCommerce 产品搜索"
 
-#: includes/widgets/class-wc-widget-product-tag-cloud.php:23
-msgid "Your most used product tags in cloud format."
-msgstr "您最常用的产品标签，以云格式。"
-
 #: includes/widgets/class-wc-widget-product-tag-cloud.php:25
 msgid "WooCommerce Product Tags"
 msgstr "WooCommerce 产品标签"
-
-#: includes/widgets/class-wc-widget-products.php:23
-msgid "Display a list of your products on your site."
-msgstr "您的网站显示您的产品清单。"
 
 #: includes/widgets/class-wc-widget-products.php:25
 msgid "WooCommerce Products"
@@ -936,10 +848,6 @@ msgstr "升序"
 msgid "DESC"
 msgstr "降序"
 
-#: includes/widgets/class-wc-widget-products.php:73
-msgid "Hide free products"
-msgstr "当正显示子类别，隐藏产品"
-
 #: includes/widgets/class-wc-widget-recent-reviews.php:23
 msgid "Display a list of your most recent reviews on your site."
 msgstr "显示最新评论列表在你网站"
@@ -964,21 +872,9 @@ msgstr "WooCommerce 最近浏览"
 msgid "Display a list of your top rated products on your site."
 msgstr "在您的网站显示您最受好评的产品列表。"
 
-#: includes/widgets/class-wc-widget-top-rated-products.php:27
-msgid "WooCommerce Top Rated Products"
-msgstr "WooCommerce 热门评分产品"
-
-#: includes/widgets/class-wc-widget-top-rated-products.php:31
-msgid "Top Rated Products"
-msgstr "评分最高的产品"
-
 #: templates/auth/form-grant-access.php:16 templates/auth/form-login.php:18
 msgid "%s would like to connect to your store"
 msgstr "%s 想连接到您的店铺"
-
-#: templates/auth/form-grant-access.php:30
-msgid "Logged in as %s"
-msgstr "登录为 %s"
 
 #: templates/auth/form-grant-access.php:34
 msgid "Approve"
@@ -1122,120 +1018,30 @@ msgstr "请输入以下信息在本站注册帐号,如果您已有帐号,可以�
 msgid "Have a coupon?"
 msgstr "您有优惠券？"
 
-#: templates/checkout/form-coupon.php:18
-msgid "Click here to enter your code"
-msgstr "点这里输入你的代码"
-
-#: templates/checkout/form-login.php:18
-msgid "Returning customer?"
-msgstr "客户详情"
-
-#: templates/checkout/form-login.php:19
-msgid "Click here to login"
-msgstr "单击这里登录"
-
-#: templates/checkout/form-login.php:26
-msgid "If you have shopped with us before, please enter your details in the boxes below. If you are a new customer please proceed to the Billing &amp; Shipping section."
-msgstr "如果您之前在我们网站购物过,请在下边框内输入详细资料.如果您是一个新顾客,请继续完成帐单&amp;配送部分."
-
-#: templates/checkout/form-pay.php:80
-msgid "Sorry, it seems that there are no available payment methods for your location. Please contact us if you require assistance or wish to make alternate arrangements."
-msgstr "很抱歉，似乎你所在的位置没有可用的付款方式。如果您需要帮助请联系我们，或希望使其他安排。"
-
 #: templates/checkout/form-pay.php:90
 msgid "Pay for order"
 msgstr "为订单付款"
-
-#: templates/checkout/form-shipping.php:32
-msgid "Ship to a different address?"
-msgstr "邮寄到另一个地址?"
-
-#: templates/checkout/payment.php:30
-msgid "Please fill in your details above to see available payment methods."
-msgstr "请在上面填写您的详细资料，看到可用的付款方式。"
-
-#: templates/checkout/payment.php:32
-msgid "Sorry, it seems that there are no available payment methods for your state. Please contact us if you require assistance or wish to make alternate arrangements."
-msgstr "很抱歉，似乎你的地区没有可用的付款方式。如果您需要帮助请联系我们，或希望使其他安排。"
 
 #: templates/checkout/payment.php:43
 msgid "Since your browser does not support JavaScript, or it is disabled, please ensure you click the <em>Update Totals</em> button before placing your order. You may be charged more than the amount stated above if you fail to do so."
 msgstr "由于您的浏览器不支持JavaScript，或者它被禁用，在你付款之前请确保你单击的<em>更新总计</em>按钮，如果你不这样做，你可能会支付超过上述金额。"
 
-#: templates/checkout/payment.php:43
-msgid "Update totals"
-msgstr "更新总数"
-
 #: templates/checkout/payment.php:53
 msgid "I&rsquo;ve read and accept the <a href=\"%s\" target=\"_blank\">terms &amp; conditions</a>"
 msgstr "我已经阅读并接受 <a href=\"%s\" target=\"_blank\">条款及条件</a>"
-
-#: templates/checkout/thankyou.php:18
-msgid "Unfortunately your order cannot be processed as the originating bank/merchant has declined your transaction."
-msgstr "糟糕，您的订单无法处理，作为发起银行/商人拒绝您的交易。"
-
-#: templates/checkout/thankyou.php:22
-msgid "Please attempt your purchase again or go to your account page."
-msgstr "请再次尝试购买，或到您的帐户页面。"
-
-#: templates/checkout/thankyou.php:24
-msgid "Please attempt your purchase again."
-msgstr "请再次尝试购买。"
-
-#: templates/checkout/thankyou.php:36 templates/checkout/thankyou.php:67
-msgid "Thank you. Your order has been received."
-msgstr "谢谢。您的订单已收到。"
-
-#: templates/emails/admin-cancelled-order.php:13
-#: templates/emails/plain/admin-cancelled-order.php:15
-msgid "The order #%d from %s has been cancelled. The order was as follows:"
-msgstr "来自%s的订单已经被取消。订单详情如下："
 
 #: templates/emails/admin-cancelled-order.php:17
 msgid "Order: %s"
 msgstr "订单: %s"
 
-#: templates/emails/admin-new-order.php:18
-msgid "You have received an order from %s. The order is as follows:"
-msgstr "您已收到来自%s的订单。订单详情如下："
-
-#: templates/emails/customer-completed-order.php:18
-#: templates/emails/plain/customer-completed-order.php:16
-msgid "Hi there. Your recent order on %s has been completed. Your order details are shown below for your reference:"
-msgstr "您好。您在%s最新的订单已经完成。您的订单详情如下，供您参考："
-
-#: templates/emails/customer-invoice.php:20
-#: templates/emails/plain/customer-invoice.php:17
-msgid "An order has been created for you on %s. To pay for this order please use the following link: %s"
-msgstr "您在%s订单已生成。支付此订单，请使用下面的链接：%s"
-
 #: templates/emails/customer-invoice.php:20
 msgid "pay"
 msgstr "支付"
-
-#: templates/emails/customer-new-account.php:18
-#: templates/emails/plain/customer-new-account.php:16
-msgid "Thanks for creating an account on %s. Your username is <strong>%s</strong>."
-msgstr "感谢在 %s 创建账户。你的用户名为<strong>%s</strong>."
-
-#: templates/emails/customer-new-account.php:22
-msgid "Your password has been automatically generated: <strong>%s</strong>"
-msgstr "密码已生成：<strong> %s </strong>"
-
-#: templates/emails/customer-new-account.php:26
-#: templates/emails/plain/customer-new-account.php:21
-msgid "You can access your account area to view your orders and change your password here: %s."
-msgstr "您可以访问您的帐户区域来查看您的订单, 并在这里更改您的密码: %s。"
 
 #: templates/emails/customer-note.php:22
 #: templates/emails/plain/customer-note.php:24
 msgid "For your reference, your order details are shown below."
 msgstr "供您参考，您的订单的详细信息如下所示。"
-
-#: templates/emails/customer-processing-order.php:18
-#: templates/emails/plain/customer-processing-order.php:16
-msgid "Your order has been received and is now being processed. Your order details are shown below for your reference:"
-msgstr "您的订单已收到，正在处理中。您的订单详情如下，供您参考："
 
 #: templates/emails/customer-refunded-order.php:23
 msgid "Hi there. Your order on %s has been refunded."
@@ -1246,29 +1052,10 @@ msgstr "您好，您在%s的订单已退款。"
 msgid "Amount Refunded"
 msgstr "退款金额"
 
-#: templates/emails/customer-reset-password.php:18
-#: templates/emails/plain/customer-reset-password.php:16
-msgid "Someone requested that the password be reset for the following account:"
-msgstr "有人要求重设如下帐号的密码："
-
 #: templates/emails/customer-reset-password.php:19
 #: templates/emails/plain/customer-reset-password.php:18
 msgid "Username: %s"
 msgstr "用户名：%s"
-
-#: templates/emails/customer-reset-password.php:20
-#: templates/emails/plain/customer-reset-password.php:19
-msgid "If this was a mistake, just ignore this email and nothing will happen."
-msgstr "若这不是您本人要求的，请忽略本邮件，一切如常。"
-
-#: templates/emails/customer-reset-password.php:21
-#: templates/emails/plain/customer-reset-password.php:20
-msgid "To reset your password, visit the following address:"
-msgstr "要重置您的密码，请打开下面的链接："
-
-#: templates/emails/customer-reset-password.php:24
-msgid "Click here to reset your password"
-msgstr "点这里设置你的新密码"
 
 #: templates/emails/email-addresses.php:20
 #: templates/emails/plain/email-addresses.php:14
@@ -1305,10 +1092,6 @@ msgstr "jS F Y"
 msgid "View order: %s"
 msgstr "查看订单：%s"
 
-#: templates/emails/plain/admin-new-order.php:16
-msgid "You have received an order from %s."
-msgstr "您已收到一个订单，订单来自于%s."
-
 #: templates/emails/plain/customer-new-account.php:19
 msgid "Your password is <strong>%s</strong>."
 msgstr "您的密码是 <strong>%s</strong>。"
@@ -1321,11 +1104,6 @@ msgstr "数量: %s"
 msgid "Cost: %s"
 msgstr "消费: %s"
 
-#: templates/global/form-login.php:26
-#: templates/myaccount/form-lost-password.php:24
-msgid "Username or email"
-msgstr "用户名或电子邮件"
-
 #: templates/global/form-login.php:42 templates/myaccount/form-login.php:49
 msgid "Remember me"
 msgstr "记住我"
@@ -1337,10 +1115,6 @@ msgstr "忘记密码？"
 #: templates/loop/result-count.php:30
 msgid "Showing the single result"
 msgstr "搜索结果: "
-
-#: templates/loop/result-count.php:32
-msgid "Showing all %d results"
-msgstr "搜索结果 %d: "
 
 #: templates/myaccount/form-add-payment-method.php:41
 msgid "Sorry, it seems that there are no payment methods which support adding a new payment method. Please contact us if you require assistance or wish to make alternate arrangements."
@@ -1374,12 +1148,6 @@ msgstr "保存新密码"
 msgid "Billing Address"
 msgstr "账单地址"
 
-#: templates/myaccount/form-edit-address.php:16
-#: templates/myaccount/my-address.php:20
-#: templates/order/order-details-customer.php:60
-msgid "Shipping Address"
-msgstr "配送地址"
-
 #: templates/myaccount/form-edit-address.php:45
 msgid "Save Address"
 msgstr "保存地址"
@@ -1392,10 +1160,6 @@ msgstr "注册"
 msgid "Anti-spam"
 msgstr "反垃圾"
 
-#: templates/myaccount/form-lost-password.php:22
-msgid "Lost your password? Please enter your username or email address. You will receive a link to create a new password via email."
-msgstr "忘记密码了?请输入您的用户名或者电子邮件地址,我们将密码重置邮件发送到您的邮箱."
-
 #: templates/myaccount/form-lost-password.php:28
 msgid "Enter a new password below."
 msgstr "请在下方输入您的新密码。"
@@ -1403,10 +1167,6 @@ msgstr "请在下方输入您的新密码。"
 #: templates/myaccount/form-lost-password.php:31
 msgid "New password"
 msgstr "新密码"
-
-#: templates/myaccount/form-lost-password.php:35
-msgid "Re-enter new password"
-msgstr "再次输入新密码"
 
 #: templates/myaccount/form-lost-password.php:50
 msgid "Reset Password"
@@ -1416,21 +1176,9 @@ msgstr "重置密码"
 msgid "Hello <strong>%1$s</strong> (not %1$s? <a href=\"%2$s\">Sign out</a>)."
 msgstr "您好 <strong>%1$s</strong> (不是 %1$s 吗? <a href=\"%2$s\">退出</a>)."
 
-#: templates/myaccount/my-account.php:24
-msgid "From your account dashboard you can view your recent orders, manage your shipping and billing addresses and <a href=\"%s\">edit your password and account details</a>."
-msgstr "从您的管理面板可以查看您最近的订单，管理您的发货和账单地址以及<a href=\"%s\">修改您的密码和账户信息</a>."
-
-#: templates/myaccount/my-address.php:17
-msgid "My Addresses"
-msgstr "我的帐户"
-
 #: templates/myaccount/my-address.php:23
 msgid "My Address"
 msgstr "我的地址"
-
-#: templates/myaccount/my-address.php:35
-msgid "The following addresses will be used on the checkout page by default."
-msgstr "下列地址默认情况下将用在结帐页面上"
 
 #: includes/wc-product-functions.php:230
 msgctxt "slug"
@@ -1466,11 +1214,6 @@ msgstr "首页"
 msgctxt "Sorting order"
 msgid "Order"
 msgstr "订单"
-
-#: includes/widgets/class-wc-widget-recent-reviews.php:86
-msgctxt "by comment author"
-msgid "by %1$s"
-msgstr "by %1$s"
 
 #: templates/global/quantity-input.php:15
 msgctxt "Product quantity input tooltip"
@@ -1509,35 +1252,9 @@ msgstr "启用"
 msgid "To connect to %1$s you need to be logged in. Log in to your store below, or %2$scancel and return to %1$s%3$s"
 msgstr "您需要在登录后才可连接%1$s ，在下面登录您的商店，或者 %2$s取消并返回%1$s%3$s"
 
-#: templates/checkout/form-checkout.php:45
-msgid "Your order"
-msgstr "您的订单"
-
-#: templates/emails/customer-note.php:18
-#: templates/emails/plain/customer-note.php:16
-msgid "Hello, a note has just been added to your order:"
-msgstr "您好，一个备注刚被添加到您的订单："
-
 #: templates/emails/customer-refunded-order.php:20
 msgid "Hi there. Your order on %s has been partially refunded."
 msgstr "您好，您在%s的订单已被部分退款。"
-
-#: templates/emails/plain/customer-refunded-order.php:16
-msgid "Hi there. Your order on %s has been refunded. Your order details are shown below for your reference:"
-msgstr "您好，您在%s的订单已退款。您的订单详情显示如下："
-
-#: templates/loop/result-count.php:34
-msgctxt "%1$d = first, %2$d = last, %3$d = total"
-msgid "Showing %1$d&ndash;%2$d of %3$d results"
-msgstr "显示 %1$d&ndash;%2$d 的 %3$d 条结果"
-
-#: templates/loop/sale-flash.php:19 templates/single-product/sale-flash.php:19
-msgid "Sale!"
-msgstr "在售！"
-
-#: templates/checkout/form-checkout.php:20
-msgid "You must be logged in to checkout."
-msgstr "您必须登录才能进行结算。"
 
 #: templates/auth/form-grant-access.php:20
 msgid "This will give \"%s\" <strong>%s</strong> access which will allow it to:"
@@ -1557,10 +1274,6 @@ msgstr "要显示的产品数"
 msgid "All Products"
 msgstr "所有产品"
 
-#: includes/widgets/class-wc-widget-products.php:47
-msgid "On-sale Products"
-msgstr "在售产品"
-
 #: includes/widgets/class-wc-widget-products.php:78
 msgid "Show hidden products"
 msgstr "显示隐藏的产品"
@@ -1569,9 +1282,296 @@ msgstr "显示隐藏的产品"
 msgid "Recently Viewed Products"
 msgstr "最近浏览的产品"
 
+#: includes/shortcodes/class-wc-shortcode-my-account.php:256
+msgid "Password reset is not allowed for this user"
+msgstr "不允许重设该用户的密码"
+
+#: includes/wc-core-functions.php:257
+msgid "United Arab Emirates Dirham"
+msgstr "阿联酋迪拉姆"
+
+#: templates/loop/sale-flash.php:19 templates/single-product/sale-flash.php:19
+msgid "Sale!"
+msgstr "促销！"
+
+#: includes/shortcodes/class-wc-shortcode-my-account.php:302
+#: includes/shortcodes/class-wc-shortcode-my-account.php:307
+#: includes/shortcodes/class-wc-shortcode-my-account.php:323
+msgid "Invalid key"
+msgstr "无效的key"
+
+#: includes/wc-core-functions.php:271
+msgid "Hong Kong Dollar"
+msgstr "港币(&#36;)"
+
+#: includes/wc-core-functions.php:266
+msgid "Colombian Peso"
+msgstr "哥伦比亚比索"
+
+#: includes/wc-core-functions.php:262
+msgid "Bulgarian Lev"
+msgstr "保加利亚列弗"
+
+#: includes/wc-core-functions.php:264
+msgid "Chilean Peso"
+msgstr "智利比索"
+
+#: includes/wc-core-functions.php:276
+msgid "Indian Rupee"
+msgstr "印度卢比"
+
+#: includes/wc-order-functions.php:508
+msgid "Unpaid order cancelled - time limit reached."
+msgstr "未付款订单取消 - 已逾期。"
+
+#: includes/wc-template-functions.php:147
+msgid "New products tagged %s"
+msgstr "新产品的标签 %s"
+
+#: includes/wc-template-functions.php:1107
+msgid "Use $args argument as an array instead. Deprecated argument will be removed in WC 2.2."
+msgstr "请使用$args参数做数组。此弃用参数已在WC 2.2版本删除掉。"
+
+#: includes/widgets/class-wc-widget-layered-nav-filters.php:84
+#: includes/widgets/class-wc-widget-layered-nav-filters.php:91
+#: includes/widgets/class-wc-widget-layered-nav-filters.php:96
+msgid "Remove filter"
+msgstr "删除过滤"
+
+#: includes/widgets/class-wc-widget-layered-nav-filters.php:91
+msgid "Min"
+msgstr "最低价格"
+
+#: includes/widgets/class-wc-widget-layered-nav.php:100
+msgid "AND"
+msgstr "与"
+
+#: includes/widgets/class-wc-widget-price-filter.php:178
+msgid "Filter"
+msgstr "过滤"
+
+#: includes/widgets/class-wc-widget-product-categories.php:39
+msgid "WooCommerce Product Categories"
+msgstr "WooCommerce 产品分类"
+
+#: includes/widgets/class-wc-widget-product-categories.php:37
+msgid "A list or dropdown of product categories."
+msgstr "产品分类的列表或下拉列表。"
+
+#: includes/widgets/class-wc-widget-product-categories.php:230
+msgid "No product categories exist."
+msgstr "暂无产品分类。"
+
+#: includes/widgets/class-wc-widget-product-search.php:23
+msgid "A Search box for products only."
+msgstr "一个仅适用于产品的搜索框。"
+
+#: includes/widgets/class-wc-widget-product-tag-cloud.php:23
+msgid "Your most used product tags in cloud format."
+msgstr "您最常用的产品标签的云格式。"
+
+#: includes/widgets/class-wc-widget-products.php:23
+msgid "Display a list of your products on your site."
+msgstr "您网站产品的一个列表。"
+
+#: includes/widgets/class-wc-widget-products.php:47
+msgid "On-sale Products"
+msgstr "促销产品"
+
+#: includes/widgets/class-wc-widget-products.php:73
+msgid "Hide free products"
+msgstr "隐藏免费产品"
+
+#: includes/widgets/class-wc-widget-recent-reviews.php:86
+msgctxt "by comment author"
+msgid "by %1$s"
+msgstr "评论者 %1$s"
+
+#: includes/widgets/class-wc-widget-top-rated-products.php:27
+msgid "WooCommerce Top Rated Products"
+msgstr "WooCommerce 好评的产品"
+
+#: includes/widgets/class-wc-widget-top-rated-products.php:31
+msgid "Top Rated Products"
+msgstr "好评的产品"
+
+#: templates/auth/form-grant-access.php:30
+msgid "Logged in as %s"
+msgstr "已登录为 %s"
+
+#: templates/checkout/form-login.php:18
+msgid "Returning customer?"
+msgstr "回头客？"
+
+#: templates/checkout/form-login.php:19
+msgid "Click here to login"
+msgstr "点此登录"
+
+#: templates/checkout/form-login.php:26
+msgid "If you have shopped with us before, please enter your details in the boxes below. If you are a new customer please proceed to the Billing &amp; Shipping section."
+msgstr "如果您之前在我们网站购物过,请在下边框内输入详细资料.如果您是一个新顾客,请继续完成帐单&amp;配送部分。"
+
+#: templates/checkout/form-pay.php:80
+msgid "Sorry, it seems that there are no available payment methods for your location. Please contact us if you require assistance or wish to make alternate arrangements."
+msgstr "很抱歉，似乎没有适用于您所在地方的付款方式。如果您需要帮助请联系我们，或希望使其他安排。"
+
+#: templates/checkout/form-shipping.php:32
+msgid "Ship to a different address?"
+msgstr "送货到另一个地址?"
+
+#: templates/checkout/payment.php:30
+msgid "Please fill in your details above to see available payment methods."
+msgstr "请在上面填写您的详细资料以查找可用的付款方式。"
+
+#: templates/checkout/payment.php:32
+msgid "Sorry, it seems that there are no available payment methods for your state. Please contact us if you require assistance or wish to make alternate arrangements."
+msgstr "很抱歉，似乎没有付款方式适用于您所在的地方。如果您需要帮助请联系我们，或希望使其他安排。"
+
+#: templates/checkout/payment.php:43
+msgid "Update totals"
+msgstr "更新总计"
+
+#: templates/checkout/thankyou.php:18
+msgid "Unfortunately your order cannot be processed as the originating bank/merchant has declined your transaction."
+msgstr "糟糕，无法处理您的订单，因为发起银行/交易商拒绝了您的交易。"
+
+#: templates/checkout/thankyou.php:22
+msgid "Please attempt your purchase again or go to your account page."
+msgstr "请尝试再次购买，或到您的帐户页面。"
+
+#: templates/checkout/thankyou.php:24
+msgid "Please attempt your purchase again."
+msgstr "请尝试再次购买。"
+
+#: templates/checkout/thankyou.php:36 templates/checkout/thankyou.php:67
+msgid "Thank you. Your order has been received."
+msgstr "谢谢，您的订单已收到。"
+
+#: templates/emails/admin-cancelled-order.php:13
+#: templates/emails/plain/admin-cancelled-order.php:15
+msgid "The order #%d from %s has been cancelled. The order was as follows:"
+msgstr "来自%s的订单#%d 已经被取消，订单详情如下："
+
+#: templates/emails/admin-new-order.php:18
+msgid "You have received an order from %s. The order is as follows:"
+msgstr "您已从%s收到订单，订单详情如下："
+
+#: templates/emails/customer-completed-order.php:18
+#: templates/emails/plain/customer-completed-order.php:16
+msgid "Hi there. Your recent order on %s has been completed. Your order details are shown below for your reference:"
+msgstr "您好，您在%s的最新订单已经完成，订单详情如下，供您参考："
+
+#: templates/emails/customer-invoice.php:20
+#: templates/emails/plain/customer-invoice.php:17
+msgid "An order has been created for you on %s. To pay for this order please use the following link: %s"
+msgstr "您在%s订单已生成，请使用下面的链接支付此订单：%s"
+
+#: templates/emails/customer-new-account.php:18
+#: templates/emails/plain/customer-new-account.php:16
+msgid "Thanks for creating an account on %s. Your username is <strong>%s</strong>."
+msgstr "感谢在 %s 创建账户，您的用户名为<strong>%s</strong>."
+
+#: templates/emails/customer-new-account.php:22
+msgid "Your password has been automatically generated: <strong>%s</strong>"
+msgstr "已自动生成的密码：<strong> %s </strong>"
+
+#: templates/emails/customer-new-account.php:26
+#: templates/emails/plain/customer-new-account.php:21
+msgid "You can access your account area to view your orders and change your password here: %s."
+msgstr "您可在此访问您的账户区域以查看您的订单或修改您的密码：%s。"
+
+#: templates/emails/customer-note.php:18
+#: templates/emails/plain/customer-note.php:16
+msgid "Hello, a note has just been added to your order:"
+msgstr "嗨，您的订单刚被添加了一个备注："
+
+#: templates/emails/customer-processing-order.php:18
+#: templates/emails/plain/customer-processing-order.php:16
+msgid "Your order has been received and is now being processed. Your order details are shown below for your reference:"
+msgstr "已收到您的订单，正在处理中。订单详情如下，供您参考："
+
+#: templates/emails/customer-reset-password.php:20
+#: templates/emails/plain/customer-reset-password.php:19
+msgid "If this was a mistake, just ignore this email and nothing will happen."
+msgstr "若这不是您本人要求的，请忽略这个邮件，一切如常。"
+
+#: templates/emails/customer-reset-password.php:21
+#: templates/emails/plain/customer-reset-password.php:20
+msgid "To reset your password, visit the following address:"
+msgstr "如想重置您的密码，请打开下面的链接："
+
+#: templates/emails/customer-reset-password.php:18
+#: templates/emails/plain/customer-reset-password.php:16
+msgid "Someone requested that the password be reset for the following account:"
+msgstr "某人想要重置如下帐号的密码："
+
+#: templates/emails/customer-reset-password.php:24
+msgid "Click here to reset your password"
+msgstr "点此重置您的密码"
+
+#: templates/emails/plain/admin-new-order.php:16
+msgid "You have received an order from %s."
+msgstr "您已收到一个%s的订单。"
+
+#: templates/emails/plain/customer-refunded-order.php:16
+msgid "Hi there. Your order on %s has been refunded. Your order details are shown below for your reference:"
+msgstr "您好，您在%s的订单已退款，订单详情显示如下："
+
+#: templates/global/form-login.php:26
+#: templates/myaccount/form-lost-password.php:24
+msgid "Username or email"
+msgstr "用户名或电邮"
+
 #: templates/loop/no-products-found.php:17
 msgid "No products were found matching your selection."
-msgstr "没有符合你要求的产品"
+msgstr "暂无符合您要求的产品"
+
+#: templates/loop/result-count.php:32
+msgid "Showing all %d results"
+msgstr "显示全部%d条结果"
+
+#: templates/loop/result-count.php:34
+msgctxt "%1$d = first, %2$d = last, %3$d = total"
+msgid "Showing %1$d&ndash;%2$d of %3$d results"
+msgstr "显示 %1$d&ndash;%2$d / %3$d 条结果"
+
+#: templates/myaccount/form-edit-address.php:16
+#: templates/myaccount/my-address.php:20
+#: templates/order/order-details-customer.php:60
+msgid "Shipping Address"
+msgstr "送货地址"
+
+#: templates/myaccount/form-lost-password.php:22
+msgid "Lost your password? Please enter your username or email address. You will receive a link to create a new password via email."
+msgstr "忘记密码了?请输入您的用户名或者电邮地址，您将会收到密码重置邮件。"
+
+#: templates/myaccount/form-lost-password.php:35
+msgid "Re-enter new password"
+msgstr "重输新密码"
+
+#: templates/myaccount/my-account.php:24
+msgid "From your account dashboard you can view your recent orders, manage your shipping and billing addresses and <a href=\"%s\">edit your password and account details</a>."
+msgstr "在您的管理面板，可查看您的最近订单、管理发货和账单地址以及<a href=\"%s\">修改您的密码和账户信息</a>。"
+
+#: templates/myaccount/my-address.php:17
+msgid "My Addresses"
+msgstr "我的地址"
+
+#: templates/myaccount/my-address.php:35
+msgid "The following addresses will be used on the checkout page by default."
+msgstr "下面是结算页面上使用的默认地址"
+
+#: templates/checkout/form-checkout.php:20
+msgid "You must be logged in to checkout."
+msgstr "您必须在登录后才能结帐。"
+
+#: templates/checkout/form-checkout.php:45
+msgid "Your order"
+msgstr "您的订单"
+
+#: templates/checkout/form-coupon.php:18
+msgid "Click here to enter your code"
+msgstr "点此输入您的优惠码"
 
 #: includes/class-wc-post-types.php:474
 msgid "Failed <span class=\"count\">(%s)</span>"
@@ -1591,10 +1591,6 @@ msgstr "查看更多"
 msgid "Select options"
 msgstr "选择选项"
 
-#: includes/class-wc-product-variable.php:727
-msgid "This variable product has no active variations so cannot be published. Changing status to draft."
-msgstr "产品没有活跃的可用变型所以不能发布。状态更改为draft。"
-
 #: includes/class-wc-product-variation.php:658
 msgid "%s &ndash; %s%s"
 msgstr "%s &ndash; %s%s"
@@ -1613,15 +1609,6 @@ msgstr "支付订单"
 #: templates/emails/customer-refunded-order.php:29
 msgid "Order #%s"
 msgstr "订单 #%s"
-
-#: includes/class-wc-query.php:119
-msgid "Edit Account Details"
-msgstr "修改账户详情"
-
-#: includes/emails/class-wc-email-cancelled-order.php:28
-#: includes/emails/class-wc-email-cancelled-order.php:31
-msgid "Cancelled order"
-msgstr "已取消订单"
 
 #: includes/emails/class-wc-email-cancelled-order.php:32
 msgid "[{site_title}] Cancelled order ({order_number})"
@@ -1649,11 +1636,6 @@ msgstr "启用/禁用"
 msgid "Enable this email notification"
 msgstr "启用此送货方法"
 
-#: includes/emails/class-wc-email-cancelled-order.php:116
-#: includes/emails/class-wc-email-new-order.php:123
-msgid "Recipient(s)"
-msgstr "电子邮件收件人选项"
-
 #: includes/emails/class-wc-email-cancelled-order.php:118
 #: includes/emails/class-wc-email-new-order.php:125
 msgid "Enter recipients (comma separated) for this email. Defaults to <code>%s</code>."
@@ -1665,177 +1647,9 @@ msgstr "输入此邮件的收件人(用逗号隔开),默认<code>%s</code>."
 msgid "Subject"
 msgstr "主题"
 
-#: includes/emails/class-wc-email-cancelled-order.php:125
-#: includes/emails/class-wc-email-new-order.php:132
-msgid "This controls the email subject line. Leave blank to use the default subject: <code>%s</code>."
-msgstr "此控制邮件的主题行,留空将使用默认的主题:<code>%s</code>."
-
-#: includes/emails/class-wc-email-cancelled-order.php:130
-#: includes/emails/class-wc-email-customer-completed-order.php:151
-#: includes/emails/class-wc-email-customer-invoice.php:152
-#: includes/emails/class-wc-email-new-order.php:137
-#: includes/emails/class-wc-email.php:488
-msgid "Email Heading"
-msgstr "电子邮件标题"
-
-#: includes/emails/class-wc-email-cancelled-order.php:132
-#: includes/emails/class-wc-email-new-order.php:139
-msgid "This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>."
-msgstr "控制主标题包含在电子邮件通知。留空使用默认的标题：<code>%s</code>."
-
-#: includes/emails/class-wc-email-cancelled-order.php:137
-#: includes/emails/class-wc-email-customer-completed-order.php:172
-#: includes/emails/class-wc-email-customer-refunded-order.php:208
-#: includes/emails/class-wc-email-new-order.php:144
-#: includes/emails/class-wc-email.php:495
-msgid "Email type"
-msgstr "电子邮件类型"
-
-#: includes/emails/class-wc-email-cancelled-order.php:139
-#: includes/emails/class-wc-email-customer-completed-order.php:174
-#: includes/emails/class-wc-email-customer-invoice.php:175
-#: includes/emails/class-wc-email-customer-refunded-order.php:210
-#: includes/emails/class-wc-email-new-order.php:146
-#: includes/emails/class-wc-email.php:497
-msgid "Choose which format of email to send."
-msgstr "选择发送电子邮件格式."
-
-#: includes/emails/class-wc-email-customer-completed-order.php:28
-msgid "Completed order"
-msgstr "添加订单"
-
-#: includes/emails/class-wc-email-customer-completed-order.php:29
-msgid "Order complete emails are sent to customers when their orders are marked completed and usually indicate that their orders have been shipped."
-msgstr "当订单被标记为完成时，完整的订单邮件会发送给顾客。这通常表明他们的订单已经出货。"
-
-#: includes/emails/class-wc-email-customer-completed-order.php:31
-msgid "Your order is complete"
-msgstr "[%s] 订单完成"
-
-#: includes/emails/class-wc-email-customer-completed-order.php:32
-msgid "Your {site_title} order from {order_date} is complete"
-msgstr "你 {order_date}日在 {site_title}下的订单已完成"
-
-#: includes/emails/class-wc-email-customer-completed-order.php:41
-msgid "Your order is complete - download your files"
-msgstr "您的订单已完成。您订单的详细信息如下："
-
-#: includes/emails/class-wc-email-customer-completed-order.php:42
-msgid "Your {site_title} order from {order_date} is complete - download your files"
-msgstr "你{order_date}日在{site_title}下的订单已完成 - 下载文件"
-
-#: includes/emails/class-wc-email-customer-completed-order.php:146
-#: includes/emails/class-wc-email-customer-completed-order.php:153
-#: includes/emails/class-wc-email-customer-completed-order.php:160
-#: includes/emails/class-wc-email-customer-completed-order.php:167
-#: includes/emails/class-wc-email-customer-invoice.php:147
-#: includes/emails/class-wc-email-customer-invoice.php:154
-#: includes/emails/class-wc-email-customer-invoice.php:161
-#: includes/emails/class-wc-email-customer-invoice.php:168
-#: includes/emails/class-wc-email-customer-refunded-order.php:182
-#: includes/emails/class-wc-email-customer-refunded-order.php:189
-#: includes/emails/class-wc-email-customer-refunded-order.php:196
-#: includes/emails/class-wc-email-customer-refunded-order.php:203
-#: includes/emails/class-wc-email.php:483
-#: includes/emails/class-wc-email.php:490
-msgid "Defaults to <code>%s</code>"
-msgstr "默认的 <code>%s</code>"
-
-#: includes/emails/class-wc-email-customer-completed-order.php:158
-msgid "Subject (downloadable)"
-msgstr "按标题"
-
-#: includes/emails/class-wc-email-customer-completed-order.php:165
-msgid "Email Heading (downloadable)"
-msgstr "电子邮件地址："
-
-#: includes/emails/class-wc-email-customer-invoice.php:31
-msgid "Customer invoice"
-msgstr "Email账单"
-
-#: includes/emails/class-wc-email-customer-invoice.php:32
-msgid "Customer invoice emails can be sent to customers containing their order information and payment links."
-msgstr "顾客的购物清单可以通过电子邮件发送,包含订单信息和支付信息。"
-
-#: includes/emails/class-wc-email-customer-invoice.php:37
-msgid "Invoice for order {order_number} from {order_date}"
-msgstr "订单票据 {order_number} 从 {order_date}"
-
-#: includes/emails/class-wc-email-customer-invoice.php:38
-msgid "Invoice for order {order_number}"
-msgstr "订单计划为：<strong>%1$s</strong>."
-
-#: includes/emails/class-wc-email-customer-invoice.php:40
-msgid "Your {site_title} order from {order_date}"
-msgstr "你{order_date}日在{site_title}的订单"
-
-#: includes/emails/class-wc-email-customer-invoice.php:41
-msgid "Order {order_number} details"
-msgstr "新添订单"
-
-#: includes/emails/class-wc-email-customer-new-account.php:33
-msgid "New account"
-msgstr "我的帐户"
-
-#: includes/emails/class-wc-email-customer-new-account.php:34
-msgid "Customer \"new account\" emails are sent to the customer when a customer signs up via checkout or account pages."
-msgstr "用户的“新注册账户通知”的电子邮件被发送到用户注册时所填写的电子邮箱地址"
-
-#: includes/emails/class-wc-email-customer-new-account.php:39
-msgid "Your account on {site_title}"
-msgstr "你{site_title}的账户"
-
 #: includes/emails/class-wc-email-customer-new-account.php:40
 msgid "Welcome to {site_title}"
 msgstr "欢迎来到{site_title}"
-
-#: includes/emails/class-wc-email-customer-note.php:30
-msgid "Customer note"
-msgstr "客户备注"
-
-#: includes/emails/class-wc-email-customer-note.php:31
-msgid "Customer note emails are sent when you add a note to an order."
-msgstr "当你为订单添加备注时,发送电子邮件通知顾客."
-
-#: includes/emails/class-wc-email-customer-note.php:36
-msgid "Note added to your {site_title} order from {order_date}"
-msgstr "备注已添加到你{order_date}的 {site_title}订单"
-
-#: includes/emails/class-wc-email-customer-note.php:37
-msgid "A note has been added to your order"
-msgstr "一个注释已经添加到你的订单"
-
-#: includes/emails/class-wc-email-customer-processing-order.php:28
-msgid "Processing order"
-msgstr "添加订单"
-
-#: includes/emails/class-wc-email-customer-processing-order.php:29
-msgid "This is an order notification sent to customers containing their order details after payment."
-msgstr "这是一个订单付款后发送给顾客的一个通知."
-
-#: includes/emails/class-wc-email-customer-processing-order.php:31
-msgid "Thank you for your order"
-msgstr "谢谢。您的订单已收到。"
-
-#: includes/emails/class-wc-email-customer-processing-order.php:32
-msgid "Your {site_title} order receipt from {order_date}"
-msgstr "你{order_date}在 {site_title}所下订单的收据"
-
-#: includes/emails/class-wc-email-customer-reset-password.php:37
-msgid "Reset password"
-msgstr "密码重置"
-
-#: includes/emails/class-wc-email-customer-reset-password.php:38
-msgid "Customer \"reset password\" emails are sent when customers reset their passwords."
-msgstr "当顾客重设密码时,给顾客发送密码重置电子邮件."
-
-#: includes/emails/class-wc-email-customer-reset-password.php:43
-msgid "Password Reset for {site_title}"
-msgstr "{site_title}账户密码重置"
-
-#: includes/emails/class-wc-email-customer-reset-password.php:44
-msgid "Password Reset Instructions"
-msgstr "密码重置教程"
 
 #: includes/emails/class-wc-email-new-order.php:28
 msgid "New order"
@@ -1849,57 +1663,13 @@ msgstr "新客户订单"
 msgid "[{site_title}] New customer order ({order_number}) - {order_date}"
 msgstr "[{site_title}] 新订单  ({order_number}) - {order_date}"
 
-#: includes/emails/class-wc-email.php:512
-msgid "Plain text"
-msgstr "以纯文本粘贴"
-
-#: includes/emails/class-wc-email.php:516
-msgid "HTML"
-msgstr "编辑 HTML 源码"
-
-#: includes/emails/class-wc-email.php:517
-msgid "Multipart"
-msgstr "多媒体部分"
-
-#: includes/emails/class-wc-email.php:588
-msgid "Could not write to template file."
-msgstr "无法写入模板文件."
-
-#: includes/emails/class-wc-email.php:635
-msgid "Template file copied to theme."
-msgstr "模板文件已拷贝到主题."
-
-#: includes/emails/class-wc-email.php:664
-msgid "Template file deleted from theme."
-msgstr "模板文件已从主题中删除."
-
 #: includes/emails/class-wc-email.php:741
 msgid "HTML template"
 msgstr "HTML模板"
 
-#: includes/emails/class-wc-email.php:742
-msgid "Plain text template"
-msgstr "以纯文本粘贴"
-
 #: includes/emails/class-wc-email.php:767
 msgid "Delete template file"
 msgstr "删除模板文件"
-
-#: includes/emails/class-wc-email.php:770
-msgid "This template has been overridden by your theme and can be found in: <code>%s</code>."
-msgstr "此模板已被你的主题覆盖,在 <code>%s</code>查找."
-
-#: includes/emails/class-wc-email.php:783
-msgid "Copy file to theme"
-msgstr "复制到一个新的草稿"
-
-#: includes/emails/class-wc-email.php:786
-msgid "To override and edit this email template copy <code>%s</code> to your theme folder: <code>%s</code>."
-msgstr "修改或编辑这个电子邮件模板复制<code>%s</code> 到:<code>%s</code>."
-
-#: includes/emails/class-wc-email.php:795
-msgid "File was not found."
-msgstr "文件找不到了。"
 
 #: includes/emails/class-wc-email.php:822
 msgid "View template"
@@ -1908,10 +1678,6 @@ msgstr "查看模板"
 #: includes/emails/class-wc-email.php:823
 msgid "Hide template"
 msgstr "隐藏模板"
-
-#: includes/emails/class-wc-email.php:834
-msgid "Are you sure you want to delete this template file?"
-msgstr "确定删除此模板?"
 
 #: includes/gateways/bacs/class-wc-gateway-bacs.php:31
 msgid "BACS"
@@ -1946,46 +1712,15 @@ msgstr "启用银行转帐"
 msgid "Title"
 msgstr "标题"
 
-#: includes/gateways/bacs/class-wc-gateway-bacs.php:82
-#: includes/gateways/cheque/class-wc-gateway-cheque.php:62
-#: includes/gateways/paypal/includes/settings-paypal.php:20
-#: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:192
-#: includes/shipping/flat-rate/includes/settings-flat-rate.php:22
-#: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:69
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:97
-#: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:74
-msgid "This controls the title which the user sees during checkout."
-msgstr "这控制用户在结帐时看到的标题。"
-
 #: includes/gateways/bacs/class-wc-gateway-bacs.php:83
 msgid "Direct Bank Transfer"
 msgstr "直接银行汇款"
-
-#: includes/gateways/bacs/class-wc-gateway-bacs.php:89
-#: includes/gateways/cheque/class-wc-gateway-cheque.php:69
-#: includes/gateways/cod/class-wc-gateway-cod.php:70
-msgid "Payment method description that the customer will see on your checkout."
-msgstr "客户支付的时候会看到关于该支付方式的说明"
-
-#: includes/gateways/bacs/class-wc-gateway-bacs.php:90
-msgid "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won't be shipped until the funds have cleared in our account."
-msgstr "直接付款到我们的银行账户。请使用订单号作为付款名目。我们会在资金到账后配送订单。"
 
 #: includes/gateways/bacs/class-wc-gateway-bacs.php:94
 #: includes/gateways/cheque/class-wc-gateway-cheque.php:74
 #: includes/gateways/cod/class-wc-gateway-cod.php:82
 msgid "Instructions"
 msgstr "说明"
-
-#: includes/gateways/bacs/class-wc-gateway-bacs.php:96
-#: includes/gateways/cheque/class-wc-gateway-cheque.php:76
-msgid "Instructions that will be added to the thank you page and emails."
-msgstr "说明将会被显示在订单确认页面和相关邮件中"
-
-#: includes/gateways/bacs/class-wc-gateway-bacs.php:118
-#: includes/gateways/bacs/class-wc-gateway-bacs.php:272
-msgid "Sort Code"
-msgstr "分类编号"
 
 #: includes/gateways/bacs/class-wc-gateway-bacs.php:122
 msgid "Account Details"
@@ -2090,10 +1825,6 @@ msgstr "等待支票付款"
 msgid "Have your customers pay with cash (or by other means) upon delivery."
 msgstr "在交付时由你的客户支付现金（或其他方式）。"
 
-#: includes/gateways/cod/class-wc-gateway-cod.php:61
-msgid "Enable COD"
-msgstr "启用COD"
-
 #: includes/gateways/cod/class-wc-gateway-cod.php:62
 msgid "Enable Cash on Delivery"
 msgstr "启用货到付款"
@@ -2102,11 +1833,6 @@ msgstr "启用货到付款"
 msgid "Payment method description that the customer will see on your website."
 msgstr "顾客在你网站上看到的付款方式描述。"
 
-#: includes/gateways/cod/class-wc-gateway-cod.php:78
-#: includes/gateways/cod/class-wc-gateway-cod.php:85
-msgid "Pay with cash upon delivery."
-msgstr "交货时使用现金支付."
-
 #: includes/gateways/cod/class-wc-gateway-cod.php:84
 msgid "Instructions that will be added to the thank you page."
 msgstr "说明将被添加到感谢页面。"
@@ -2114,14 +1840,6 @@ msgstr "说明将被添加到感谢页面。"
 #: includes/gateways/cod/class-wc-gateway-cod.php:89
 msgid "Enable for shipping methods"
 msgstr "启用此送货方法"
-
-#: includes/gateways/cod/class-wc-gateway-cod.php:94
-msgid "If COD is only available for certain methods, set it up here. Leave blank to enable for all methods."
-msgstr "如果COD只适用于特定的方法，请在这里设置。留空启用的所有方法。"
-
-#: includes/gateways/cod/class-wc-gateway-cod.php:98
-msgid "Select shipping methods"
-msgstr "选择物流方式"
 
 #: includes/gateways/cod/class-wc-gateway-cod.php:203
 msgid "Payment to be made upon delivery."
@@ -2206,11 +1924,6 @@ msgstr "验证错误：PayPal 金额不一致(amt %s)。"
 msgid "PDT payment completed"
 msgstr "PDT支付完成"
 
-#: includes/gateways/paypal/includes/class-wc-gateway-paypal-request.php:183
-#: includes/gateways/paypal/includes/class-wc-gateway-paypal-request.php:266
-msgid "Shipping via %s"
-msgstr "通过%s邮寄"
-
 #: includes/gateways/paypal/includes/settings-paypal.php:14
 msgid "Enable PayPal standard"
 msgstr "启用贝宝标准版"
@@ -2291,14 +2004,6 @@ msgstr "启用\"address_override\"以防止被更改的地址信息。"
 #: includes/gateways/paypal/includes/settings-paypal.php:92
 msgid "PayPal verifies addresses therefore this setting can cause errors (we recommend keeping it disabled)."
 msgstr "贝宝验证地址，此设置可能会导致错误（我们建议保持禁用它）。"
-
-#: includes/gateways/paypal/includes/settings-paypal.php:96
-msgid "Payment Action"
-msgstr "Payment Action"
-
-#: includes/gateways/paypal/includes/settings-paypal.php:99
-msgid "Choose whether you wish to capture funds immediately or authorize payment only."
-msgstr "选择你是要马上扣款还是先预授权"
 
 #: includes/gateways/paypal/includes/settings-paypal.php:103
 msgid "Capture"
@@ -2517,15 +2222,6 @@ msgstr "%s - \"%s\"的描述"
 msgid "Flat Rate"
 msgstr "标准运费"
 
-#: includes/shipping/flat-rate/includes/settings-flat-rate.php:16
-msgid "Enable this shipping method"
-msgstr "启用此送货方法"
-
-#: includes/shipping/flat-rate/includes/settings-flat-rate.php:20
-#: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:67
-msgid "Method Title"
-msgstr "方法名称"
-
 #: includes/shipping/flat-rate/includes/settings-flat-rate.php:27
 #: includes/shipping/international-delivery/class-wc-shipping-international-delivery.php:34
 msgid "Availability"
@@ -2545,10 +2241,6 @@ msgstr "全部允许的国家"
 msgid "Select some countries"
 msgstr "选择国家"
 
-#: includes/shipping/flat-rate/includes/settings-flat-rate.php:71
-msgid "Shipping Class Costs"
-msgstr "配送类型收费"
-
 #: includes/shipping/flat-rate/includes/settings-flat-rate.php:80
 msgid "\"%s\" Shipping Class Cost"
 msgstr "\"%s\" 配送类型收费"
@@ -2561,60 +2253,13 @@ msgstr "无需配送类型的收费"
 msgid "Calculation Type"
 msgstr "计算方式"
 
-#: includes/shipping/flat-rate/includes/settings-flat-rate.php:102
-msgid "Per Class: Charge shipping for each shipping class individually"
-msgstr "每个配送类型: 每个配送类型单独收费"
-
 #: includes/shipping/flat-rate/includes/settings-flat-rate.php:103
 msgid "Per Order: Charge shipping for the most expensive shipping class"
 msgstr "每个订单:  按最贵的配送类型进行收费。"
 
-#: includes/shipping/flat-rate/includes/settings-flat-rate.php:110
-#: includes/shipping/flat-rate/includes/settings-flat-rate.php:115
-msgid "Additional Rates"
-msgstr "税率"
-
-#: includes/shipping/flat-rate/includes/settings-flat-rate.php:117
-msgid "One per line: Option Name | Additional Cost [+- Percents] | Per Cost Type (order, class, or item) Example: <code>Priority Mail | 6.95 [+ 0.2%] | order</code>."
-msgstr "每行一个: 可选名称|附加收费 [+- 百分比]| 每个成本类型(order、class，或者item) 例如： <code>优先送货 | 6.95 [+ 0.2%] | order</code>."
-
 #: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:63
 msgid "Enable Free Shipping"
 msgstr "启用免运费"
-
-#: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:74
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:131
-#: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:87
-msgid "Method availability"
-msgstr "方法的可行性"
-
-#: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:95
-msgid "Free Shipping Requires..."
-msgstr "免费送货需要免费送货券"
-
-#: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:101
-msgid "A valid free shipping coupon"
-msgstr "免费送货需要免费送货券"
-
-#: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:102
-msgid "A minimum order amount (defined below)"
-msgstr "最小订单金额（定义见下文）"
-
-#: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:103
-msgid "A minimum order amount OR a coupon"
-msgstr "最小订单金额或优惠券"
-
-#: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:104
-msgid "A minimum order amount AND a coupon"
-msgstr "最小订单金额和优惠券"
-
-#: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:108
-msgid "Minimum Order Amount"
-msgstr "最小购买量"
-
-#: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:111
-msgid "Users will need to spend this amount to get free shipping (if enabled above)."
-msgstr "免运费的最低消费额（如果启用）。"
 
 #: includes/shipping/international-delivery/class-wc-shipping-international-delivery.php:40
 msgid "Selected countries"
@@ -2645,18 +2290,6 @@ msgstr "费用类型"
 msgid "How to calculate delivery charges"
 msgstr "如何计算送货费"
 
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:108
-msgid "Fixed amount"
-msgstr "每个产品的固定数额"
-
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:109
-msgid "Percentage of cart total"
-msgstr "平均订单总额"
-
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:110
-msgid "Fixed amount per product"
-msgstr "每个产品的固定数额"
-
 #: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:115
 msgid "Delivery Fee"
 msgstr "运送费用"
@@ -2664,19 +2297,6 @@ msgstr "运送费用"
 #: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:117
 msgid "What fee do you want to charge for local delivery, disregarded if you choose free. Leave blank to disable."
 msgstr "你想要收取本地送货什么费，如果你选择免费将被无视。留空以禁用。"
-
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:123
-#: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:79
-msgid "Allowed Zip/Post Codes"
-msgstr "允许的邮政编码"
-
-#: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:25
-msgid "Local pickup is a simple method which allows customers to pick up orders themselves."
-msgstr "本地取件是一个让顾客自己提取他们的订单的简单方法。"
-
-#: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:68
-msgid "Enable local pickup"
-msgstr "启用本地取件"
 
 #: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:81
 msgid "What zip/post codes are available for local pickup?"
@@ -2686,41 +2306,12 @@ msgstr "哪些邮政编码区域或地区支持上门自提"
 msgid "Shipping costs updated."
 msgstr "运费已更新。"
 
-#: includes/shortcodes/class-wc-shortcode-checkout.php:89
-msgid "Invalid order. If you have an account please log in and try again."
-msgstr "无效订单。请登陆账户后尝试。   "
-
 #: includes/class-wc-product-grouped.php:193
 #: includes/class-wc-product-variable.php:359
 #: includes/class-wc-product-variable.php:365
 msgctxt "Price range: from-to"
 msgid "%1$s&ndash;%2$s"
 msgstr "%1$s&ndash;%2$s"
-
-#: includes/emails/class-wc-email-customer-invoice.php:145
-#: includes/emails/class-wc-email.php:481
-msgid "Email Subject"
-msgstr "Email 标题"
-
-#: includes/emails/class-wc-email-customer-invoice.php:159
-msgid "Email Subject (paid)"
-msgstr "Email 标题 (已支付)"
-
-#: includes/emails/class-wc-email-customer-invoice.php:166
-msgid "Email Heading (paid)"
-msgstr "Email 顶部 (已支付)"
-
-#: includes/emails/class-wc-email-customer-invoice.php:173
-msgid "Email Type"
-msgstr "Email 类型"
-
-#: includes/emails/class-wc-email-customer-refunded-order.php:40
-msgid "Your {site_title} order from {order_date} has been partially refunded"
-msgstr "您在 {site_title} 的订单从 {order_date} 已部分退款"
-
-#: includes/emails/class-wc-email-customer-refunded-order.php:41
-msgid "Your {site_title} order from {order_date} has been refunded"
-msgstr "您在 {site_title} 的订单从 {order_date} 已退款"
 
 #: includes/emails/class-wc-email-customer-refunded-order.php:180
 msgid "Full Refund Subject"
@@ -2730,29 +2321,13 @@ msgstr "完全退款的标题"
 msgid "Partial Refund Subject"
 msgstr "部分退款的标题"
 
-#: includes/emails/class-wc-email-customer-refunded-order.php:194
-msgid "Full Refund Email Heading"
-msgstr "完全退款的Email顶部"
-
-#: includes/emails/class-wc-email-customer-refunded-order.php:201
-msgid "Partial Refund Email Heading"
-msgstr "部分退款的Email顶部"
-
 #: includes/emails/class-wc-email-new-order.php:29
 msgid "New order emails are sent to the recipient list when an order is received."
 msgstr "当收到新订单时，新订单邮件将会发送给接受者列表中的人。"
 
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:125
-msgid "What zip/post codes are available for local delivery?"
-msgstr "本地送货的邮编是？"
-
 #: includes/emails/class-wc-email-customer-refunded-order.php:44
 msgid "Your order has been partially refunded"
 msgstr "您的订单已部分退款"
-
-#: includes/emails/class-wc-email-customer-refunded-order.php:43
-msgid "Your order has been fully refunded"
-msgstr "您的订单已全部退款"
 
 #: includes/emails/class-wc-email-customer-refunded-order.php:57
 msgid "Refunded order"
@@ -2761,14 +2336,6 @@ msgstr "已退款订单"
 #: includes/emails/class-wc-email-customer-refunded-order.php:48
 msgid "Partially Refunded order"
 msgstr "部分退款的订单"
-
-#: includes/emails/class-wc-email-customer-refunded-order.php:49
-msgid "Order partially refunded emails are sent to customers when their orders are partially refunded."
-msgstr "当某顾客的订单被部分退款时TA会收到部分退款邮件。"
-
-#: includes/emails/class-wc-email-customer-refunded-order.php:58
-msgid "Order refunded emails are sent to customers when their orders are marked refunded."
-msgstr "当某顾客的订单被全部退款时TA会收到全部退款邮件。"
 
 #: includes/emails/class-wc-email-cancelled-order.php:29
 msgid "Cancelled order emails are sent to the recipient list when orders have been marked cancelled (if they were previously processing or on-hold)."
@@ -2781,10 +2348,6 @@ msgstr "应用于虚拟订单"
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:215
 msgid "Modal Color"
 msgstr "模态窗口的颜色"
-
-#: includes/shipping/international-delivery/class-wc-shipping-international-delivery.php:21
-msgid "International Flat Rate"
-msgstr "国际平率"
 
 #: includes/shipping/international-delivery/class-wc-shipping-international-delivery.php:22
 msgid "International Flat Rate Shipping lets you charge a fixed rate for shipping."
@@ -2861,34 +2424,471 @@ msgstr "请设置模态窗口中按钮和标题的颜色。"
 msgid "Place the payment gateway in sandbox mode using sandbox API keys (real payments will not be taken)."
 msgstr "Place the payment gateway in sandbox mode using sandbox API keys (real payments will not be taken)."
 
+#: includes/shipping/flat-rate/includes/settings-flat-rate.php:120
+msgid "Option Name | Additional Cost [+- Percents%] | Per Cost Type (order, class, or item)"
+msgstr "选项名称 | 附加费用 [+- 百分比] | 收费  (按订单，分类，产品数量)"
+
+#: includes/class-wc-product-variable.php:727
+msgid "This variable product has no active variations so cannot be published. Changing status to draft."
+msgstr "可变产品由于没有可用的变量而不能被发布，状态已更改为草稿。"
+
+#: includes/class-wc-query.php:119
+msgid "Edit Account Details"
+msgstr "编辑账户信息"
+
+#: includes/emails/class-wc-email-cancelled-order.php:28
+#: includes/emails/class-wc-email-cancelled-order.php:31
+msgid "Cancelled order"
+msgstr "已取消订单"
+
+#: includes/emails/class-wc-email-cancelled-order.php:116
+#: includes/emails/class-wc-email-new-order.php:123
+msgid "Recipient(s)"
+msgstr "电邮收件人选项"
+
+#: includes/emails/class-wc-email-cancelled-order.php:125
+#: includes/emails/class-wc-email-new-order.php:132
+msgid "This controls the email subject line. Leave blank to use the default subject: <code>%s</code>."
+msgstr "这是邮件的标题,留空的话将使用默认的标题：<code>%s</code>。"
+
+#: includes/emails/class-wc-email-cancelled-order.php:130
+#: includes/emails/class-wc-email-customer-completed-order.php:151
+#: includes/emails/class-wc-email-customer-invoice.php:152
+#: includes/emails/class-wc-email-new-order.php:137
+#: includes/emails/class-wc-email.php:488
+msgid "Email Heading"
+msgstr "邮件标题"
+
+#: includes/emails/class-wc-email-cancelled-order.php:132
+#: includes/emails/class-wc-email-new-order.php:139
+msgid "This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>."
+msgstr "这是邮件的内容的标题。留空的话将使用默认的标题：<code>%s</code>。"
+
+#: includes/emails/class-wc-email-cancelled-order.php:137
+#: includes/emails/class-wc-email-customer-completed-order.php:172
+#: includes/emails/class-wc-email-customer-refunded-order.php:208
+#: includes/emails/class-wc-email-new-order.php:144
+#: includes/emails/class-wc-email.php:495
+msgid "Email type"
+msgstr "电邮类型"
+
+#: includes/emails/class-wc-email-cancelled-order.php:139
+#: includes/emails/class-wc-email-customer-completed-order.php:174
+#: includes/emails/class-wc-email-customer-invoice.php:175
+#: includes/emails/class-wc-email-customer-refunded-order.php:210
+#: includes/emails/class-wc-email-new-order.php:146
+#: includes/emails/class-wc-email.php:497
+msgid "Choose which format of email to send."
+msgstr "选择发送电邮的格式。"
+
+#: includes/emails/class-wc-email-customer-completed-order.php:28
+msgid "Completed order"
+msgstr "已完成的订单"
+
+#: includes/emails/class-wc-email-customer-completed-order.php:29
+msgid "Order complete emails are sent to customers when their orders are marked completed and usually indicate that their orders have been shipped."
+msgstr "当订单是已完成状态时，订单已完成的通知邮件会发送给顾客。这通常表明他们的订单已经出货。"
+
+#: includes/emails/class-wc-email-customer-completed-order.php:31
+msgid "Your order is complete"
+msgstr "您的订单已完成"
+
+#: includes/emails/class-wc-email-customer-completed-order.php:32
+msgid "Your {site_title} order from {order_date} is complete"
+msgstr "您于 {order_date}在 {site_title}所下的订单已完成"
+
+#: includes/emails/class-wc-email-customer-completed-order.php:41
+msgid "Your order is complete - download your files"
+msgstr "您的订单已完成 - 订单的详细信息如下："
+
+#: includes/emails/class-wc-email-customer-completed-order.php:42
+msgid "Your {site_title} order from {order_date} is complete - download your files"
+msgstr "您于{order_date}在{site_title}所下的订单已完成 - 下载文件"
+
+#: includes/emails/class-wc-email-customer-completed-order.php:146
+#: includes/emails/class-wc-email-customer-completed-order.php:153
+#: includes/emails/class-wc-email-customer-completed-order.php:160
+#: includes/emails/class-wc-email-customer-completed-order.php:167
+#: includes/emails/class-wc-email-customer-invoice.php:147
+#: includes/emails/class-wc-email-customer-invoice.php:154
+#: includes/emails/class-wc-email-customer-invoice.php:161
+#: includes/emails/class-wc-email-customer-invoice.php:168
+#: includes/emails/class-wc-email-customer-refunded-order.php:182
+#: includes/emails/class-wc-email-customer-refunded-order.php:189
+#: includes/emails/class-wc-email-customer-refunded-order.php:196
+#: includes/emails/class-wc-email-customer-refunded-order.php:203
+#: includes/emails/class-wc-email.php:483
+#: includes/emails/class-wc-email.php:490
+msgid "Defaults to <code>%s</code>"
+msgstr "默认给 <code>%s</code>"
+
+#: includes/emails/class-wc-email-customer-completed-order.php:158
+msgid "Subject (downloadable)"
+msgstr "标题(可下载订单)"
+
+#: includes/emails/class-wc-email-customer-completed-order.php:165
+msgid "Email Heading (downloadable)"
+msgstr "邮件内容标题 (可下载订单)"
+
+#: includes/emails/class-wc-email-customer-invoice.php:31
+msgid "Customer invoice"
+msgstr "给顾客的收据"
+
+#: includes/emails/class-wc-email-customer-invoice.php:32
+msgid "Customer invoice emails can be sent to customers containing their order information and payment links."
+msgstr "给顾客的收据可以通过电邮发送,包含订单信息和支付信息。"
+
+#: includes/emails/class-wc-email-customer-invoice.php:37
+msgid "Invoice for order {order_number} from {order_date}"
+msgstr "订单收据 {order_number} 于 {order_date}"
+
+#: includes/emails/class-wc-email-customer-invoice.php:38
+msgid "Invoice for order {order_number}"
+msgstr "订单收据 {order_number}"
+
+#: includes/emails/class-wc-email-customer-invoice.php:40
+msgid "Your {site_title} order from {order_date}"
+msgstr "您于{order_date}在{site_title}所下的订单"
+
+#: includes/emails/class-wc-email-customer-invoice.php:41
+msgid "Order {order_number} details"
+msgstr "订单{order_number} 的详情"
+
+#: includes/emails/class-wc-email-customer-invoice.php:145
+#: includes/emails/class-wc-email.php:481
+msgid "Email Subject"
+msgstr "邮件标题"
+
+#: includes/emails/class-wc-email-customer-invoice.php:159
+msgid "Email Subject (paid)"
+msgstr "邮件标题 (已支付)"
+
+#: includes/emails/class-wc-email-customer-invoice.php:166
+msgid "Email Heading (paid)"
+msgstr "邮件内容标题 (已支付订单)"
+
+#: includes/emails/class-wc-email-customer-invoice.php:173
+msgid "Email Type"
+msgstr "电邮类型"
+
+#: includes/emails/class-wc-email-customer-new-account.php:33
+msgid "New account"
+msgstr "新帐户"
+
+#: includes/emails/class-wc-email-customer-new-account.php:34
+msgid "Customer \"new account\" emails are sent to the customer when a customer signs up via checkout or account pages."
+msgstr "用户“新注册账户通知”邮件将会发送到TA在结算页面或帐户页面注册时所用的邮箱中。"
+
+#: includes/emails/class-wc-email-customer-new-account.php:39
+msgid "Your account on {site_title}"
+msgstr "您在{site_title}的账户"
+
+#: includes/emails/class-wc-email-customer-note.php:30
+msgid "Customer note"
+msgstr "顾客的备注"
+
+#: includes/emails/class-wc-email-customer-note.php:31
+msgid "Customer note emails are sent when you add a note to an order."
+msgstr "当您为某顾客的订单添加备注时，将会以邮件形式通知TA。"
+
+#: includes/emails/class-wc-email-customer-note.php:36
+msgid "Note added to your {site_title} order from {order_date}"
+msgstr "您于{order_date}在{site_title}的订单被添加了一个备注"
+
+#: includes/emails/class-wc-email-customer-note.php:37
+msgid "A note has been added to your order"
+msgstr "您的订单刚刚被添加了一个备注"
+
+#: includes/emails/class-wc-email-customer-processing-order.php:28
+msgid "Processing order"
+msgstr "订单处理中"
+
+#: includes/emails/class-wc-email-customer-processing-order.php:29
+msgid "This is an order notification sent to customers containing their order details after payment."
+msgstr "顾客在付款后将会收到这个订单通知。"
+
+#: includes/emails/class-wc-email-customer-processing-order.php:31
+msgid "Thank you for your order"
+msgstr "感谢您的惠顾"
+
+#: includes/emails/class-wc-email-customer-processing-order.php:32
+msgid "Your {site_title} order receipt from {order_date}"
+msgstr "您于{order_date}在 {site_title}所下订单的收据"
+
+#: includes/emails/class-wc-email-customer-refunded-order.php:40
+msgid "Your {site_title} order from {order_date} has been partially refunded"
+msgstr "您于 {order_date} 在 {site_title} 的订单已部分退款"
+
+#: includes/emails/class-wc-email-customer-refunded-order.php:41
+msgid "Your {site_title} order from {order_date} has been refunded"
+msgstr "您于 {order_date} 在 {site_title} 的订单已退款"
+
+#: includes/emails/class-wc-email-customer-refunded-order.php:43
+msgid "Your order has been fully refunded"
+msgstr "您的订单已全额退款"
+
+#: includes/emails/class-wc-email-customer-refunded-order.php:49
+msgid "Order partially refunded emails are sent to customers when their orders are partially refunded."
+msgstr "顾客将会在其订单被部分退款时收到此通知邮件。"
+
+#: includes/emails/class-wc-email-customer-refunded-order.php:58
+msgid "Order refunded emails are sent to customers when their orders are marked refunded."
+msgstr "顾客将会在其订单被标记为已退款时收到此通知邮件。"
+
+#: includes/emails/class-wc-email-customer-refunded-order.php:194
+msgid "Full Refund Email Heading"
+msgstr "完全退款通知邮件的内容标题"
+
+#: includes/emails/class-wc-email-customer-refunded-order.php:201
+msgid "Partial Refund Email Heading"
+msgstr "部分退款通知邮件的内容标题"
+
+#: includes/emails/class-wc-email-customer-reset-password.php:37
+msgid "Reset password"
+msgstr "重置密码"
+
+#: includes/emails/class-wc-email-customer-reset-password.php:38
+msgid "Customer \"reset password\" emails are sent when customers reset their passwords."
+msgstr "顾客将会在重置密码时收到“重置密码”邮件。"
+
+#: includes/emails/class-wc-email-customer-reset-password.php:43
+msgid "Password Reset for {site_title}"
+msgstr "重置您在{site_title}的密码"
+
+#: includes/emails/class-wc-email-customer-reset-password.php:44
+msgid "Password Reset Instructions"
+msgstr "密码重置介绍"
+
+#: includes/emails/class-wc-email.php:512
+msgid "Plain text"
+msgstr "纯文本"
+
+#: includes/emails/class-wc-email.php:516
+msgid "HTML"
+msgstr "HTML"
+
+#: includes/emails/class-wc-email.php:517
+msgid "Multipart"
+msgstr "多媒体"
+
+#: includes/emails/class-wc-email.php:588
+msgid "Could not write to template file."
+msgstr "无法写入模板文件。"
+
+#: includes/emails/class-wc-email.php:635
+msgid "Template file copied to theme."
+msgstr "模板文件已复制到主题目录下。"
+
+#: includes/emails/class-wc-email.php:664
+msgid "Template file deleted from theme."
+msgstr "模板文件已从主题目录中删除。"
+
+#: includes/emails/class-wc-email.php:742
+msgid "Plain text template"
+msgstr "纯文本模板"
+
+#: includes/emails/class-wc-email.php:770
+msgid "This template has been overridden by your theme and can be found in: <code>%s</code>."
+msgstr "此模板已被您的主题覆盖，在 <code>%s</code>可见。"
+
+#: includes/emails/class-wc-email.php:783
+msgid "Copy file to theme"
+msgstr "复制文件到主题目录下"
+
+#: includes/emails/class-wc-email.php:786
+msgid "To override and edit this email template copy <code>%s</code> to your theme folder: <code>%s</code>."
+msgstr "要覆盖或编辑这个邮件模板，请复制<code>%s</code> 到:<code>%s</code>。"
+
+#: includes/emails/class-wc-email.php:795
+msgid "File was not found."
+msgstr "没找到文件。"
+
+#: includes/emails/class-wc-email.php:834
+msgid "Are you sure you want to delete this template file?"
+msgstr "确定要删除此模板?"
+
+#: includes/gateways/bacs/class-wc-gateway-bacs.php:82
+#: includes/gateways/cheque/class-wc-gateway-cheque.php:62
+#: includes/gateways/paypal/includes/settings-paypal.php:20
+#: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:192
+#: includes/shipping/flat-rate/includes/settings-flat-rate.php:22
+#: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:69
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:97
+#: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:74
+msgid "This controls the title which the user sees during checkout."
+msgstr "这控制用户在结算时看到的标题。"
+
+#: includes/gateways/bacs/class-wc-gateway-bacs.php:89
+#: includes/gateways/cheque/class-wc-gateway-cheque.php:69
+#: includes/gateways/cod/class-wc-gateway-cod.php:70
+msgid "Payment method description that the customer will see on your checkout."
+msgstr "顾客在结算时将会看到的支付方式描述。"
+
+#: includes/gateways/bacs/class-wc-gateway-bacs.php:90
+msgid "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won't be shipped until the funds have cleared in our account."
+msgstr "直接付款到我们的银行账户。请使用订单号作为付款凭据，我们会在资金到账后配送订单。"
+
+#: includes/gateways/bacs/class-wc-gateway-bacs.php:96
+#: includes/gateways/cheque/class-wc-gateway-cheque.php:76
+msgid "Instructions that will be added to the thank you page and emails."
+msgstr "说明将会显示在订单确认页面和相关邮件中。"
+
+#: includes/gateways/bacs/class-wc-gateway-bacs.php:118
+#: includes/gateways/bacs/class-wc-gateway-bacs.php:272
+msgid "Sort Code"
+msgstr "排序编号"
+
+#: includes/gateways/cod/class-wc-gateway-cod.php:61
+msgid "Enable COD"
+msgstr "启用货到付款"
+
+#: includes/gateways/cod/class-wc-gateway-cod.php:78
+#: includes/gateways/cod/class-wc-gateway-cod.php:85
+msgid "Pay with cash upon delivery."
+msgstr "交货时使用现金支付。"
+
+#: includes/gateways/cod/class-wc-gateway-cod.php:94
+msgid "If COD is only available for certain methods, set it up here. Leave blank to enable for all methods."
+msgstr "如果COD只适用于特定的方法，请在这里设置，留空则适用于所有方法。"
+
+#: includes/gateways/cod/class-wc-gateway-cod.php:98
+msgid "Select shipping methods"
+msgstr "选择配送方式"
+
+#: includes/gateways/paypal/includes/class-wc-gateway-paypal-request.php:183
+#: includes/gateways/paypal/includes/class-wc-gateway-paypal-request.php:266
+msgid "Shipping via %s"
+msgstr "通过%s配送"
+
+#: includes/gateways/paypal/includes/settings-paypal.php:96
+msgid "Payment Action"
+msgstr "支付动作"
+
+#: includes/gateways/paypal/includes/settings-paypal.php:99
+msgid "Choose whether you wish to capture funds immediately or authorize payment only."
+msgstr "选择您是要马上扣款还是先预授权"
+
 #: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:25
 msgid "Flat Rate Shipping lets you charge a fixed rate for shipping."
-msgstr "Flat Rate Shipping lets you charge a fixed rate for shipping."
+msgstr "平费率让您收取固定的配送费用。"
 
 #: includes/shipping/flat-rate/includes/settings-flat-rate.php:7
 msgid "Enter a cost (excl. tax) or sum, e.g. <code>10.00 * [qty]</code>."
-msgstr "请输入一个成本(不含税)或总和，例如 <code>10.00 * [qty]</code>。"
-
-#: includes/shipping/flat-rate/includes/settings-flat-rate.php:73
-msgid "These costs can optionally be added based on the %sproduct shipping class%s."
-msgstr "这些成本可选地可添加到%s产品物流费用类%s。"
+msgstr "请输入一个费用(不含税)或总和，例如 <code>10.00 * [qty]</code>。"
 
 #: includes/shipping/flat-rate/includes/settings-flat-rate.php:7
 msgid "Supports the following placeholders: <code>[qty]</code> = number of items, <code>[cost]</code> = cost of items, <code>[fee percent=\"10\" min_fee=\"20\"]</code> = Percentage based fee."
-msgstr "支持以下占位符：<code>[qty]</code> = 项目数量, <code>[cost]</code> = 项目成本, <code>[fee percent=\"10\" min_fee=\"20\"]</code> =基于百分比收费。"
+msgstr "支持以下占位符：<code>[qty]</code> = 项目数量, <code>[cost]</code> = 项目费用, <code>[fee percent=\"10\" min_fee=\"20\"]</code> =基于百分比收费。"
+
+#: includes/shipping/flat-rate/includes/settings-flat-rate.php:16
+msgid "Enable this shipping method"
+msgstr "启用此配送方式"
+
+#: includes/shipping/flat-rate/includes/settings-flat-rate.php:20
+#: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:67
+msgid "Method Title"
+msgstr "方式名称"
+
+#: includes/shipping/flat-rate/includes/settings-flat-rate.php:73
+msgid "These costs can optionally be added based on the %sproduct shipping class%s."
+msgstr "这些费用可选地可添加到%s产品配送费用类%s。"
+
+#: includes/shipping/flat-rate/includes/settings-flat-rate.php:71
+msgid "Shipping Class Costs"
+msgstr "配送费用类"
+
+#: includes/shipping/flat-rate/includes/settings-flat-rate.php:102
+msgid "Per Class: Charge shipping for each shipping class individually"
+msgstr "每个配送费用类: 每个配送费用类单独收费"
+
+#: includes/shipping/flat-rate/includes/settings-flat-rate.php:110
+#: includes/shipping/flat-rate/includes/settings-flat-rate.php:115
+msgid "Additional Rates"
+msgstr "附加费率"
 
 #: includes/shipping/flat-rate/includes/settings-flat-rate.php:112
 msgid "These rates are extra shipping options with additional costs (based on the flat rate)."
-msgstr "这些比率是额外的物流费用选项（基于统一费率）。"
+msgstr "这些费率是额外的配送费用选项（基于平费率）。"
+
+#: includes/shipping/flat-rate/includes/settings-flat-rate.php:117
+msgid "One per line: Option Name | Additional Cost [+- Percents] | Per Cost Type (order, class, or item) Example: <code>Priority Mail | 6.95 [+ 0.2%] | order</code>."
+msgstr "每行一个: 可选名称|附加收费 [+- 百分比]| 每个费用类型(order、class，或者item) 例如： <code>优先送货 | 6.95 [+ 0.2%] | order</code>."
+
+#: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:74
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:131
+#: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:87
+msgid "Method availability"
+msgstr "方式的可用性"
+
+#: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:95
+msgid "Free Shipping Requires..."
+msgstr "免费送货需要..."
+
+#: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:101
+msgid "A valid free shipping coupon"
+msgstr "一个有效的免费送货优惠券"
+
+#: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:102
+msgid "A minimum order amount (defined below)"
+msgstr "订单最小金额（在下面定义）"
+
+#: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:103
+msgid "A minimum order amount OR a coupon"
+msgstr "订单最小金额或优惠券"
+
+#: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:104
+msgid "A minimum order amount AND a coupon"
+msgstr "订单最小金额和优惠券"
+
+#: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:108
+msgid "Minimum Order Amount"
+msgstr "订单最小金额"
+
+#: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:111
+msgid "Users will need to spend this amount to get free shipping (if enabled above)."
+msgstr "免运费的订单最小金额（如果在上面启用的话）。"
+
+#: includes/shipping/international-delivery/class-wc-shipping-international-delivery.php:21
+msgid "International Flat Rate"
+msgstr "国际平费率"
+
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:108
+msgid "Fixed amount"
+msgstr "固定金额"
+
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:109
+msgid "Percentage of cart total"
+msgstr "购物车总额的百分比"
+
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:110
+msgid "Fixed amount per product"
+msgstr "按产品数量收费"
+
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:123
+#: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:79
+msgid "Allowed Zip/Post Codes"
+msgstr "可用的邮政编码"
+
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:125
+msgid "What zip/post codes are available for local delivery?"
+msgstr "本地送货的邮政编码是？"
 
 #: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:127
 #: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:83
 msgid "Separate codes with a comma. Accepts wildcards, e.g. <code>P*</code> will match a postcode of PE30. Also accepts a pattern, e.g. <code>NG1___</code> would match NG1 1AA but not NG10 1AA"
-msgstr "使用英文半角逗号隔开，可用的通配符，示例<code>P*</code> 将匹配 PE30 邮编， 还可接受一个模型，示例 <code>NG1___</code> 将会匹配 NG1 1AA 但不匹配 NG10 1AA"
+msgstr "使用英文半角逗号隔开，可用的通配符示例<code>P*</code> 将匹配 PE30 邮编， 还可接受一个模型，示例 <code>NG1___</code> 将会匹配 NG1 1AA 但不匹配 NG10 1AA"
 
-#: includes/shipping/flat-rate/includes/settings-flat-rate.php:120
-msgid "Option Name | Additional Cost [+- Percents%] | Per Cost Type (order, class, or item)"
-msgstr "选项名称 | 附加费用 [+- 百分比] | 收费  (按订单，分类，产品数量)"
+#: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:68
+msgid "Enable local pickup"
+msgstr "启用上门自提"
+
+#: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:25
+msgid "Local pickup is a simple method which allows customers to pick up orders themselves."
+msgstr "上门自提是一个让顾客自己提取他们的订单的简单方法。"
+
+#: includes/shortcodes/class-wc-shortcode-checkout.php:89
+msgid "Invalid order. If you have an account please log in and try again."
+msgstr "无效的订单，请在登录后重试。   "
 
 #: includes/api/class-wc-api-webhooks.php:437
 #: includes/api/v2/class-wc-api-webhooks.php:437
@@ -2899,16 +2899,6 @@ msgstr "无效的webhook传输ID"
 #: includes/api/v2/class-wc-api-webhooks.php:445
 msgid "Invalid webhook delivery"
 msgstr "无效的webhook传输"
-
-#: includes/api/v1/class-wc-api-authentication.php:93
-#: includes/api/v2/class-wc-api-authentication.php:93
-msgid "Consumer Key is missing"
-msgstr "Consumer Key is missing"
-
-#: includes/api/v1/class-wc-api-authentication.php:109
-#: includes/api/v2/class-wc-api-authentication.php:109
-msgid "Consumer Secret is missing"
-msgstr "Consumer Secret is missing"
 
 #: includes/api/v2/class-wc-api-products.php:2328
 msgid "Invalid product SKU"
@@ -2929,22 +2919,6 @@ msgstr "对不起，你的会话已过期。"
 #: includes/class-wc-ajax.php:258
 msgid "Return to homepage"
 msgstr "返回首页"
-
-#: includes/class-wc-ajax.php:1428
-msgid "No products had their stock reduced - they may not have stock management enabled."
-msgstr "没有产品库存减少 - 他们可能没有启用库存管理。"
-
-#: includes/class-wc-ajax.php:1469 includes/class-wc-ajax.php:2280
-msgid "Item #%s stock increased from %s to %s."
-msgstr "#%s 的库存从 %s 恢复到 %s."
-
-#: includes/class-wc-ajax.php:1479
-msgid "No products had their stock increased - they may not have stock management enabled."
-msgstr "没有产品库存增加 - 他们可能没有启用库存管理。"
-
-#: includes/class-wc-ajax.php:1498
-msgid "Value"
-msgstr "值(s)"
 
 #: includes/class-wc-ajax.php:2220
 msgid "Invalid refund amount"
@@ -3198,18 +3172,6 @@ msgstr "社区"
 msgid "District"
 msgstr "地区"
 
-#: includes/class-wc-countries.php:620 includes/class-wc-countries.php:643
-#: includes/class-wc-countries.php:669 includes/class-wc-countries.php:734
-#: includes/class-wc-countries.php:754 includes/class-wc-countries.php:772
-#: includes/class-wc-countries.php:834 includes/class-wc-countries.php:860
-#: includes/class-wc-countries.php:907
-msgid "Province"
-msgstr "省"
-
-#: includes/class-wc-countries.php:650
-msgid "Canton"
-msgstr "Canton"
-
 #: includes/class-wc-countries.php:663 includes/class-wc-countries.php:722
 msgid "Region"
 msgstr "地区"
@@ -3234,62 +3196,6 @@ msgstr "市"
 msgid "Zip"
 msgstr "邮政编码"
 
-#: includes/class-wc-countries.php:964
-msgid "Email Address"
-msgstr "电子邮件地址"
-
-#: includes/class-wc-coupon.php:687
-msgid "Coupon code applied successfully."
-msgstr "优惠代码使用成功。"
-
-#: includes/class-wc-coupon.php:690
-msgid "Coupon code removed successfully."
-msgstr "成功去除优惠券"
-
-#: includes/class-wc-coupon.php:708
-msgid "Coupon is not valid."
-msgstr "不是有效优惠券代码"
-
-#: includes/class-wc-coupon.php:714
-msgid "Sorry, it seems the coupon \"%s\" is invalid - it has now been removed from your order."
-msgstr "对不起， 优惠券 \"%s\" 不是你的 - 它已从你的订单中删除。"
-
-#: includes/class-wc-coupon.php:717
-msgid "Sorry, it seems the coupon \"%s\" is not yours - it has now been removed from your order."
-msgstr "对不起， 优惠券 \"%s\" 不是你的 - 它已从你的订单中删除。"
-
-#: includes/class-wc-coupon.php:720
-msgid "Coupon code already applied!"
-msgstr "优惠代码已经使用过了！"
-
-#: includes/class-wc-coupon.php:723
-msgid "Sorry, coupon \"%s\" has already been applied and cannot be used in conjunction with other coupons."
-msgstr "对不起,优惠券\"%s\"已经使用过了,而且不能和其它优惠券一起使用."
-
-#: includes/class-wc-coupon.php:726
-msgid "Coupon usage limit has been reached."
-msgstr "优惠券已过期。"
-
-#: includes/class-wc-coupon.php:729
-msgid "This coupon has expired."
-msgstr "对不起，此优惠券已过期"
-
-#: includes/class-wc-coupon.php:732
-msgid "The minimum spend for this coupon is %s."
-msgstr "此券的最低消费是 %s."
-
-#: includes/class-wc-coupon.php:735
-msgid "The maximum spend for this coupon is %s."
-msgstr "使用此优惠券的最大支出为%s."
-
-#: includes/class-wc-coupon.php:771
-msgid "Sorry, this coupon is not applicable to the categories: %s."
-msgstr "抱歉，此目录：%s不能使用这个优惠码。"
-
-#: includes/class-wc-coupon.php:794
-msgid "Coupon does not exist!"
-msgstr "优惠券不存在！"
-
 #: includes/class-wc-coupon.php:797
 msgid "Please enter a coupon code."
 msgstr "请输入优惠码。"
@@ -3298,47 +3204,11 @@ msgstr "请输入优惠码。"
 msgid "Invalid download link."
 msgstr "无效的下载链接。"
 
-#: includes/class-wc-download-handler.php:98
-#: includes/class-wc-form-handler.php:570
-#: includes/shortcodes/class-wc-shortcode-checkout.php:163
-#: includes/shortcodes/class-wc-shortcode-my-account.php:108
-msgid "Invalid order."
-msgstr "无效订单。"
-
-#: includes/class-wc-download-handler.php:109
-msgid "Sorry, you have reached your download limit for this file"
-msgstr "对不起，你已经达到这个文件的​​下载限制"
-
-#: includes/class-wc-download-handler.php:120
-msgid "Sorry, this download has expired"
-msgstr "对不起，此下载已失效"
-
-#: includes/class-wc-download-handler.php:133
-#: includes/class-wc-download-handler.php:136
-msgid "You must be logged in to download files."
-msgstr "你必须登录才能下载此文件"
-
 #: includes/class-wc-download-handler.php:136 templates/auth/form-login.php:35
 #: templates/global/form-login.php:39 templates/myaccount/form-login.php:28
 #: templates/myaccount/form-login.php:47
 msgid "Login"
 msgstr "登录"
-
-#: includes/class-wc-download-handler.php:136
-msgid "Log in to Download Files"
-msgstr "登陆账户去下载文件"
-
-#: includes/class-wc-download-handler.php:139
-msgid "This is not your download link."
-msgstr "这不是你的下载链接。"
-
-#: includes/class-wc-download-handler.php:172
-msgid "No file defined"
-msgstr "无效的文件类型"
-
-#: includes/class-wc-download-handler.php:282
-msgid "File not found"
-msgstr "文件无法找到"
 
 #: includes/class-wc-download-handler.php:420
 msgid "Go to homepage"
@@ -3375,10 +3245,6 @@ msgstr "产品无货。"
 #: includes/class-wc-emails.php:412
 msgid "%s is out of stock."
 msgstr "%s缺货。"
-
-#: includes/class-wc-emails.php:441
-msgid "Product Backorder"
-msgstr "产品缺货"
 
 #: includes/class-wc-form-handler.php:129
 msgid "Address changed successfully."
@@ -3420,38 +3286,17 @@ msgstr "新的支付方式已添加"
 msgid "%s removed. %sUndo?%s"
 msgstr "%s已移除。%s撤销？%s"
 
-#: includes/class-wc-form-handler.php:447
-msgid "You can only have 1 %s in your cart."
-msgstr "你只能有 1 %s在购物车。"
-
 #: includes/class-wc-form-handler.php:471
 msgid "Cart updated."
 msgstr "购物车已更新。"
-
-#: includes/class-wc-form-handler.php:537
-msgid "The cart has been filled with the items from your previous order."
-msgstr "你的购物车里累计数量已满。"
 
 #: includes/class-wc-form-handler.php:560
 msgid "Order cancelled by customer."
 msgstr "订单已被客户取消。"
 
-#: includes/class-wc-form-handler.php:563
-msgid "Your order was cancelled."
-msgstr "你的订单已被取消。"
-
-#: includes/class-wc-form-handler.php:568
-msgid "Your order can no longer be cancelled. Please contact us if you need assistance."
-msgstr "无法取消订单。如果你需要帮助，请联系我们。"
-
 #: includes/class-wc-form-handler.php:678
 msgid "Please choose the quantity of items you wish to add to your cart&hellip;"
 msgstr "请选择您要购买的数量&hellip;"
-
-#: includes/class-wc-form-handler.php:739
-msgid "%s is a required field"
-msgid_plural "%s are required fields"
-msgstr[0] "%s 必填选项"
 
 #: includes/class-wc-form-handler.php:741
 msgid "Please choose product options&hellip;"
@@ -3477,10 +3322,6 @@ msgstr "密码为必填。"
 msgid "A user could not be found with this email address."
 msgstr "该邮箱末注册过账户"
 
-#: includes/class-wc-form-handler.php:811
-msgid "You are now logged in as <strong>%s</strong>"
-msgstr "当前登陆 <strong>%s</strong>"
-
 #: includes/class-wc-form-handler.php:855
 msgid "Please enter your password."
 msgstr "请输入你的密码。"
@@ -3496,11 +3337,6 @@ msgstr "验证码字段已填写。"
 #: includes/class-wc-frontend-scripts.php:220
 msgid "Please select a rating"
 msgstr "请选择评分"
-
-#: includes/class-wc-frontend-scripts.php:242
-#: includes/wc-template-functions.php:1626
-msgid "required"
-msgstr "(必填)"
 
 #: includes/class-wc-install.php:482
 msgid "Shop Manager"
@@ -3536,10 +3372,6 @@ msgstr "支持论坛"
 msgid "Failed to install/update the translation:"
 msgstr "安装/更新翻译失败："
 
-#: includes/class-wc-language-pack-upgrader.php:254
-msgid "Seems you don't have permission to do this!"
-msgstr "你看起来没有权限进行此操作！"
-
 #: includes/class-wc-language-pack-upgrader.php:257
 msgid "An authentication error occurred while updating the translation. Please try again or configure your %sUpgrade Constants%s."
 msgstr "更新翻译时如果出现未授权错误，请尝试再次更新或调整您的%s更新常数%s设置。"
@@ -3555,14 +3387,6 @@ msgstr "翻译安装/更新成功！"
 #: includes/class-wc-order.php:40 includes/wc-cart-functions.php:246
 msgid "(Includes %s)"
 msgstr "(包含 %s)"
-
-#: includes/class-wc-post-types.php:70
-msgid "Parent Product Category"
-msgstr "Parent Product Category"
-
-#: includes/class-wc-post-types.php:71
-msgid "Parent Product Category:"
-msgstr "Parent Product Category:"
 
 #: includes/class-wc-post-types.php:109
 msgid "Popular Product Tags"
@@ -3616,14 +3440,6 @@ msgstr "搜索 %s"
 msgid "All %s"
 msgstr "所有 %s"
 
-#: includes/class-wc-post-types.php:180
-msgid "Parent %s"
-msgstr "上级 %s"
-
-#: includes/class-wc-post-types.php:181
-msgid "Parent %s:"
-msgstr "上级 %s:"
-
 #: includes/class-wc-post-types.php:182
 msgid "Edit %s"
 msgstr "编辑 %s"
@@ -3639,10 +3455,6 @@ msgstr "添加新的 %s"
 #: includes/class-wc-post-types.php:185
 msgid "New %s"
 msgstr "新的 %s"
-
-#: includes/class-wc-post-types.php:247
-msgid "Parent Product"
-msgstr "Parent Product"
 
 #: includes/class-wc-post-types.php:248
 #: templates/emails/email-order-items.php:25
@@ -3676,10 +3488,6 @@ msgstr "没有找到订单"
 #: includes/class-wc-post-types.php:298
 msgid "No Orders found in trash"
 msgstr "垃圾箱里没有订单"
-
-#: includes/class-wc-post-types.php:299
-msgid "Parent Orders"
-msgstr "Parent Orders"
 
 #: includes/class-wc-post-types.php:302
 msgid "This is where store orders are stored."
@@ -3724,14 +3532,6 @@ msgstr "搜索优惠券"
 #: includes/class-wc-post-types.php:356
 msgid "No Coupons found"
 msgstr "没有找到优惠券"
-
-#: includes/class-wc-post-types.php:357
-msgid "No Coupons found in trash"
-msgstr "No Coupons found in trash"
-
-#: includes/class-wc-post-types.php:358
-msgid "Parent Coupon"
-msgstr "Parent Coupon"
 
 #: includes/class-wc-post-types.php:360
 msgid "This is where you can add new coupons that customers can use in your store."
@@ -3813,11 +3613,6 @@ msgctxt "placeholder"
 msgid "Street address"
 msgstr "编辑地址"
 
-#: includes/class-wc-countries.php:515
-msgctxt "placeholder"
-msgid "Apartment, suite, unit etc. (optional)"
-msgstr "Apartment, suite, unit etc. (optional)"
-
 #: includes/class-wc-install.php:236
 msgctxt "Page slug"
 msgid "cart"
@@ -3863,16 +3658,6 @@ msgctxt "Order status"
 msgid "Pending Payment"
 msgstr "待付款"
 
-#: includes/class-wc-post-types.php:429 includes/wc-order-functions.php:26
-msgctxt "Order status"
-msgid "Processing"
-msgstr "处理"
-
-#: includes/class-wc-post-types.php:437 includes/wc-order-functions.php:27
-msgctxt "Order status"
-msgid "On Hold"
-msgstr "待审"
-
 #: includes/class-wc-post-types.php:445 includes/wc-order-functions.php:28
 msgctxt "Order status"
 msgid "Completed"
@@ -3888,11 +3673,6 @@ msgctxt "Order status"
 msgid "Refunded"
 msgstr "已退款"
 
-#: includes/class-wc-post-types.php:469 includes/wc-order-functions.php:31
-msgctxt "Order status"
-msgid "Failed"
-msgstr "失败订单"
-
 #: includes/class-wc-ajax.php:2362
 msgid "Description is missing."
 msgstr "描述丢失。"
@@ -3900,10 +3680,6 @@ msgstr "描述丢失。"
 #: includes/class-wc-ajax.php:2365
 msgid "User is missing."
 msgstr "用户丢失。"
-
-#: includes/class-wc-ajax.php:2645
-msgid "Dismiss this notice."
-msgstr "忽略此提示。"
 
 #: includes/class-wc-auth.php:169
 msgid "The %s is not a valid URL"
@@ -3928,10 +3704,6 @@ msgstr "Nonce验证无效"
 #: includes/class-wc-auth.php:348
 msgid "You do not have permissions to access this page!"
 msgstr "您没有访问此页的权限！"
-
-#: includes/class-wc-coupon.php:711
-msgid "Coupon \"%s\" does not exist!"
-msgstr "优惠券\"%s\" 不存在！"
 
 #: includes/class-wc-emails.php:394
 msgid "There are %d left"
@@ -3966,11 +3738,6 @@ msgid "Pending Payment <span class=\"count\">(%s)</span>"
 msgid_plural "Pending Payment <span class=\"count\">(%s)</span>"
 msgstr[0] "待审的支付<span class=\"count\">(%s)</span>"
 
-#: includes/class-wc-post-types.php:442
-msgid "On Hold <span class=\"count\">(%s)</span>"
-msgid_plural "On Hold <span class=\"count\">(%s)</span>"
-msgstr[0] "待确认<span class=\"count\">(%s)</span>"
-
 #: includes/class-wc-auth.php:164
 msgid "Invalid scope %s"
 msgstr "无效的作用域 %s"
@@ -3999,18 +3766,6 @@ msgstr "对不起，暂时无法购买该产品。"
 #: includes/class-wc-cart.php:924
 msgid "You cannot add that amount to the cart &mdash; we have %s in stock and you already have %s in your cart."
 msgstr "不能添加那个数量的产品到购物车。我们库存有 %s 并且你购物车中已包含 %s "
-
-#: includes/class-wc-coupon.php:738
-msgid "Sorry, this coupon is not applicable to your cart contents."
-msgstr "很抱歉，此优惠券不适用于您所购的产品。"
-
-#: includes/class-wc-coupon.php:774
-msgid "Sorry, this coupon is not valid for sale items."
-msgstr "对不起,此优惠券对所售产品无效。"
-
-#: includes/class-wc-coupon.php:751
-msgid "Sorry, this coupon is not applicable to the products: %s."
-msgstr "抱歉，此优惠券不适用于这个产品：%s。"
 
 #: includes/class-wc-form-handler.php:686
 msgid "Please choose a product to add to your cart&hellip;"
@@ -4140,6 +3895,251 @@ msgstr "添加新的产品标签"
 #: includes/class-wc-post-types.php:253
 msgid "This is where you can add new products to your store."
 msgstr "在这里为你的商店添加新产品"
+
+#: includes/api/v1/class-wc-api-authentication.php:93
+#: includes/api/v2/class-wc-api-authentication.php:93
+msgid "Consumer Key is missing"
+msgstr "Consumer Key 丢失"
+
+#: includes/api/v1/class-wc-api-authentication.php:109
+#: includes/api/v2/class-wc-api-authentication.php:109
+msgid "Consumer Secret is missing"
+msgstr "Consumer Secret 丢失"
+
+#: includes/class-wc-ajax.php:1428
+msgid "No products had their stock reduced - they may not have stock management enabled."
+msgstr "没有产品库存减少 - 它们可能没有启用库存管理。"
+
+#: includes/class-wc-ajax.php:1469 includes/class-wc-ajax.php:2280
+msgid "Item #%s stock increased from %s to %s."
+msgstr "#%s 的库存从 %s 恢复到 %s。"
+
+#: includes/class-wc-ajax.php:1479
+msgid "No products had their stock increased - they may not have stock management enabled."
+msgstr "没有产品库存增加 - 它们可能没有启用库存管理。"
+
+#: includes/class-wc-ajax.php:1498
+msgid "Value"
+msgstr "值"
+
+#: includes/class-wc-ajax.php:2645
+msgid "Dismiss this notice."
+msgstr "忽略此提示"
+
+#: includes/class-wc-countries.php:515
+msgctxt "placeholder"
+msgid "Apartment, suite, unit etc. (optional)"
+msgstr "某单元几号"
+
+#: includes/class-wc-countries.php:650
+msgid "Canton"
+msgstr "坎顿"
+
+#: includes/class-wc-countries.php:620 includes/class-wc-countries.php:643
+#: includes/class-wc-countries.php:669 includes/class-wc-countries.php:734
+#: includes/class-wc-countries.php:754 includes/class-wc-countries.php:772
+#: includes/class-wc-countries.php:834 includes/class-wc-countries.php:860
+#: includes/class-wc-countries.php:907
+msgid "Province"
+msgstr "省级区域"
+
+#: includes/class-wc-countries.php:964
+msgid "Email Address"
+msgstr "电邮地址"
+
+#: includes/class-wc-coupon.php:687
+msgid "Coupon code applied successfully."
+msgstr "优惠码应用成功。"
+
+#: includes/class-wc-coupon.php:690
+msgid "Coupon code removed successfully."
+msgstr "优惠码移除成功。"
+
+#: includes/class-wc-coupon.php:708
+msgid "Coupon is not valid."
+msgstr "优惠码无效。"
+
+#: includes/class-wc-coupon.php:711
+msgid "Coupon \"%s\" does not exist!"
+msgstr "优惠码\"%s\" 不存在！"
+
+#: includes/class-wc-coupon.php:720
+msgid "Coupon code already applied!"
+msgstr "已用优惠码！"
+
+#: includes/class-wc-coupon.php:723
+msgid "Sorry, coupon \"%s\" has already been applied and cannot be used in conjunction with other coupons."
+msgstr "抱歉， 优惠码\"%s\"已经被使用，而且不能和其它优惠码一起使用。"
+
+#: includes/class-wc-coupon.php:717
+msgid "Sorry, it seems the coupon \"%s\" is not yours - it has now been removed from your order."
+msgstr "抱歉， 优惠码 \"%s\" 不是你的 - 已从订单中移除。"
+
+#: includes/class-wc-coupon.php:714
+msgid "Sorry, it seems the coupon \"%s\" is invalid - it has now been removed from your order."
+msgstr "抱歉， 优惠码 \"%s\" 无效 - 已从订单中移除。"
+
+#: includes/class-wc-coupon.php:726
+msgid "Coupon usage limit has been reached."
+msgstr "优惠码已过期。"
+
+#: includes/class-wc-coupon.php:729
+msgid "This coupon has expired."
+msgstr "抱歉， 此优惠券已过期。"
+
+#: includes/class-wc-coupon.php:735
+msgid "The maximum spend for this coupon is %s."
+msgstr "消费不多于 %s 可用此优惠码。"
+
+#: includes/class-wc-coupon.php:732
+msgid "The minimum spend for this coupon is %s."
+msgstr "消费不少于 %s 可用此优惠码。"
+
+#: includes/class-wc-coupon.php:738
+msgid "Sorry, this coupon is not applicable to your cart contents."
+msgstr "抱歉，此优惠码不适用于您所购的产品。"
+
+#: includes/class-wc-coupon.php:751
+msgid "Sorry, this coupon is not applicable to the products: %s."
+msgstr "抱歉，此优惠码不适用于这个产品：%s。"
+
+#: includes/class-wc-coupon.php:771
+msgid "Sorry, this coupon is not applicable to the categories: %s."
+msgstr "抱歉，此优惠码不适用于此分类：%s。"
+
+#: includes/class-wc-coupon.php:794
+msgid "Coupon does not exist!"
+msgstr "优惠码不存在！"
+
+#: includes/class-wc-coupon.php:774
+msgid "Sorry, this coupon is not valid for sale items."
+msgstr "抱歉，此优惠码不适用于促销产品。"
+
+#: includes/class-wc-download-handler.php:98
+#: includes/class-wc-form-handler.php:570
+#: includes/shortcodes/class-wc-shortcode-checkout.php:163
+#: includes/shortcodes/class-wc-shortcode-my-account.php:108
+msgid "Invalid order."
+msgstr "无效的订单。"
+
+#: includes/class-wc-download-handler.php:109
+msgid "Sorry, you have reached your download limit for this file"
+msgstr "抱歉，您已经达到这个文件的​​下载限制"
+
+#: includes/class-wc-download-handler.php:120
+msgid "Sorry, this download has expired"
+msgstr "抱歉，此下载已过期"
+
+#: includes/class-wc-download-handler.php:133
+#: includes/class-wc-download-handler.php:136
+msgid "You must be logged in to download files."
+msgstr "您必须在登录后才能下载此文件。"
+
+#: includes/class-wc-download-handler.php:136
+msgid "Log in to Download Files"
+msgstr "登录账户去下载文件"
+
+#: includes/class-wc-download-handler.php:139
+msgid "This is not your download link."
+msgstr "这不是您的下载链接。"
+
+#: includes/class-wc-download-handler.php:172
+msgid "No file defined"
+msgstr "文件未定义"
+
+#: includes/class-wc-download-handler.php:282
+msgid "File not found"
+msgstr "无法找到文件"
+
+#: includes/class-wc-emails.php:441
+msgid "Product Backorder"
+msgstr "产品预订"
+
+#: includes/class-wc-form-handler.php:447
+msgid "You can only have 1 %s in your cart."
+msgstr "您只能有 1件 %s在购物车里。"
+
+#: includes/class-wc-form-handler.php:537
+msgid "The cart has been filled with the items from your previous order."
+msgstr "您的购物车里累计数量已满。"
+
+#: includes/class-wc-form-handler.php:563
+msgid "Your order was cancelled."
+msgstr "您的订单已被取消。"
+
+#: includes/class-wc-form-handler.php:568
+msgid "Your order can no longer be cancelled. Please contact us if you need assistance."
+msgstr "无法取消订单，如果你需要帮助，请联系我们。"
+
+#: includes/class-wc-form-handler.php:739
+msgid "%s is a required field"
+msgid_plural "%s are required fields"
+msgstr[0] "%s是必填选项"
+
+#: includes/class-wc-form-handler.php:811
+msgid "You are now logged in as <strong>%s</strong>"
+msgstr "当前登录为 <strong>%s</strong>"
+
+#: includes/class-wc-frontend-scripts.php:242
+#: includes/wc-template-functions.php:1626
+msgid "required"
+msgstr "必填"
+
+#: includes/class-wc-language-pack-upgrader.php:254
+msgid "Seems you don't have permission to do this!"
+msgstr "看起来你没有进行此操作权限！"
+
+#: includes/class-wc-post-types.php:70
+msgid "Parent Product Category"
+msgstr "父级产品分类"
+
+#: includes/class-wc-post-types.php:71
+msgid "Parent Product Category:"
+msgstr "父级产品分类："
+
+#: includes/class-wc-post-types.php:180
+msgid "Parent %s"
+msgstr "父级 %s"
+
+#: includes/class-wc-post-types.php:181
+msgid "Parent %s:"
+msgstr "父级 %s:"
+
+#: includes/class-wc-post-types.php:247
+msgid "Parent Product"
+msgstr "父级产品"
+
+#: includes/class-wc-post-types.php:299
+msgid "Parent Orders"
+msgstr "父级订单"
+
+#: includes/class-wc-post-types.php:358
+msgid "Parent Coupon"
+msgstr "父级优惠券"
+
+#: includes/class-wc-post-types.php:357
+msgid "No Coupons found in trash"
+msgstr "回收站中没有优惠券"
+
+#: includes/class-wc-post-types.php:429 includes/wc-order-functions.php:26
+msgctxt "Order status"
+msgid "Processing"
+msgstr "处理中"
+
+#: includes/class-wc-post-types.php:437 includes/wc-order-functions.php:27
+msgctxt "Order status"
+msgid "On Hold"
+msgstr "保留"
+
+#: includes/class-wc-post-types.php:442
+msgid "On Hold <span class=\"count\">(%s)</span>"
+msgid_plural "On Hold <span class=\"count\">(%s)</span>"
+msgstr[0] "保留<span class=\"count\">(%s)</span>"
+
+#: includes/class-wc-post-types.php:469 includes/wc-order-functions.php:31
+msgctxt "Order status"
+msgid "Failed"
+msgstr "失败"
 
 #: includes/admin/views/html-admin-page-status-report.php:14
 msgid "Understanding the Status Report"
@@ -4488,18 +4488,6 @@ msgstr "页面没有设置"
 msgid "Page does not exist"
 msgstr "连接不存在"
 
-#: includes/admin/views/html-admin-page-status-report.php:507
-msgid "Page does not contain the shortcode: %s"
-msgstr "页面不包含简码: %s"
-
-#: includes/admin/views/html-admin-page-status-report.php:525
-msgid "Taxonomies"
-msgstr "分类"
-
-#: includes/admin/views/html-admin-page-status-report.php:525
-msgid "A list of taxonomy terms that can be used in regard to order/product statuses."
-msgstr "一个可以用来关于订购/产品状态的分类术语列表。"
-
 #: includes/admin/views/html-admin-page-status-report.php:530
 msgid "Product Types"
 msgstr "显示全部产品类型"
@@ -4639,23 +4627,6 @@ msgstr "日志"
 msgid "Save changes"
 msgstr "保存变更"
 
-#: includes/admin/views/html-bulk-edit-product.php:26
-#: includes/admin/views/html-bulk-edit-product.php:50
-#: includes/admin/views/html-bulk-edit-product.php:75
-#: includes/admin/views/html-bulk-edit-product.php:94
-#: includes/admin/views/html-bulk-edit-product.php:122
-#: includes/admin/views/html-bulk-edit-product.php:146
-#: includes/admin/views/html-bulk-edit-product.php:168
-#: includes/admin/views/html-bulk-edit-product.php:185
-#: includes/admin/views/html-bulk-edit-product.php:204
-#: includes/admin/views/html-bulk-edit-product.php:222
-#: includes/admin/views/html-bulk-edit-product.php:241
-#: includes/admin/views/html-bulk-edit-product.php:260
-#: includes/admin/views/html-bulk-edit-product.php:281
-#: includes/admin/views/html-bulk-edit-product.php:302
-msgid "— No Change —"
-msgstr "— 没有变化 —"
-
 #: includes/admin/views/html-bulk-edit-product.php:27
 #: includes/admin/views/html-bulk-edit-product.php:51
 #: includes/admin/views/html-bulk-edit-product.php:123
@@ -4663,11 +4634,6 @@ msgstr "— 没有变化 —"
 #: includes/admin/views/html-bulk-edit-product.php:261
 msgid "Change to:"
 msgstr "更改为："
-
-#: includes/admin/views/html-bulk-edit-product.php:28
-#: includes/admin/views/html-bulk-edit-product.php:52
-msgid "Increase by (fixed amount or %):"
-msgstr "增加 (按金额或者%)"
 
 #: includes/admin/views/html-bulk-edit-product.php:29
 #: includes/admin/views/html-bulk-edit-product.php:53
@@ -4682,10 +4648,6 @@ msgstr "填写价格 (%s)"
 #: includes/admin/views/html-quick-edit-product.php:40
 msgid "Sale"
 msgstr "销售"
-
-#: includes/admin/views/html-bulk-edit-product.php:54
-msgid "Decrease regular price by (fixed amount or %):"
-msgstr "降低价格（按金额或%）"
 
 #: includes/admin/views/html-bulk-edit-product.php:64
 msgid "Enter sale price (%s)"
@@ -4711,11 +4673,6 @@ msgstr "宽度 (%s)"
 #: includes/admin/views/html-bulk-edit-product.php:159
 msgid "Height (%s)"
 msgstr "高度 (%s)"
-
-#: includes/admin/views/html-bulk-edit-product.php:180
-#: includes/admin/views/html-quick-edit-product.php:138
-msgid "Visibility"
-msgstr "能见度"
 
 #: includes/admin/views/html-bulk-edit-product.php:186
 #: includes/admin/views/html-quick-edit-product.php:143
@@ -4845,24 +4802,11 @@ msgctxt "WC Pages links in the System Status"
 msgid "Edit %s page"
 msgstr "编辑%s页面"
 
-#: includes/api/class-wc-api-authentication.php:83
-#: includes/api/class-wc-api-authentication.php:115
-#: includes/api/v1/class-wc-api-authentication.php:115
-#: includes/api/v2/class-wc-api-authentication.php:115
-msgid "Consumer Secret is invalid"
-msgstr "Consumer Secret is invalid"
-
 #: includes/api/class-wc-api-authentication.php:145
 #: includes/api/v1/class-wc-api-authentication.php:148
 #: includes/api/v2/class-wc-api-authentication.php:148
 msgid "%s parameter is missing"
 msgstr "%s参数丢失"
-
-#: includes/api/class-wc-api-authentication.php:180
-#: includes/api/v1/class-wc-api-authentication.php:183
-#: includes/api/v2/class-wc-api-authentication.php:183
-msgid "Consumer Key is invalid"
-msgstr "Consumer Key is invalid"
 
 #: includes/api/class-wc-api-authentication.php:241
 #: includes/api/v1/class-wc-api-authentication.php:250
@@ -4888,12 +4832,6 @@ msgstr "无效签名 - 签名不匹配"
 msgid "Invalid timestamp"
 msgstr "无效时间戳"
 
-#: includes/api/class-wc-api-authentication.php:345
-#: includes/api/v1/class-wc-api-authentication.php:340
-#: includes/api/v2/class-wc-api-authentication.php:340
-msgid "Invalid nonce - nonce has already been used"
-msgstr "Invalid nonce - nonce has already been used"
-
 #: includes/api/class-wc-api-authentication.php:380
 #: includes/api/v1/class-wc-api-authentication.php:375
 #: includes/api/v2/class-wc-api-authentication.php:375
@@ -4911,37 +4849,6 @@ msgstr "当前所设置的API key没有写权限"
 #: includes/api/v2/class-wc-api-coupons.php:120
 msgid "Invalid coupon ID"
 msgstr "无效优惠券ID"
-
-#: includes/api/class-wc-api-coupons.php:166
-#: includes/api/v1/class-wc-api-coupons.php:153
-#: includes/api/v2/class-wc-api-coupons.php:166
-msgid "You do not have permission to read the coupons count"
-msgstr "无权读取优惠券数量"
-
-#: includes/api/class-wc-api-coupons.php:192
-#: includes/api/v1/class-wc-api-coupons.php:172
-#: includes/api/v2/class-wc-api-coupons.php:192
-msgid "Invalid coupon code"
-msgstr "无效优惠券"
-
-#: includes/api/class-wc-api-coupons.php:220
-#: includes/api/v2/class-wc-api-coupons.php:220
-msgid "You do not have permission to create coupons"
-msgstr "你没有权限创建优惠券。"
-
-#: includes/api/class-wc-api-coupons.php:227
-#: includes/api/class-wc-api-customers.php:359
-#: includes/api/class-wc-api-products.php:219
-#: includes/api/class-wc-api-products.php:2064
-#: includes/api/class-wc-api-server.php:427
-#: includes/api/v1/class-wc-api-server.php:409
-#: includes/api/v2/class-wc-api-coupons.php:227
-#: includes/api/v2/class-wc-api-customers.php:359
-#: includes/api/v2/class-wc-api-products.php:224
-#: includes/api/v2/class-wc-api-products.php:2069
-#: includes/api/v2/class-wc-api-server.php:427 includes/class-wc-auth.php:159
-msgid "Missing parameter %s"
-msgstr "缺少参数"
 
 #: includes/api/class-wc-api-coupons.php:242
 #: includes/api/class-wc-api-coupons.php:358
@@ -4977,42 +4884,6 @@ msgstr "无效的客户邮箱"
 msgid "You do not have permission to read the customers count"
 msgstr "你无权读取客户数量"
 
-#: includes/api/class-wc-api-customers.php:352
-#: includes/api/v1/class-wc-api-customers.php:211
-#: includes/api/v2/class-wc-api-customers.php:352
-msgid "You do not have permission to create this customer"
-msgstr "你无权创建客户"
-
-#: includes/api/class-wc-api-customers.php:726
-#: includes/api/v1/class-wc-api-customers.php:461
-#: includes/api/v2/class-wc-api-customers.php:726
-msgid "Invalid customer ID"
-msgstr "无效客户ID"
-
-#: includes/api/class-wc-api-customers.php:733
-#: includes/api/v1/class-wc-api-customers.php:467
-#: includes/api/v2/class-wc-api-customers.php:733
-msgid "Invalid customer"
-msgstr "无效客户"
-
-#: includes/api/class-wc-api-customers.php:741
-#: includes/api/v1/class-wc-api-customers.php:474
-#: includes/api/v2/class-wc-api-customers.php:741
-msgid "You do not have permission to read this customer"
-msgstr "你无权获取此客户信息"
-
-#: includes/api/class-wc-api-customers.php:747
-#: includes/api/v1/class-wc-api-customers.php:479
-#: includes/api/v2/class-wc-api-customers.php:747
-msgid "You do not have permission to edit this customer"
-msgstr "你无权编辑此客户信息"
-
-#: includes/api/class-wc-api-customers.php:753
-#: includes/api/v1/class-wc-api-customers.php:484
-#: includes/api/v2/class-wc-api-customers.php:753
-msgid "You do not have permission to delete this customer"
-msgstr "你无权删除此客户"
-
 #: includes/api/class-wc-api-json-handler.php:58
 #: includes/api/v1/class-wc-api-json-handler.php:59
 #: includes/api/v2/class-wc-api-json-handler.php:58
@@ -5036,13 +4907,6 @@ msgstr "你无权读取订单数量"
 msgid "You do not have permission to create orders"
 msgstr "你没有创建订单的权限"
 
-#: includes/api/class-wc-api-orders.php:407
-#: includes/api/class-wc-api-orders.php:566
-#: includes/api/v2/class-wc-api-orders.php:407
-#: includes/api/v2/class-wc-api-orders.php:566
-msgid "Customer ID is invalid"
-msgstr "客户ID无效"
-
 #: includes/api/class-wc-api-orders.php:417
 #: includes/api/v2/class-wc-api-orders.php:417
 msgid "Cannot create order: %s"
@@ -5052,20 +4916,6 @@ msgstr "无法创建订单：%s"
 #: includes/api/v2/class-wc-api-orders.php:451
 msgid "Payment method ID and title are required"
 msgstr "付款方式ID及标题必填"
-
-#: includes/api/class-wc-api-orders.php:467
-#: includes/api/class-wc-api-orders.php:637
-#: includes/api/v2/class-wc-api-orders.php:467
-#: includes/api/v2/class-wc-api-orders.php:637
-msgid "Provided order currency is invalid"
-msgstr "提供的订单货币无效"
-
-#: includes/api/class-wc-api-orders.php:545
-#: includes/api/class-wc-api-orders.php:1612
-#: includes/api/v2/class-wc-api-orders.php:545
-#: includes/api/v2/class-wc-api-orders.php:1611
-msgid "Order ID is invalid"
-msgstr "订单号是无效的"
 
 #: includes/api/class-wc-api-orders.php:886
 #: includes/api/v2/class-wc-api-orders.php:886
@@ -5307,11 +5157,6 @@ msgstr "无效的URL %s"
 msgid "Error getting remote image %s"
 msgstr "获取远程图片失败  %s"
 
-#: includes/api/class-wc-api-products.php:1847
-#: includes/api/v2/class-wc-api-products.php:1852
-msgid "Zero size file downloaded"
-msgstr "空文件已下载"
-
 #: includes/api/class-wc-api-products.php:1979
 #: includes/api/class-wc-api-products.php:2023
 #: includes/api/v2/class-wc-api-products.php:1984
@@ -5330,14 +5175,6 @@ msgstr "无效的产品属性ID"
 #: includes/api/v2/class-wc-api-products.php:2279
 msgid "A product attribute with the provided ID could not be found"
 msgstr "找不到与您提供的产品属性ID匹配的产品属性"
-
-#: includes/api/class-wc-api-products.php:2302
-#: includes/api/class-wc-api-resource.php:386
-#: includes/api/v1/class-wc-api-resource.php:325
-#: includes/api/v2/class-wc-api-products.php:2307
-#: includes/api/v2/class-wc-api-resource.php:386
-msgid "Deleted %s"
-msgstr "删除"
 
 #: includes/api/class-wc-api-reports.php:321
 #: includes/api/v1/class-wc-api-reports.php:471
@@ -5404,29 +5241,11 @@ msgstr "不能删除%s"
 msgid "Permanently deleted %s"
 msgstr "永久删除"
 
-#: includes/api/class-wc-api-server.php:164
-#: includes/api/v1/class-wc-api-server.php:170
-#: includes/api/v2/class-wc-api-server.php:164
-msgid "Invalid authentication method"
-msgstr "无效认证方式"
-
 #: includes/api/class-wc-api-server.php:318
 #: includes/api/v1/class-wc-api-server.php:321
 #: includes/api/v2/class-wc-api-server.php:318
 msgid "Unsupported request method"
 msgstr "不支持的请求方式"
-
-#: includes/api/class-wc-api-server.php:337
-#: includes/api/v1/class-wc-api-server.php:338
-#: includes/api/v2/class-wc-api-server.php:337
-msgid "The handler for the route is invalid"
-msgstr "The handler for the route is invalid"
-
-#: includes/api/class-wc-api-server.php:374
-#: includes/api/v1/class-wc-api-server.php:374
-#: includes/api/v2/class-wc-api-server.php:374
-msgid "No route was found matching the URL and request method"
-msgstr "No route was found matching the URL and request method"
 
 #: includes/api/class-wc-api-webhooks.php:143
 #: includes/api/v2/class-wc-api-webhooks.php:143
@@ -5437,11 +5256,6 @@ msgstr "你没有权限查看webhooks的数量。"
 #: includes/api/v2/class-wc-api-webhooks.php:176
 msgid "You do not have permission to create webhooks"
 msgstr "你没有权限创建webhooks"
-
-#: includes/api/class-wc-api-webhooks.php:183
-#: includes/api/v2/class-wc-api-webhooks.php:183
-msgid "Webhook topic is required and must be valid"
-msgstr "必须键入Webhook的主题，且主题必须有效"
 
 #: includes/api/class-wc-api-webhooks.php:188
 #: includes/api/class-wc-api-webhooks.php:279
@@ -5598,6 +5412,192 @@ msgstr "您没有读取产品数量的权限"
 msgid "The SKU already exists on another product"
 msgstr "该SKU已经存在于另一件产品上了"
 
+#: includes/admin/views/html-admin-page-status-report.php:525
+msgid "Taxonomies"
+msgstr "分类方法"
+
+#: includes/admin/views/html-admin-page-status-report.php:507
+msgid "Page does not contain the shortcode: %s"
+msgstr "页面不含短代码: %s"
+
+#: includes/admin/views/html-admin-page-status-report.php:525
+msgid "A list of taxonomy terms that can be used in regard to order/product statuses."
+msgstr "一个可以用来关于订购/产品状态的分类方法列表。"
+
+#: includes/admin/views/html-bulk-edit-product.php:28
+#: includes/admin/views/html-bulk-edit-product.php:52
+msgid "Increase by (fixed amount or %):"
+msgstr "增加 (按金额或者%)："
+
+#: includes/admin/views/html-bulk-edit-product.php:26
+#: includes/admin/views/html-bulk-edit-product.php:50
+#: includes/admin/views/html-bulk-edit-product.php:75
+#: includes/admin/views/html-bulk-edit-product.php:94
+#: includes/admin/views/html-bulk-edit-product.php:122
+#: includes/admin/views/html-bulk-edit-product.php:146
+#: includes/admin/views/html-bulk-edit-product.php:168
+#: includes/admin/views/html-bulk-edit-product.php:185
+#: includes/admin/views/html-bulk-edit-product.php:204
+#: includes/admin/views/html-bulk-edit-product.php:222
+#: includes/admin/views/html-bulk-edit-product.php:241
+#: includes/admin/views/html-bulk-edit-product.php:260
+#: includes/admin/views/html-bulk-edit-product.php:281
+#: includes/admin/views/html-bulk-edit-product.php:302
+msgid "— No Change —"
+msgstr "— 不变 —"
+
+#: includes/admin/views/html-bulk-edit-product.php:54
+msgid "Decrease regular price by (fixed amount or %):"
+msgstr "降低价格（固定金额或%）"
+
+#: includes/admin/views/html-bulk-edit-product.php:180
+#: includes/admin/views/html-quick-edit-product.php:138
+msgid "Visibility"
+msgstr "可见性"
+
+#: includes/api/class-wc-api-authentication.php:83
+#: includes/api/class-wc-api-authentication.php:115
+#: includes/api/v1/class-wc-api-authentication.php:115
+#: includes/api/v2/class-wc-api-authentication.php:115
+msgid "Consumer Secret is invalid"
+msgstr "Consumer Secret 无效"
+
+#: includes/api/class-wc-api-authentication.php:180
+#: includes/api/v1/class-wc-api-authentication.php:183
+#: includes/api/v2/class-wc-api-authentication.php:183
+msgid "Consumer Key is invalid"
+msgstr "Consumer Key 无效"
+
+#: includes/api/class-wc-api-authentication.php:345
+#: includes/api/v1/class-wc-api-authentication.php:340
+#: includes/api/v2/class-wc-api-authentication.php:340
+msgid "Invalid nonce - nonce has already been used"
+msgstr "无效 nonce - nonce 已被使用"
+
+#: includes/api/class-wc-api-coupons.php:166
+#: includes/api/v1/class-wc-api-coupons.php:153
+#: includes/api/v2/class-wc-api-coupons.php:166
+msgid "You do not have permission to read the coupons count"
+msgstr "您没有读取优惠券数量的权限"
+
+#: includes/api/class-wc-api-coupons.php:192
+#: includes/api/v1/class-wc-api-coupons.php:172
+#: includes/api/v2/class-wc-api-coupons.php:192
+msgid "Invalid coupon code"
+msgstr "无效的优惠码"
+
+#: includes/api/class-wc-api-coupons.php:220
+#: includes/api/v2/class-wc-api-coupons.php:220
+msgid "You do not have permission to create coupons"
+msgstr "你没有创建优惠券的权限。"
+
+#: includes/api/class-wc-api-coupons.php:227
+#: includes/api/class-wc-api-customers.php:359
+#: includes/api/class-wc-api-products.php:219
+#: includes/api/class-wc-api-products.php:2064
+#: includes/api/class-wc-api-server.php:427
+#: includes/api/v1/class-wc-api-server.php:409
+#: includes/api/v2/class-wc-api-coupons.php:227
+#: includes/api/v2/class-wc-api-customers.php:359
+#: includes/api/v2/class-wc-api-products.php:224
+#: includes/api/v2/class-wc-api-products.php:2069
+#: includes/api/v2/class-wc-api-server.php:427 includes/class-wc-auth.php:159
+msgid "Missing parameter %s"
+msgstr "缺少参数 %s"
+
+#: includes/api/class-wc-api-customers.php:726
+#: includes/api/v1/class-wc-api-customers.php:461
+#: includes/api/v2/class-wc-api-customers.php:726
+msgid "Invalid customer ID"
+msgstr "无效的顾客ID"
+
+#: includes/api/class-wc-api-customers.php:352
+#: includes/api/v1/class-wc-api-customers.php:211
+#: includes/api/v2/class-wc-api-customers.php:352
+msgid "You do not have permission to create this customer"
+msgstr "你无权创建顾客"
+
+#: includes/api/class-wc-api-customers.php:733
+#: includes/api/v1/class-wc-api-customers.php:467
+#: includes/api/v2/class-wc-api-customers.php:733
+msgid "Invalid customer"
+msgstr "无效的顾客"
+
+#: includes/api/class-wc-api-customers.php:741
+#: includes/api/v1/class-wc-api-customers.php:474
+#: includes/api/v2/class-wc-api-customers.php:741
+msgid "You do not have permission to read this customer"
+msgstr "你无权获取此顾客信息"
+
+#: includes/api/class-wc-api-customers.php:747
+#: includes/api/v1/class-wc-api-customers.php:479
+#: includes/api/v2/class-wc-api-customers.php:747
+msgid "You do not have permission to edit this customer"
+msgstr "你无权编辑此顾客信息"
+
+#: includes/api/class-wc-api-customers.php:753
+#: includes/api/v1/class-wc-api-customers.php:484
+#: includes/api/v2/class-wc-api-customers.php:753
+msgid "You do not have permission to delete this customer"
+msgstr "你无权删除此顾客"
+
+#: includes/api/class-wc-api-orders.php:407
+#: includes/api/class-wc-api-orders.php:566
+#: includes/api/v2/class-wc-api-orders.php:407
+#: includes/api/v2/class-wc-api-orders.php:566
+msgid "Customer ID is invalid"
+msgstr "顾客ID无效"
+
+#: includes/api/class-wc-api-orders.php:467
+#: includes/api/class-wc-api-orders.php:637
+#: includes/api/v2/class-wc-api-orders.php:467
+#: includes/api/v2/class-wc-api-orders.php:637
+msgid "Provided order currency is invalid"
+msgstr "提供的订单币种无效"
+
+#: includes/api/class-wc-api-orders.php:545
+#: includes/api/class-wc-api-orders.php:1612
+#: includes/api/v2/class-wc-api-orders.php:545
+#: includes/api/v2/class-wc-api-orders.php:1611
+msgid "Order ID is invalid"
+msgstr "订单ID是无效的"
+
+#: includes/api/class-wc-api-products.php:1847
+#: includes/api/v2/class-wc-api-products.php:1852
+msgid "Zero size file downloaded"
+msgstr "已下载空文件"
+
+#: includes/api/class-wc-api-products.php:2302
+#: includes/api/class-wc-api-resource.php:386
+#: includes/api/v1/class-wc-api-resource.php:325
+#: includes/api/v2/class-wc-api-products.php:2307
+#: includes/api/v2/class-wc-api-resource.php:386
+msgid "Deleted %s"
+msgstr "删除%s"
+
+#: includes/api/class-wc-api-server.php:164
+#: includes/api/v1/class-wc-api-server.php:170
+#: includes/api/v2/class-wc-api-server.php:164
+msgid "Invalid authentication method"
+msgstr "无效的认证方式"
+
+#: includes/api/class-wc-api-server.php:337
+#: includes/api/v1/class-wc-api-server.php:338
+#: includes/api/v2/class-wc-api-server.php:337
+msgid "The handler for the route is invalid"
+msgstr "此路由处理无效"
+
+#: includes/api/class-wc-api-server.php:374
+#: includes/api/v1/class-wc-api-server.php:374
+#: includes/api/v2/class-wc-api-server.php:374
+msgid "No route was found matching the URL and request method"
+msgstr "没找到符合此URL和请求方法的路由"
+
+#: includes/api/class-wc-api-webhooks.php:183
+#: includes/api/v2/class-wc-api-webhooks.php:183
+msgid "Webhook topic is required and must be valid"
+msgstr "必须键入Webhook的标题，且标题必须有效"
+
 #: includes/admin/settings/class-wc-settings-checkout.php:72
 msgid "Enable the use of coupons"
 msgstr "允许使用优惠券"
@@ -5621,14 +5621,6 @@ msgstr "强制安全结帐"
 #: includes/admin/settings/class-wc-settings-checkout.php:109
 msgid "Force SSL (HTTPS) on the checkout pages (a SSL Certificate is required)."
 msgstr "在结算页面(SSL许可证是必需的)强制使用SSL(HTTPS)。"
-
-#: includes/admin/settings/class-wc-settings-checkout.php:113
-msgid "Force HTTP when leaving the checkout"
-msgstr "离开结账页面的时候强制使用HTTP协议"
-
-#: includes/admin/settings/class-wc-settings-checkout.php:123
-msgid "Checkout Pages"
-msgstr "结账页"
 
 #: includes/admin/settings/class-wc-settings-checkout.php:123
 msgid "These pages need to be set so that WooCommerce knows where to send users to checkout."
@@ -5939,11 +5931,6 @@ msgstr "店铺页面显示"
 msgid "This controls what is shown on the product archive."
 msgstr "这将控制在产品归档页面显示什么."
 
-#: includes/admin/settings/class-wc-settings-products.php:111
-#: includes/admin/settings/class-wc-settings-products.php:127
-msgid "Show products"
-msgstr "产品数量显示："
-
 #: includes/admin/settings/class-wc-settings-products.php:112
 msgid "Show categories &amp; subcategories"
 msgstr "显示 类别 & 子类别"
@@ -5989,14 +5976,6 @@ msgstr "综合评级"
 msgid "Sort by most recent"
 msgstr "按最新的排序"
 
-#: includes/admin/settings/class-wc-settings-products.php:147
-msgid "Sort by price (asc)"
-msgstr "按价格从低到高"
-
-#: includes/admin/settings/class-wc-settings-products.php:148
-msgid "Sort by price (desc)"
-msgstr "按价格从低到高"
-
 #: includes/admin/settings/class-wc-settings-products.php:154
 msgid "Add to cart behaviour"
 msgstr "加入购物车的行为"
@@ -6021,17 +6000,9 @@ msgstr "分类图片"
 msgid "This size is usually used in product listings"
 msgstr "此大小通常用在产品清单"
 
-#: includes/admin/settings/class-wc-settings-products.php:197
-msgid "Single Product Image"
-msgstr "产品内页图像"
-
 #: includes/admin/settings/class-wc-settings-products.php:198
 msgid "This is the size used by the main image on the product page."
 msgstr "这大小是用于产品页面的主图像"
-
-#: includes/admin/settings/class-wc-settings-products.php:211
-msgid "Product Thumbnails"
-msgstr "产品缩略图"
 
 #: includes/admin/settings/class-wc-settings-products.php:212
 msgid "This size is usually used for the gallery of images on the product page."
@@ -6527,18 +6498,6 @@ msgstr "订单已更新"
 msgid "Order Deleted"
 msgstr "订单已删除"
 
-#: includes/admin/settings/views/html-webhooks-edit.php:60
-msgid "Product Created"
-msgstr "产品"
-
-#: includes/admin/settings/views/html-webhooks-edit.php:61
-msgid "Product Updated"
-msgstr "产品已更新"
-
-#: includes/admin/settings/views/html-webhooks-edit.php:62
-msgid "Product Deleted"
-msgstr "产品已删除"
-
 #: includes/admin/settings/views/html-webhooks-edit.php:63
 msgid "Action"
 msgstr "操作"
@@ -6819,6 +6778,47 @@ msgstr "是的，我要输入含税产品价格"
 #: includes/admin/settings/views/settings-tax.php:27
 msgid "No, I will enter prices exclusive of tax"
 msgstr "不，我要输入不含税的产品价格"
+
+#: includes/admin/settings/class-wc-settings-products.php:148
+msgid "Sort by price (desc)"
+msgstr "按价格 (从高到低)"
+
+#: includes/admin/settings/class-wc-settings-products.php:147
+msgid "Sort by price (asc)"
+msgstr "按价格 (从低到高)"
+
+#: includes/admin/settings/views/html-webhooks-edit.php:60
+msgid "Product Created"
+msgstr "产品被创建"
+
+#: includes/admin/settings/views/html-webhooks-edit.php:61
+msgid "Product Updated"
+msgstr "产品被更新"
+
+#: includes/admin/settings/views/html-webhooks-edit.php:62
+msgid "Product Deleted"
+msgstr "产品被删除"
+
+#: includes/admin/settings/class-wc-settings-products.php:197
+msgid "Single Product Image"
+msgstr "产品内页图像"
+
+#: includes/admin/settings/class-wc-settings-products.php:211
+msgid "Product Thumbnails"
+msgstr "产品缩略图"
+
+#: includes/admin/settings/class-wc-settings-products.php:111
+#: includes/admin/settings/class-wc-settings-products.php:127
+msgid "Show products"
+msgstr "显示产品"
+
+#: includes/admin/settings/class-wc-settings-checkout.php:113
+msgid "Force HTTP when leaving the checkout"
+msgstr "离开结算页面的时候强制使用HTTP协议"
+
+#: includes/admin/settings/class-wc-settings-checkout.php:123
+msgid "Checkout Pages"
+msgstr "结算页面"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:328
 msgid "If managing stock, this controls whether or not backorders are allowed. If enabled, stock quantity can go below 0."
@@ -8767,10 +8767,6 @@ msgstr "仅限个人"
 msgid "Check this box if the coupon cannot be used in conjunction with other coupons."
 msgstr "如果优惠券不能与其他优惠券一起使用请勾选此框"
 
-#: includes/admin/meta-boxes/class-wc-meta-box-coupon-data.php:93
-msgid "Exclude sale items"
-msgstr "所有多媒体项目"
-
 #: includes/admin/meta-boxes/class-wc-meta-box-coupon-data.php:100
 #: includes/admin/meta-boxes/class-wc-meta-box-coupon-data.php:118
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:490
@@ -9383,10 +9379,6 @@ msgstr "此工具会重新计算产品条目 - 当你修改设置将产品从分
 msgid "Products"
 msgstr "产品"
 
-#: includes/admin/meta-boxes/class-wc-meta-box-coupon-data.php:93
-msgid "Check this box if the coupon should not apply to items on sale. Per-item coupons will only work if the item is not on sale. Per-cart coupons will only work if there are no sale items in the cart."
-msgstr "如果优惠券不能应用到降价销售产品，请选中该复选框。选中复选框后，只有在没有降价产品时才能应用按单个产品优惠的优惠券；只有在购物车中没有降价产品时才能使用按购物车优惠的优惠券。"
-
 #: includes/admin/meta-boxes/class-wc-meta-box-coupon-data.php:188
 msgctxt "placeholder"
 msgid "Apply to all qualifying items in cart"
@@ -9421,6 +9413,14 @@ msgstr "在产品级别开启库存管理"
 #: includes/class-wc-countries.php:488 includes/class-wc-form-handler.php:177
 msgid "First Name"
 msgstr "名字"
+
+#: includes/admin/meta-boxes/class-wc-meta-box-coupon-data.php:93
+msgid "Exclude sale items"
+msgstr "排除促销产品"
+
+#: includes/admin/meta-boxes/class-wc-meta-box-coupon-data.php:93
+msgid "Check this box if the coupon should not apply to items on sale. Per-item coupons will only work if the item is not on sale. Per-cart coupons will only work if there are no sale items in the cart."
+msgstr "如果优惠券不能应用到促销产品，请选中该复选框。选中复选框后，只有在没有促销产品时才能应用按单个产品优惠的优惠券；只有在购物车中没有促销产品时才能使用按购物车优惠的优惠券。"
 
 #: includes/admin/class-wc-admin-pointers.php:74
 #: templates/single-product/tabs/description.php:16
@@ -11120,11 +11120,6 @@ msgstr "类型"
 msgid "Determines how you select attributes for products. Under admin panel -> products -> product data -> attributes -> values, <strong>Text</strong> allows manual entry whereas <strong>select</strong> allows pre-configured terms in a drop-down list."
 msgstr "决定你如何选择产品属性。在管理面板 - >产品 - >产品数据 - >属性 - >值, <strong>文字</strong> 允许手工输入而 <strong>选择</strong> 允许预先配置方面的一个下拉列表。"
 
-#: includes/admin/class-wc-admin-attributes.php:317
-#: includes/admin/class-wc-admin-attributes.php:473
-msgid "Default sort order"
-msgstr "新添订单"
-
 #: includes/admin/class-wc-admin-attributes.php:321
 #: includes/admin/class-wc-admin-attributes.php:388
 #: includes/admin/class-wc-admin-attributes.php:475
@@ -11136,12 +11131,6 @@ msgstr "自定义排序"
 #: includes/admin/class-wc-admin-attributes.php:477
 msgid "Name (numeric)"
 msgstr "名称(数字)"
-
-#: includes/admin/class-wc-admin-attributes.php:324
-#: includes/admin/class-wc-admin-attributes.php:385
-#: includes/admin/class-wc-admin-attributes.php:478
-msgid "Term ID"
-msgstr "分类方法 ID 无效"
 
 #: includes/admin/class-wc-admin-attributes.php:326
 #: includes/admin/class-wc-admin-attributes.php:480
@@ -11157,12 +11146,6 @@ msgstr "更新"
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:109
 msgid "Attributes"
 msgstr "属性"
-
-#: includes/admin/class-wc-admin-attributes.php:359
-#: includes/widgets/class-wc-widget-product-categories.php:49
-#: includes/widgets/class-wc-widget-products.php:53
-msgid "Order by"
-msgstr "排序方式为："
 
 #: includes/admin/class-wc-admin-attributes.php:360
 msgid "Terms"
@@ -11234,10 +11217,6 @@ msgstr "WooCommerce 状态"
 msgid "<strong>%s</strong> sales this month"
 msgstr "<strong>%s</strong> 本月销售"
 
-#: includes/admin/class-wc-admin-dashboard.php:142
-msgid "%s top seller this month (sold %d)"
-msgstr "%s 本月买的最好 (出售%d)"
-
 #: includes/admin/class-wc-admin-dashboard.php:148
 msgid "<strong>%s order</strong> awaiting processing"
 msgid_plural "<strong>%s orders</strong> awaiting processing"
@@ -11248,10 +11227,6 @@ msgid "<strong>%s order</strong> on-hold"
 msgid_plural "<strong>%s orders</strong> on-hold"
 msgstr[0] "<strong>%s 订单</strong> 保留"
 
-#: includes/admin/class-wc-admin-dashboard.php:200
-msgid "reviewed by"
-msgstr "品凭者"
-
 #: includes/admin/class-wc-admin-duplicate-product.php:47
 msgid "Make a duplicate from this product"
 msgstr "将这个产品复制一份"
@@ -11259,10 +11234,6 @@ msgstr "将这个产品复制一份"
 #: includes/admin/class-wc-admin-duplicate-product.php:48
 msgid "Duplicate"
 msgstr "复制"
-
-#: includes/admin/class-wc-admin-duplicate-product.php:74
-msgid "Copy to a new draft"
-msgstr "复制到一个新的草稿"
 
 #: includes/admin/class-wc-admin-duplicate-product.php:85
 msgid "No product to duplicate has been supplied!"
@@ -11315,11 +11286,6 @@ msgstr "Webhook设置"
 msgid "PayPal Standard"
 msgstr "PayPal 标准接口"
 
-#: includes/admin/class-wc-admin-help.php:81
-#: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:24
-msgid "Simplify Commerce"
-msgstr "简化商务"
-
 #: includes/admin/class-wc-admin-help.php:89
 #: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:30
 #: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:70
@@ -11331,19 +11297,6 @@ msgstr "免运费"
 #: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:98
 msgid "Local Delivery"
 msgstr "本地送货"
-
-#: includes/admin/class-wc-admin-help.php:97
-#: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:24
-#: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:75
-msgid "Local Pickup"
-msgstr "自提"
-
-#: includes/admin/class-wc-admin-help.php:101
-#: includes/admin/class-wc-admin-help.php:105
-#: includes/admin/class-wc-admin-help.php:109
-#: includes/admin/class-wc-admin-help.php:113
-msgid "Product Categories, Tags, Shipping Classes, &amp; Attributes"
-msgstr "产品分类、标签、配送类型以及属性"
 
 #: includes/admin/class-wc-admin-help.php:121
 #: includes/admin/class-wc-admin-help.php:188
@@ -11488,14 +11441,6 @@ msgstr "设置"
 msgid "WooCommerce Add-ons/Extensions"
 msgstr "WooCommerce 插件/扩展"
 
-#: includes/admin/class-wc-admin-menus.php:107
-msgid "Add-ons"
-msgstr "插件"
-
-#: includes/admin/class-wc-admin-menus.php:243
-msgid "WooCommerce Endpoints"
-msgstr "WooCommerce 特征值"
-
 #: includes/admin/class-wc-admin-menus.php:276
 msgid "Select All"
 msgstr "全选"
@@ -11519,17 +11464,9 @@ msgstr "产品简短描述"
 msgid "Product Data"
 msgstr "产品数据"
 
-#: includes/admin/class-wc-admin-meta-boxes.php:107
-msgid "Product Gallery"
-msgstr "创建相册"
-
 #: includes/admin/class-wc-admin-meta-boxes.php:112
 msgid "%s Data"
 msgstr "数据"
-
-#: includes/admin/class-wc-admin-meta-boxes.php:113
-msgid "%s Items"
-msgstr "物品"
 
 #: includes/admin/class-wc-admin-meta-boxes.php:114
 msgid "%s Notes"
@@ -12007,10 +11944,6 @@ msgid "<strong>%s product</strong> out of stock"
 msgid_plural "<strong>%s products</strong> out of stock"
 msgstr[0] "<strong>%s 产品</strong> 已售罄"
 
-#: includes/admin/class-wc-admin-dashboard.php:206
-msgid "There are no product reviews yet."
-msgstr "暂无产品评论。"
-
 #: includes/admin/class-wc-admin-help.php:117
 msgid "Simple Products"
 msgstr "简单产品"
@@ -12044,6 +11977,73 @@ msgstr "评分 %s /5"
 #: templates/single-product/review.php:30
 msgid "out of 5"
 msgstr "/5"
+
+#: includes/admin/class-wc-admin-attributes.php:317
+#: includes/admin/class-wc-admin-attributes.php:473
+msgid "Default sort order"
+msgstr "默认订单排序"
+
+#: includes/admin/class-wc-admin-attributes.php:324
+#: includes/admin/class-wc-admin-attributes.php:385
+#: includes/admin/class-wc-admin-attributes.php:478
+msgid "Term ID"
+msgstr "分类方法 ID"
+
+#: includes/admin/class-wc-admin-attributes.php:359
+#: includes/widgets/class-wc-widget-product-categories.php:49
+#: includes/widgets/class-wc-widget-products.php:53
+msgid "Order by"
+msgstr "排序方式"
+
+#: includes/admin/class-wc-admin-dashboard.php:142
+msgid "%s top seller this month (sold %d)"
+msgstr "%s 本月最佳买家 (出售%d)"
+
+#: includes/admin/class-wc-admin-dashboard.php:200
+msgid "reviewed by"
+msgstr "品评者"
+
+#: includes/admin/class-wc-admin-dashboard.php:206
+msgid "There are no product reviews yet."
+msgstr "暂无产品评价。"
+
+#: includes/admin/class-wc-admin-duplicate-product.php:74
+msgid "Copy to a new draft"
+msgstr "复制为一个新的草稿"
+
+#: includes/admin/class-wc-admin-help.php:81
+#: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:24
+msgid "Simplify Commerce"
+msgstr "Simplify Commerce"
+
+#: includes/admin/class-wc-admin-help.php:97
+#: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:24
+#: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:75
+msgid "Local Pickup"
+msgstr "上门自提"
+
+#: includes/admin/class-wc-admin-help.php:101
+#: includes/admin/class-wc-admin-help.php:105
+#: includes/admin/class-wc-admin-help.php:109
+#: includes/admin/class-wc-admin-help.php:113
+msgid "Product Categories, Tags, Shipping Classes, &amp; Attributes"
+msgstr "产品分类、标签、配送类型 &amp; 属性"
+
+#: includes/admin/class-wc-admin-menus.php:107
+msgid "Add-ons"
+msgstr "扩展插件"
+
+#: includes/admin/class-wc-admin-menus.php:243
+msgid "WooCommerce Endpoints"
+msgstr "WooCommerce 端点"
+
+#: includes/admin/class-wc-admin-meta-boxes.php:107
+msgid "Product Gallery"
+msgstr "产品相册"
+
+#: includes/admin/class-wc-admin-meta-boxes.php:113
+msgid "%s Items"
+msgstr "%s物品"
 
 #: i18n/states/TH.php:13
 msgid "Amnat Charoen (&#3629;&#3635;&#3609;&#3634;&#3592;&#3648;&#3592;&#3619;&#3636;&#3597;)"

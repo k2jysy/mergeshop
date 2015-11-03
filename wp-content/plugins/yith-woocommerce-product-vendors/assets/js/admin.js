@@ -76,13 +76,15 @@
 
 
     //Vendors options deps
-    var vendor_name_style = $('#yith_wpv_vendor_name_style');
+    var vendor_name_style   = $('#yith_wpv_vendor_name_style'),
+        vendor_order_refund = $('#yith_wpv_vendors_option_order_management');
     $('#yith_wpv_enable_product_amount').yith_wpv_option_deps( '#yith_wpv_vendors_product_limit', 'checkbox', undefined, false );
     $('#yith_wpv_report_abuse_link').yith_wpv_option_deps( '#yith_wpv_report_abuse_link_text', 'select', 'none', false );
     vendor_name_style.yith_wpv_option_deps( '#yith_vendors_color_name', 'select', 'theme', true );
     vendor_name_style.yith_wpv_option_deps( '#yith_vendors_color_name_hover', 'select', 'theme', true );
     $('#yith_wpv_vendors_my_account_registration').yith_wpv_option_deps( '#yith_wpv_vendors_my_account_registration_auto_approve', 'checkbox', undefined, false );
-    $('#yith_wpv_vendors_option_order_management').yith_wpv_option_deps( '#yith_wpv_vendors_option_order_synchronization', 'checkbox', undefined, false );
+    vendor_order_refund.yith_wpv_option_deps( '#yith_wpv_vendors_option_order_synchronization', 'checkbox', undefined, false );
+    vendor_order_refund.yith_wpv_option_deps( '#yith_wpv_vendors_option_order_refund_synchronization', 'checkbox', undefined, false );
 
     // Vendor taxonomy table
     var tax_table = $( '#the-list');

@@ -103,7 +103,7 @@ if(!function_exists('superstore_searchform')){
 	                <div class="filter_search pull-left">
 	                    <input name="s" id="s" maxlength="40"
 	                           class="form-control input-large input-search" type="text" size="20"
-	                           placeholder="Search...">
+	                           placeholder="查找商品...">
 	                <span class="input-group-addon input-large btn-search">
 	                    <input type="submit" id="searchsubmit" class="fa" value="&#xf002;"/>
 	                    <input type="hidden" name="post_type" value="product"/>

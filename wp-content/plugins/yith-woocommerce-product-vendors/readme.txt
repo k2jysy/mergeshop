@@ -1,10 +1,10 @@
-﻿=== YITH WooCommerce Multi Vendor ===
+=== YITH WooCommerce Multi Vendor ===
 
 Contributors: yithemes
 Tags: woocommerce multi vendor store, woocommerce marketplace, product vendors, vendors, vendor, multi store, multi vendor, multi seller, woocommerce product vendors, woocommerce multi vendor, commission rate, seller, shops, vendor shop, vendor system, woo vendors, wc vendors, e-commerce, multivendor, multivendors, wc multivendor, WooCommerce vedors, WooCommerce, Vendor, Multivendor, marketplace, seller, product vendor, product vendors, store, WooCommerce multivendor, Woo vendors, wc vendors, multistore, dc vendors, dc vendor, dc multi vendor, dc multi vendors, dc product vendor, dc product vendors, woocommerce marketplace, yit, yith, yithemes
 Requires at least: 4.0
 Tested up to: 4.3.1
-Stable tag: 1.6.3
+Stable tag: 1.7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html/
 
@@ -58,6 +58,7 @@ YITH WooCommerce Multi Vendor is **[100% WPML Compatible](https://wpml.org/plugi
 = PREMIUM FEATURES of YITH WooCommerce Multi Vendor =
 
 * Order management
+* Order refund management
 * Seller vacation module
 * Customise WooCommerce vendors’s pages with additional information (contact info, social networks etc.)
 * Name one or more administrators for your WooCommerce vendor shop
@@ -122,10 +123,6 @@ YITH WooCommerce Multi Vendor has been tested and compatibility is certain with 
 
 Are you curious to know what we are preparing for you?
 In the next versions of YITH WooCommerce Multi Vendor, in addition to the ones already mentioned you will also find the following new features:
-
-**Next Release**
-
-* Order refund management
 
 **Later Releases**
 
@@ -199,6 +196,19 @@ If none of the previous listed actions helps you solve the problem, then, submit
 YITH WooCommerce Multi Vendor will add a new tab called "Multi Vendor" in "YIT Plugins" menu item. There, you will find all Yithemes plugins with quick access to plugin setting page.
 
 == Changelog ==
+
+= 1.7.0 =
+
+* Added: New user role "Vendor" (Dashboard->Users)
+* Added: yit_wcmv_plugin_options_capability hook for admin panel capabilities
+* Tweak: User capabilities
+* Tweak: Performance improved with new plugin core 2.0
+* Fixed: Delete user capabilities after deactive or remove plugin
+* Fixed: Fields "Commission id" in commission table doesn't display correctly
+* Fixed: Wrong user capabilities after delete vendor account
+* Fixed: Add order link in dashboard menu
+* Fixed: Order managemet capabilities
+* Fixed: Order "Add New" button issue
 
 = 1.6.3 =
 

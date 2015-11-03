@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: YITH WooCommerce Multi Vendor\n"
-"POT-Creation-Date: 2015-10-14 17:26+0100\n"
-"PO-Revision-Date: 2015-06-19 16:58+0100\n"
+"POT-Creation-Date: 2015-11-02 14:38+0100\n"
+"PO-Revision-Date: 2015-07-23 14:59+0100\n"
 "Last-Translator: \n"
 "Language-Team: YIThemes <plugins@yithemes.com>\n"
 "Language: en\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.1\n"
-"X-Poedit-Basepath: ..\n"
+"X-Poedit-Basepath: ../\n"
 "Plural-Forms: nplurals=2; plural=n!=1;\n"
 "X-Poedit-KeywordsList: __ ;_e;_n:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
 "_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
@@ -70,7 +70,7 @@ msgstr ""
 #: includes/class.yith-commissions.php:276
 #: includes/class.yith-commissions.php:277
 #: includes/class.yith-commissions.php:1170
-#: includes/class.yith-vendors-admin.php:151
+#: includes/class.yith-vendors-admin.php:163
 msgid "Commissions"
 msgstr ""
 
@@ -95,7 +95,7 @@ msgid "Cancelled %s refund from order"
 msgstr ""
 
 #: includes/class.yith-commissions.php:1206
-#: includes/class.yith-orders.php:1449
+#: includes/class.yith-orders.php:1439
 msgid "commission_id"
 msgstr ""
 
@@ -128,152 +128,151 @@ msgstr ""
 msgid "Item #%s stock increased from %s to %s."
 msgstr ""
 
-#: includes/class.yith-orders.php:1507
+#: includes/class.yith-orders.php:1497
 msgctxt "Admin: Order table column"
 msgid "Suborders"
 msgstr ""
 
-#: includes/class.yith-orders.php:1546 includes/class.yith-orders.php:1610
+#: includes/class.yith-orders.php:1536 includes/class.yith-orders.php:1604
 msgid "in"
 msgstr ""
 
-#: includes/class.yith-orders.php:1574
+#: includes/class.yith-orders.php:1568
 msgctxt "Admin: Single order page. Suborder details box"
 msgid "Suborders"
 msgstr ""
 
-#: includes/class.yith-orders.php:1574
+#: includes/class.yith-orders.php:1568
 msgid ""
 "Note: from this box you can monitor the status of suborders associated to "
 "individual vendors."
 msgstr ""
 
-#: includes/class.yith-orders.php:1579
+#: includes/class.yith-orders.php:1573
 msgctxt "Admin: Single order page. Parent order details box"
 msgid "Parent order"
 msgstr ""
 
-#: includes/class.yith-orders.php:1621
+#: includes/class.yith-orders.php:1615
 msgctxt "Admin: single order page. Link to parent order"
 msgid "Return to main order"
 msgstr ""
 
-#: includes/class.yith-vendors-admin.php:152
-#: includes/class.yith-vendors.php:269
+#: includes/class.yith-vendors-admin.php:164
+#: includes/class.yith-vendors.php:286
 msgid "Vendors"
 msgstr ""
 
-#: includes/class.yith-vendors-admin.php:153
-#: includes/class.yith-vendors-admin.php:897
+#: includes/class.yith-vendors-admin.php:165
+#: includes/class.yith-vendors-admin.php:917
 msgid "Premium Version"
 msgstr ""
 
-#: includes/class.yith-vendors-admin.php:160
-#: includes/class.yith-vendors-admin.php:161
+#: includes/class.yith-vendors-admin.php:172
+#: includes/class.yith-vendors-admin.php:173
 msgid "Multi Vendor"
 msgstr ""
 
-#: includes/class.yith-vendors-admin.php:295
+#: includes/class.yith-vendors-admin.php:306
 #, php-format
 msgid ""
 "You do not have permission to edit this product. %1$sClick here to view and "
 "edit your products%2$s."
 msgstr ""
 
-#: includes/class.yith-vendors-admin.php:339
-#: includes/class.yith-vendors-admin.php:340
-#: templates/admin/vendor-admin.php:17
-msgid "Vendor Details"
+#: includes/class.yith-vendors-admin.php:350
+#: includes/class.yith-vendors-admin.php:351
+msgid "Vendor Profile"
 msgstr ""
 
-#: includes/class.yith-vendors-admin.php:480
-#: includes/class.yith-vendors-admin.php:500
+#: includes/class.yith-vendors-admin.php:491
+#: includes/class.yith-vendors-admin.php:511
 msgid "A vendor with this name already exists."
 msgstr ""
 
-#: includes/class.yith-vendors-admin.php:481
+#: includes/class.yith-vendors-admin.php:492
 msgid "Vendor name already exists"
 msgstr ""
 
-#: includes/class.yith-vendors-admin.php:811
+#: includes/class.yith-vendors-admin.php:831
 #, php-format
 msgid "No %s"
 msgstr ""
 
-#: includes/class.yith-vendors-admin.php:892
+#: includes/class.yith-vendors-admin.php:912
 msgid "Settings"
 msgstr ""
 
-#: includes/class.yith-vendors-admin.php:893
+#: includes/class.yith-vendors-admin.php:913
 msgid "Premium live demo"
 msgstr ""
 
-#: includes/class.yith-vendors-admin.php:893
+#: includes/class.yith-vendors-admin.php:913
 msgid "Live demo"
 msgstr ""
 
-#: includes/class.yith-vendors-admin.php:921
+#: includes/class.yith-vendors-admin.php:941
 msgid "Plugin Documentation"
 msgstr ""
 
-#: includes/class.yith-vendors-admin.php:1013
+#: includes/class.yith-vendors-admin.php:1033
 msgid "Visit Store"
 msgstr ""
 
-#: includes/class.yith-vendors.php:267 includes/class.yith-vendors.php:268
+#: includes/class.yith-vendors.php:284 includes/class.yith-vendors.php:285
 #: templates/admin/commission-view.php:193
 msgid "Vendor"
 msgstr ""
 
-#: includes/class.yith-vendors.php:270
+#: includes/class.yith-vendors.php:287
 msgid "Search Vendors"
 msgstr ""
 
-#: includes/class.yith-vendors.php:271
+#: includes/class.yith-vendors.php:288
 msgid "All Vendors"
 msgstr ""
 
-#: includes/class.yith-vendors.php:272
+#: includes/class.yith-vendors.php:289
 msgid "Parent Vendor"
 msgstr ""
 
-#: includes/class.yith-vendors.php:273
+#: includes/class.yith-vendors.php:290
 msgid "Parent Vendor:"
 msgstr ""
 
-#: includes/class.yith-vendors.php:274
+#: includes/class.yith-vendors.php:291
 msgid "View Vendor"
 msgstr ""
 
-#: includes/class.yith-vendors.php:275
+#: includes/class.yith-vendors.php:292
 msgid "Edit Vendor"
 msgstr ""
 
-#: includes/class.yith-vendors.php:276
+#: includes/class.yith-vendors.php:293
 msgid "Update Vendor"
 msgstr ""
 
-#: includes/class.yith-vendors.php:277
+#: includes/class.yith-vendors.php:294
 msgid "Add New Vendor"
 msgstr ""
 
-#: includes/class.yith-vendors.php:278
+#: includes/class.yith-vendors.php:295
 msgid "New Vendor's Name"
 msgstr ""
 
-#: includes/class.yith-vendors.php:280
+#: includes/class.yith-vendors.php:297
 msgid "Separate vendors with commas"
 msgstr ""
 
-#: includes/class.yith-vendors.php:281
+#: includes/class.yith-vendors.php:298
 msgid "Add or remove vendors"
 msgstr ""
 
-#: includes/class.yith-vendors.php:282
+#: includes/class.yith-vendors.php:299
 msgid "Choose from most used vendors"
 msgstr ""
 
-#: includes/class.yith-vendors.php:283
+#: includes/class.yith-vendors.php:300
 msgid "No vendors found"
 msgstr ""
 
@@ -370,6 +369,34 @@ msgstr ""
 
 #: includes/lib/class.yith-commissions-list-table.php:376
 msgid "No commissions found."
+msgstr ""
+
+#: includes/widgets/class.yith-woocommerce-vendors-widget.php:29
+msgid "YITH Vendor List"
+msgstr ""
+
+#: includes/widgets/class.yith-woocommerce-vendors-widget.php:31
+msgid "Display the list with enabled vendors."
+msgstr ""
+
+#: includes/widgets/class.yith-woocommerce-vendors-widget.php:67
+msgid "Vendor List"
+msgstr ""
+
+#: includes/widgets/class.yith-woocommerce-vendors-widget.php:76
+msgid "Title"
+msgstr ""
+
+#: includes/widgets/class.yith-woocommerce-vendors-widget.php:81
+msgid "Hide this widget on vendor page"
+msgstr ""
+
+#: includes/widgets/class.yith-woocommerce-vendors-widget.php:86
+msgid "Vendor's products amount"
+msgstr ""
+
+#: includes/widgets/class.yith-woocommerce-vendors-widget.php:91
+msgid "Hide vendors with no products"
 msgstr ""
 
 #: init.php:34
@@ -603,14 +630,14 @@ msgstr ""
 msgid "Percentage of the total sale price that this vendor receives."
 msgstr ""
 
-#: templates/admin/premium.php:239 templates/admin/premium.php:677
+#: templates/admin/premium.php:239 templates/admin/premium.php:723
 #, php-format
 msgid ""
 "Upgrade to the %1$spremium version%2$s of %1$sYITH WooCommerce Multi Vendor"
 "%2$s to benefit from all features!"
 msgstr ""
 
-#: templates/admin/premium.php:243 templates/admin/premium.php:681
+#: templates/admin/premium.php:243 templates/admin/premium.php:727
 #, php-format
 msgid "%1$s UPGRADE %2$s %3$s to the premium version %2$s"
 msgstr ""
@@ -806,25 +833,25 @@ msgid ""
 "hide them whenever you want with three different options."
 msgstr ""
 
-#: templates/admin/premium.php:516
-msgid "REGISTRATION FROM THE “MY ACCOUNT” PAGE"
+#: templates/admin/premium.php:515
+msgid "VENDOR REGISTRATION"
 msgstr ""
 
-#: templates/admin/premium.php:519
+#: templates/admin/premium.php:518
+#, php-format
 msgid ""
-"A more dynamic management for whoever would like to become a vendor of your "
-"store. All new users can register as \"vendors\" of the shop directly from "
-"the \"My Account\" page, and use immediately an administration area. After "
-"the confirmation by the administrator, the vendors will be able to sell "
-"their products. Depending on the configuration, the registration request can "
-"be automatically accepted, or require the approval of the administrator."
+"A more dynamic management for whoever wants to become a vendor in your "
+"store. It doesn't matter whether you are a registered user or a new one: "
+"everyone will be free to register as a vendor with the related "
+"%1$sregistration form.%2$s Following your settings, the registration request "
+"can be accepted automatically or manually by administrators"
 msgstr ""
 
-#: templates/admin/premium.php:537
+#: templates/admin/premium.php:535
 msgid "RESTRICTED NUMBER OF PRODUCTS"
 msgstr ""
 
-#: templates/admin/premium.php:540
+#: templates/admin/premium.php:538
 msgid ""
 "The option “Enable product amount limit” has been conceived to whoever would "
 "like to limit the creation of products of the shop vendors, with the freedom "
@@ -832,11 +859,11 @@ msgid ""
 "create."
 msgstr ""
 
-#: templates/admin/premium.php:550
+#: templates/admin/premium.php:548
 msgid "BULK ACTIONS ON VENDORS"
 msgstr ""
 
-#: templates/admin/premium.php:553
+#: templates/admin/premium.php:551
 msgid ""
 "How many times did you find yourself annoyed by the repetition of the same "
 "passages with a huge waste of time? Well, now vendors management is "
@@ -845,11 +872,11 @@ msgid ""
 "click."
 msgstr ""
 
-#: templates/admin/premium.php:569
+#: templates/admin/premium.php:567
 msgid "Advanced administration area for each vendor"
 msgstr ""
 
-#: templates/admin/premium.php:572
+#: templates/admin/premium.php:570
 msgid ""
 "A breath of fresh air for the \"vendor users\" that can take advantage of a "
 "big and advanced administrative area. From this place, they will be free to "
@@ -859,22 +886,22 @@ msgid ""
 "moment."
 msgstr ""
 
-#: templates/admin/premium.php:582
+#: templates/admin/premium.php:580
 msgid "ABUSE REPORT"
 msgstr ""
 
-#: templates/admin/premium.php:585
+#: templates/admin/premium.php:583
 msgid ""
 "With this feature, your users will be able to send you a message about one "
 "of the products of your shop with a dedicated form that will open in a popup "
 "within the related product detail page."
 msgstr ""
 
-#: templates/admin/premium.php:601
+#: templates/admin/premium.php:599
 msgid "Second email"
 msgstr ""
 
-#: templates/admin/premium.php:604
+#: templates/admin/premium.php:602
 msgid ""
 "Each time that a new order is registered or cancelled, a notification email "
 "is sent to the corresponding vendor. This sending can sometimes be affected "
@@ -884,11 +911,11 @@ msgid ""
 "solved."
 msgstr ""
 
-#: templates/admin/premium.php:614
+#: templates/admin/premium.php:612
 msgid "Minimum amount of commissions"
 msgstr ""
 
-#: templates/admin/premium.php:617
+#: templates/admin/premium.php:615
 msgid ""
 "If each vendor can decide a commission threshold for which asking the "
 "payment, administrators must be free to control how this works.Setting a "
@@ -896,11 +923,11 @@ msgid ""
 "from the amount you have set."
 msgstr ""
 
-#: templates/admin/premium.php:633
+#: templates/admin/premium.php:631
 msgid "Highlighted products"
 msgstr ""
 
-#: templates/admin/premium.php:636
+#: templates/admin/premium.php:634
 msgid ""
 "Setting a WooCommerce product as \"Featured\" means standing it out among "
 "the others, maybe putting it in the main part of the homepage, or in one of "
@@ -908,22 +935,22 @@ msgid ""
 "be free to allow or block vendors to set their products as \"featured\"."
 msgstr ""
 
-#: templates/admin/premium.php:646
+#: templates/admin/premium.php:644
 msgid "Sales amount"
 msgstr ""
 
-#: templates/admin/premium.php:649
+#: templates/admin/premium.php:647
 msgid ""
 "Enrich your shop with more information. Show the amount of sales made by "
 "each vendor, placing it in the detail page of the related product, and for "
 "each single product assigned to a vendor."
 msgstr ""
 
-#: templates/admin/premium.php:665
+#: templates/admin/premium.php:663
 msgid "Shop closed"
 msgstr ""
 
-#: templates/admin/premium.php:668
+#: templates/admin/premium.php:666
 msgid ""
 "Even the owners of online shops need a break, maybe for deserved vacations "
 "or for other reasons. Therefore, when administrators offers this freedom to "
@@ -931,6 +958,47 @@ msgid ""
 "message to users. Vendors will also be free to decide whether they want to "
 "keep their products purchasable, or showing them in catalogue mode with no "
 "opportunity to add them to the cart. "
+msgstr ""
+
+#: templates/admin/premium.php:676
+msgid "Vendor Chat"
+msgstr ""
+
+#: templates/admin/premium.php:679
+#, php-format
+msgid ""
+"Thanks to the integration with %1$sYITH Live Chat%2$s, vendors of your site "
+"will be free to answer immediately to their customers' questions. In this "
+"way, vendors and purchasers will be even nearer, for a complete success of "
+"your e-commerce."
+msgstr ""
+
+#: templates/admin/premium.php:695
+msgid "VAT numbers"
+msgstr ""
+
+#: templates/admin/premium.php:698
+msgid ""
+"If you need the VAT number of your vendors, make it mandatory during the "
+"registration. In this way, no request to become vendor could be completed "
+"without adding the VAT number, as this can also be showed in the related "
+"detailed vendor's page."
+msgstr ""
+
+#: templates/admin/premium.php:708
+msgid "Refund management"
+msgstr ""
+
+#: templates/admin/premium.php:711
+msgid ""
+"Now refund management can be designated to the vendors of your shop. In "
+"fact, they will be able to refund partially or totally users about the "
+"products they own, with a related recalculation of the commissions received. "
+"Another way to empower your vendors about the management of their shops."
+msgstr ""
+
+#: templates/admin/vendor-admin.php:17
+msgid "Vendor Details"
 msgstr ""
 
 #: templates/admin/vendor-admin.php:24
@@ -972,32 +1040,4 @@ msgstr ""
 #: templates/woocommerce/loop/vendor-name-title.php:20
 #: templates/woocommerce/single-product/vendor-name-title.php:20
 msgid "by"
-msgstr ""
-
-#: widgets/class.yith-woocommerce-vendors-widget.php:29
-msgid "YITH Vendor List"
-msgstr ""
-
-#: widgets/class.yith-woocommerce-vendors-widget.php:31
-msgid "Display the list with enabled vendors."
-msgstr ""
-
-#: widgets/class.yith-woocommerce-vendors-widget.php:67
-msgid "Vendor List"
-msgstr ""
-
-#: widgets/class.yith-woocommerce-vendors-widget.php:76
-msgid "Title"
-msgstr ""
-
-#: widgets/class.yith-woocommerce-vendors-widget.php:81
-msgid "Hide this widget on vendor page"
-msgstr ""
-
-#: widgets/class.yith-woocommerce-vendors-widget.php:86
-msgid "Vendor's products amount"
-msgstr ""
-
-#: widgets/class.yith-woocommerce-vendors-widget.php:91
-msgid "Hide vendors with no products"
 msgstr ""

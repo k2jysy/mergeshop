@@ -652,7 +652,7 @@ if ( ! class_exists( 'YITH_Orders' ) ) {
             if ( ! is_array( $order_item_ids ) && is_numeric( $order_item_ids ) ) {
                 $order_item_ids = array( $order_item_ids );
             }
-//TODO: add check order_id if ( ! wp_get_post_parent_id( $parent_order_id ) ) {
+            //TODO: add check order_id if ( ! wp_get_post_parent_id( $parent_order_id ) ) {
             if ( sizeof( $order_item_ids ) > 0 ) {
                 /** @var $wpdb wpdb */
                 global $wpdb;
@@ -1387,11 +1387,6 @@ if ( ! class_exists( 'YITH_Orders' ) ) {
                     }
                 }
             }
-
-            else{
-                //is suborder
-                //TODO: Suborder sub-routine
-            }
         }
 
         /**
@@ -1419,11 +1414,6 @@ if ( ! class_exists( 'YITH_Orders' ) ) {
                         wp_delete_post( $child_refund_id );
                     }
                 }
-            }
-
-            else{
-                //is suborder
-                //TODO: Suborder sub-routine
             }
         }
 
@@ -1482,7 +1472,7 @@ if ( ! class_exists( 'YITH_Orders' ) ) {
          * @author   Andrea Grillo <andrea.grillo@yithemes.com>
          */
         public function hidden_order_itemmeta( $to_hidden ) {
-            if( ! defined( 'WP_DEBUG' ) ){
+            if( ! defined( 'WP_DEBUG' ) || ( defined( 'WP_DEBUG' ) && ! WP_DEBUG ) ){
                 $to_hidden[] = '_parent_line_item_id';
             }
 
@@ -1564,6 +1554,10 @@ if ( ! class_exists( 'YITH_Orders' ) ) {
           * @author Andrea Grillo <andrea.grillo@yithemes.com>
          */
         public function add_meta_boxes() {
+            if( 'shop_order' != get_current_screen()->id ){
+                return;
+            }
+
             global $post;
             $vendor         = yith_get_vendor( 'current', 'user' );
             $has_suborder   = self::get_suborder( absint( $post->ID ) );

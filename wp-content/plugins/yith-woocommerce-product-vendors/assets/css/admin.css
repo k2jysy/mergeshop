@@ -82,12 +82,17 @@ select#tax-input-yith_shop_vendor {
 .taxonomy-yith_shop_vendor table.wp-list-table .column-registration_date,
 .taxonomy-yith_shop_vendor table.wp-list-table .column-posts,
 .taxonomy-yith_shop_vendor table.wp-list-table .column-owner,
-.taxonomy-yith_shop_vendor table.wp-list-table .column-actions{
+.taxonomy-yith_shop_vendor table.wp-list-table .column-vat,
+.taxonomy-yith_shop_vendor table.wp-list-table .column-user_actions {
     border-bottom: 1px solid #e1e1e1;
 }
 
+.taxonomy-yith_shop_vendor table.wp-list-table .column-user_actions{
+    width: auto !important;
+}
+
 .widefat .column-commission_id {
-    width: 50px;
+    min-width: 50px;
     text-align: center
 }
 
@@ -105,6 +110,7 @@ select#tax-input-yith_shop_vendor {
 .widefat .column-commission_status mark,
 .widefat .column-enable_sales mark,
 .widefat .column-suborder mark,
+.widefat .column-vat mark,
 .single-orders.suborders-list .suborder-info mark {
     display: block;
     text-indent: -9999px;
@@ -120,7 +126,8 @@ select#tax-input-yith_shop_vendor {
     display: inline-block;
 }
 
-.widefat .column-enable_sales {
+.widefat .column-enable_sales,
+.widefat .column-vat {
     text-align: center;
 }
 
@@ -148,6 +155,7 @@ select#tax-input-yith_shop_vendor {
 .widefat .column-commission_status mark.processing:after,
 .widefat .column-enable_sales mark:after,
 .widefat .column-suborder mark:after,
+.widefat .column-vat mark:after,
 .single-orders.suborders-list .suborder-info mark:after {
     font-family: WooCommerce;
     speak: none;
@@ -182,12 +190,14 @@ select#tax-input-yith_shop_vendor {
 
 .widefat .column-user_actions .action-link mark.paid:after,
 .widefat .column-commission_status mark.paid:after,
-.widefat .column-enable_sales mark.enabled:after {
+.widefat .column-enable_sales mark.enabled:after,
+.widefat .column-vat mark.vat:after {
     content: "\e015";
     color: #2ea2cc
 }
 
-.widefat .column-enable_sales mark.enabled:after {
+.widefat .column-enable_sales mark.enabled:after,
+.widefat .column-vat mark.vat:after {
     color: #0EB72C;
 }
 
@@ -217,7 +227,8 @@ select#tax-input-yith_shop_vendor {
     color: #73a724;
 }
 
-.widefat .column-enable_sales mark.no-owner:after {
+.widefat .column-enable_sales mark.no-owner:after,
+.widefat .column-vat mark.no-vat:after {
     content: "\e016";
     color: #2ea2cc;
 }
@@ -309,8 +320,29 @@ small.yith-wcmv-suborder-owner:not(.single-order) {
   margin-bottom: 10px;
 }
 
+#vendor-details input[type=text].required,
+input#yith_vendor_vat.required {
+    border-color: #dc3232;
+    -webkit-box-shadow: 0 0 2px rgba( 204, 0, 0, 0.8 );
+    box-shadow: 0 0 2px rgba( 204, 0, 0, 0.8 );
+}
+
+.yith-field-check.required.vat{
+     color: #dc3232;
+     font-weight: bold;
+ }
+
+input#yith_vendor_vat.valid {
+    border: 2px solid #2C9B29;
+}
+
+.yith-field-check.valid.vat{
+     color: #2c9b29;
+     font-weight: bold;
+ }
+
 #vendor-details .form-field textarea:not(.wp-editor-area){
-    width: 100%;
+    width: 40%;
     resize: none;
 }
 
@@ -374,13 +406,16 @@ small.yith-wcmv-suborder-owner:not(.single-order) {
 /* Orders */
 body.vendor_limited_access .woocommerce_order_items_wrapper table.woocommerce_order_items td.line_tax .delete-order-tax,
 body.vendor_limited_access .woocommerce_order_items_wrapper table.woocommerce_order_items th.line_tax .delete-order-tax,
-body.vendor_limited_access .wc-order-items-editable .wc-order-edit-line-item-actions,
-body.vendor_limited_access #woocommerce-order-items .add-items .button.refund-items,
+body.vendor_limited_access:not(.vendor_refund_management) .wc-order-items-editable .wc-order-edit-line-item-actions,
+body.vendor_limited_access:not(.vendor_refund_management) #woocommerce-order-items .add-items .button.refund-items,
 body.vendor_limited_access #woocommerce-order-items .add-items .description,
+body.vendor_limited_access #woocommerce-order-items .add-items .add-line-item,
+body.vendor_limited_access #woocommerce-order-items .add-items .add-order-tax,
+body.vendor_limited_access #woocommerce-order-items .add-items .calculate-tax-action,
+body.vendor_limited_access #woocommerce-order-items .add-items .calculate-action,
 body.vendor_super_user.vendor_suborder_detail .woocommerce_order_items_wrapper table.woocommerce_order_items td.line_tax .delete-order-tax,
 body.vendor_super_user.vendor_suborder_detail .woocommerce_order_items_wrapper table.woocommerce_order_items th.line_tax .delete-order-tax,
-body.vendor_super_user.vendor_suborder_detail .wc-order-items-editable .wc-order-edit-line-item-actions,
-body.vendor_super_user.vendor_suborder_detail #woocommerce-order-items .add-items .button.refund-items,
+body.vendor_super_user.vendor_suborder_detail #woocommerce-order-items .wc-order-data-row p.add-items button:not(.refund-items),
 body.vendor_super_user.vendor_suborder_detail #woocommerce-order-items .add-items .description {
     display: none;
 }
@@ -402,3 +437,40 @@ span.vacation-date-field {
     display: none;
 }
 
+.user_actions .edit_extra_info:after {
+    content: "\e603";
+}
+
+.user_actions .edit_extra_info:after {
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+    font-family: WooCommerce;
+    speak: none;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    top: 0;
+    left: 0;
+    line-height: 1.85;
+}
+
+.user_actions .edit_extra_info:after {
+    text-indent: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.user_actions .edit_extra_info {
+    display: block;
+    text-indent: -9999px;
+    position: relative;
+    padding: 0!important;
+    height: 2em!important;
+    width: 2em;
+}
+
+.vendor_limited_access #adminmenu #menu-posts-shop_order .wp-submenu li:last-child {
+    display: none;
+}

@@ -53,15 +53,14 @@ function yith_vendors_update_db_1_0_2() {
 //Add support to YITH Product Vendors db version 1.0.6
 function yith_vendors_update_db_1_0_3(){
     $vendors_db_option = get_option( 'yith_product_vendors_db_version' );
-    if ( $vendors_db_option && version_compare( $vendors_db_option, '1.0.2', '<' ) ) {
+    if ( $vendors_db_option && version_compare( $vendors_db_option, '1.0.3', '<' ) ) {
         /**
          * Create "Become a Vendor" Page
          */
-
-        if( defined( 'YITH_WPV_PREMIUM' ) ){
+         if( defined( 'YITH_WPV_PREMIUM' ) ){
             $become_a_vendor_page = get_option( 'yith_wpv_become_a_vendor_page_id' );
             $become_a_vendor_page === false && YITH_Vendors_Admin_Premium::create_become_a_vendor_page();
-        }
+         }
 
         /**
          * Show Gravatar Option

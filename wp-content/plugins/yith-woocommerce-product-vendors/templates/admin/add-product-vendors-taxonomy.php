@@ -10,7 +10,7 @@
 ?>
 <div class="form-field yith-choosen">
     <label for="yith_vendor_owner"><?php _e( 'Vendor Shop Owner', 'yith_wc_product_vendors' ); ?></label>
-    <select name="yith_vendor_data[owner]" id="yith_vendor_owner" class="ajax_chosen_select_customer" style="width:95%;" data-placeholder="Search for users">
+    <select name="yith_vendor_data[owner]" id="yith_vendor_owner" class="ajax_chosen_select_customer" style="width:95%;" data-placeholder="查找用户">
         <option></option>
     </select>
     <br />

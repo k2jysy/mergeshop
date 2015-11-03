@@ -47,12 +47,17 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
         /**
          * @var string Official plugin landing page
          */
-        protected $_premium_landing = 'http://yithemes.com/themes/plugins/yith-woocommerce-multi-vendor' ;
+        protected $_premium_landing = 'http://yithemes.com/docs-plugins/yith-woocommerce-multi-vendor/' ;
 
-                /**
+        /**
          * @var string Official plugin landing page
          */
         protected $_premium_live = 'http://plugins.yithemes.com/yith-woocommerce-multi-vendor/' ;
+
+         /**
+         * @var string Vendor options role
+         */
+        protected $_vendor_role = 'manage_vendor_store';
 
 
         /**
@@ -70,6 +75,7 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
 
             /* Dashboard Menu */
             add_action( 'admin_menu', array( $this, 'remove_vendor_taxonomy_menu_item' ) );
+            add_action( 'admin_menu', array( $this, 'add_new_link_check' ) );
 
             /* Plugin Informations */
             add_filter( 'plugin_action_links_' . plugin_basename( YITH_WPV_PATH . '/' . basename( YITH_WPV_FILE ) ), array( $this, 'action_links' ) );
@@ -130,6 +136,12 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
 
             /* Add Vendors Page Link in WP Dashboard */
             add_action( 'admin_menu', array( $this, 'admin_vendor_link' ) );
+
+            /* Custom manage users columns. */
+            add_filter( 'manage_users_columns', array( $this, 'manage_users_columns' ) );
+            add_filter( 'manage_users_custom_column', array( $this, 'manage_users_custom_column' ), 10, 3 );
+            
+            add_action( 'yit_panel_wc_before_update', array( $this, 'manage_caps' ) );
         }
 
         /**
@@ -159,7 +171,7 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
                 'parent_slug'      => '',
                 'page_title'       => __( 'Multi Vendor', 'yith_wc_product_vendors' ),
                 'menu_title'       => __( 'Multi Vendor', 'yith_wc_product_vendors' ),
-                'capability'       => 'manage_options',
+                'capability'       => apply_filters( 'yit_wcmv_plugin_options_capability', 'manage_options' ),
                 'parent'           => '',
                 'parent_page'      => 'yit_plugin_panel',
                 'page'             => $this->_panel_page,
@@ -184,13 +196,12 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
          * @author   Andrea Grillo <andrea.grillo@yithemes.com>
          */
         public function enqueue_scripts() {
-            global $pagenow;
             wp_register_script( 'yith-wpv-tax-menu', YITH_WPV_ASSETS_URL . 'js/tax-admin-menu.js', array( 'jquery' ), '1.0.0', true );
             wp_enqueue_script( 'yith-wpv-admin', YITH_WPV_ASSETS_URL . 'js/admin.js', array( 'jquery' ), '1.0.0', true );
             wp_enqueue_style( 'yith-wc-product-vendors-admin', YITH_WPV_ASSETS_URL . 'css/admin.css', array( 'jquery-chosen' ) );
 
             /* === Admin Menu Hack === */
-            if( 'edit-tags.php' == $pagenow && ! empty( $_REQUEST['taxonomy'] ) && 'yith_shop_vendor' == $_REQUEST['taxonomy'] ){
+            if( $this->is_vendor_tax_page() ){
                 wp_enqueue_script( 'yith-wpv-tax-menu' );
                 $css = '#adminmenu li#menu-posts-product > a:after{display:none;}
                         #adminmenu .wp-has-current-submenu .wp-submenu{display: none;}
@@ -336,8 +347,8 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
 	        $menus = apply_filters( 'yith_wc_product_vendors_details_menu_items',
 		        array(
                     'vendor_details' => array(
-                        'page_title'  => __( 'Vendor Details', 'yith_wc_product_vendors' ),
-                        'menu_title'  => __( 'Vendor Details', 'yith_wc_product_vendors' ),
+                        'page_title'  => __( 'Vendor Profile', 'yith_wc_product_vendors' ),
+                        'menu_title'  => __( 'Vendor Profile', 'yith_wc_product_vendors' ),
                         'capability'  => 'edit_products',
                         'menu_slug'   => 'yith_vendor_details',
                         'function'    => array( $this, 'admin_details_page' ),
@@ -541,7 +552,7 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
             }
 
             else {
-                foreach ( apply_filters( 'yith_wpv_save_checkboxes', array( 'enable_selling' ), $vendor->has_limited_access() ) as $key ) {
+                foreach ( apply_filters( 'yith_wpv_save_checkboxes', array(), $vendor->has_limited_access() ) as $key ) {
                     ! isset( $post_value[$key] ) && $post_value[$key] = 'no';
                 }
             }
@@ -563,8 +574,10 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
 
 		    // Remove all current admins (user meta)
 		    foreach ( $admins as $user_id ) {
-			    delete_user_meta( $user_id, $usermeta_admin );
-			    $this->_manage_vendor_caps( $user_id, 'remove' );
+                $user = get_user_by( 'id', $user_id );
+                delete_user_meta( $user_id, $usermeta_admin );
+                $user->remove_role( YITH_Vendors()->get_role_name() );
+                $user->add_role( 'customer' );
 		    }
 
 		    // Remove current owner and update it
@@ -585,7 +598,11 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
 		    if ( isset( $post_value['admins'] ) && ! empty( $post_value['admins'] ) ) {
 			    foreach ( $post_value['admins'] as $user_id ) {
 				    update_user_meta( $user_id, $usermeta_admin, $vendor->id );
-				    $this->_manage_vendor_caps( $user_id, 'add' );
+				    $user = get_user_by( 'id', $user_id );
+                    if( $user instanceof WP_User ){
+                        $user->add_role( YITH_Vendors()->get_role_name() );
+                        $user->remove_role( 'customer' );
+                    }
 			    }
 		    }
 
@@ -596,37 +613,39 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
             }
 	    }
 
-	    /**
-	     * Add or Remove capabilities to vendor admins
-	     *
-	     * @param int $user_id User ID of vendor admin
-	     * @param string $method The method to call: add to call add_cap method or remove to call remove_cap
-	     * @param string $caps The capabilities to add or remove
-	     *
-	     * @author Andrea Grillo <andrea.grillo@yithemes.com>
-	     * @since  1.0
-	     * @access protected
-	     */
-	    protected function _manage_vendor_caps( $user_id = 0, $method, $caps = '' ) {
-		    if ( $user_id > 0 && ( 'remove' == $method || 'add' == $method ) ) {
+        /**
+         * Add or Remove capabilities to vendor admins
+         *
+         * @param int    $user_id User ID of vendor admin
+         * @param string $method  The method to call: add to call add_cap method or remove to call remove_cap
+         * @param string $caps    The capabilities to add or remove
+         *
+         * @author Andrea Grillo <andrea.grillo@yithemes.com>
+         * @since  1.0
+         * @access protected
+         */
+        protected function _manage_vendor_caps( $method, $caps = '' ) {
+            if ( 'remove' == $method || 'add' == $method ) {
+                $role = get_role( YITH_Vendors()->get_role_name() );
+                if ( '' == $caps ) {
+                    $caps = array_keys( YITH_Vendors()->vendor_enabled_capabilities() );
 
-			    $method .= '_cap';
-			    $user = new WP_User( $user_id );
-
-			    if ( '' == $caps ) {
-				    $caps = YITH_Vendors()->vendor_enabled_capabilities();
-                    if( 'remove' == $method ){
-                        $caps[] = 'publish_products';
-                    }
-			    } elseif(  is_string( $caps )  ) {
+                }
+                elseif ( is_string( $caps ) ) {
                     $caps = array( $caps );
                 }
 
-			    foreach ( $caps as $cap ) {
-				    $user->$method( $cap );
-			    }
-		    }
-	    }
+                foreach ( $caps as $cap ) {
+                    if ( 'add' == $method ) {
+                        $role->add_cap( $cap, true );
+                    }
+
+                    else {
+                        $role->remove_cap( $cap );
+                    }
+                }
+            }
+        }
 
 	    /**
 	     * Remove admin usermeta info
@@ -645,15 +664,16 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
 
 		    global $wpdb;
 
-		    $sql     = $wpdb->prepare( "SELECT user_id FROM {$wpdb->usermeta} WHERE meta_value=%d", $term );
-		    $user_id = $wpdb->query( $sql );
+		    $sql     = $wpdb->prepare( "SELECT user_id FROM {$wpdb->usermeta} WHERE meta_value=%d AND meta_key=%s", $term, 'yith_product_vendor_owner' );
+		    $user_id = $wpdb->get_var( $sql );
 
 		    if ( $user_id > 0 ) {
 			    /**
 			     * Remove admin caps to user
 			     */
-			    add_filter( 'yith_vendor_admin_publish_products_capabilities', '__return_true' );
-			    $this->_manage_vendor_caps( $user_id, 'remove' );
+                $user = get_user_by( 'id', $user_id );
+                $user->remove_role( YITH_Vendors()->get_role_name() );
+                $user->add_role( 'customer' );
 
 			    /**
 			     * Remove vendor admin
@@ -931,7 +951,7 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
          * @return  string The premium landing link
          */
         public function get_premium_landing_uri() {
-            return defined( 'YITH_REFER_ID' ) ? $this->_premium_landing . '?refer_id=' . YITH_REFER_ID : $this->_premium_landing . '?refer_id=1030585';
+            return defined( 'YITH_REFER_ID' ) ? $this->_premium_landing . '?refer_id=' . YITH_REFER_ID : $this->_premium_landing;
         }
 
         /**
@@ -1030,9 +1050,14 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
             $vendor             = yith_get_vendor( 'current', 'user' );
             $is_ajax            = defined( 'DOING_AJAX' ) && DOING_AJAX;
             $is_order_details   = is_admin() && ! $is_ajax && 'shop_order' == get_current_screen()->id;
+            $refund_management  = 'yes' == get_option( 'yith_wpv_vendors_option_order_refund_synchronization', 'no' ) ? true : false;
+
 
             if( $vendor->is_valid() && $vendor->has_limited_access() ){
                 $admin_body_classes = $admin_body_classes . ' vendor_limited_access';
+                if( $is_order_details && $refund_management ){
+                    $admin_body_classes = $admin_body_classes . ' vendor_refund_management';
+                }
             }
 
             else if( $vendor->is_super_user() ){
@@ -1184,8 +1209,176 @@ if ( ! class_exists( 'YITH_Vendors_Admin' ) ) {
             }
         }
 
+        /**
+         * Remove vendor taxonomy link under Products
+         *
+         * @author Andrea Grillo <andrea.grillo@yithemes.com>
+         * @since  1.6.3
+         * @return void
+         */
         public function remove_vendor_taxonomy_menu_item(){
             remove_submenu_page( 'edit.php?post_type=product', 'edit-tags.php?taxonomy=yith_shop_vendor&amp;post_type=product' );
+        }
+
+        /**
+         * Check if current page is the vendor taxonomy page (in admin)
+         *
+         * @author Andrea Grillo <andrea.grillo@yithemes.com>
+         * @since  1.7
+         * @return bool
+         */
+        public function is_vendor_tax_page(){
+            global $pagenow;
+            return 'edit-tags.php' == $pagenow && ! empty( $_GET['taxonomy'] ) && YITH_Vendors()->get_taxonomy_name() == $_GET['taxonomy'] && ! empty( $_GET['post_type'] ) && 'product' == $_GET['post_type'];
+        }
+
+        /**
+         * Handles the output of the roles column on the `users.php` screen.
+         *
+         * @since  1.0.0
+         * @access public
+         *
+         * @param  string $output
+         * @param  string $column
+         * @param  int    $user_id
+         *
+         * @return string
+         */
+        public function manage_users_custom_column( $output, $column, $user_id ) {
+            if ( 'roles' === $column ) {
+                global $wp_roles;
+
+                $user       = new WP_User( $user_id );
+                $user_roles = array();
+                $output     = esc_html__( 'None', 'yith_wc_product_vendors' );
+
+                if ( is_array( $user->roles ) ) {
+                    foreach ( $user->roles as $role ) {
+                        $user_roles[] = translate_user_role( $wp_roles->role_names[$role] );
+                    }
+                    $output = join( ', ', $user_roles );
+                }
+            }
+            return $output;
+        }
+
+        /**
+         * Adds custom columns to the `users.php` screen.
+         *
+         * @since  1.0.0
+         * @access public
+         *
+         * @param  array $columns
+         *
+         * @return array
+         */
+        public function manage_users_columns( $columns ) {
+
+            // Unset the core WP `role` column.
+            if ( isset( $columns['role'] ) ) {
+                unset( $columns['role'] );
+            }
+
+            // Add our new roles column.
+            $columns['roles'] = esc_html__( 'Roles', 'yith_wc_product_vendors' );
+            return $columns;
+        }
+        
+         /**
+         * Check for order capabilities
+         *
+         * Add or remove vendor capabilities for coupon and review management
+         *
+         * @return void
+         * @since  1.3
+         * @author Andrea Grillo <andrea.grillo@yithemes.com>
+         */
+        public function manage_caps() {
+            $is_vendor_tab = isset( $_GET['page'] ) && 'yith_wpv_panel' == $_GET['page'] && isset( $_GET['tab'] ) && 'vendors' == $_GET['tab'] ? true : false;
+            if ( $is_vendor_tab ) {
+                $caps = apply_filters( 'yith_wcmv_manage_role_caps', array(
+                        'order'      => array(
+                            'edit_shop_orders',
+                            'read_shop_orders',
+                            'delete_shop_orders',
+                            'publish_shop_orders',
+                            'edit_published_shop_orders',
+                            'delete_published_shop_orders',
+                        ),
+                    )
+                );
+
+                foreach ( array_keys( $caps ) as $option ) {
+                    $option_id = "yith_wpv_vendors_option_{$option}_management";
+                    $old_value = get_option( $option_id, 'no' );
+                    $new_value = isset( $_POST[ $option_id ] ) ? 'yes' : 'no';
+
+                    if ( $old_value != $new_value ) {
+                        foreach ( $caps[$option] as $cap ) {
+                            if ( 'no' == $old_value ) {
+                                $this->_manage_vendor_caps( 'add', $caps[$option] );
+                            }
+
+                            else {
+                                $this->_manage_vendor_caps( 'remove', $caps[$option] );
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /**
+         * Allow/Disable WooCommerce add new post type creation
+         *
+         * @return void
+         * @since    1.2.0
+         * @author   Andrea Grillo <andrea.grillo@yithemes.com>
+         */
+        public function add_new_link_check() {
+            global $typenow;
+
+            //Check if post types is product or shop order
+            if ( 'shop_order' != $typenow ) {
+                return;
+            }
+
+            $vendor = yith_get_vendor( 'current', 'user' );
+
+            if ( $vendor->is_valid() && $vendor->has_limited_access() ) {
+                global $submenu;
+                foreach ( $submenu as $section => $menu ) {
+                    foreach ( $menu as $position => $args ) {
+                        $submenu_url = "post-new.php?post_type={$typenow}";
+                        if ( in_array( $submenu_url, $args ) ) {
+                            $submenu[$section][$position][4] = 'yith-wcpv-hide-submenu-item';
+                            break;
+                        }
+                    }
+                }
+                add_action( 'admin_enqueue_scripts', array( $this, 'remove_add_new_button' ), 20 );
+            }
+        }
+
+         /**
+         * Remove add new post types button
+         *
+         * @return void
+         * @since    1.6.0
+         * @author   Andrea Grillo <andrea.grillo@yithemes.com>
+         */
+        public function remove_add_new_button() {
+            global $post_type, $wp_version;
+            $rule = false;
+            if( version_compare( $wp_version, '4.3-RC1', '>=' ) ){
+                $rule = ".post-type-{$post_type} .wrap .page-title-action{ display: none; }";
+            }
+
+            else {
+                $rule = ".post-type-{$post_type} .add-new-h2{ display: none; }";
+            }
+
+            wp_add_inline_style( 'yith-wc-product-vendors-admin', $rule );
         }
     }
 }

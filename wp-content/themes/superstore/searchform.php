@@ -14,7 +14,7 @@
 ?>
 <form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>">
     <div class="wpo-search input-group">
-        <input name="s" id="s" maxlength="40" class="form-control input-large input-search" type="text" size="20" placeholder="Search...">
+        <input name="s" id="s" maxlength="40" class="form-control input-large input-search" type="text" size="20" placeholder="查找...">
         <span class="input-group-addon input-large btn-search">
             <input type="submit" id="searchsubmit" class="fa" value="&#xf002;" />
             <?php if(class_exists('WooCommerce')){ ?>

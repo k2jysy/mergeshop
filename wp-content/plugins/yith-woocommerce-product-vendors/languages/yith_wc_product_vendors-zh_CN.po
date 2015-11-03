@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: YITH WooCommerce Multi Vendor\n"
-"POT-Creation-Date: 2015-10-27 18:57+0800\n"
-"PO-Revision-Date: 2015-10-29 14:14+0800\n"
+"POT-Creation-Date: 2015-11-03 05:08+0800\n"
+"PO-Revision-Date: 2015-11-03 05:38+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -27,7 +27,7 @@ msgstr "佣金状态变化从%s - %s."
 
 #: includes/class.yith-commissions.php:170
 msgid "Commission status not updated!"
-msgstr "佣金状态没有更新！"
+msgstr "佣金状态没有更新"
 
 #: includes/class.yith-commissions.php:171
 msgid "Commission status updated!"
@@ -59,11 +59,11 @@ msgstr "未处理"
 
 #: includes/class.yith-commissions.php:216
 msgid "Refunded"
-msgstr "已退款"
+msgstr "已返款"
 
 #: includes/class.yith-commissions.php:217
 msgid "Cancelled"
-msgstr "取消"
+msgstr "已取消"
 
 #: includes/class.yith-commissions.php:218
 msgid "Processing"
@@ -72,14 +72,14 @@ msgstr "处理中"
 #: includes/class.yith-commissions.php:276
 #: includes/class.yith-commissions.php:277
 #: includes/class.yith-commissions.php:1170
-#: includes/class.yith-vendors-admin.php:151
+#: includes/class.yith-vendors-admin.php:163
 msgid "Commissions"
 msgstr "佣金"
 
 #: includes/class.yith-commissions.php:341
 #, php-format
 msgid "Commission #%d details"
-msgstr ""
+msgstr "佣金  #%d 明细"
 
 #: includes/class.yith-commissions.php:342
 #, php-format
@@ -89,14 +89,14 @@ msgstr ""
 #: includes/class.yith-commissions.php:1036
 #, php-format
 msgid "Refunded %s from order"
-msgstr ""
+msgstr "返款 %s 从订单"
 
 #: includes/class.yith-commissions.php:1069
 #, php-format
 msgid "Cancelled %s refund from order"
-msgstr ""
+msgstr "取消 %s 返款从订单"
 
-#: includes/class.yith-commissions.php:1206 includes/class.yith-orders.php:1449
+#: includes/class.yith-commissions.php:1206 includes/class.yith-orders.php:1439
 msgid "commission_id"
 msgstr ""
 
@@ -113,11 +113,11 @@ msgstr ""
 #: includes/class.yith-orders.php:388 includes/class.yith-orders.php:710
 msgctxt "Order note"
 msgid "Update by admin: "
-msgstr ""
+msgstr "由管理员更新："
 
 #: includes/class.yith-orders.php:703
 msgid "Delete note"
-msgstr ""
+msgstr "删除说明"
 
 #: includes/class.yith-orders.php:805
 #, php-format
@@ -129,79 +129,78 @@ msgstr ""
 msgid "Item #%s stock increased from %s to %s."
 msgstr ""
 
-#: includes/class.yith-orders.php:1507
+#: includes/class.yith-orders.php:1497
 msgctxt "Admin: Order table column"
 msgid "Suborders"
 msgstr ""
 
-#: includes/class.yith-orders.php:1546 includes/class.yith-orders.php:1610
+#: includes/class.yith-orders.php:1536 includes/class.yith-orders.php:1604
 msgid "in"
 msgstr ""
 
-#: includes/class.yith-orders.php:1574
+#: includes/class.yith-orders.php:1568
 msgctxt "Admin: Single order page. Suborder details box"
 msgid "Suborders"
 msgstr ""
 
-#: includes/class.yith-orders.php:1574
+#: includes/class.yith-orders.php:1568
 msgid ""
 "Note: from this box you can monitor the status of suborders associated to "
 "individual vendors."
 msgstr ""
 
-#: includes/class.yith-orders.php:1579
+#: includes/class.yith-orders.php:1573
 msgctxt "Admin: Single order page. Parent order details box"
 msgid "Parent order"
 msgstr ""
 
-#: includes/class.yith-orders.php:1621
+#: includes/class.yith-orders.php:1615
 msgctxt "Admin: single order page. Link to parent order"
 msgid "Return to main order"
 msgstr ""
 
-#: includes/class.yith-vendors-admin.php:152
-#: includes/class.yith-vendors.php:269
+#: includes/class.yith-vendors-admin.php:164
+#: includes/class.yith-vendors.php:286
 msgid "Vendors"
 msgstr "商家"
 
-#: includes/class.yith-vendors-admin.php:153
-#: includes/class.yith-vendors-admin.php:897
+#: includes/class.yith-vendors-admin.php:165
+#: includes/class.yith-vendors-admin.php:917
 msgid "Premium Version"
-msgstr "白金版"
+msgstr ""
 
-#: includes/class.yith-vendors-admin.php:160
-#: includes/class.yith-vendors-admin.php:161
+#: includes/class.yith-vendors-admin.php:172
+#: includes/class.yith-vendors-admin.php:173
 msgid "Multi Vendor"
 msgstr "多个商家"
 
-#: includes/class.yith-vendors-admin.php:295
+#: includes/class.yith-vendors-admin.php:306
 #, php-format
 msgid ""
 "You do not have permission to edit this product. %1$sClick here to view and "
 "edit your products%2$s."
 msgstr ""
 
-#: includes/class.yith-vendors-admin.php:339
-#: includes/class.yith-vendors-admin.php:340
-#: templates/admin/vendor-admin.php:17
-msgid "Vendor Details"
-msgstr "商家细节"
+#: includes/class.yith-vendors-admin.php:350
+#: includes/class.yith-vendors-admin.php:351
+msgid "Vendor Profile"
+msgstr ""
 
-#: includes/class.yith-vendors-admin.php:480
-#: includes/class.yith-vendors-admin.php:500
+#: includes/class.yith-vendors-admin.php:491
+#: includes/class.yith-vendors-admin.php:511
 msgid "A vendor with this name already exists."
 msgstr "这个商家名字已经存在"
 
-#: includes/class.yith-vendors-admin.php:481
+#: includes/class.yith-vendors-admin.php:492
 msgid "Vendor name already exists"
 msgstr "这个商家名字已经存在"
 
-#: includes/class.yith-vendors-admin.php:811
+#: includes/class.yith-vendors-admin.php:831
 #, php-format
 msgid "No %s"
 msgstr ""
 
-#: includes/class.yith-vendors-admin.php:892
+#: includes/class.yith-vendors-admin.php:912
 #: plugin-fw/lib/yit-cpt-unlimited.php:1048
 #: plugin-fw/lib/yit-cpt-unlimited.php:1196
 #: plugin-fw/lib/yit-cpt-unlimited.php:1202
@@ -209,76 +208,86 @@ msgstr ""
 msgid "Settings"
 msgstr "设置"
 
-#: includes/class.yith-vendors-admin.php:893
+#: includes/class.yith-vendors-admin.php:913
 msgid "Premium live demo"
 msgstr ""
 
-#: includes/class.yith-vendors-admin.php:893
+#: includes/class.yith-vendors-admin.php:913
 msgid "Live demo"
-msgstr ""
+msgstr "演示"
 
-#: includes/class.yith-vendors-admin.php:921
+#: includes/class.yith-vendors-admin.php:941
 msgid "Plugin Documentation"
 msgstr ""
 
-#: includes/class.yith-vendors-admin.php:1013
+#: includes/class.yith-vendors-admin.php:1033
 msgid "Visit Store"
 msgstr "访问商店"
 
-#: includes/class.yith-vendors.php:267 includes/class.yith-vendors.php:268
+#: includes/class.yith-vendors-admin.php:1253
+#: plugin-fw/templates/metaboxes/types/contactform.php:49
+#: plugin-fw/templates/metaboxes/types/responsivesliders.php:24
+msgid "None"
+msgstr "没有"
+
+#: includes/class.yith-vendors-admin.php:1283
+msgid "Roles"
+msgstr "角色"
+
+#: includes/class.yith-vendors.php:284 includes/class.yith-vendors.php:285
 #: templates/admin/commission-view.php:193
 msgid "Vendor"
 msgstr "商家"
 
-#: includes/class.yith-vendors.php:270
+#: includes/class.yith-vendors.php:287
 msgid "Search Vendors"
 msgstr "查找商家"
 
-#: includes/class.yith-vendors.php:271
+#: includes/class.yith-vendors.php:288
 msgid "All Vendors"
 msgstr "所有商家"
 
-#: includes/class.yith-vendors.php:272
+#: includes/class.yith-vendors.php:289
 msgid "Parent Vendor"
 msgstr "父商家"
 
-#: includes/class.yith-vendors.php:273
+#: includes/class.yith-vendors.php:290
 msgid "Parent Vendor:"
 msgstr "父商家"
 
-#: includes/class.yith-vendors.php:274
+#: includes/class.yith-vendors.php:291
 msgid "View Vendor"
 msgstr "查看商家"
 
-#: includes/class.yith-vendors.php:275
+#: includes/class.yith-vendors.php:292
 msgid "Edit Vendor"
 msgstr "编辑商家"
 
-#: includes/class.yith-vendors.php:276
+#: includes/class.yith-vendors.php:293
 msgid "Update Vendor"
 msgstr "更新商家"
 
-#: includes/class.yith-vendors.php:277
+#: includes/class.yith-vendors.php:294
 msgid "Add New Vendor"
 msgstr "添加商家"
 
-#: includes/class.yith-vendors.php:278
+#: includes/class.yith-vendors.php:295
 msgid "New Vendor's Name"
 msgstr "新商家名字"
 
-#: includes/class.yith-vendors.php:280
+#: includes/class.yith-vendors.php:297
 msgid "Separate vendors with commas"
 msgstr "用逗号分开商家"
 
-#: includes/class.yith-vendors.php:281
+#: includes/class.yith-vendors.php:298
 msgid "Add or remove vendors"
 msgstr "添加或删除商家"
 
-#: includes/class.yith-vendors.php:282
+#: includes/class.yith-vendors.php:299
 msgid "Choose from most used vendors"
 msgstr "选择最常用的商家"
 
-#: includes/class.yith-vendors.php:283
+#: includes/class.yith-vendors.php:300
 msgid "No vendors found"
 msgstr "没有找到商家"
 
@@ -366,7 +375,7 @@ msgstr ""
 #: templates/admin/commission-view.php:170
 #, php-format
 msgid "%s ago"
-msgstr ""
+msgstr "%s  以前"
 
 #: includes/lib/class.yith-commissions-list-table.php:325
 #: includes/lib/class.yith-commissions-list-table.php:344
@@ -379,7 +388,7 @@ msgstr "没有佣金"
 
 #: includes/widgets/class.yith-woocommerce-vendors-widget.php:29
 msgid "YITH Vendor List"
-msgstr ""
+msgstr "商家列表"
 
 #: includes/widgets/class.yith-woocommerce-vendors-widget.php:31
 msgid "Display the list with enabled vendors."
@@ -399,17 +408,17 @@ msgstr ""
 
 #: includes/widgets/class.yith-woocommerce-vendors-widget.php:86
 msgid "Vendor's products amount"
-msgstr ""
+msgstr "商家的商品合计"
 
 #: includes/widgets/class.yith-woocommerce-vendors-widget.php:91
 msgid "Hide vendors with no products"
-msgstr ""
+msgstr "隐藏没有商品的商家"
 
 #: init.php:34
 msgid ""
 "YITH WooCommerce Multi Vendor is enabled but not effective. It requires "
 "WooCommerce in order to work."
-msgstr ""
+msgstr "商家管理 插件需要先安装.电商插件woocommerce"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:460
 #: plugin-fw/lib/yit-cpt-unlimited.php:574
@@ -417,13 +426,13 @@ msgstr ""
 #: plugin-fw/lib/yit-cpt-unlimited.php:1632
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "添加 %s"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:461
 #: plugin-fw/lib/yit-cpt-unlimited.php:575
 #, php-format
 msgid "Add New %s"
-msgstr ""
+msgstr "新添加 %s"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:462
 #: plugin-fw/lib/yit-cpt-unlimited.php:576
@@ -431,19 +440,19 @@ msgstr ""
 #: plugin-fw/lib/yit-cpt-unlimited.php:1304
 #, php-format
 msgid "Edit %s"
-msgstr ""
+msgstr "编辑 %s"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:463
 #: plugin-fw/lib/yit-cpt-unlimited.php:577
 #, php-format
 msgid "New %s"
-msgstr ""
+msgstr "新 %s"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:464
 #: plugin-fw/lib/yit-cpt-unlimited.php:578
 #, php-format
 msgid "All %s"
-msgstr ""
+msgstr "所有 %s"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:465
 #: plugin-fw/lib/yit-cpt-unlimited.php:579
@@ -451,85 +460,85 @@ msgstr ""
 #: plugin-fw/lib/yit-cpt-unlimited.php:1305
 #, php-format
 msgid "View %s"
-msgstr ""
+msgstr "查看 %s"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:466
 #: plugin-fw/lib/yit-cpt-unlimited.php:580
 #, php-format
 msgid "Search %s"
-msgstr ""
+msgstr "查找 %s"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:467
 #: plugin-fw/lib/yit-cpt-unlimited.php:581
 #, php-format
 msgid "No %s found"
-msgstr ""
+msgstr "没有发现 %s "
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:468
 #: plugin-fw/lib/yit-cpt-unlimited.php:582
 #, php-format
 msgid "No %s found in Trash"
-msgstr ""
+msgstr "没有 %s 在回收站"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:625
 #, php-format
 msgctxt "taxonomy general name"
 msgid "%s Categories"
-msgstr ""
+msgstr "%s 分类"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:626
 msgctxt "taxonomy singular name"
 msgid "Category"
-msgstr ""
+msgstr "分类"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:627
 msgid "Search Categories"
-msgstr ""
+msgstr "查找分类"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:628
 msgid "All Categories"
-msgstr ""
+msgstr "所有分类"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:629
 msgid "Parent Category"
-msgstr ""
+msgstr "父分类"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:630
 msgid "Parent Category:"
-msgstr ""
+msgstr "父分类："
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:631
 msgid "Edit Category"
-msgstr ""
+msgstr "编辑分类"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:632
 msgid "Update Category"
-msgstr ""
+msgstr "更新分类"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:633
 msgid "Add New Category"
-msgstr ""
+msgstr "添加新分类"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:634
 msgid "New Category Name"
-msgstr ""
+msgstr "新分类名称"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:635
 msgid "Category"
-msgstr ""
+msgstr "分类"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:724
 msgid "Categories"
-msgstr ""
+msgstr "分类"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:1042
 #, php-format
 msgid "%s Settings"
-msgstr ""
+msgstr "%s 设置"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:1051
 msgid "Type"
-msgstr ""
+msgstr "类型"
 
 #: plugin-fw/lib/yit-cpt-unlimited.php:1052
 #, php-format
@@ -618,7 +627,7 @@ msgstr ""
 msgid "Upload multiple files"
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel-wc.php:323
+#: plugin-fw/lib/yit-plugin-panel-wc.php:336
 msgid "The changes you have made will be lost if you leave this page."
 msgstr ""
 
@@ -631,68 +640,68 @@ msgstr ""
 msgid "YIT Plugins"
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:293
+#: plugin-fw/lib/yit-plugin-panel.php:288
 #: plugin-fw/lib/yit-plugin-subpanel.php:143
 #: plugin-fw/templates/panel/woocommerce/woocommerce-form.php:5
 msgid "Save Changes"
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:296
+#: plugin-fw/lib/yit-plugin-panel.php:291
 #: plugin-fw/templates/panel/woocommerce/woocommerce-form.php:8
 msgid ""
 "If you continue with this action, you will reset all options in this page."
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:298
+#: plugin-fw/lib/yit-plugin-panel.php:293
 #: plugin-fw/lib/yit-plugin-subpanel.php:148
 msgid "Reset to default"
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:298
+#: plugin-fw/lib/yit-plugin-panel.php:293
 #: plugin-fw/lib/yit-plugin-subpanel.php:148
 #: plugin-fw/templates/panel/woocommerce/woocommerce-form.php:11
 msgid "Are you sure?"
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:432
+#: plugin-fw/lib/yit-plugin-panel.php:427
 msgid ""
 "The element you have entered already exists. Please, enter another name."
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:433
+#: plugin-fw/lib/yit-plugin-panel.php:428
 msgid "Settings saved"
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:434
+#: plugin-fw/lib/yit-plugin-panel.php:429
 msgid "Settings reset"
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:435
+#: plugin-fw/lib/yit-plugin-panel.php:430
 msgid "Element deleted correctly."
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:436
-#: plugin-fw/lib/yit-plugin-panel.php:437
+#: plugin-fw/lib/yit-plugin-panel.php:431
+#: plugin-fw/lib/yit-plugin-panel.php:432
 msgid "Element updated correctly."
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:438
+#: plugin-fw/lib/yit-plugin-panel.php:433
 msgid "Database imported correctly."
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:439
+#: plugin-fw/lib/yit-plugin-panel.php:434
 msgid "An error has occurred during import. Please try again."
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:440
+#: plugin-fw/lib/yit-plugin-panel.php:435
 msgid "The added file is not valid."
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:441
+#: plugin-fw/lib/yit-plugin-panel.php:436
 msgid "Sorry, import is disabled."
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:442
+#: plugin-fw/lib/yit-plugin-panel.php:437
 msgid "Sorting successful."
 msgstr ""
 
@@ -867,13 +876,13 @@ msgstr ""
 #: plugin-fw/licence/lib/yit-plugin-licence.php:69
 #: plugin-fw/licence/lib/yit-theme-licence.php:64
 #: plugin-fw/licence/lib/yit-theme-licence.php:65
-#: plugin-fw/licence/lib/yit-theme-licence.php:107
-#: plugin-fw/licence/lib/yit-theme-licence.php:108
+#: plugin-fw/licence/lib/yit-theme-licence.php:105
+#: plugin-fw/licence/lib/yit-theme-licence.php:106
 msgid "Licence Activation"
 msgstr ""
 
-#: plugin-fw/licence/lib/yit-theme-licence.php:115
-#: plugin-fw/licence/lib/yit-theme-licence.php:116
+#: plugin-fw/licence/lib/yit-theme-licence.php:113
+#: plugin-fw/licence/lib/yit-theme-licence.php:114
 #, php-format
 msgid "%s"
 msgstr ""
@@ -1026,11 +1035,6 @@ msgstr ""
 msgid "Custom Icon"
 msgstr ""
 
-#: plugin-fw/templates/metaboxes/types/contactform.php:49
-#: plugin-fw/templates/metaboxes/types/responsivesliders.php:24
-msgid "None"
-msgstr ""
-
 #: plugin-fw/templates/metaboxes/types/contactform.php:60
 msgid "Add field"
 msgstr ""
@@ -1168,7 +1172,7 @@ msgstr ""
 #: plugin-fw/templates/metaboxes/types/select-icon.php:33
 #: plugin-fw/templates/metaboxes/types/upload.php:21
 #: plugin-fw/templates/panel/types/upload.php:31
-#: plugin-fw/templates/panel/woocommerce/woocommerce-upload.php:35
+#: plugin-fw/templates/panel/woocommerce/woocommerce-upload.php:40
 msgid "Upload"
 msgstr ""
 
@@ -1343,7 +1347,7 @@ msgstr ""
 
 #: plugin-options/commissions-options.php:20
 msgid "General settings"
-msgstr ""
+msgstr "常规设置"
 
 #: plugin-options/commissions-options.php:27
 msgid "Commission Base"
@@ -1355,7 +1359,7 @@ msgstr ""
 
 #: plugin-options/vendors-options.php:20
 msgid "Product management"
-msgstr "商品管理"
+msgstr ""
 
 #: plugin-options/vendors-options.php:27
 msgid "Vendor name label color"
@@ -1367,11 +1371,11 @@ msgstr ""
 
 #: plugin-options/vendors-options.php:43
 msgid "Order management"
-msgstr ""
+msgstr "订单管理"
 
 #: plugin-options/vendors-options.php:50
 msgid "Enable order management"
-msgstr ""
+msgstr "生效订单管理"
 
 #: plugin-options/vendors-options.php:52
 msgid ""
@@ -1392,32 +1396,32 @@ msgstr ""
 #: templates/admin/add-product-vendors-taxonomy.php:12
 #: templates/admin/edit-product-vendors-taxonomy.php:13
 msgid "Vendor Shop Owner"
-msgstr "商家所有者账号"
+msgstr "这个商家属于的用户"
 
 #: templates/admin/add-product-vendors-taxonomy.php:17
 msgid ""
 "User that can manage products in this vendor shop and view sale reports."
-msgstr "用户登录后可以对商家商店中的商品进行管理和查看销售报表"
+msgstr "用这个账号登录能管理商店中的商品和查看销售报表。"
 
 #: templates/admin/add-product-vendors-taxonomy.php:21
 #: templates/admin/edit-product-vendors-taxonomy.php:26
 msgid "PayPal email address"
-msgstr "电子邮件地址"
+msgstr "PayPal 电子邮件地址"
 
 #: templates/admin/add-product-vendors-taxonomy.php:23
 #: templates/admin/edit-product-vendors-taxonomy.php:31
 msgid "Vendor's PayPal email address where profits will be delivered."
-msgstr "商家的电子邮件地址"
+msgstr "商家的Paypal电子邮件地址"
 
 #: templates/admin/add-product-vendors-taxonomy.php:27
 #: templates/admin/edit-product-vendors-taxonomy.php:37
 msgid "Enable sales"
-msgstr "允许销售"
+msgstr "有效销售"
 
 #: templates/admin/add-product-vendors-taxonomy.php:29
 #: templates/admin/edit-product-vendors-taxonomy.php:43
 msgid "Enable or disable product sales."
-msgstr "允许或拒绝商家销售商品"
+msgstr "有效或失效商品"
 
 #: templates/admin/add-product-vendors-taxonomy.php:34
 #: templates/admin/edit-product-vendors-taxonomy.php:50
@@ -1426,7 +1430,7 @@ msgstr "佣金："
 
 #: templates/admin/add-product-vendors-taxonomy.php:38
 msgid "Percentage of the total sale price that this vendor receives"
-msgstr "商家将收到的商品销售价格比例作为佣金"
+msgstr "商家收到的佣金占总体销售额的百分比"
 
 #: templates/admin/commission-view.php:25
 msgid "View Commission"
@@ -1443,7 +1447,7 @@ msgstr "佣金操作"
 #: templates/admin/commission-view.php:47
 #, php-format
 msgid "Change to %s"
-msgstr ""
+msgstr "变化至 %s"
 
 #: templates/admin/commission-view.php:53
 msgid "Apply"
@@ -1451,7 +1455,7 @@ msgstr "应用"
 
 #: templates/admin/commission-view.php:62
 msgid "Commission notes"
-msgstr "佣金备注"
+msgstr "佣金说明"
 
 #: templates/admin/commission-view.php:73
 #, php-format
@@ -1475,7 +1479,7 @@ msgstr ""
 
 #: templates/admin/commission-view.php:155
 msgid "General details"
-msgstr "总体信息"
+msgstr ""
 
 #: templates/admin/commission-view.php:162
 msgid "Commission date"
@@ -1483,11 +1487,11 @@ msgstr "佣金日期"
 
 #: templates/admin/commission-view.php:180
 msgid "User details"
-msgstr "用户细节"
+msgstr "用户信息"
 
 #: templates/admin/commission-view.php:204
 msgid "PayPal"
-msgstr "PayPal"
+msgstr ""
 
 #: templates/admin/commission-view.php:212
 msgid "Billing information"
@@ -1495,7 +1499,7 @@ msgstr "账单信息"
 
 #: templates/admin/commission-view.php:237
 msgid "Shipping information"
-msgstr "物流信息"
+msgstr "配送信息"
 
 #: templates/admin/commission-view.php:272
 msgid "Item data"
@@ -1511,32 +1515,32 @@ msgstr "数量"
 
 #: templates/admin/commission-view.php:281
 msgid "Cost"
-msgstr "金额"
+msgstr "费用"
 
 #: templates/admin/commission-view.php:293
 msgid "Product ID:"
-msgstr "商品ID"
+msgstr "商品序号:"
 
 #: templates/admin/commission-view.php:296
 #: templates/admin/commission-view.php:298
 msgid "Variation ID:"
-msgstr "变化ID"
+msgstr "变量 ID:"
 
 #: templates/admin/commission-view.php:298
 msgid "No longer exists"
-msgstr "不存在"
+msgstr "已经不存在"
 
 #: templates/admin/commission-view.php:302
 msgid "Product SKU:"
-msgstr "商品SKU"
+msgstr "商品SKU:"
 
 #: templates/admin/commission-view.php:408
 msgid "Refund"
-msgstr "退款"
+msgstr "返款"
 
 #: templates/admin/commission-view.php:438
 msgid "Coupon(s) Used"
-msgstr "优惠券已用"
+msgstr "已经使用优惠卷"
 
 #: templates/admin/commission-view.php:468
 msgid "Commission"
@@ -1556,20 +1560,20 @@ msgstr "查找用户"
 
 #: templates/admin/edit-product-vendors-taxonomy.php:20
 msgid "User that can manage products in this shop and view sale reports."
-msgstr "用这个账号登录能管理商店中的商品和查看销售报表。"
+msgstr "在商店中用户能管理商品并且查看销售报表"
 
 #: templates/admin/edit-product-vendors-taxonomy.php:56
 msgid "Percentage of the total sale price that this vendor receives."
-msgstr "商家能收到的销售价格提成比例"
+msgstr "商家收到的佣金占总体销售额的百分比"
 
-#: templates/admin/premium.php:239 templates/admin/premium.php:691
+#: templates/admin/premium.php:239 templates/admin/premium.php:723
 #, php-format
 msgid ""
 "Upgrade to the %1$spremium version%2$s of %1$sYITH WooCommerce Multi Vendor"
 "%2$s to benefit from all features!"
 msgstr ""
 
-#: templates/admin/premium.php:243 templates/admin/premium.php:695
+#: templates/admin/premium.php:243 templates/admin/premium.php:727
 #, php-format
 msgid "%1$s UPGRADE %2$s %3$s to the premium version %2$s"
 msgstr ""
@@ -1905,9 +1909,37 @@ msgid ""
 "your e-commerce."
 msgstr ""
 
+#: templates/admin/premium.php:695
+msgid "VAT numbers"
+msgstr ""
+
+#: templates/admin/premium.php:698
+msgid ""
+"If you need the VAT number of your vendors, make it mandatory during the "
+"registration. In this way, no request to become vendor could be completed "
+"without adding the VAT number, as this can also be showed in the related "
+"detailed vendor's page."
+msgstr ""
+
+#: templates/admin/premium.php:708
+msgid "Refund management"
+msgstr "退款管理"
+
+#: templates/admin/premium.php:711
+msgid ""
+"Now refund management can be designated to the vendors of your shop. In "
+"fact, they will be able to refund partially or totally users about the "
+"products they own, with a related recalculation of the commissions received. "
+"Another way to empower your vendors about the management of their shops."
+msgstr ""
+
+#: templates/admin/vendor-admin.php:17
+msgid "Vendor Details"
+msgstr "商家细节"
+
 #: templates/admin/vendor-admin.php:24
 msgid "Name:"
-msgstr "名字："
+msgstr ""
 
 #: templates/admin/vendor-admin.php:29
 msgid "Slug:"
@@ -1915,7 +1947,7 @@ msgstr "链接标志："
 
 #: templates/admin/vendor-admin.php:34
 msgid "PayPal email address:"
-msgstr "电子邮件地址："
+msgstr "PayPal电子邮件地址："
 
 #: templates/admin/vendor-admin.php:39
 msgid "Description:"
@@ -1944,7 +1976,7 @@ msgstr "保存商家信息"
 #: templates/woocommerce/loop/vendor-name-title.php:20
 #: templates/woocommerce/single-product/vendor-name-title.php:20
 msgid "by"
-msgstr "供货："
+msgstr ""
 
 #. Plugin Name of the plugin/theme
 msgid "YITH WooCommerce Multi Vendor"

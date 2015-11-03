@@ -34,6 +34,7 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
      * @property    string      $vacation_end_date
      * @property    string      $show_gravatar
      * @property    int|string  $commission
+     * @property    string      $vat
      */
     class YITH_Vendor {
 
@@ -198,7 +199,7 @@ if ( ! class_exists( 'YITH_Vendor' ) ) {
          * @param int  $vendor_id
          * @param null $term
          *
-         * @internal param null $vendor_term
+         * @return YITH_Vendor The current object
          *
          */
         public function __construct( $vendor_id = 0, $term = null ) {
