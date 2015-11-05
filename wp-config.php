@@ -15,13 +15,13 @@
 
 // ** MySQL 设置 - 具体信息来自您正在使用的主机 ** //
 /** WordPress数据库名称 */
-define('DB_NAME', 'kjcc_mergeshop');
+define('DB_NAME', 'mac');
 
 /** MySQL数据库用户名 */
-define('DB_USER', 'kjcc_mergeshop');
+define('DB_USER', 'mergeshop');
 
 /** MySQL数据库密码 */
-define('DB_PASSWORD', 'zcdaisy724');
+define('DB_PASSWORD', 'qqq');
 
 /** MySQL主机 */
 define('DB_HOST', 'localhost');

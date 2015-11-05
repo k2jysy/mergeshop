@@ -1,0 +1,810 @@
+# Copyright (C) 2015 YIThemes
+# This file is distributed under the same license as the YITH Plugin Starter package.
+msgid ""
+msgstr ""
+"Project-Id-Version: YITH WooCommerce Bulk Product Editing Premium\n"
+"Report-Msgid-Bugs-To: Your Inspiration Themes <plugins@yithemes.com>\n"
+"POT-Creation-Date: 2015-09-03 16:39+0200\n"
+"PO-Revision-Date: 2015-09-04 12:59+0100\n"
+"Last-Translator: \n"
+"Language-Team: Your Inspiration Themes <info@yithemes.com>\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: plugin-fw\n"
+
+#: class.yith-wcbep-admin.php:193
+#, php-format
+msgid "%s product edited"
+msgid_plural "%s products edited"
+msgstr[0] "%s prodotto modificato"
+msgstr[1] "%s prodotti modificati"
+
+#: class.yith-wcbep-admin.php:213
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: class.yith-wcbep-admin.php:235
+msgid "Plugin Documentation"
+msgstr "Documentazione plugin"
+
+#: class.yith-wcbep-admin.php:256 class.yith-wcbep-admin.php:265
+#: class.yith-wcbep-admin.php:266
+msgid "Bulk Product Editing"
+msgstr "Bulk Product Editing"
+
+#: class.yith-wcbep-admin.php:257
+msgid "Premium Version"
+msgstr "Versione premium"
+
+#: class.yith-wcbep-admin.php:320
+msgid "YIT Plugins"
+msgstr "YIT Plugins"
+
+#: class.yith-wcbep-admin.php:328
+msgid "No Product Selected: to make a bulk edit, select one or more products"
+msgstr ""
+"Nessun prodotto selezionato: per eseguire una modifica di massa, selezionare uno o "
+"più prodotti"
+
+#: class.yith-wcbep-admin.php:329
+msgid "- - - Empty - - -"
+msgstr "- - - Vuoto - - -"
+
+#: class.yith-wcbep-admin.php:330
+msgid "file"
+msgstr "file"
+
+#: class.yith-wcbep-admin.php:331
+msgid "files"
+msgstr "file"
+
+#: class.yith-wcbep-admin.php:332
+msgid "This field is not editable because this is a variation!"
+msgstr "Questo campo non è modificabile poiché è una variazione!"
+
+#: class.yith-wcbep-admin.php:333
+msgid ""
+"This field is not editable for now! Please save before try to edit this field."
+msgstr ""
+"Questo campo non è attualmente modificabile! Salva prima di procedere con una "
+"modifica."
+
+#: includes/class.yith-wcbep-list-table.php:48
+msgid "ID"
+msgstr "ID"
+
+#: includes/class.yith-wcbep-list-table.php:49
+msgid "Title"
+msgstr "Titolo"
+
+#: includes/class.yith-wcbep-list-table.php:50 templates/main-tab.php:40
+#: templates/main-tab.php:102
+msgid "Regular Price"
+msgstr "Prezzo di listino"
+
+#: includes/class.yith-wcbep-list-table.php:51 templates/main-tab.php:55
+#: templates/main-tab.php:117
+msgid "Sale Price"
+msgstr "Prezzo di saldo"
+
+#: includes/class.yith-wcbep-list-table.php:52
+msgid "Categories"
+msgstr "Categorie"
+
+#: includes/class.yith-wcbep-list-table.php:53
+msgid "Date"
+msgstr "Data"
+
+#: includes/class.yith-wcbep-list-table.php:288
+msgid "Select All"
+msgstr "Seleziona tutto"
+
+#: includes/class.yith-wcbep-list-table.php:376
+#, php-format
+msgid "1 item"
+msgid_plural "%s items"
+msgstr[0] "1 oggetto"
+msgstr[1] "%s oggetti"
+
+#: init.php:43
+msgid ""
+"YITH WooCommerce Bulk Product Editing is enabled but not effective. It requires "
+"WooCommerce in order to work."
+msgstr ""
+"YITH WooCommerce Bulk Product Editing Versione Premium è installato ma non è "
+"attivo. Richiede WooCommerce per funzionare correttamente."
+
+#: init.php:52
+msgid ""
+"You can't activate the free version of YITH WooCommerce Bulk Product Editing while "
+"you are using the premium one."
+msgstr ""
+"Non puoi attivare la versione gratuita di YITH WooCommerce Bulk Product Editing "
+"mentre stai usando la versione premium."
+
+#: templates/main-tab.php:6 templates/premium.php:318 templates/premium.php:325
+msgid "Filters"
+msgstr "Filtri"
+
+#: templates/main-tab.php:22
+msgid "Filter Categories"
+msgstr "Filtra categorie"
+
+#: templates/main-tab.php:70
+msgid "Products per page"
+msgstr "Prodotti per pagina"
+
+#: templates/main-tab.php:77
+msgid "Get products"
+msgstr "Ottieni prodotti"
+
+#: templates/main-tab.php:78
+msgid "Reset filters"
+msgstr "Annulla filtri"
+
+#: templates/main-tab.php:82
+msgid "Products"
+msgstr "Prodotti"
+
+#: templates/main-tab.php:83
+msgid "Save"
+msgstr "Salva"
+
+#: templates/main-tab.php:84 templates/main-tab.php:98
+msgid "Bulk editing"
+msgstr "Modifica di massa"
+
+#: templates/main-tab.php:106 templates/main-tab.php:121
+msgid "Set new"
+msgstr "Imposta nuovo"
+
+#: templates/main-tab.php:107 templates/main-tab.php:122
+msgid "Increase by value"
+msgstr "Aumenta per valore"
+
+#: templates/main-tab.php:108 templates/main-tab.php:123
+msgid "Decrease by value"
+msgstr "Riduci per valore"
+
+#: templates/main-tab.php:109 templates/main-tab.php:124
+msgid "Increase by percentage"
+msgstr "Aumenta per percentuale"
+
+#: templates/main-tab.php:110 templates/main-tab.php:125
+msgid "Decrease by percentage"
+msgstr "Riduci per percentuale"
+
+#: templates/main-tab.php:126
+msgid "Delete"
+msgstr "Elimina"
+
+#: templates/main-tab.php:134
+msgid "Apply"
+msgstr "Applica"
+
+#: templates/main-tab.php:135
+msgid "Cancel"
+msgstr "Annulla"
+
+#: templates/premium.php:252 templates/premium.php:401
+#, php-format
+msgid ""
+"Upgrade to %1$spremium version%2$s of %1$sYITH WooCommerce Bulk Product Editing"
+"%2$s to benefit from all features!"
+msgstr ""
+"Aggiorna alla %1$sversione premium%2$s di %1$sYITH WooCommerce Bulk Product Editing"
+"%2$s per beneficiare di tutte le caratteristiche!"
+
+#: templates/premium.php:255 templates/premium.php:404
+msgid "UPGRADE"
+msgstr "AGGIORNA"
+
+#: templates/premium.php:256 templates/premium.php:405
+msgid "to the premium version"
+msgstr "alla versione premium"
+
+#: templates/premium.php:262
+msgid "Premium Features"
+msgstr "Caratteristiche Premium"
+
+#: templates/premium.php:265
+msgid "PayPal"
+msgstr "PayPal"
+
+#: templates/premium.php:270
+msgid "Every WooCommerce field"
+msgstr "Tutti i campi di WooCommerce"
+
+#: templates/premium.php:273
+#, php-format
+msgid ""
+"No limit of action: the editing page of the plugin contains every detail, so that "
+"you will be free to %1$schange easily any information%2$s of the product, just "
+"like if you were in the WooCommerce page.%3$sStart sparing your time wisely, and "
+"apply the same modification with just one click on a huge number of your shop "
+"products."
+msgstr ""
+"Nessun limite d'azione: la pagina di modifica del plugin diventa completa di ogni "
+"dettaglio, così da permetterti di %1$smodificare agevolmente qualsiasi particolare"
+"%2$s del prodotto, come se ti trovassi all’interno della pagina di WooCommerce. "
+"%3$sComincia a risparmiare il tuo tempo in maniera intelligente e applica con un "
+"solo clic la stessa modifica su una vasta gamma di prodotti del tuo shop."
+
+#: templates/premium.php:283 templates/premium.php:290
+msgid "Write before, after, replace..."
+msgstr "Anteponi, posponi, replica..."
+
+#: templates/premium.php:286
+#, php-format
+msgid ""
+"A special way to edit some of the fields of your products, like title and "
+"description. %1$sYITH WooCommerce Bulk Product Editing%2$s lets you put a text "
+"before or after the original one, choose whether to give a brand new text for all "
+"products, or to replace the original one with the one you want to use."
+msgstr ""
+"Un modo speciale per apportare modifiche ad alcuni campi dei tuoi prodotti, tra "
+"cui titolo e descrizione. %1$sYITH WooCommerce Bulk Product Editing%2$s ti "
+"permette di preporre o posporre un testo al campo già esistente, di selezionarne "
+"uno ex novo per tutti o di sostituire un dato già inserito con quello da te "
+"indicato. "
+
+#: templates/premium.php:297 templates/premium.php:302
+msgid "Increase and decrease "
+msgstr "Incremento e decremento"
+
+#: templates/premium.php:305
+msgid ""
+"How many times have you desired a tool to %1$sincrease%2$s or %1$sdecrease%2$s the "
+"price of your products? Perhaps a 20% off during holidays, or a small increment of "
+"a few dollars for your new market strategy. Now you can have it! "
+msgstr ""
+"Quante volte hai desiderato uno strumento in grado di metterti nelle condizioni di "
+"%1$saumentare%2$s o %1$sdiminuire%2$s il prezzo dei tuoi prodotti? Magari una "
+"diminuzione del 20% nel periodo di saldo e un aumento di pochi dollari per "
+"prodotto per la tua nuova strategia di mercato. Da oggi puoi farlo!"
+
+#: templates/premium.php:308
+#, php-format
+msgid ""
+"Purchase the new version of the plugin, and choose between a fixed price "
+"variation, or a percentage one; you can also set a new %1$sprice%2$s for all "
+"products, if this is the solution that suits your needs. You couldn't ask for more!"
+msgstr ""
+"Acquista la nuova versione del plugin e scegli tra una variazione di prezzo "
+"percentuale o una fissa; puoi pure impostare un %1$sprezzo%2$s nuovo per tutti i "
+"prodotti se questa è la soluzione che soddisfa a pieno le tue esigenze. Non puoi "
+"chiedere di meglio!"
+
+#: templates/premium.php:321
+#, php-format
+msgid ""
+"Thanks to the countless %1$sfilters%2$s that the plugin offers, you will have all "
+"the tools to get quickly the complete list of all products you want to edit in a "
+"clear and tidy screen. "
+msgstr ""
+"Grazie agli innumerevoli %1$sfiltri%2$s di visualizzazione che il plugin ti mette "
+"a disposizione, avrai tutti gli strumenti per ottenere in pochi passi la lista "
+"completa dei soli prodotti che ti interessa modificare in una schermata pulita e "
+"composta."
+
+#: templates/premium.php:332
+msgid "Permanent association"
+msgstr "Associazione permanente"
+
+#: templates/premium.php:337
+msgid "Variable products"
+msgstr "Prodotti variabili"
+
+#: templates/premium.php:340
+#, php-format
+msgid ""
+"When we talk about a complete management of products, we mean a 360° control over "
+"all shop products. Even %1$svariable products%2$s are included in the editable "
+"product list of the plugin, with the freedom to customize the single variations of "
+"your shop. "
+msgstr ""
+"Quando parliamo di gestione completa dei prodotti, intendiamo una gestione a 360° "
+"di tutti i prodotti dello shop. Anche i %1$sprodotti variabili%2$s vengono inclusi "
+"nella lista dei prodotti modificabili attraverso le funzionalità del plugin, con "
+"la possibilità di personalizzare le singole variazioni presenti nel tuo shop."
+
+#: templates/premium.php:350 templates/premium.php:357
+msgid "New product creation"
+msgstr "Creazione nuovo prodotto"
+
+#: templates/premium.php:353
+#, php-format
+msgid ""
+"Web experience teaches us that customers are very satisfied when they can perform "
+"many actions on the same page. And just because satisfaction is one of our "
+"priorities, we offer you to create a new product from the page pf the plugin, "
+"without %1$sno difficulties%2$s if compared with the WooCommerce classic system."
+msgstr ""
+"L’esperienza web insegna che, per gli utenti, la possibilità di compiere quante "
+"più azioni all’interno di una stessa pagina li rende dei clienti soddisfatto. E "
+"siccome la tua soddisfazione è in cima ai nostri pensieri, ti diamo l’opportunità "
+"di poter creare un nuovo prodotto dalla pagina di utilizzo del plugin, %1$ssenza "
+"alcuna difficoltà%2$s per l'inserimento dei contenuti rispetto alla classica "
+"modalità prevista da WooCommerce."
+
+#: templates/premium.php:364 templates/premium.php:369
+msgid "Product removal"
+msgstr "Eliminazione prodotti"
+
+#: templates/premium.php:372
+#, php-format
+msgid ""
+"Select all those products you don't want anymore in your %1$sshop%2$s and delete "
+"them directly from the plugin configuration page. Keep your shop organized, and "
+"don't forget to delete those products you don't need anymore."
+msgstr ""
+"Seleziona tutti i prodotti che non vuoi più all’interno del tuo %1$snegozio%2$s ed "
+"eliminali direttamente dalla pagina di configurazione del plugin. Mantieni "
+"organizzato il tuo shop e non dimenticare mai di eliminare quei prodotti di cui "
+"non fai utilizzo."
+
+#: templates/premium.php:382
+msgid "Import/export"
+msgstr "Import/export"
+
+#: templates/premium.php:385
+#, php-format
+msgid ""
+"The complete list of selected product can be exported in a text file with just one "
+"click. Take advantage of this feature to import at the same time a previously "
+"%1$sexported list of products%2$s you may need in a new WordPress installation."
+msgstr ""
+"L’intera lista dei prodotti selezionati può essere esportata con un solo clic in "
+"un nuovo file di testo. Sfrutta l’utilità di questa funzionalità per importare "
+"allo stesso modo una %1$slista di prodotti precedentemente esportata%2$s, di cui "
+"potresti avere bisogno in una nuova installazione WordPress."
+
+#: templates/premium.php:388
+msgid ""
+"The last great idea of a plugin conceived to improve your experience with a "
+"multiple management of your shop products! "
+msgstr ""
+"L’ennesima chicca di un plugin pensato per migliorare la tua esperienza con la "
+"gestione multipla dei prodotti del tuo shop!"
+
+#: templates/premium.php:392
+msgid "Click duration"
+msgstr "Durata clic"
+
+#~ msgid "Import"
+#~ msgstr "Importa"
+
+#~ msgid "Import Products"
+#~ msgstr "Importa prodotti"
+
+#~ msgid "File URL"
+#~ msgstr "URL del file"
+
+#~ msgid "Importing..."
+#~ msgstr "Importazione in corso..."
+
+#~ msgid "%s product deleted"
+#~ msgid_plural "%s products deleted"
+#~ msgstr[0] "%s prodotto eliminato"
+#~ msgstr[1] "%s prodotti eliminati"
+
+#~ msgid ""
+#~ "The downloadable file %s cannot be used as it does not have an allowed file "
+#~ "type. Allowed types include: %s"
+#~ msgstr ""
+#~ "Il file scaricabile %s non può essere utilizzare poiché non è di una tipologia "
+#~ "permessa. Le tipologie permesse sono: %s"
+
+#~ msgid ""
+#~ "The downloadable file %s cannot be used as it does not exist on the server."
+#~ msgstr ""
+#~ "Il file scaricabile %s non può essere utilizzare poiché non esiste sul server."
+
+#~ msgid "%s new product"
+#~ msgid_plural "%s new products"
+#~ msgstr[0] "%s nuovo prodotto"
+#~ msgstr[1] "%s nuovi prodotti"
+
+#~ msgid "This field is not editable for this product!"
+#~ msgstr "Questo campo non può essere modificato per questo prodotto!"
+
+#~ msgid ""
+#~ "This field is not editable right now! Please save before trying to edit this "
+#~ "field."
+#~ msgstr ""
+#~ "Questo campo non è attualmente modificabile! Salva prima di procedere con una "
+#~ "modifica."
+
+#~ msgid "ERROR: file not correct!"
+#~ msgstr "ERRORE: il file non è corretto!"
+
+#~ msgid "Confirm Deletion [Selected Products: %s]"
+#~ msgstr "Conferma eliminazione [prodotti selezionati: %s]"
+
+#~ msgid "Delete Selected"
+#~ msgstr "Elimina selezionati"
+
+#~ msgid "Importing process completed!"
+#~ msgstr "Processo d'importazione completato!"
+
+#~ msgid "Sorry, an error has occurred."
+#~ msgstr "Si è verificato un errore."
+
+#~ msgid "The file does not exist, please try again."
+#~ msgstr "Il file non esiste, prova di nuovo."
+
+#~ msgid "Failed to import an attribute because it has no valid name"
+#~ msgstr "Importazione di un attributo fallita a causa di nome non valido"
+
+#~ msgid "Attribute <strong>%s</strong> already exists."
+#~ msgstr "L'attributo <strong>%s</strong> è già esistente."
+
+#~ msgid "Failed to import %s %s"
+#~ msgstr "Importazione non riuscita per %s %s"
+
+#~ msgid "Failed to import <strong>%s</strong>: Invalid post type %s"
+#~ msgstr ""
+#~ "Importazione non riuscita per <strong>%s</strong>: tipo di articolo non valido "
+#~ "%s"
+
+#~ msgid "%s <strong>%s</strong> already exists."
+#~ msgstr "%s <strong>%s</strong> è già esistente."
+
+#~ msgid "Failed to import %s <strong>%s</strong>"
+#~ msgstr "Importazione non riuscita per %s <strong>%s</strong>"
+
+#~ msgid "Failed to import %s [%s]"
+#~ msgstr "Importazione non riuscita per %s [%s]"
+
+#~ msgid "Invalid file type"
+#~ msgstr "Tipo di file non valido"
+
+#~ msgid "Remote server did not respond"
+#~ msgstr "Il server remoto non risponde"
+
+#~ msgid "Remote server returned error response %1$d %2$s"
+#~ msgstr "Il server remoto ha risposto con l'errore %1$d %2$s"
+
+#~ msgid "Remote file with incorrect size"
+#~ msgstr "File remoto con dimensioni non corrette"
+
+#~ msgid "Zero size file downloaded"
+#~ msgstr "Scaricato file con dimensione zero"
+
+#~ msgid "Remote file is too large, limit is %s"
+#~ msgstr "Il file remoto è troppo grande, il limite è %s"
+
+#~ msgid "Slug"
+#~ msgstr "Slug"
+
+#~ msgid "Image"
+#~ msgstr "Immagine"
+
+#~ msgid "Product Gallery"
+#~ msgstr "Galleria prodotto"
+
+#~ msgid "Description"
+#~ msgstr "Descrizione"
+
+#~ msgid "Short Description"
+#~ msgstr "Descrizione breve"
+
+#~ msgid "Purchase Note"
+#~ msgstr "Note d'acquisto"
+
+#~ msgid "Tags"
+#~ msgstr "Tag"
+
+#~ msgid "SKU"
+#~ msgstr "SKU"
+
+#~ msgid "Weight"
+#~ msgstr "Peso"
+
+#~ msgid "Height"
+#~ msgstr "Altezza"
+
+#~ msgid "Width"
+#~ msgstr "Larghezza"
+
+#~ msgid "Length"
+#~ msgstr "Lunghezza"
+
+#~ msgid "Stock Qty"
+#~ msgstr "Q.tà disponibile"
+
+#~ msgid "Download Limit"
+#~ msgstr "Limite download"
+
+#~ msgid "Download Expiry"
+#~ msgstr "Scadenza download"
+
+#~ msgid "Downloadable Files"
+#~ msgstr "File scaricabili"
+
+#~ msgid "Menu Order"
+#~ msgstr "Ordine menu"
+
+#~ msgid "Stock status"
+#~ msgstr "Status magazzino"
+
+#~ msgid "Manage Stock"
+#~ msgstr "Gestione scorte"
+
+#~ msgid "Sold Individually"
+#~ msgstr "Venduto singolarmente"
+
+#~ msgid "Featured"
+#~ msgstr "In Evidenza"
+
+#~ msgid "Virtual"
+#~ msgstr "Virtuale"
+
+#~ msgid "Downloadable"
+#~ msgstr "Scaricabile"
+
+#~ msgid "Enable Reviews"
+#~ msgstr "Attiva recensioni"
+
+#~ msgid "Tax Status"
+#~ msgstr "Stato tasse"
+
+#~ msgid "Tax Class"
+#~ msgstr "Classe fiscale"
+
+#~ msgid "Allow Backorders?"
+#~ msgstr "Permetti ordini in prenotazione"
+
+#~ msgid "Shipping class"
+#~ msgstr "Classe di spedizione"
+
+#~ msgid "Status"
+#~ msgstr "Stato"
+
+#~ msgid "Catalog visibility"
+#~ msgstr "Visibilità catalogo"
+
+#~ msgid "Download Type"
+#~ msgstr "Tipo di download"
+
+#~ msgid "Product Type"
+#~ msgstr "Tipo di prodotto"
+
+#~ msgid "Sale Price From"
+#~ msgstr "Prezzo in saldo da"
+
+#~ msgid "Sale Price To"
+#~ msgstr "Prezzo in saldo a"
+
+#~ msgid "Button text"
+#~ msgstr "Testo del pulsante"
+
+#~ msgid "Product URL"
+#~ msgstr "URL prodotto"
+
+#~ msgid "Up-Sells"
+#~ msgstr "Up-Sells"
+
+#~ msgid "Cross-Sells"
+#~ msgstr "Cross-Sells"
+
+#~ msgid "1 "
+#~ msgid_plural "%s "
+#~ msgstr[0] "1 "
+#~ msgstr[1] "%s "
+
+#~ msgid "Taxable"
+#~ msgstr "Tassabile"
+
+#~ msgid "Shipping only"
+#~ msgstr "Solo con spedizione"
+
+#~ msgctxt "Tax status"
+#~ msgid "None"
+#~ msgstr "Nessuno"
+
+#~ msgid "Standard"
+#~ msgstr "Standard"
+
+#~ msgid "Do not allow"
+#~ msgstr "Non pemettere"
+
+#~ msgid "Allow, but notify customer"
+#~ msgstr "Permetti, ma avverti il cliente"
+
+#~ msgid "Allow"
+#~ msgstr "Permetti"
+
+#~ msgid "No shipping class"
+#~ msgstr "Nessuna classe di spedizione"
+
+#~ msgid "Catalog/search"
+#~ msgstr "Catalogo/ricerca"
+
+#~ msgid "Catalog"
+#~ msgstr "Catalogo"
+
+#~ msgid "Search"
+#~ msgstr "Cerca"
+
+#~ msgid "Hidden"
+#~ msgstr "Nascosto"
+
+#~ msgid "Standard Product"
+#~ msgstr "Prodotto standard"
+
+#~ msgid "Application/Software"
+#~ msgstr "Applicazione/Software"
+
+#~ msgid "Music"
+#~ msgstr "Musica"
+
+#~ msgid "Simple product"
+#~ msgstr "Prodotto semplice"
+
+#~ msgid "Grouped product"
+#~ msgstr "Prodotto di un gruppo"
+
+#~ msgid "External/Affiliate product"
+#~ msgstr "Prodotto esterno/affiliato"
+
+#~ msgid "Variable product"
+#~ msgstr "Prodotto variabile"
+
+#~ msgid "This does not appear to be a WXR file, missing/invalid WXR version number"
+#~ msgstr ""
+#~ "Questo non sembra essere un file WXR, il numero di versione WXR è mancante/non "
+#~ "valido"
+
+#~ msgid ""
+#~ "YITH WooCommerce Bulk Product Editing Premium Version is enabled but not "
+#~ "effective. It requires WooCommerce in order to work."
+#~ msgstr ""
+#~ "YITH WooCommerce Bulk Product Editing Versione Premium è installato ma non è "
+#~ "attivo. Richiede WooCommerce per funzionare correttamente."
+
+#~ msgid "You do not have sufficient permissions to export the content of this site."
+#~ msgstr "Non hai i permessi sufficienti per esportare il contenuto di questo sito."
+
+#~ msgid "General"
+#~ msgstr "Generale"
+
+#~ msgid "Categories, Tags, Attributes"
+#~ msgstr "Categorie, tag, attributi"
+
+#~ msgid "Pricing"
+#~ msgstr "Prezzo"
+
+#~ msgid "Shipping"
+#~ msgstr "Spedizione"
+
+#~ msgid "Stock"
+#~ msgstr "Mgazzino"
+
+#~ msgid "Type"
+#~ msgstr "Tipologia"
+
+#~ msgid "Prepend"
+#~ msgstr "Fai precedere da"
+
+#~ msgid "Append"
+#~ msgstr "Fai seguire da"
+
+#~ msgid "Replace"
+#~ msgstr "Sostituisci"
+
+#~ msgid "Yes"
+#~ msgstr "Sì"
+
+#~ msgid "No"
+#~ msgstr "No"
+
+#~ msgid "Add"
+#~ msgstr "Aggiungi"
+
+#~ msgid "Remove"
+#~ msgstr "Rimuovi"
+
+#~ msgid "Delete all"
+#~ msgstr "Elimina tutto"
+
+#~ msgid "Increase by %"
+#~ msgstr "Aumenta per percentuale"
+
+#~ msgid "Decrease by %"
+#~ msgstr "Riduci per percentuale"
+
+#~ msgid "Show/Hide Columns"
+#~ msgstr "Mostra/nascondi colonne"
+
+#~ msgid "Unselect"
+#~ msgstr "Deseleziona"
+
+#~ msgid "File Name"
+#~ msgstr "Nome file"
+
+#~ msgid "http://"
+#~ msgstr "http://"
+
+#~ msgid "Choose file"
+#~ msgstr "Scegli file"
+
+#~ msgid "Add File"
+#~ msgstr "Aggiungi file"
+
+#~ msgid "Add Images to Product Gallery"
+#~ msgstr "Aggiungi immagini alla galleria prodotto"
+
+#~ msgid "Remove Image"
+#~ msgstr "Rimuovi immagine"
+
+#~ msgid "is visible"
+#~ msgstr "è visibile"
+
+#~ msgid "used for variations"
+#~ msgstr "usato per variazioni"
+
+#~ msgid "Contains"
+#~ msgstr "Contiene"
+
+#~ msgid "Does not contain"
+#~ msgstr "Non contiene"
+
+#~ msgid "Starts with"
+#~ msgstr "Inizia con"
+
+#~ msgid "Ends with"
+#~ msgstr "Finisce con"
+
+#~ msgid "Include Variations"
+#~ msgstr "Includi variazioni"
+
+#~ msgid "Select on filters"
+#~ msgstr "Seleziona secondo i filtri"
+
+#~ msgid "Undo"
+#~ msgstr "Annulla"
+
+#~ msgid "Redo"
+#~ msgstr "Ripeti"
+
+#~ msgid "Export Selected"
+#~ msgstr "Esporta selezionati"
+
+#~ msgid "New Product"
+#~ msgstr "Nuovo prodotto"
+
+#~ msgid "Resize Table"
+#~ msgstr "Ridimensiona tabella"
+
+#~ msgid "Upload"
+#~ msgstr "Upload"
+
+#~ msgid "Image Gallery"
+#~ msgstr "Galleria immagini"
+
+#~ msgid "Stock Quantity"
+#~ msgstr "Quantità disponibile"
+
+#~ msgid "Download Expiration"
+#~ msgstr "Scadenza di download"
+
+#~ msgid "Stock Status"
+#~ msgstr "Status magazzino"
+
+#~ msgid "Show Variations"
+#~ msgstr "Mostra variazioni"
+
+#~ msgid "Button Text"
+#~ msgstr "Testo del pulsante"
