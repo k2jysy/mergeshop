@@ -1,5 +1,5 @@
 <li class="list-row subtotal">
-  <div><?php _e( 'Cart Subtotal', 'woocommerce-pos' ); ?>:</div>
+  <div><?php _e( '购物车合计', 'woocommerce-pos' ); ?>:</div>
   <div class="total">{{{money subtotal}}}</div>
 </li>
 {{#if has_discount}}

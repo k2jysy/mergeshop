@@ -17,7 +17,7 @@ class WC_POS_Gateways_Card extends WC_Payment_Gateway {
    */
   public function __construct() {
     $this->id           = 'pos_card';
-    $this->title        = __( '银行卡', 'woocommerce-pos' );
+    $this->title        = __( 'Card', 'woocommerce-pos' );
     $this->description  = '';
     $this->icon         = apply_filters( 'woocommerce_pos_card_icon', '' );
     $this->has_fields   = true;

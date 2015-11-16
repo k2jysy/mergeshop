@@ -17,7 +17,7 @@ class WC_POS_Gateways_Cash extends WC_Payment_Gateway {
    */
   public function __construct() {
     $this->id          = 'pos_cash';
-    $this->title       = __( '现金', 'woocommerce-pos' );
+    $this->title       = __( 'Cash', 'woocommerce-pos' );
     $this->description = '';
     $this->icon        = apply_filters( 'woocommerce_pos_cash_icon', '' );
     $this->has_fields  = true;
@@ -49,7 +49,7 @@ class WC_POS_Gateways_Cash extends WC_Payment_Gateway {
 
     echo '
       <div class="form-row" id="pos-cash-tendered_field">
-        <label for="pos-cash-tendered" class="">'. __('Amount Tendered', 'woocommerce-pos') .'</label>
+        <label for="pos-cash-tendered" class="">'. __('Total', 'woocommerce-pos') .'</label>
         <div class="input-group">
         '. $left_addon .'
           <input type="text" class="form-control" name="pos-cash-tendered" id="pos-cash-tendered" maxlength="20" data-numpad="cash" data-label="'. __('Amount Tendered', 'woocommerce-pos') .'" data-placement="bottom" data-value="{{total}}">
