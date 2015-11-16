@@ -1,0 +1,25 @@
+(PLEASE place your translated PO file BACK into the LANGUAGES folder on your server...)
+
+please refer to the excellent tutorial at::
+
+http://www.inkthemes.com/how-to-create-a-po-file-of-your-themes-i-e-translation-of-wordpress-theme-in-multiple-languages/02/
+
+http://betterwp.net/wordpress-tips/create-pot-file-using-poedit/
+
+translation file naming samples:
+
+vtprd-en_EN.po
+vtprd-en_EN.mo
+
+vtprd-fr_FR.po
+vtprd-fr_FR.mo
+
+
+//v1.0.8.5
+ If you want translate the 'Deals' title of "Coupon: Deals", you would use the following wordpress filter:
+// Sample filter execution ==>>  put into your theme's functions.php file, so it's not affected by plugin updates
+          function coupon_code_discount_title() {
+            return 'different coupon title';  //new coupon title
+          }
+
+          add_filter('vtprd_coupon_code_discount_title', 'coupon_code_discount_title', 10);   

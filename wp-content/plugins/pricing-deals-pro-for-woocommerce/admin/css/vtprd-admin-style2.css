@@ -1,0 +1,8 @@
+ /* For the PRO user, don't show the disable options - they just confuse things! */
+            /*
+            option[disabled="disabled"] {
+                display:none;
+            }
+            #vtprd-lifetime-options-free-msg {display:none;}
+            */
+            .vtprd-pro-only-msg {display:none;}

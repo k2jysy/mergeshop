@@ -1,0 +1,109 @@
+------------------------------
+CHEAPEST IN THE CART SAMPLE
+------------------------------
+
+1. Say you want to create 'buy 4 or more, get the cheapest in the cart free'
+
+2. create your rule - like this: regular BOGO deal, 'Buy 3 get the next one free'
+    You can use this example to guide you:
+    http://www.varktech.com/documentation/pricing-deals/examples/#bogo
+    look for "Buy a NZ Gala Apple, get the next One Free"
+    
+      - Be sure to use ADVANCED mode, and to pay attention to the  Buy Group Amount Applies To : All Products or Each, as appropriate
+          
+      - If you want 'cheapest in the cart',   the 'Get Group' product filter should be 'Any Product'
+      
+      - If you want 'cheapest in a category', the 'Get Group' product filter should select that category
+    
+    
+3. Take the Rule ID from the rule created in (2) and place it in the code below, replacing the 'XXX' with that number.
+    (To find the Rule ID, look at the rule URL, and the number is just after "post=")
+ 
+4. copy the code (from 'code to copy begin' to 'code to copy end', including those lines) to the bottom of your theme functions.php file.
+
+5. Done.
+  
+------------------------------
+
+
+
+
+//CODE TO COPY BEGIN ==>> place in your theme's functions.php file, probably at bottom of file
+
+add_filter('vtprd_additional_actionpop_include_criteria', 'process_additional_actionpop_include_criteria', 10, 3);
+
+function process_additional_actionpop_include_criteria ($return_status, $i, $k) {
+  global $vtprd_cart, $vtprd_cart_item, $vtprd_rules_set, $vtprd_rule, $vtprd_info, $vtprd_setup_options;
+  $return_status = TRUE;
+  
+  //$vtprd_rules_set[$i]->post_id = Rule ID
+  //$vtprd_cart is the cart contents ==> look at  core/vtprd-cart-classes.php  for cart contents structure
+  //   and check this document for examples of how to access the cart data items.
+ 
+
+      if ( (isset($vtprd_cart->cart_items[$k]->product_id)) &&
+           ($vtprd_cart->cart_items[$k]->product_id > ' ') ) {
+          $do_nothing = true;
+       } else {
+          return false;       
+      }
+  
+      switch( $vtprd_rules_set[$i]->post_id ) { 
+       
+       case 'XXX':    // XXX = REPLACE WITH **RULE ID** FOR 'fake' CHEAPEST RULE described above
+       
+                $cheapest_price = 9999999999;
+                $cheapest_id = '';
+                foreach($vtprd_cart->cart_items as $vtprd_key => $vtprd_cart_item) { 
+                    if ($vtprd_cart_item == '') {
+                      continue;
+                    } 
+                    
+                    if ($vtprd_cart_item->unit_price < $cheapest_price) {
+                        $cheapest_price = $vtprd_cart_item->unit_price;
+                        $cheapest_id    = $vtprd_cart_item->product_id;
+                    }
+                    
+                }
+  
+                if ($vtprd_cart->cart_items[$k]->product_id == $cheapest_id) {             
+                  $return_status = true; 
+                } else {            
+                  $return_status = false;
+                }
+                       
+          break;
+  
+  	    /*
+       case '002':    
+             //any other rule filter for actionpop goes here     
+          break;
+  	   */        
+    }
+    
+  return $return_status;
+  
+}
+
+//CODE TO COPY END
+
+
+
+
+
+  //**********************
+  General tech directions
+  //**********************
+      ADDTIONAL RULE CRITERIA FILTER - optional, default = TRUE   (useful to add additional checks on a specific rule)
+      
+      all data needed accessible through global statement, eg global $vtprd_cart, $vtprd_rules_set, $vtprd_rule, $vtprd_info, $vtprd_setup_options;
+        Rule ID = $vtprd_rules_set[$i]->post_id
+       filter can check for specific rule_id, and apply criteria.
+         if failed additional criteria check, return FALSE, so that the rule is not executed 
+      To Execute, sample:
+            add_filter('vtprd_additional_inpop_include_criteria', 'your function name', 10, 3);
+	          add_filter('vtprd_additional_inpop_actionpop_criteria', 'your function name', 10, 3);
+            
+        $i = ruleset occurrence ($vtprd_rules_set[$i])
+        $k = cart occurence  ($vtprd_cart->cart_items[$k])
+ 
